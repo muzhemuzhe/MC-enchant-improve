@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.betterenchant.enchanting.DirectedEnchantPolicyTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-16T08:33:32.316Z" hostname="MUZHE" time="0.033">
+  <properties/>
+  <testcase name="additionsRemovalsPreserveOtherAllocationsAndFreeTheBudget()" classname="dev.betterenchant.enchanting.DirectedEnchantPolicyTest" time="0.012"/>
+  <testcase name="oneStoneIsExactlyOneUpgradeAndFiveAreExactlyFive()" classname="dev.betterenchant.enchanting.DirectedEnchantPolicyTest" time="0.002"/>
+  <testcase name="invalidConfigRejectedAndExtremeValidParametersStillBounded()" classname="dev.betterenchant.enchanting.DirectedEnchantPolicyTest" time="0.002"/>
+  <testcase name="existingIIIUpgradesStepwiseToVAndNeverBeyondMaximum()" classname="dev.betterenchant.enchanting.DirectedEnchantPolicyTest" time="0.001"/>
+  <testcase name="eachStepCostsFiveToEightAndTierNeverRaisesComparableCosts()" classname="dev.betterenchant.enchanting.DirectedEnchantPolicyTest" time="0.001"/>
+  <testcase name="pairwiseConflictsCoverBothExistingAndPlannedEnchantments()" classname="dev.betterenchant.enchanting.DirectedEnchantPolicyTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

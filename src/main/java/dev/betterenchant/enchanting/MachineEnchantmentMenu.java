@@ -38,6 +38,10 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
     private boolean committing, closed;
     private int sentQuote=-1;
     private EnchantingPreviewPayload clientPreview;
+    private final DirectedSession directed=new DirectedSession();
+    private long sentDirected=-1;
+    private DirectedPreviewPayload clientControls;
+    private boolean awaitingControls;
 
     /** Client factory: does not build or roll a candidate pool. */
     public MachineEnchantmentMenu(int id, Inventory inventory) {
@@ -60,13 +64,13 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
     private void relocateSlots() {
         // Slot coordinates are final in 26.1.2. Preserve containers, indices and vanilla filters.
         for(int i=0;i<slots.size();i++) {
-            Slot original=slots.get(i); var point=MachineGuiLayout.slot(i);
+            Slot original=slots.get(i); var point=MachineGuiLayout.slot(i); final boolean material=i==1;
             Slot replacement=new Slot(original.container,original.getContainerSlot(),point.x(),point.y()) {
-                @Override public boolean mayPlace(ItemStack item) { return original.mayPlace(item); }
+                @Override public boolean mayPlace(ItemStack item) { return material?(item.is(Items.LAPIS_LAZULI) || item.is(BetterEnchant.RUNIC_STONE)):original.mayPlace(item); }
                 @Override public boolean mayPickup(Player player) { return original.mayPickup(player); }
                 @Override public int getMaxStackSize() { return original.getMaxStackSize(); }
                 @Override public int getMaxStackSize(ItemStack item) { return original.getMaxStackSize(item); }
-                @Override public net.minecraft.resources.Identifier getNoItemIcon() { return original.getNoItemIcon(); }
+                @Override public net.minecraft.resources.Identifier getNoItemIcon() { return material && isDirected()?null:original.getNoItemIcon(); }
             };
             replacement.index=i; slots.set(i,replacement);
         }
@@ -91,12 +95,16 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
         return (quote<<2) | option;
     }
     @Override public void slotsChanged(Container container) {
-        if(server!=null && !committing && !closed) { refresh(); super.broadcastChanges(); }
+        if(server!=null && !committing && !closed) broadcastChanges();
     }
     @Override public void broadcastChanges() {
-        if(server!=null && !committing && !closed) refresh();
+        if(server!=null && !committing && !closed) {
+            refresh();
+            directed.refresh(server,owner,getSlot(0).getItem(),getSlot(1).getItem(),machineTier(),buttonIdFor(0),stillValid(owner));
+        }
         super.broadcastChanges();
         sendPreview();
+        sendDirected(false);
     }
     private void sendPreview() {
         if(server!=null && !closed && owner instanceof ServerPlayer player && player.containerMenu==this
@@ -118,8 +126,7 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
         settings=EnchantingConfig.current(); quotedSeed=owner.getEnchantmentSeed(); quotedTier=tier; quotedShelves=shelves; registryTag=tag;
         poolRevision=EnchantmentCandidates.revision();
         quotedItem=input.copy(); tierData.set(tier); shelfData.set(shelves);
-        int quote=QUOTES.incrementAndGet() & 0x1FFFFFFF;
-        quoteLow.set(quote & 0xFFFF); quoteHigh.set(quote>>>16);
+        bumpQuote();
         Arrays.fill(costs,0); Arrays.fill(enchantClue,-1); Arrays.fill(levelClue,-1);
         var next=new ArrayList<List<EnchantmentInstance>>();
         var pool=EnchantmentCandidates.forItem(server.registryAccess(),input);
@@ -148,6 +155,7 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
     @Override public boolean clickMenuButton(Player player, int button) {
         // Vanilla client method only gates sending a button request; it cannot commit results.
         if(server==null) return !closed && button>=0 && button<3 && super.clickMenuButton(player,button);
+        if(directed.mode()) return false;
         int option=button & 3;
         if(button<0 || committing || option>2 || !stillValid(player)) return false;
         if(refresh()) { super.broadcastChanges(); return false; } // A stale context must first be shown to the player.
@@ -184,6 +192,80 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
         server.playSound(null,origin,SoundEvents.ENCHANTMENT_TABLE_USE,SoundSource.BLOCKS,1,1);
         refresh(); super.broadcastChanges();
         return true;
+    }
+    private void bumpQuote() {
+        int quote=QUOTES.incrementAndGet() & 0x1FFFFFFF;
+        quoteLow.set(quote & 0xFFFF);quoteHigh.set(quote>>>16);
+    }
+    public boolean isDirected() {return server!=null?directed.mode():clientControls!=null && clientControls.directed();}
+    public DirectedPreviewPayload controlState() {
+        return awaitingControls?null:displayControls();
+    }
+    public DirectedPreviewPayload displayControls() {
+        return !closed && clientControls!=null && clientControls.quote()==buttonIdFor(0)
+                && ItemStack.matches(clientControls.input(),getSlot(0).getItem()) && ItemStack.matches(clientControls.reagent(),getSlot(1).getItem())?clientControls:null;
+    }
+    public void awaitDirectedResponse() {awaitingControls=true;}
+    public void acceptControls(DirectedPreviewPayload payload) {
+        if(server==null && !closed && payload.containerId()==containerId && (clientControls==null || payload.revision()>=clientControls.revision())) {
+            clientControls=payload;awaitingControls=false;
+        }
+    }
+    public DirectedPreviewPayload directedSnapshot() {
+        if(server==null) throw new IllegalStateException("Server only");
+        refresh();directed.refresh(server,owner,getSlot(0).getItem(),getSlot(1).getItem(),machineTier(),buttonIdFor(0),stillValid(owner));
+        return directed.snapshot(containerId);
+    }
+    private void sendDirected(boolean force) {
+        if(server!=null && !closed && owner instanceof ServerPlayer player && player.containerMenu==this
+                && (force || sentDirected!=directed.revision()) && net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.canSend(player,DirectedPreviewPayload.TYPE)) {
+            net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player,directed.snapshot(containerId));sentDirected=directed.revision();
+        }
+    }
+    public boolean handleDirected(Player player,DirectedActionPayload request) {
+        if(server==null || player!=owner || player.containerMenu!=this || player.level()!=server || closed || committing || request.containerId()!=containerId || !stillValid(player)) return false;
+        directedSnapshot();
+        if(request.revision()!=directed.revision()) {broadcastChanges();sendDirected(true);return false;}
+        boolean accepted=false;
+        switch(request.action()) {
+            case DirectedActionPayload.RANDOM,DirectedActionPayload.DIRECTED -> {
+                boolean mode=request.action()==DirectedActionPayload.DIRECTED;
+                if(mode!=directed.mode()) {directed.setMode(mode);bumpQuote();accepted=true;}
+            }
+            case DirectedActionPayload.ADD,DirectedActionPayload.REMOVE -> accepted=directed.edit(request.enchantment(),request.action()==DirectedActionPayload.ADD);
+            case DirectedActionPayload.ENCHANT -> accepted=commitDirected(player);
+            default -> { }
+        }
+        broadcastChanges();sendDirected(true);return accepted;
+    }
+    private boolean commitDirected(Player player) {
+        if(!directed.mode()) return false;
+        var plan=directed.plan();
+        if(plan.upgrades()==0 || player.experienceLevel<DirectedEnchantPolicy.REQUIRED_LEVEL || player.experienceLevel<plan.levels()) return false;
+        ItemStack material=getSlot(1).getItem();
+        if(!material.is(BetterEnchant.RUNIC_STONE) || material.getCount()<plan.upgrades()) return false;
+        ItemStack output;
+        try {output=directed.result(server,getSlot(0).getItem(),material);} catch(IllegalArgumentException error) {return false;}
+        if(output.isEmpty()) return false;
+        committing=true;
+        try {
+            player.giveExperienceLevels(-plan.levels());
+            var remainder=material.copy();remainder.shrink(plan.upgrades());
+            getSlot(1).set(remainder.isEmpty()?ItemStack.EMPTY:remainder);getSlot(0).set(output);directed.clear();
+        } finally {committing=false;}
+        player.awardStat(Stats.ENCHANT_ITEM);
+        CriteriaTriggers.ENCHANTED_ITEM.trigger((ServerPlayer)player,output,plan.upgrades());
+        server.playSound(null,origin,SoundEvents.ENCHANTMENT_TABLE_USE,SoundSource.BLOCKS,1,1);
+        return true;
+    }
+    @Override public ItemStack quickMoveStack(Player player,int index) {
+        if(index>=2 && index<slots.size() && getSlot(index).getItem().is(BetterEnchant.RUNIC_STONE)) {
+            var slot=getSlot(index);var item=slot.getItem();var original=item.copy();
+            if(!moveItemStackTo(item,1,2,true)) return ItemStack.EMPTY;
+            if(item.isEmpty()) slot.setByPlayer(ItemStack.EMPTY);else slot.setChanged();
+            slot.onTake(player,item);return original;
+        }
+        return super.quickMoveStack(player,index);
     }
     @Override public void removed(Player player) {
         if(closed) return;

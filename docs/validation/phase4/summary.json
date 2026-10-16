@@ -1,0 +1,18 @@
+{
+  "version": "0.4.0",
+  "artifact": "build/libs/better-enchant-0.4.0.jar",
+  "sha256": "6b8369aa98151eaa44fe1b3edfec5fc646cea29311156199d2790138cfdfb2bb",
+  "junit": 17,
+  "serverGameTests": 23,
+  "clientGameTests": 4,
+  "randomSimulationRolls": 600000,
+  "randomOutputsMatchPhase3": true,
+  "directedBatch": {
+    "upgrades": 5,
+    "startLevel": 35,
+    "requiredLevel": 30,
+    "stones": 5,
+    "spentLevels": 25,
+    "remainingLevel": 10
+  }
+}

@@ -8,16 +8,17 @@ import dev.betterenchant.enchanting.RandomEnchantPolicy.Parameters;
 
 /** One immutable server snapshot; a failed reload never replaces the active settings. */
 public final class EnchantingConfig {
-    public record Settings(Parameters policy, int maxTier, int defaultTier, List<Integer> requiredLevels) {
+    public record Settings(Parameters policy, int maxTier, int defaultTier, List<Integer> requiredLevels, DirectedEnchantPolicy.Parameters directed) {
         public Settings {
             Objects.requireNonNull(policy);
+            Objects.requireNonNull(directed);
             requiredLevels = List.copyOf(requiredLevels);
             if (maxTier < 1 || maxTier > 10 || defaultTier < 1 || defaultTier > maxTier || requiredLevels.size() != 3)
                 throw new IllegalArgumentException("Invalid machine tier/offer settings");
             for (int i = 0; i < 3; i++) if (requiredLevels.get(i) < i + 1 || requiredLevels.get(i) > 32767)
                 throw new IllegalArgumentException("Required levels must cover 1/2/3 spent levels and fit menu sync");
         }
-        public static Settings defaults() { return new Settings(Parameters.defaults(), 5, 1, List.of(5, 15, 30)); }
+        public static Settings defaults() { return new Settings(Parameters.defaults(), 5, 1, List.of(5, 15, 30),DirectedEnchantPolicy.Parameters.defaults()); }
     }
     private static Settings current = Settings.defaults();
     public static Settings current() { return current; }
@@ -46,7 +47,14 @@ public final class EnchantingConfig {
                 number(p,"extra.base",defaults.extraBase()), number(p,"extra.tier",defaults.extraTier()), number(p,"extra.shelves",defaults.extraShelves()), number(p,"extra.option",defaults.extraSlot()),
                 integer(p,"max_enchantments",defaults.maxEnchantments()), integer(p,"bookshelf_scale",defaults.shelfScale()), multipliers);
         return new Settings(parameters, integer(p,"max_machine_tier",5), integer(p,"default_machine_tier",1),
-                List.of(integer(p,"required_level.1",5),integer(p,"required_level.2",15),integer(p,"required_level.3",30)));
+                List.of(integer(p,"required_level.1",5),integer(p,"required_level.2",15),integer(p,"required_level.3",30)),
+                new DirectedEnchantPolicy.Parameters(number(p,"directed.base",5),number(p,"directed.rarity",1.5),number(p,"directed.target",1.5),number(p,"directed.tier_discount",.5),
+                        bool(p,"directed.allow_treasure",false),bool(p,"directed.allow_curses",false)));
+    }
+    private static boolean bool(Properties p,String key,boolean fallback) {
+        String value=p.getProperty(key,Boolean.toString(fallback));
+        if(!value.equals("true") && !value.equals("false")) throw new IllegalArgumentException("Invalid boolean: "+key);
+        return Boolean.parseBoolean(value);
     }
     private static double number(Properties p, String key, double fallback) { return Double.parseDouble(p.getProperty(key, Double.toString(fallback))); }
     private static int integer(Properties p, String key, int fallback) { return Integer.parseInt(p.getProperty(key, Integer.toString(fallback))); }

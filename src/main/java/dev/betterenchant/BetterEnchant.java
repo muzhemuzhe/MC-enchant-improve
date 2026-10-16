@@ -23,6 +23,9 @@ import dev.betterenchant.enchanting.*;
 public final class BetterEnchant implements ModInitializer {
     public static final MenuType<MachineEnchantmentMenu> ENCHANTMENT_MENU = Registry.register(BuiltInRegistries.MENU,
             Identifier.fromNamespaceAndPath("better_enchant", "random_enchanting"),new MenuType<>(MachineEnchantmentMenu::new,FeatureFlags.DEFAULT_FLAGS));
+    public static final net.minecraft.world.item.Item RUNIC_STONE=Registry.register(BuiltInRegistries.ITEM,
+            Identifier.fromNamespaceAndPath("better_enchant","runic_stone"),new net.minecraft.world.item.Item(new net.minecraft.world.item.Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM,Identifier.fromNamespaceAndPath("better_enchant","runic_stone"))).rarity(net.minecraft.world.item.Rarity.RARE)));
     public static final Identifier PART_ID = Identifier.fromNamespaceAndPath("better_enchant", "machine_part");
     public static final MachinePartBlock PART = Registry.register(BuiltInRegistries.BLOCK, PART_ID,
             new MachinePartBlock(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, PART_ID))
@@ -34,6 +37,12 @@ public final class BetterEnchant implements ModInitializer {
     @Override
     public void onInitialize() {
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.clientboundPlay().register(EnchantingPreviewPayload.TYPE,EnchantingPreviewPayload.CODEC);
+        net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.clientboundPlay().registerLarge(DirectedPreviewPayload.TYPE,DirectedPreviewPayload.CODEC,4*1024*1024);
+        net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.serverboundPlay().register(DirectedActionPayload.TYPE,DirectedActionPayload.CODEC);
+        net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.registerGlobalReceiver(DirectedActionPayload.TYPE,(payload,context)->{
+            if(context.player().containerMenu instanceof MachineEnchantmentMenu menu) menu.handleDirected(context.player(),payload);
+        });
+        net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents.modifyOutputEvent(net.minecraft.world.item.CreativeModeTabs.INGREDIENTS).register(output->output.accept(RUNIC_STONE));
         try { EnchantingConfig.load(); } catch (java.io.IOException | IllegalArgumentException error) { throw new IllegalStateException("Invalid Better Enchant server configuration",error); }
         EnchantingCommands.register();
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server,resources,success)->{

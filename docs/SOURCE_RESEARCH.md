@@ -83,3 +83,14 @@
 - 当前 Fabric Client GameTest API 5.1.0 的 TestInputImpl.pressOrReleaseKey 对鼠标始终构造 `MouseButtonInfo(button,0)`，holdShift 不影响事件 modifiers；26.1.2 原版菜单读取 event.hasShiftDown。测试中对 Shift 转移显式传 `MouseButtonInfo(0,1)` 到真实屏幕，再走原版 slotClicked 和真实网络，普通鼠标、数字热键、关闭和滚轮仍走官方 TestInput。生产代码不绕过原版键鼠规则。
 
 第三轮视觉修正实际引用原版 `enchanting_table.png` 的背景/槽位区域、`container/enchanting_table` GUI sprites、`ModelLayers.BOOK`/BookModel 和原版书本纹理。区域绘制保持四像素外框厚度，扩展中间底板；没有重新分发 PNG。GuiGraphicsExtractor.book 的 viewport 是绝对屏幕坐标，不随 pose 变换，因此书本在弹出 pose 后以 leftPos/topPos 绘制，槽位和按钮仍使用统一局部几何。
+
+## 第四轮：注册、存储和指令接口
+
+复查 [Fabric 26.1.2 First Item](https://docs.fabricmc.net/26.1.2/develop/items/first-item) 和 [Networking](https://docs.fabricmc.net/26.1.2/develop/networking)，再以固定依赖 JAR/生成源码核对签名：
+
+- 注册 `Item.Properties.setId`、`CreativeModeTabEvents.modifyOutputEvent`。实际 API 包为 `api.creativetab.v1`，不是旧 itemgroup 包；第一次编译发现并按实际 JAR 修正。26.1.2 同时需要 `assets/.../items` 客户端物品定义及 `models/item` 纹理模型。
+- `Enchantment.isSupportedItem` 用于指定适配；`isPrimaryItem` 与 ENCHANTABLE 资格仍仅用于原随机策略。盾牌/鞘翅没有随机桌 ENCHANTABLE，不应因此拒绝其合法指定升级。
+- `EnchantmentHelper.canStoreEnchantments`、`getEnchantmentsForCrafting`、`updateEnchantments(ItemStack, Consumer<Mutable>)` 和 `ItemEnchantments.Mutable.set`。update 以原组件创建 mutable，只写回附魔组件；原 ItemStack.copy 保留其他组件。本轮未拷贝原版函数源码。
+- `Player.giveExperienceLevels` 支付等级且不重置随机种子，与原随机 onEnchantmentPerformed 的功能不同。门槛与合计费用分别校验。
+- `PayloadTypeRegistry.clientboundPlay().registerLarge`、64位版本和 serverbound 注册/处理器；处理器在服务器线程内执行，当前容器/所有者再次验证。
+- `Component.translatableWithFallback` 在原版没有等级翻译键时回退数字，避免模组超过 X 的正常等级把列表撑坏。InputConstants.isKeyDown(Window,key) 用于 Shift+滚轮阅读极长 tooltip，保留原版库存键鼠。

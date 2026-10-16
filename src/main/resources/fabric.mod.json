@@ -3,7 +3,7 @@
   "id": "better_enchant",
   "version": "${version}",
   "name": "Better Enchant",
-  "description": "Reversible 3x3x2 enchanting machine with configurable random enchanting.",
+  "description": "Reversible 3x3x2 enchanting machine with server-authoritative random and directed enchanting.",
   "environment": "*",
   "entrypoints": {
     "main": ["dev.betterenchant.BetterEnchant"],

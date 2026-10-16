@@ -82,10 +82,10 @@ public final class EnchantingGuiClientGameTest implements FabricClientGameTest {
             check(tiers.get(4).get(multi).revealed().size()==4,"real four-result preview");
             var r=MachineGuiLayout.option(multi);cursor(c,r.x()+50,r.y()+9);c.takeScreenshot("10-long-preview-first-page");
             c.getInput().scroll(-12);c.waitTicks(2);c.takeScreenshot("11-long-preview-scrolled");
-            // Placeholder cannot perform an action.
+            // Switching modes must not charge or rotate the random seed.
             int seed=world.getServer().computeOnServer(server->server.getPlayerList().getPlayers().getFirst().getEnchantmentSeed());
-            click(c,205,23);world.getServer().runOnServer(server->check(server.getPlayerList().getPlayers().getFirst().getEnchantmentSeed()==seed,"directed tab cannot enchant"));
-            c.takeScreenshot("12-directed-unavailable");
+            click(c,205,23);c.waitFor(client->((MachineEnchantmentMenu)client.player.containerMenu).isDirected() && ((MachineEnchantmentMenu)client.player.containerMenu).controlState()!=null);world.getServer().runOnServer(server->check(server.getPlayerList().getPlayers().getFirst().getEnchantmentSeed()==seed,"directed tab cannot enchant"));
+            c.takeScreenshot("12-directed-mode-no-stones");click(c,120,23);c.waitFor(client->!((MachineEnchantmentMenu)client.player.containerMenu).isDirected() && ((MachineEnchantmentMenu)client.player.containerMenu).controlState()!=null);
             // A real bookshelf change invalidates the old quote and updates both UI values and previews.
             int old=c.computeOnClient(client->((MachineEnchantmentMenu)client.player.containerMenu).buttonIdFor(0));
             world.getServer().runOnServer(server->server.overworld().setBlockAndUpdate(ORIGIN.offset(EnchantingTableBlock.BOOKSHELF_OFFSETS.getFirst()),Blocks.AIR.defaultBlockState()));

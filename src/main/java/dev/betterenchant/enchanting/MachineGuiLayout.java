@@ -13,6 +13,10 @@ public final class MachineGuiLayout {
         return new Rect(90,34+22*index,162,19);
     }
     public static final Rect RANDOM_TAB=new Rect(90,18,64,12), DIRECTED_TAB=new Rect(158,18,94,12);
+    public static final Rect DIRECTED_LIST=new Rect(90,33,162,60), ENCHANT_BUTTON=new Rect(194,98,58,16);
+    public static Rect directedRow(int visible) {return new Rect(90,33+20*visible,162,20);}
+    public static Rect plus(int visible) {return new Rect(238,37+20*visible,12,12);}
+    public static Rect minus(int visible) {return new Rect(223,37+20*visible,12,12);}
     public static Point slot(int index) {
         if(index<0 || index>=38) throw new IllegalArgumentException("Invalid slot");
         if(index<2) return new Point(25+20*index,78);

@@ -6,8 +6,8 @@
   "environment": "*",
   "entrypoints": {
     "main": ["dev.betterenchant.CompatibilityTestMod"],
-    "fabric-gametest": ["dev.betterenchant.MachineGameTests", "dev.betterenchant.EnchantingProbabilityGameTests", "dev.betterenchant.EnchantingMenuGameTests", "dev.betterenchant.EnchantingPreviewGameTests"],
-    "fabric-client-gametest": ["dev.betterenchant.MachineClientGameTest", "dev.betterenchant.EnchantingClientGameTest", "dev.betterenchant.EnchantingGuiClientGameTest"]
+    "fabric-gametest": ["dev.betterenchant.MachineGameTests", "dev.betterenchant.EnchantingProbabilityGameTests", "dev.betterenchant.EnchantingMenuGameTests", "dev.betterenchant.EnchantingPreviewGameTests", "dev.betterenchant.DirectedGameTests"],
+    "fabric-client-gametest": ["dev.betterenchant.MachineClientGameTest", "dev.betterenchant.EnchantingClientGameTest", "dev.betterenchant.EnchantingGuiClientGameTest", "dev.betterenchant.DirectedClientGameTest"]
   },
   "depends": { "better_enchant": "*", "fabric-gametest-api-v1": "*" }
 }
