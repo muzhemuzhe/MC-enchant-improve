@@ -19,7 +19,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 
-/** Vanilla slots and rendering contract; all offers and commits belong to the server. */
+/** Vanilla inventory semantics with custom geometry; all offers and commits belong to the server. */
 public final class MachineEnchantmentMenu extends EnchantmentMenu {
     private final DataSlot tierData=DataSlot.standalone(), shelfData=DataSlot.standalone();
     private static final java.util.concurrent.atomic.AtomicInteger QUOTES=new java.util.concurrent.atomic.AtomicInteger();
@@ -36,16 +36,20 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
     private Object registryTag;
     private int poolRevision=-1;
     private boolean committing, closed;
+    private int sentQuote=-1;
+    private EnchantingPreviewPayload clientPreview;
 
     /** Client factory: does not build or roll a candidate pool. */
     public MachineEnchantmentMenu(int id, Inventory inventory) {
         super(id,inventory);
         owner=inventory.player;
+        relocateSlots();
         addDataSlot(tierData); addDataSlot(shelfData); addDataSlot(quoteLow); addDataSlot(quoteHigh); addDataSlot(visualSeed);
     }
     public MachineEnchantmentMenu(int id, Inventory inventory, ServerLevel level, MachineControllerBlockEntity master) {
         super(id,inventory,ContainerLevelAccess.create(level,master.getBlockPos()));
         owner=inventory.player; server=level; origin=master.getBlockPos().immutable(); machineId=master.machineId();
+        relocateSlots();
         addDataSlot(tierData); addDataSlot(shelfData); addDataSlot(quoteLow); addDataSlot(quoteHigh); addDataSlot(visualSeed);
         refresh();
     }
@@ -53,6 +57,34 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
     @Override public int getEnchantmentSeed() { return visualSeed.get(); }
     public int machineTier() { return tierData.get(); }
     public int bookshelfCount() { return shelfData.get(); }
+    private void relocateSlots() {
+        // Slot coordinates are final in 26.1.2. Preserve containers, indices and vanilla filters.
+        for(int i=0;i<slots.size();i++) {
+            Slot original=slots.get(i); var point=MachineGuiLayout.slot(i);
+            Slot replacement=new Slot(original.container,original.getContainerSlot(),point.x(),point.y()) {
+                @Override public boolean mayPlace(ItemStack item) { return original.mayPlace(item); }
+                @Override public boolean mayPickup(Player player) { return original.mayPickup(player); }
+                @Override public int getMaxStackSize() { return original.getMaxStackSize(); }
+                @Override public int getMaxStackSize(ItemStack item) { return original.getMaxStackSize(item); }
+                @Override public net.minecraft.resources.Identifier getNoItemIcon() { return original.getNoItemIcon(); }
+            };
+            replacement.index=i; slots.set(i,replacement);
+        }
+    }
+    public EnchantingPreviewPayload previewSnapshot() {
+        if(server==null) throw new IllegalStateException("Server only");
+        return new EnchantingPreviewPayload(containerId,buttonIdFor(0),quotedItem,offers.stream().map(result->
+                new EnchantingPreviewPayload.Offer(PreviewPolicy.reveal(result,machineTier()).stream().map(entry->
+                        new EnchantingPreviewPayload.Entry(entry.enchantment().unwrapKey().orElseThrow().identifier(),entry.level())).toList(),
+                        PreviewPolicy.revealedCount(machineTier(),result.size())<result.size())).toList());
+    }
+    public void acceptPreview(EnchantingPreviewPayload payload) {
+        if(server==null && !closed && payload.containerId()==containerId) clientPreview=payload;
+    }
+    public EnchantingPreviewPayload preview() {
+        return clientPreview!=null && clientPreview.quote()==buttonIdFor(0)
+                && ItemStack.matches(clientPreview.input(),getSlot(0).getItem()) ? clientPreview : null;
+    }
     public int buttonIdFor(int option) {
         if(option<0 || option>2) throw new IllegalArgumentException("Invalid option");
         int quote=(quoteHigh.get()<<16) | (quoteLow.get() & 0xFFFF);
@@ -64,6 +96,14 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
     @Override public void broadcastChanges() {
         if(server!=null && !committing && !closed) refresh();
         super.broadcastChanges();
+        sendPreview();
+    }
+    private void sendPreview() {
+        if(server!=null && !closed && owner instanceof ServerPlayer player && player.containerMenu==this
+                && sentQuote!=buttonIdFor(0) && net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.canSend(player,EnchantingPreviewPayload.TYPE)) {
+            net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player,previewSnapshot());
+            sentQuote=buttonIdFor(0);
+        }
     }
     private boolean refresh() {
         if(closed || committing || server==null) return false;

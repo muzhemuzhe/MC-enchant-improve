@@ -4,7 +4,12 @@
     "better_enchant_tests:treasure_probe",
     "better_enchant_tests:curse_probe",
     "better_enchant_tests:excluded_probe",
-    "better_enchant_tests:unsupported_probe"
+    "better_enchant_tests:unsupported_probe",
+    "better_enchant_tests:preview_1",
+    "better_enchant_tests:preview_2",
+    "better_enchant_tests:preview_3",
+    "better_enchant_tests:preview_4",
+    "better_enchant_tests:preview_5"
   ],
   "replace": false
 }

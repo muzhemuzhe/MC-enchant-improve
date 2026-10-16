@@ -71,3 +71,15 @@
 - `ServerboundContainerButtonClickPacket` 的 buttonId 使用 VAR_INT，可编码报价版本；DataSlot 同步为短整数，版本拆低/高段再恢复。没有让客户端提交附魔 ID、等级或费用。
 - `MultiPlayerGameMode.handleContainerInput` / `ContainerInput.QUICK_MOVE` 是目标版真实物品移动接口；界面使用 `GuiGraphicsExtractor`、`extractLabels` 和 `MouseButtonEvent`，没有旧 renderBg/ClickType API。
 - `Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)` 是本版权限接口；Fabric `ServerLifecycleEvents.END_DATA_PACK_RELOAD` 在成功时使候选缓存失效。
+
+## 第三轮：自定义 GUI 与真实预览
+
+核对 [26.1.2 Networking](https://docs.fabricmc.net/26.1.2/develop/networking) 及 [26.1.2 Custom Screens](https://docs.fabricmc.net/26.1.2/develop/rendering/gui/custom-screens)，具体签名仍以已固定的实际游戏/Fabric JAR 与生成源码为准。
+
+- `PayloadTypeRegistry.clientboundPlay().register`、`CustomPacketPayload`、`StreamCodec<RegistryFriendlyByteBuf,...>`、`ServerPlayNetworking.send/canSend`；客户端 `ClientPlayNetworking.registerGlobalReceiver` 的处理器在客户端线程执行。
+- `ItemStack.OPTIONAL_STREAM_CODEC` 用当前连接注册表同步报价输入物品；附魔使用 Identifier+等级，仅传揭示条目。客户端从同步注册表取 `Enchantment.getFullname`，支持数据包/模组名称。
+- `Slot.x/y` 为 final；原版 EnchantmentMenu 的两个 Slot 仅覆盖数量、放入过滤与空图标，没有输出 onTake 副作用。保留原容器/索引/规则并重定位，原 quickMoveStack/removed 继续工作。
+- `AbstractContainerScreen(menu,inventory,title,width,height)`、`extractBackground/extractLabels/extractTooltip`、`GuiGraphicsExtractor.fill/textWithWordWrap/setTooltipForNextFrame`、`MouseButtonEvent`、`mouseScrolled` 为目标版 GUI API。原版 `EnchantmentNames` 提供纯装饰符文，与结果算法无关。
+- 当前 Fabric Client GameTest API 5.1.0 的 TestInputImpl.pressOrReleaseKey 对鼠标始终构造 `MouseButtonInfo(button,0)`，holdShift 不影响事件 modifiers；26.1.2 原版菜单读取 event.hasShiftDown。测试中对 Shift 转移显式传 `MouseButtonInfo(0,1)` 到真实屏幕，再走原版 slotClicked 和真实网络，普通鼠标、数字热键、关闭和滚轮仍走官方 TestInput。生产代码不绕过原版键鼠规则。
+
+第三轮视觉修正实际引用原版 `enchanting_table.png` 的背景/槽位区域、`container/enchanting_table` GUI sprites、`ModelLayers.BOOK`/BookModel 和原版书本纹理。区域绘制保持四像素外框厚度，扩展中间底板；没有重新分发 PNG。GuiGraphicsExtractor.book 的 viewport 是绝对屏幕坐标，不随 pose 变换，因此书本在弹出 pose 后以 leftPos/topPos 绘制，槽位和按钮仍使用统一局部几何。

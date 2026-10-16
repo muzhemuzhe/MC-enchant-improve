@@ -1,0 +1,30 @@
+[
+  {
+    "File": "actual-registry-simulation.md",
+    "Identical": true
+  },
+  {
+    "File": "sword-tier1-shelves0.txt",
+    "Identical": true
+  },
+  {
+    "File": "sword-tier1-shelves15.txt",
+    "Identical": true
+  },
+  {
+    "File": "sword-tier3-shelves0.txt",
+    "Identical": true
+  },
+  {
+    "File": "sword-tier3-shelves15.txt",
+    "Identical": true
+  },
+  {
+    "File": "sword-tier5-shelves0.txt",
+    "Identical": true
+  },
+  {
+    "File": "sword-tier5-shelves15.txt",
+    "Identical": true
+  }
+]

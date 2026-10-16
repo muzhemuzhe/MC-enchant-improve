@@ -36,7 +36,7 @@ public final class EnchantingClientGameTest implements FabricClientGameTest {
     private static void mouseOption(ClientGameTestContext context,int option) {
         double[] pixel=context.computeOnClient(client->{
             double scale=client.getWindow().getGuiScale();
-            return new double[]{((client.screen.width-176)/2.0+120)*scale,((client.screen.height-166)/2.0+14+19*option+8)*scale};
+            return new double[]{((client.screen.width-MachineGuiLayout.WIDTH)/2.0+MachineGuiLayout.option(option).x()+60)*scale,((client.screen.height-MachineGuiLayout.HEIGHT)/2.0+MachineGuiLayout.option(option).y()+8)*scale};
         });
         context.getInput().setCursorPos(pixel[0],pixel[1]); context.getInput().pressMouse(0); context.waitTicks(4);
     }
@@ -47,6 +47,7 @@ public final class EnchantingClientGameTest implements FabricClientGameTest {
     @Override public void runTest(ClientGameTestContext context) {
         context.getInput().resizeWindow(1280,720);
         TestWorldSave save; int[] preview; long sourceSeed; int vanillaSeed;
+        List<EnchantingPreviewPayload.Offer> progressive;
         try(var world=context.worldBuilder().create()) {
             save=world.getWorldSave();
             world.getServer().runOnServer(server->{
@@ -67,14 +68,15 @@ public final class EnchantingClientGameTest implements FabricClientGameTest {
             context.runOnClient(client->{
                 var menu=(MachineEnchantmentMenu)client.player.containerMenu;
                 require(menu.machineTier()==3 && menu.bookshelfCount()==15,"tier/shelves synchronized to real client");
-                require(menu.costs[2]==30 && menu.enchantClue[2]>=0,"client has usable priced preview");
+                require(menu.costs[2]==30 && menu.enchantClue[2]>=0 && menu.preview()!=null,"client has usable priced preview");
             });
             preview=preview(context);
+            progressive=context.computeOnClient(client->((MachineEnchantmentMenu)client.player.containerMenu).preview().offers());
             sourceSeed=world.getServer().computeOnServer(server->EnchantingSeedData.forPlayer(server.getPlayerList().getPlayers().getFirst(),0));
             vanillaSeed=world.getServer().computeOnServer(server->server.getPlayerList().getPlayers().getFirst().getEnchantmentSeed());
             require(vanillaSeed!=0,"initialize vanilla zero sentinel before first save");
-            context.takeScreenshot("05-random-enchanting-offers");
-            double[] costTooltip=context.computeOnClient(client->{double scale=client.getWindow().getGuiScale();return new double[]{((client.screen.width-176)/2.0+100)*scale,((client.screen.height-166)/2.0+60)*scale};});
+            context.runOnClient(client->client.getToastManager().clear()); context.getInput().setCursorPos(1,1); context.waitTicks(2); context.takeScreenshot("05-random-enchanting-offers");
+            double[] costTooltip=context.computeOnClient(client->{double scale=client.getWindow().getGuiScale();return new double[]{((client.screen.width-MachineGuiLayout.WIDTH)/2.0+140)*scale,((client.screen.height-MachineGuiLayout.HEIGHT)/2.0+86)*scale};});
             context.getInput().setCursorPos(costTooltip[0],costTooltip[1]); context.waitTick();
             context.takeScreenshot("08-enchanting-cost-tooltip");
             context.getInput().pressKey(options->options.keyInventory); context.waitForScreen(null);
@@ -88,6 +90,7 @@ public final class EnchantingClientGameTest implements FabricClientGameTest {
             });
             open(context); shift(context,Items.DIAMOND_SWORD); shift(context,Items.LAPIS_LAZULI);
             require(Arrays.equals(preview,preview(context)),"disk reopen does not reroll");
+            require(progressive.equals(context.computeOnClient(client->((MachineEnchantmentMenu)client.player.containerMenu).preview().offers())),"all disclosed entries and order survive disk reconnect");
             int stale=context.computeOnClient(client->((MachineEnchantmentMenu)client.player.containerMenu).buttonIdFor(2));
             world.getServer().runCommand("better_enchant tier 0 -59 0 5"); context.waitTicks(4);
             context.runOnClient(client->{
@@ -99,18 +102,21 @@ public final class EnchantingClientGameTest implements FabricClientGameTest {
             world.getServer().runOnServer(server->require(server.getPlayerList().getPlayers().getFirst().experienceLevel==40,"stale network packet rejected"));
             context.takeScreenshot("06-live-machine-tier");
             int committed=context.computeOnClient(client->((MachineEnchantmentMenu)client.player.containerMenu).buttonIdFor(2));
+            var disclosed=context.computeOnClient(client->((MachineEnchantmentMenu)client.player.containerMenu).preview().offers().get(2));
             mouseOption(context,2);
             context.waitFor(client->client.player.containerMenu.getSlot(0).getItem().isEnchanted());
             world.getServer().runOnServer(server->{
                 var player=server.getPlayerList().getPlayers().getFirst();
                 require(player.experienceLevel==37,"actual network commit spends three levels");
                 require(player.containerMenu.getSlot(1).getItem().getCount()==9,"actual network commit spends three lapis");
-                require(!EnchantmentHelper.getEnchantmentsForCrafting(player.containerMenu.getSlot(0).getItem()).isEmpty(),"actual enchantment components");
+                var actual=EnchantmentHelper.getEnchantmentsForCrafting(player.containerMenu.getSlot(0).getItem());
+                require(actual.size()==disclosed.revealed().size() && !disclosed.hidden(),"client full preview exact result count");
+                for(var entry:disclosed.revealed()) require(actual.getLevel(server.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT).get(entry.id()).orElseThrow())==entry.level(),"each client preview equals committed server result");
             });
             context.runOnClient(client->client.gameMode.handleInventoryButtonClick(client.player.containerMenu.containerId,committed));
             context.waitTicks(3);
             world.getServer().runOnServer(server->require(server.getPlayerList().getPlayers().getFirst().experienceLevel==37,"network replay cannot double-charge"));
-            double[] input=context.computeOnClient(client->{double scale=client.getWindow().getGuiScale();return new double[]{((client.screen.width-176)/2.0+23)*scale,((client.screen.height-166)/2.0+55)*scale};});
+            double[] input=context.computeOnClient(client->{double scale=client.getWindow().getGuiScale();return new double[]{((client.screen.width-MachineGuiLayout.WIDTH)/2.0+33)*scale,((client.screen.height-MachineGuiLayout.HEIGHT)/2.0+86)*scale};});
             context.getInput().setCursorPos(input[0],input[1]); context.waitTick();
             context.takeScreenshot("07-enchanted-item-result");
             context.runOnClient(client->client.gameMode.handleContainerInput(client.player.containerMenu.containerId,0,0,ContainerInput.QUICK_MOVE,client.player));

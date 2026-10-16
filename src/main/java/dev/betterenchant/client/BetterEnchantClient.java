@@ -6,7 +6,10 @@ import net.minecraft.client.gui.screens.MenuScreens;
 
 public final class BetterEnchantClient implements ClientModInitializer {
     @Override public void onInitializeClient() {
-        MenuScreens.<net.minecraft.world.inventory.EnchantmentMenu, MachineEnchantmentScreen>register(BetterEnchant.ENCHANTMENT_MENU,
-                (menu,inventory,title)->new MachineEnchantmentScreen((dev.betterenchant.enchanting.MachineEnchantmentMenu)menu,inventory,title));
+        MenuScreens.register(BetterEnchant.ENCHANTMENT_MENU,MachineEnchantmentScreen::new);
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.registerGlobalReceiver(
+                dev.betterenchant.enchanting.EnchantingPreviewPayload.TYPE,(payload,context)->{
+                    if(context.player().containerMenu instanceof dev.betterenchant.enchanting.MachineEnchantmentMenu menu) menu.acceptPreview(payload);
+                });
     }
 }

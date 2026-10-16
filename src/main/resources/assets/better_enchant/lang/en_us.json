@@ -1,5 +1,21 @@
 {
   "block.better_enchant.machine_part": "Formed Enchanting Machine",
   "container.better_enchant.title": "Better Enchant",
-  "container.better_enchant.status": "Enchanting | T%s B%s"
+  "container.better_enchant.status": "Enchanting | T%s B%s",
+  "gui.better_enchant.random": "Random",
+  "gui.better_enchant.directed": "Directed (soon)",
+  "gui.better_enchant.shelves": "Shelves: %s",
+  "gui.better_enchant.required_full": "Required experience level: %s",
+  "gui.better_enchant.spent_full": "Consumed: %s experience levels and %s lapis",
+  "gui.better_enchant.unavailable": "Directed enchanting is not available yet.",
+  "gui.better_enchant.hidden": "??? Additional enchantments are hidden",
+  "gui.better_enchant.syncing": "Synchronizing...",
+  "gui.better_enchant.insert": "Insert enchantable equipment",
+  "gui.better_enchant.already_enchanted": "Already enchanted",
+  "gui.better_enchant.insufficient": "Not enough experience or lapis",
+  "gui.better_enchant.creative": "Creative: no experience or lapis consumed",
+  "gui.better_enchant.scroll": "Scroll: lines %s–%s / %s",
+  "gui.better_enchant.tier_short": "Lv.%s",
+  "gui.better_enchant.hover_preview": "Hover for preview & costs",
+  "gui.better_enchant.revealed_count": "Revealed enchantments: %s"
 }

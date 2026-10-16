@@ -1,0 +1,10 @@
+{
+  "version": "0.3.0",
+  "artifact": "build/libs/better-enchant-0.3.0.jar",
+  "sha256": "22f24c0fd16ba8a803360249d0376306536424083c66b2cef3cd3bd5007a10a9",
+  "junit": 11,
+  "serverGameTests": 17,
+  "clientGameTests": 3,
+  "simulationRolls": 600000,
+  "probabilityOutputsMatchPhase2": true
+}

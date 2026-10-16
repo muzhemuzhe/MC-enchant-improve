@@ -33,6 +33,7 @@ public final class BetterEnchant implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.clientboundPlay().register(EnchantingPreviewPayload.TYPE,EnchantingPreviewPayload.CODEC);
         try { EnchantingConfig.load(); } catch (java.io.IOException | IllegalArgumentException error) { throw new IllegalStateException("Invalid Better Enchant server configuration",error); }
         EnchantingCommands.register();
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server,resources,success)->{

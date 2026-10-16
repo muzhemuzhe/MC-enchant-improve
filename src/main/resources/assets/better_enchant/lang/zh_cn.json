@@ -1,5 +1,21 @@
 {
   "block.better_enchant.machine_part": "附魔机器部件（已组装）",
   "container.better_enchant.title": "随机附魔",
-  "container.better_enchant.status": "随机附魔 · 等级%s / 书架%s"
+  "container.better_enchant.status": "随机附魔 · 等级%s / 书架%s",
+  "gui.better_enchant.random": "随机附魔",
+  "gui.better_enchant.directed": "指定附魔（未开放）",
+  "gui.better_enchant.shelves": "书架：%s",
+  "gui.better_enchant.required_full": "需要达到的经验等级：%s",
+  "gui.better_enchant.spent_full": "实际消耗：%s 经验等级，%s 青金石",
+  "gui.better_enchant.unavailable": "指定附魔尚未开放。",
+  "gui.better_enchant.hidden": "??? 其余附魔尚未揭示",
+  "gui.better_enchant.syncing": "正在同步……",
+  "gui.better_enchant.insert": "请放入可附魔装备",
+  "gui.better_enchant.already_enchanted": "已附魔，不能再次随机附魔",
+  "gui.better_enchant.insufficient": "经验等级或青金石不足",
+  "gui.better_enchant.creative": "创造模式不消耗经验或青金石",
+  "gui.better_enchant.scroll": "滚轮查看：第 %s–%s 行 / 共 %s 行",
+  "gui.better_enchant.tier_short": "Lv.%s",
+  "gui.better_enchant.hover_preview": "悬停查看预览与消耗",
+  "gui.better_enchant.revealed_count": "已揭示附魔：%s 条"
 }
