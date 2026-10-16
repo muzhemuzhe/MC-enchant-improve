@@ -17,7 +17,7 @@ Fabric Loom: 1.18.4
 > Task :check
 > Task :build
 
-[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: ./build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
 

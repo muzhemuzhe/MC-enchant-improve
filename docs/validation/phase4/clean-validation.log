@@ -23,10 +23,10 @@ Fabric Loom: 1.18.4
 > Task :build
 
 > Task :compileGametestJava
-G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\betterenchant\EnchantingMenuGameTests.java:29: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+.\src\gametest\java\dev\betterenchant\EnchantingMenuGameTests.java:29: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
         var player=h.makeMockServerPlayerInLevel();
                     ^
-G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\betterenchant\MachineGameTests.java:133: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+.\src\gametest\java\dev\betterenchant\MachineGameTests.java:133: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
 
         var player = helper.makeMockServerPlayerInLevel();
                            ^
@@ -948,7 +948,7 @@ java.nio.file.NoSuchFileException: server.properties
 [16:31:07] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
 [16:31:07] [Render thread/INFO] (Minecraft) Stopping!
 
-[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: ./build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
 

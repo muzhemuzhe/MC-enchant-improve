@@ -20,7 +20,7 @@ Fabric Loom: 1.18.4
 > Task :compileGametestJava
 
 > Task :generateLog4jConfig UP-TO-DATE
-G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\betterenchant\MachineGameTests.java:133: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+.\src\gametest\java\dev\betterenchant\MachineGameTests.java:133: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
         var player = helper.makeMockServerPlayerInLevel();
 > Task :generateDLIConfig UP-TO-DATE
                            ^
@@ -112,7 +112,7 @@ G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\bet
 [14:05:27] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
 [14:05:27] [Server thread/INFO] (Minecraft) Game test server shutting down
 
-[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: ./build/reports/problems/problems-report.html
 
 BUILD SUCCESSFUL in 13s
 12 actionable tasks: 2 executed, 10 up-to-date

@@ -23,10 +23,10 @@ Fabric Loom: 1.18.4
 > Task :build
 
 > Task :compileGametestJava
-G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\betterenchant\EnchantingMenuGameTests.java:29: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+.\src\gametest\java\dev\betterenchant\EnchantingMenuGameTests.java:29: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
         var player=h.makeMockServerPlayerInLevel();
                     ^
-G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\betterenchant\MachineGameTests.java:133: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+.\src\gametest\java\dev\betterenchant\MachineGameTests.java:133: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
 
         var player = helper.makeMockServerPlayerInLevel();
                            ^
@@ -689,13 +689,13 @@ Caused by: java.lang.AssertionError: small-window item replaced
 
 > Task :runClientGametest FAILED
 
-[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: ./build/reports/problems/problems-report.html
 
 FAILURE: Build failed with an exception.
 
 * What went wrong:
 Execution failed for task ':runClientGametest' (registered by plugin 'fabric-loom').
-> Process 'command 'G:\better-enchant-codex-starter\better-enchant-starter\.tools\jdk-25.0.4.1+1\bin\java.exe'' finished with non-zero exit value 1
+> Process 'command '.\.tools\jdk-25.0.4.1+1\bin\java.exe'' finished with non-zero exit value 1
 
 * Try:
 > Run with --stacktrace option to get the stack trace.

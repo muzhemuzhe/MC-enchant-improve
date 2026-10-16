@@ -1,4 +1,4 @@
-# Codex 第一轮任务：让 3×3×2 真正合体
+# 第一轮任务：让 3×3×2 真正合体
 
 请先阅读根目录 README.md、AGENTS.md、docs/DESIGN_NOTES.md、docs/SOURCE_RESEARCH.md。
 
@@ -26,7 +26,7 @@
 - 完整可运行的 Fabric 工程和资源文件（包括 gradlew、Windows wrapper 和准确的版本配置）。
 - 在 `docs/DEVLOG.md` 记录命令、实际成功/失败、截图需求、局限和下一步。
 - 在 README 中给出游戏内的搭建方式及测试步骤。
-- 一次清晰的 Git commit（使用本地 Git 配置的作者；无任何 AI attribution / co-author trailer），**不要 push**。
+- 一次清晰的 Git commit（使用本地 Git 配置的作者，不添加额外署名），**不要 push**。
 
 ## 交付验收清单
 
