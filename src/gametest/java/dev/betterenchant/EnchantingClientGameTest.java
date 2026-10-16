@@ -76,9 +76,11 @@ public final class EnchantingClientGameTest implements FabricClientGameTest {
             vanillaSeed=world.getServer().computeOnServer(server->server.getPlayerList().getPlayers().getFirst().getEnchantmentSeed());
             require(vanillaSeed!=0,"initialize vanilla zero sentinel before first save");
             context.runOnClient(client->client.getToastManager().clear()); context.getInput().setCursorPos(1,1); context.waitTicks(2); context.takeScreenshot("05-random-enchanting-offers");
+            context.takeScreenshot("ui-random-00-vanilla-equipment");
             double[] costTooltip=context.computeOnClient(client->{double scale=client.getWindow().getGuiScale();return new double[]{((client.screen.width-MachineGuiLayout.WIDTH)/2.0+140)*scale,((client.screen.height-MachineGuiLayout.HEIGHT)/2.0+86)*scale};});
             context.getInput().setCursorPos(costTooltip[0],costTooltip[1]); context.waitTick();
             context.takeScreenshot("08-enchanting-cost-tooltip");
+            context.takeScreenshot("ui-random-06-vanilla-hover");
             context.getInput().pressKey(options->options.keyInventory); context.waitForScreen(null);
         }
         try(var world=save.open()) {

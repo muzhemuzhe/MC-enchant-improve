@@ -49,15 +49,26 @@ public final class DirectedClientGameTest implements FabricClientGameTest {
             client.screen.mouseClicked(event,false);client.screen.mouseReleased(event);});c.waitTicks(3);ready(c);
     }
     private static void directed(ClientGameTestContext c) {click(c,DIRECTED_TAB.x()+20,23);c.waitFor(client->((MachineEnchantmentMenu)client.player.containerMenu).isDirected() && ((MachineEnchantmentMenu)client.player.containerMenu).controlState()!=null);}
+    private static int showRow(ClientGameTestContext c,String id) {
+        ready(c);var snapshot=state(c);int index=-1;
+        for(int i=0;i<snapshot.rows().size();i++) if(snapshot.rows().get(i).id().toString().equals(id)) index=i;
+        check(index>=0,"target in legal list "+id);
+        cursor(c,100,40);c.getInput().scroll(100);c.waitTick();
+        int scroll=Math.min(index,Math.max(0,snapshot.rows().size()-3));
+        if(scroll>0) {c.getInput().scroll(-scroll);c.waitTick();}
+        return index-scroll;
+    }
+    private static void label(ClientGameTestContext c,String id,String expected) {
+        var row=row(c,id);
+        c.runOnClient(client->check(((MachineEnchantmentScreen)client.screen).plannedLabel(row).getString().equals(expected),"visible planned label: "+expected));
+    }
     private static void change(ClientGameTestContext c,String id,boolean add) {
         ready(c);var snapshot=state(c);int index=-1;
         for(int i=0;i<snapshot.rows().size();i++) if(snapshot.rows().get(i).id().toString().equals(id)) index=i;
         check(index>=0,"target in legal list "+id);
         var row=snapshot.rows().get(index);check(add?row.plus():row.minus(),"requested UI control available "+id);
-        cursor(c,100,40);c.getInput().scroll(100);c.waitTick();
-        int scroll=Math.min(index,Math.max(0,snapshot.rows().size()-3));
-        if(scroll>0) {c.getInput().scroll(-scroll);c.waitTick();}
-        var rect=add?plus(index-scroll):minus(index-scroll);click(c,rect.x()+6,rect.y()+6);
+        int visible=showRow(c,id);
+        var rect=add?plus(visible):minus(visible);click(c,rect.x()+6,rect.y()+6);
         long before=snapshot.revision();c.waitFor(client->((MachineEnchantmentMenu)client.player.containerMenu).controlState()!=null && ((MachineEnchantmentMenu)client.player.containerMenu).controlState().revision()!=before);
     }
     private static void planFive(ClientGameTestContext c) {
@@ -86,11 +97,19 @@ public final class DirectedClientGameTest implements FabricClientGameTest {
             world.getServer().runCommand("give @a better_enchant:runic_stone 5");world.getServer().runCommand("tp @a 0.5 -58 0.5");c.waitTicks(5);
             open(c);shift(c,Items.DIAMOND_SWORD);shift(c,BetterEnchant.RUNIC_STONE);directed(c);
             check(state(c).upgrades()==0 && state(c).reagent().getCount()==5,"actual stone item arrived through native shift-click");
-            change(c,SHARP,true);change(c,SHARP,false);check(state(c).upgrades()==0,"actual plus/minus round trip");
+            showRow(c,SHARP);label(c,SHARP,"Sharpness III");screenshot(c,"ui-directed-01-before");
+            change(c,SHARP,true);label(c,SHARP,"Sharpness IV");screenshot(c,"ui-directed-02-plus");
+            change(c,SHARP,false);label(c,SHARP,"Sharpness III");screenshot(c,"ui-directed-03-minus");
+            check(state(c).upgrades()==0,"actual plus/minus round trip");
+            label(c,FIRE,"Fire Aspect");change(c,FIRE,true);label(c,FIRE,"Fire Aspect I");change(c,FIRE,false);label(c,FIRE,"Fire Aspect");
             // Exercise a new enchantment through I -> II -> I before completing a five-step allocation.
             change(c,SHARP,true);change(c,SHARP,true);change(c,FIRE,true);change(c,FIRE,true);change(c,UNBREAK,true);
             check(!row(c,SHARP).plus() && state(c).rows().stream().noneMatch(DirectedPreviewPayload.Row::plus),"max level and five-stone budget hide all plus controls");
-            change(c,FIRE,false);change(c,LOOT,true);screenshot(c,"18-directed-five-planned-en");
+            int blockedRow=showRow(c,LOOT);var disabled=plus(blockedRow);long fullRevision=state(c).revision();
+            click(c,disabled.x()+6,disabled.y()+6);check(state(c).revision()==fullRevision && state(c).upgrades()==5,"disabled plus cannot submit over-budget plan");
+            screenshot(c,"ui-directed-04-budget-exhausted");
+            change(c,FIRE,false);check(row(c,LOOT).plus(),"cancelling restores other plus controls");showRow(c,LOOT);screenshot(c,"ui-directed-05-budget-restored");
+            change(c,LOOT,true);screenshot(c,"18-directed-five-planned-en");
             cursor(c,ENCHANT_BUTTON.x()+20,ENCHANT_BUTTON.y()+8);c.takeScreenshot("19-directed-batch-cost-tooltip");
             world.getServer().runOnServer(server->{var p=server.getPlayerList().getPlayers().getFirst();check(p.experienceLevel==60 && p.containerMenu.getSlot(1).getItem().getCount()==5,"planning no payment");check(EnchantmentHelper.getEnchantmentsForCrafting(p.containerMenu.getSlot(0).getItem()).getLevel(holder(server,SHARP))==3,"planning not changing equipment");});
             var old=state(c);var stale=new DirectedActionPayload(old.containerId(),old.revision(),DirectedActionPayload.ENCHANT,"");
@@ -113,6 +132,7 @@ public final class DirectedClientGameTest implements FabricClientGameTest {
             world.getServer().runOnServer(server->server.getPlayerList().getPlayers().getFirst().giveExperienceLevels(-25));
             c.waitFor(client->client.player.experienceLevel==35 && ((MachineEnchantmentMenu)client.player.containerMenu).controlState()!=null);
             language(c,"zh_cn");ready(c);screenshot(c,"20-directed-five-planned-zh");
+            screenshot(c,"ui-directed-06-chinese");cursor(c,100,40);c.takeScreenshot("ui-directed-07-tooltip");
             var expected=state(c);spent=expected.levels();check(spent>=25 && spent<=40 && expected.canEnchant(),"actual batch cost affordable before click");
             var replay=new DirectedActionPayload(expected.containerId(),expected.revision(),DirectedActionPayload.ENCHANT,"");
             click(c,ENCHANT_BUTTON.x()+20,ENCHANT_BUTTON.y()+8);
@@ -142,7 +162,10 @@ public final class DirectedClientGameTest implements FabricClientGameTest {
             open(c);shift(c,CompatibilityTestMod.PREVIEW_TOOL);shift(c,BetterEnchant.RUNIC_STONE);directed(c);
             check(state(c).rows().size()==6,"six modded supported enchantments, including a non-table entry");
             cursor(c,100,40);c.runOnClient(client->client.getToastManager().clear());c.takeScreenshot("22-directed-modded-long-tooltip");
-            c.getInput().holdShift();c.getInput().scroll(-100);c.waitTicks(2);c.takeScreenshot("24-directed-long-tooltip-last-page");c.getInput().releaseShift();
+            c.takeScreenshot("ui-directed-08-compact-long-name");
+            c.getInput().holdShift();c.waitTicks(2);c.takeScreenshot("ui-directed-09-full-name");c.getInput().releaseShift();
+            c.getInput().holdShift();c.getInput().scroll(-100);c.waitTicks(2);c.takeScreenshot("24-directed-long-tooltip-last-page");
+            c.takeScreenshot("ui-directed-10-name-last-page");c.getInput().releaseShift();
             change(c,"better_enchant_tests:preview_5",true);screenshot(c,"23-directed-scrolled-modded-list");
             int fee=state(c).levels();click(c,ENCHANT_BUTTON.x()+20,ENCHANT_BUTTON.y()+8);ready(c);
             world.getServer().runOnServer(server->{var p=server.getPlayerList().getPlayers().getFirst();check(EnchantmentHelper.getEnchantmentsForCrafting(p.containerMenu.getSlot(0).getItem()).getLevel(holder(server,"better_enchant_tests:preview_5"))==1 && p.experienceLevel==60-fee && p.containerMenu.getSlot(1).getItem().getCount()==4,"actual modded item upgrade and fees");});

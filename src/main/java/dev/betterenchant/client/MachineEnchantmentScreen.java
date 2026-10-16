@@ -47,6 +47,14 @@ public final class MachineEnchantmentScreen extends AbstractContainerScreen<Mach
     private Component name(DirectedPreviewPayload.Row row) {
         return minecraft.level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).get(row.id()).<Component>map(h->h.value().description()).orElseGet(()->Component.literal(row.id().toString()));
     }
+    /** The label is the planned result, never an upgrade path or a second prediction. */
+    public Component plannedLabel(DirectedPreviewPayload.Row row) {
+        return row.target()>0?name(row).copy().append(" ").append(level(row.target())):name(row);
+    }
+    private boolean shiftDown() {
+        return com.mojang.blaze3d.platform.InputConstants.isKeyDown(minecraft.getWindow(),com.mojang.blaze3d.platform.InputConstants.KEY_LSHIFT)
+                || com.mojang.blaze3d.platform.InputConstants.isKeyDown(minecraft.getWindow(),com.mojang.blaze3d.platform.InputConstants.KEY_RSHIFT);
+    }
     private void button(GuiGraphicsExtractor g,Rect r,Component label,boolean enabled,boolean hover) {
         String state=!enabled?"_disabled":hover?"_highlighted":"";
         g.blitSprite(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED,net.minecraft.resources.Identifier.withDefaultNamespace("widget/button"+state),r.x(),r.y(),r.width(),r.height());
@@ -57,16 +65,23 @@ public final class MachineEnchantmentScreen extends AbstractContainerScreen<Mach
         hoveredDirected=-1;var state=menu.displayControls();boolean ready=menu.controlState()!=null;
         if(state==null) {clipped(g,tr("syncing"),94,50,150,TEXT);return;}
         directedScroll=Math.clamp(directedScroll,0,Math.max(0,state.rows().size()-3));
-        g.fill(90,33,252,93,0xFF8B8068);
+        g.fill(90,33,252,93,0xFF6C6352);
         if(state.rows().isEmpty()) g.textWithWordWrap(font,tr("directed_insert"),94,39,150,TEXT,false);
         for(int i=0;i<3 && i+directedScroll<state.rows().size();i++) {
             var row=state.rows().get(i+directedScroll);var r=directedRow(i);boolean hover=r.contains(mx,my);
-            g.fill(r.x()+1,r.y()+1,r.x()+r.width()-1,r.y()+r.height()-1,hover?0xFFC4B895:0xFFADA083);
-            clipped(g,name(row),r.x()+4,r.y()+2,124,TEXT);
-            var levels=Component.empty().append(level(row.current())).append(" → ").append(level(row.target()));
-            g.text(font,levels,r.x()+4,r.y()+11,row.target()>row.current()?0xFF365E24:MUTED,false);
-            if(row.minus()) button(g,minus(i),Component.literal("-"),ready,minus(i).contains(mx,my));
-            if(row.plus()) button(g,plus(i),Component.literal("+"),ready,plus(i).contains(mx,my));
+            g.blitSprite(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED,sprite("enchantment_slot"),r.x(),r.y(),r.width(),r.height()-1);
+            if(hover) {
+                g.fill(r.x()+1,r.y()+1,r.x()+r.width()-1,r.y()+r.height()-2,0x30FFF2C0);
+                g.fill(r.x()+1,r.y()+1,r.x()+2,r.y()+r.height()-2,0xFFFFE4A0);
+            }
+            // Reserve the level suffix even when a modded name needs clipping.
+            Component suffix=row.target()>0?Component.empty().append(" ").append(level(row.target())):Component.empty();
+            int nameWidth=122-font.width(suffix),labelX=r.x()+5;
+            Component label=name(row);
+            if(font.width(label)>nameWidth) label=Component.literal(font.plainSubstrByWidth(label.getString(),Math.max(0,nameWidth-font.width("...")))+"...");
+            g.text(font,label.copy().append(suffix),labelX,r.y()+6,row.target()>row.current()?0xFF285220:TEXT,false);
+            button(g,minus(i),Component.literal("-"),ready && row.minus(),minus(i).contains(mx,my));
+            if(row.target()<row.max()) button(g,plus(i),Component.literal("+"),ready && row.plus(),plus(i).contains(mx,my));
             if(hover) hoveredDirected=i+directedScroll;
         }
         if(state.rows().size()>3) {
@@ -81,25 +96,37 @@ public final class MachineEnchantmentScreen extends AbstractContainerScreen<Mach
         var state=menu.displayControls();if(state==null) return;
         var lines=new ArrayList<FormattedCharSequence>();
         if(ENCHANT_BUTTON.contains(x-leftPos,y-topPos)) {
-            lines.addAll(font.split(tr("directed_total",state.levels(),state.upgrades()),240));
-            lines.addAll(font.split(tr("directed_gate"),240));
-            if(!state.canEnchant()) lines.addAll(font.split(tr("directed_unready").withStyle(ChatFormatting.RED),240));
+            lines.addAll(font.split(tr("directed_total",state.levels(),state.upgrades()),164));
+            if(!state.canEnchant()) lines.addAll(font.split(tr("directed_unready").withStyle(ChatFormatting.RED),164));
         } else if(hoveredDirected>=0 && hoveredDirected<state.rows().size()) {
             var row=state.rows().get(hoveredDirected);
-            lines.addAll(font.split(name(row).copy().withStyle(ChatFormatting.WHITE),240));
-            lines.addAll(font.split(Component.empty().append(level(row.current())).append(" → ").append(level(row.target())).withStyle(ChatFormatting.GREEN),240));
-            if(row.nextCost()>0) lines.addAll(font.split(tr("directed_next",row.nextCost()),240));
-            if(row.blocked()>0) lines.addAll(font.split(tr("blocked_"+row.blocked()).withStyle(ChatFormatting.RED),240));
+            var description=font.split(plannedLabel(row).copy().withStyle(ChatFormatting.WHITE),164);
+            if(shiftDown()) lines.addAll(description);
+            else {
+                if(description.size()<=2) lines.addAll(description);
+                else {
+                    lines.add(description.getFirst());
+                    lines.add(Component.literal("...").getVisualOrderText());
+                }
+                if(row.nextCost()>0) lines.addAll(font.split(tr("directed_next",row.nextCost()).withStyle(ChatFormatting.GRAY),164));
+                if(row.blocked()>0) lines.addAll(font.split(tr("blocked_"+row.blocked()).withStyle(ChatFormatting.RED),164));
+                if(description.size()>2) lines.addAll(font.split(tr("shift_more").withStyle(ChatFormatting.YELLOW),164));
+            }
         } else {
             var slot=MachineGuiLayout.slot(1);
-            if(menu.getSlot(1).getItem().isEmpty() && new Rect(slot.x(),slot.y(),16,16).contains(x-leftPos,y-topPos)) lines.addAll(font.split(tr("insert_stone"),240));
+            if(menu.getSlot(1).getItem().isEmpty() && new Rect(slot.x(),slot.y(),16,16).contains(x-leftPos,y-topPos)) lines.addAll(font.split(tr("insert_stone"),164));
         }
         if(lines.isEmpty()) return;
         if(lastDirectedHover!=hoveredDirected) {lastDirectedHover=hoveredDirected;directedTooltipOffset=0;}
-        int page=Math.max(3,(height-45)/10-1);directedTooltipOffset=Math.clamp(directedTooltipOffset,0,Math.max(0,lines.size()-page));
+        // Small vanilla tooltip below the pool: it never covers rows or +/- targets.
+        int page=5;directedTooltipOffset=shiftDown()?Math.clamp(directedTooltipOffset,0,Math.max(0,lines.size()-page)):0;
         var shown=new ArrayList<>(lines.subList(directedTooltipOffset,Math.min(lines.size(),directedTooltipOffset+page)));
         if(lines.size()>page) shown.add(tr("shift_scroll").withStyle(ChatFormatting.YELLOW).getVisualOrderText());
-        g.setTooltipForNextFrame(font,shown,x,y);
+        tooltipBelowPool(g,shown,x,y);
+    }
+    private void tooltipBelowPool(GuiGraphicsExtractor g,List<FormattedCharSequence> lines,int x,int y) {
+        g.setTooltipForNextFrame(font,lines,(sw,sh,mx,my,w,h)->new org.joml.Vector2i(
+                Math.clamp(leftPos+94,5,Math.max(5,sw-w-5)),Math.clamp(topPos+120,topPos+DIRECTED_LIST.y()+DIRECTED_LIST.height()+6,Math.max(topPos+DIRECTED_LIST.y()+DIRECTED_LIST.height()+6,sh-h-6))),x,y,false);
     }
     private void region(GuiGraphicsExtractor g,int x,int y,int w,int h,int u,int v,int sw,int sh) {
         g.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED,PANEL,x,y,u,v,w,h,sw,sh,256,256);
@@ -116,12 +143,13 @@ public final class MachineEnchantmentScreen extends AbstractContainerScreen<Mach
         return net.minecraft.resources.Identifier.withDefaultNamespace("container/enchanting_table/"+path);
     }
     private void clipped(GuiGraphicsExtractor g,Component text,int x,int y,int max,int color) {
-        if(font.width(text)<=max) g.text(font,text,x,y,color);
-        else g.text(font,Component.literal(font.plainSubstrByWidth(text.getString(),Math.max(0,max-font.width("...")))+"..."),x,y,color);
+        if(font.width(text)<=max) g.text(font,text,x,y,color,false);
+        else g.text(font,Component.literal(font.plainSubstrByWidth(text.getString(),Math.max(0,max-font.width("...")))+"..."),x,y,color,false);
     }
+    private boolean enoughLapis(int i) {return menu.getSlot(1).getItem().is(net.minecraft.world.item.Items.LAPIS_LAZULI) && menu.getGoldCount()>=i+1;}
     private boolean enabled(int i) {
         return !menu.isDirected() && menu.controlState()!=null && menu.preview()!=null && menu.costs[i]>0 && (minecraft.player.hasInfiniteMaterials()
-                || (minecraft.player.experienceLevel>=menu.costs[i] && menu.getSlot(1).getItem().is(net.minecraft.world.item.Items.LAPIS_LAZULI) && menu.getGoldCount()>=i+1));
+                || (minecraft.player.experienceLevel>=menu.costs[i] && enoughLapis(i)));
     }
     private List<Component> revealed(int option) {
         var snapshot=menu.preview(); var names=new ArrayList<Component>();
@@ -146,13 +174,26 @@ public final class MachineEnchantmentScreen extends AbstractContainerScreen<Mach
         else for(int i=0;i<3;i++) {
             var r=option(i);boolean hover=r.contains(mouseX-leftPos,mouseY-topPos),active=enabled(i);
             if(hover) hoveredOption=i;
-            g.blitSprite(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED,sprite(menu.costs[i]<=0 || !active?"enchantment_slot_disabled":hover?"enchantment_slot_highlighted":"enchantment_slot"),r.x(),r.y(),r.width(),r.height());
+            boolean offer=menu.costs[i]>0 && menu.preview()!=null && menu.controlState()!=null;
+            boolean xpMissing=offer && !minecraft.player.hasInfiniteMaterials() && minecraft.player.experienceLevel<menu.costs[i];
+            boolean lapisMissing=offer && !minecraft.player.hasInfiniteMaterials() && !enoughLapis(i);
+            g.blitSprite(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED,sprite(hover && offer?"enchantment_slot_highlighted":active?"enchantment_slot":"enchantment_slot_disabled"),r.x(),r.y(),r.width(),r.height());
+            if(hover) {
+                g.fill(r.x()+1,r.y()+1,r.x()+r.width()-1,r.y()+2,0xFFFFE4A0);
+                g.fill(r.x()+1,r.y()+1,r.x()+2,r.y()+r.height()-1,0xFFFFE4A0);
+            }
             g.blitSprite(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED,sprite("level_"+(i+1)+(active?"":"_disabled")),r.x()+1,r.y()+1,16,16);
             int runeWidth=r.width()-39;
-            g.textWithWordWrap(font,EnchantmentNames.getInstance().getRandomName(font,runeWidth),r.x()+20,r.y()+2,runeWidth,active?(hover?0xFFFFFF80:0xFF685E4A):0xFF817860,false);
+            var runes=EnchantmentNames.getInstance().getRandomName(font,runeWidth);
+            if(menu.costs[i]>0) g.textWithWordWrap(font,runes,r.x()+20,r.y()+2,runeWidth,hover?0xFFFFFF80:active?0xFF685E4A:0xFF817860,false);
+            if(xpMissing || lapisMissing) {
+                int mid=r.x()+20+(r.width()-23)/2;
+                if(xpMissing) g.fill(r.x()+20,r.y()+r.height()-2,lapisMissing?mid:r.x()+r.width()-3,r.y()+r.height()-1,0xFFB5473C);
+                if(lapisMissing) g.fill(xpMissing?mid:r.x()+20,r.y()+r.height()-2,r.x()+r.width()-3,r.y()+r.height()-1,0xFF4775B8);
+            }
             if(menu.costs[i]>0) {
                 String level=Integer.toString(menu.costs[i]);
-                g.text(font,level,r.x()+r.width()-font.width(level)-3,r.y()+9,active?0xFF80FF20:0xFF536D34);
+                g.text(font,level,r.x()+r.width()-font.width(level)-3,r.y()+9,xpMissing?0xFFFF7060:active?0xFF80FF20:0xFF879575);
             }
         }
         g.pose().popMatrix();
@@ -181,26 +222,28 @@ public final class MachineEnchantmentScreen extends AbstractContainerScreen<Mach
             g.setTooltipForNextFrame(font,font.split(tr("syncing"),240),x,y);return;
         }
         var lines=new ArrayList<FormattedCharSequence>();
-        lines.addAll(font.split(tr("required_full",menu.costs[i]).withStyle(ChatFormatting.GOLD),Math.min(240,width-30)));
-        lines.addAll(font.split(tr("spent_full",i+1,i+1).withStyle(ChatFormatting.GRAY),Math.min(240,width-30)));
-        if(minecraft.player.hasInfiniteMaterials()) lines.addAll(font.split(tr("creative"),240));
-        else if(!enabled(i) && menu.costs[i]>0) lines.addAll(font.split(tr("insufficient").withStyle(ChatFormatting.RED),240));
-        lines.addAll(font.split(tr("revealed_count",revealed(i).size()).withStyle(ChatFormatting.GRAY),240));
-        for(var name:revealed(i)) lines.addAll(font.split(name,Math.min(240,width-30)));
-        if(menu.preview()!=null && menu.preview().offers().get(i).hidden()) lines.addAll(font.split(tr("hidden").withStyle(ChatFormatting.DARK_PURPLE),240));
+        int wrap=Math.min(180,width-30);
+        lines.addAll(font.split(tr("required_full",menu.costs[i]).withStyle(ChatFormatting.GOLD),wrap));
+        lines.addAll(font.split(tr("spent_full",i+1,i+1).withStyle(ChatFormatting.GRAY),wrap));
+        if(minecraft.player.hasInfiniteMaterials()) lines.addAll(font.split(tr("creative"),wrap));
+        else {
+            if(minecraft.player.experienceLevel<menu.costs[i]) lines.addAll(font.split(tr("need_experience").withStyle(ChatFormatting.RED),wrap));
+            if(!enoughLapis(i)) lines.addAll(font.split(tr("need_lapis").withStyle(ChatFormatting.BLUE),wrap));
+        }
+        lines.addAll(font.split(tr("revealed_count",revealed(i).size()).withStyle(ChatFormatting.GRAY),wrap));
+        for(var name:revealed(i)) lines.addAll(font.split(name,wrap));
+        if(menu.preview()!=null && menu.preview().offers().get(i).hidden()) lines.addAll(font.split(tr("hidden").withStyle(ChatFormatting.DARK_PURPLE),wrap));
         // Page long wrapped names/results by line; no assumption about result count.
-        int page=Math.max(3,(height-45)/10-1);
+        int page=8;
         int offset=Math.clamp(tooltipOffsets[i],0,Math.max(0,lines.size()-page)); tooltipOffsets[i]=offset;
         var visible=new ArrayList<>(lines.subList(offset,Math.min(lines.size(),offset+page)));
         if(lines.size()>page) visible.add(tr("scroll",offset+1,Math.min(lines.size(),offset+page),lines.size()).withStyle(ChatFormatting.YELLOW).getVisualOrderText());
-        g.setTooltipForNextFrame(font,visible,x,y);
+        tooltipBelowPool(g,visible,x,y);
     }
     @Override public boolean mouseScrolled(double x,double y,double sx,double sy) {
         if(menu.isDirected() && DIRECTED_LIST.contains(x-leftPos,y-topPos) && sy!=0) {
             int delta=(int)Math.clamp(Math.round(Math.abs(sy)),1,100)*(sy<0?1:-1);
-            boolean shift=com.mojang.blaze3d.platform.InputConstants.isKeyDown(minecraft.getWindow(),com.mojang.blaze3d.platform.InputConstants.KEY_LSHIFT)
-                    || com.mojang.blaze3d.platform.InputConstants.isKeyDown(minecraft.getWindow(),com.mojang.blaze3d.platform.InputConstants.KEY_RSHIFT);
-            if(shift) directedTooltipOffset=Math.max(0,directedTooltipOffset+delta);
+            if(shiftDown()) directedTooltipOffset=Math.max(0,directedTooltipOffset+delta);
             else {var state=menu.displayControls();directedScroll=Math.clamp(directedScroll+delta,0,state==null?0:Math.max(0,state.rows().size()-3));directedTooltipOffset=0;}
             return true;
         }

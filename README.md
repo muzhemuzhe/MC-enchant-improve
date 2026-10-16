@@ -17,17 +17,17 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/better-enchant-0.4.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/better-enchant-0.4.1.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
 
 ## 指定附魔操作
 
 1. 从创造材料栏取得铭纹石，或使用 `/give @s better_enchant:runic_stone 5`；本轮没有普通合成配方。
 2. 打开已组装机器，选择 Directed / 指定附魔，放入装备和铭纹石（复用原青金石槽，不会自动转换材料）。
 3. 滚轮浏览合法列表，`+` 分配一步，`−` 取消一步；已有附魔可逐级升级，新附魔从 I 开始。五颗最多五步，可同时计划多种兼容附魔。
-4. 查看实际总消耗与30级门槛，点击 **Enchant / 附魔** 才统一提交。每步消耗一颗和5–8经验等级；必须达到30级且足够支付合计，扣后不要求剩余30级。
+4. 查看实际总消耗，点击 **Enchant / 附魔** 才统一提交。每步消耗一颗和5–8经验等级；现有服务端仍要求达到30级且足够支付合计，扣后不要求剩余30级。界面已按修正要求去掉门槛提示。
 5. 换装备/关闭/重连清空未支付规划，减少铭纹石会撤销最新超额步骤。其他附魔、名称、耐久和自定义组件保留。指定操作包括创造模式也实际支付；可用 `/experience add @s 60 levels` 测试。
 
-[中文指定界面](docs/screenshots/phase4/20-directed-five-planned-zh.png) · [实际批量费用](docs/screenshots/phase4/19-directed-batch-cost-tooltip.png) · [结果物品](docs/screenshots/phase4/21-directed-committed-item.png)
+[新版中文指定界面](docs/screenshots/ui-polish/ui-directed-06-chinese.png) · [新版随机界面](docs/screenshots/ui-polish/ui-random-06-vanilla-hover.png) · [加减前后、状态及 tooltip 对比](docs/GUI_POLISH.md) · [结果物品](docs/screenshots/phase4/21-directed-committed-item.png)
 
 [指定模式公式、配置、同步和限制](docs/DIRECTED_ENCHANTING.md)。祛魔属于[未来独立多方块机器](docs/FUTURE_DISENCHANTING_MACHINE.md)，当前没有祛魔页签。
 

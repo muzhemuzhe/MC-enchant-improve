@@ -1,0 +1,74 @@
+[
+  {
+    "file": "ui-directed-01-before.png",
+    "sha256": "d649f44348bb16473b9cc84fb9c4d4b2eafbb9c3f050dbf2ed9dde5a68960aee"
+  },
+  {
+    "file": "ui-directed-02-plus.png",
+    "sha256": "70673905039b67d1e9ca47f953ceeb750abac936cebfa99213234e4ec758b5b5"
+  },
+  {
+    "file": "ui-directed-03-minus.png",
+    "sha256": "c36b0133aa614eeda2d11d71250a2e10d56979c6b591ee4d90272f1b956edc20"
+  },
+  {
+    "file": "ui-directed-04-budget-exhausted.png",
+    "sha256": "cf0e5e302df37ad4c591450f365ee03ce66d66afa339851b13108362f0ea8b46"
+  },
+  {
+    "file": "ui-directed-05-budget-restored.png",
+    "sha256": "78f42fca4ae091cc1cf7e1d24447fde253235a64df2e95815da6e1562b2809ca"
+  },
+  {
+    "file": "ui-directed-06-chinese.png",
+    "sha256": "95d87d0e5c4a99775fe393586d7162e32c84a30c106ed747f928ecfaa4680e91"
+  },
+  {
+    "file": "ui-directed-07-tooltip.png",
+    "sha256": "f11bad5a211857c760bde984eacc9f8006df41007c1ebf88fc8d1b82b05949e9"
+  },
+  {
+    "file": "ui-directed-08-compact-long-name.png",
+    "sha256": "2e97dab2a722a9d51a7544547fb908ce5fca7c67bfca748cf7dbfb4b52a133f6"
+  },
+  {
+    "file": "ui-directed-09-full-name.png",
+    "sha256": "d2a448ec9e7bdb60b0b211b9c951ae23b3fa8c843164760725d760565d02be8e"
+  },
+  {
+    "file": "ui-directed-10-name-last-page.png",
+    "sha256": "f5dc8d812142849fb2545c9ef2929535ff0210beea2474ef9ccbf5b6cfc091a9"
+  },
+  {
+    "file": "ui-random-00-vanilla-equipment.png",
+    "sha256": "cec83ea80ee864446f8fbff4cdbafbc84ef76982267b0303d7bd99c4519aed8f"
+  },
+  {
+    "file": "ui-random-01-default.png",
+    "sha256": "b4dff961e36c08c0a5929e338747052086d69d5d847ea770a373e74b02e5fd0b"
+  },
+  {
+    "file": "ui-random-02-hover.png",
+    "sha256": "bcf2fe0070804ec47da7268edf09f2118179b593858d3878a1c94423c8f1e944"
+  },
+  {
+    "file": "ui-random-03-missing-experience.png",
+    "sha256": "e3c6dd1bbd7bdfa30740726ebec8e65ee9cf0887884c6c4b8a6ef5fa8105da04"
+  },
+  {
+    "file": "ui-random-04-missing-lapis.png",
+    "sha256": "b6f67e5f6255ccdd1880f20238ddb7bd500aff94f606bbf303411666a871f5de"
+  },
+  {
+    "file": "ui-random-05-enchanted-disabled.png",
+    "sha256": "3aeeca690b3e832f83502e947927dc743b13c75a9bd61ec8212e3b4437334229"
+  },
+  {
+    "file": "ui-random-06-vanilla-hover.png",
+    "sha256": "c96015ed8d74de1beed630d3b09e50ebf9b7f94329433e4be4f976f8b131387f"
+  },
+  {
+    "file": "ui-random-07-both-shortages.png",
+    "sha256": "87e0d7f5d7fcadffeeac332d39f01bbff81443fe5bb3cfb0f1aad173099aeba5"
+  }
+]

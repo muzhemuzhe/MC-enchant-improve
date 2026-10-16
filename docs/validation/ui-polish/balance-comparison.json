@@ -1,0 +1,37 @@
+[
+  {
+    "file": "actual-registry-simulation.md",
+    "sha256": "83d9f2c3a8518a799c3dd1c3d81118c4cff5fa3a609dda240bc114ab2fbe259f",
+    "unchanged": true
+  },
+  {
+    "file": "sword-tier1-shelves0.txt",
+    "sha256": "58bf5ca0fca9e975a492a35057abe29d2c734ddd5127e7a9531ae804fe0f6483",
+    "unchanged": true
+  },
+  {
+    "file": "sword-tier1-shelves15.txt",
+    "sha256": "3a22411a726ca0ec2ff4f5b5f330d8833ca62272c001f38acae5ccd278b08788",
+    "unchanged": true
+  },
+  {
+    "file": "sword-tier3-shelves0.txt",
+    "sha256": "8d744a4c15357c56f3314839c6fe85462f0cd8be8c4b8fffece945732777f47b",
+    "unchanged": true
+  },
+  {
+    "file": "sword-tier3-shelves15.txt",
+    "sha256": "d8587e51bfe59becee548d0035096526e957b2289e84972313f8deef6bd6b5b7",
+    "unchanged": true
+  },
+  {
+    "file": "sword-tier5-shelves0.txt",
+    "sha256": "cec78b00b857bf7fa9c702eedfdf6bca408ef033ee27857ed20b60be03d9b477",
+    "unchanged": true
+  },
+  {
+    "file": "sword-tier5-shelves15.txt",
+    "sha256": "4573891990413db7087c6a295ebdaece675a1ef90e3339686733680eb67e16d1",
+    "unchanged": true
+  }
+]

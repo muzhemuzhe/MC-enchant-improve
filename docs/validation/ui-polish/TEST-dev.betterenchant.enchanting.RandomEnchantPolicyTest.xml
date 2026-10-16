@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.betterenchant.enchanting.RandomEnchantPolicyTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-16T08:53:36.625Z" hostname="MUZHE" time="0.285">
+  <properties/>
+  <testcase name="fullLegalSupportIsPositiveAnalyticallyAtEveryTierAndNoShelves()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.003"/>
+  <testcase name="qualityImprovesMonotonicallyAndBookshelvesAreIndependent()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.002"/>
+  <testcase name="probabilityAxesCanBeDisabledSeparately()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.001"/>
+  <testcase name="exclusionsEmptyPoolAndBadWeightsFailSafely()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.002"/>
+  <testcase name="oneHundredThousandPerContextAreDeterministicCompatibleAndBounded()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.276"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

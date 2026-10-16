@@ -68,6 +68,7 @@ public final class EnchantingGuiClientGameTest implements FabricClientGameTest {
             cursor(c,gear.x()+8,gear.y()+8);c.takeScreenshot("14-input-slot-interaction");c.getInput().pressKey(options->options.keyHotbarSlots[0]);c.waitTicks(3);
             c.runOnClient(client->check(client.player.containerMenu.getSlot(0).getItem().isEmpty(),"hotbar shortcut removed gear"));
             var hotbar=MachineGuiLayout.slot(29);shiftClick(c,hotbar.x()+8,hotbar.y()+8);ready(c);
+            clearToasts(c);c.takeScreenshot("ui-random-01-default");cursor(c,150,64);c.takeScreenshot("ui-random-02-hover");
             var tiers=new ArrayList<List<EnchantingPreviewPayload.Offer>>();
             for(int tier=1;tier<=5;tier++) {
                 final int t=tier;world.getServer().runCommand("better_enchant tier 0 -59 0 "+tier);
@@ -94,10 +95,12 @@ public final class EnchantingGuiClientGameTest implements FabricClientGameTest {
             world.getServer().runOnServer(server->check(server.getPlayerList().getPlayers().getFirst().experienceLevel==40,"stale shelf button not charged"));
             // Disabled client buttons and server state both enforce shortages.
             world.getServer().runOnServer(server->server.getPlayerList().getPlayers().getFirst().giveExperienceLevels(-40));
-            c.waitFor(client->client.player.experienceLevel==0);click(c,150,42);
+            c.waitFor(client->client.player.experienceLevel==0);click(c,150,42);c.takeScreenshot("ui-random-03-missing-experience");
             world.getServer().runOnServer(server->check(server.getPlayerList().getPlayers().getFirst().getEnchantmentSeed()==seed,"insufficient XP cannot rotate seed"));
+            world.getServer().runOnServer(server->server.getPlayerList().getPlayers().getFirst().containerMenu.getSlot(1).set(ItemStack.EMPTY));
+            c.waitFor(client->client.player.containerMenu.getSlot(1).getItem().isEmpty());click(c,150,64);c.takeScreenshot("ui-random-07-both-shortages");
             world.getServer().runOnServer(server->{var p=server.getPlayerList().getPlayers().getFirst();p.giveExperienceLevels(40);p.containerMenu.getSlot(1).set(new ItemStack(Items.LAPIS_LAZULI,1));});
-            c.waitFor(client->client.player.experienceLevel==40 && client.player.containerMenu.getSlot(1).getItem().getCount()==1);click(c,150,86);
+            c.waitFor(client->client.player.experienceLevel==40 && client.player.containerMenu.getSlot(1).getItem().getCount()==1);click(c,150,86);c.takeScreenshot("ui-random-04-missing-lapis");
             world.getServer().runOnServer(server->{var p=server.getPlayerList().getPlayers().getFirst();check(p.experienceLevel==40 && p.getEnchantmentSeed()==seed,"insufficient lapis no cost or reroll");p.containerMenu.getSlot(1).set(new ItemStack(Items.LAPIS_LAZULI,12));});
             c.waitFor(client->client.player.containerMenu.getSlot(1).getItem().getCount()==12);
             // All three real mouse targets commit exactly the preview they display.
@@ -126,6 +129,7 @@ public final class EnchantingGuiClientGameTest implements FabricClientGameTest {
             c.waitFor(client->reload.isDone() && client.getOverlay()==null);c.waitTicks(3);
             c.runOnClient(client->check(net.minecraft.network.chat.Component.translatable("gui.better_enchant.random").getString().equals("随机附魔"),"Chinese language actually loaded"));
             c.getInput().resizeWindow(640,480);clearToasts(c);c.takeScreenshot("13-small-window-enchanted");
+            c.takeScreenshot("ui-random-05-enchanted-disabled");
             click(c,gear.x()+8,gear.y()+8);c.runOnClient(client->check(!client.player.containerMenu.getCarried().isEmpty(),"small-window cursor hits real gear slot"));
             // Separate two clicks on the same slot from vanilla's real-time double-click collection.
             long placeAfter=c.computeOnClient(client->net.minecraft.util.Util.getMillis()+350);
