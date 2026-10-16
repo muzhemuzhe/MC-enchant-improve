@@ -1,0 +1,21 @@
+{
+  "supported_items": "better_enchant_tests:tagged_tool",
+  "weight": 3,
+  "description": {
+    "text": "Test fixture: treasure_probe"
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "max_level": 4,
+  "anvil_cost": 1,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 0
+  },
+  "max_cost": {
+    "base": 99,
+    "per_level_above_first": 0
+  },
+  "effects": {}
+}

@@ -21,6 +21,18 @@ public final class MachineControllerBlockEntity extends BlockEntity {
     BlockState original = Blocks.AIR.defaultBlockState();
     CompoundTag originalEntity;
     List<BlockState> controllerSnapshot = List.of();
+    private int machineTier = 1;
+
+    public UUID machineId() { return machineId; }
+    public BlockPos controllerPosition() { return controller; }
+    public int partIndex() { return index; }
+    public int rotation() { return rotation; }
+    public int machineTier() { return machineTier; }
+    public void setMachineTier(int tier) {
+        if (tier < 1 || tier > dev.betterenchant.enchanting.EnchantingConfig.current().maxTier()) throw new IllegalArgumentException("Invalid machine tier");
+        machineTier = tier;
+        setChanged();
+    }
 
     public MachineControllerBlockEntity(BlockPos pos, BlockState state) {
         super(BetterEnchant.PART_ENTITY, pos, state);
@@ -33,6 +45,7 @@ public final class MachineControllerBlockEntity extends BlockEntity {
         out.store("controller", BlockPos.CODEC, controller);
         out.putInt("rotation", rotation);
         out.putInt("index", index);
+        out.putInt("machine_tier", machineTier);
         if (index >= 0 && index < 18) {
             var offset = dev.betterenchant.structure.StructurePattern.CELLS.get(index).offset();
             out.store("local_offset", BlockPos.CODEC, new BlockPos(offset.x(), offset.y(), offset.z()));
@@ -49,6 +62,7 @@ public final class MachineControllerBlockEntity extends BlockEntity {
         controller = in.read("controller", BlockPos.CODEC).orElse(BlockPos.ZERO);
         rotation = Math.floorMod(in.getIntOr("rotation", 0), 4);
         index = in.getIntOr("index", -1);
+        machineTier = Math.clamp(in.getIntOr("machine_tier", 1), 1, 10);
         original = in.read("original", BlockState.CODEC).orElse(Blocks.AIR.defaultBlockState());
         originalEntity = in.read("original_entity", CompoundTag.CODEC).orElse(null);
         controllerSnapshot = in.read("snapshot", BlockState.CODEC.listOf()).orElse(List.of());

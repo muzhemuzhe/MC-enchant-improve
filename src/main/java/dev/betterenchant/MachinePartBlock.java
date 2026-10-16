@@ -21,6 +21,9 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.SimpleMenuProvider;
+import dev.betterenchant.enchanting.*;
 
 public final class MachinePartBlock extends BaseEntityBlock {
     public static final IntegerProperty PART = IntegerProperty.create("part", 0, 17);
@@ -39,7 +42,13 @@ public final class MachinePartBlock extends BaseEntityBlock {
                 (world, pos, blockState, entity) -> entity.checkIntegrity());
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        if (!level.isClientSide() && level.getBlockEntity(pos) instanceof MachineControllerBlockEntity part) {
+        if (level instanceof ServerLevel server && level.getBlockEntity(pos) instanceof MachineControllerBlockEntity part) {
+            if (!player.isShiftKeyDown()) {
+                var controller=MachineAccess.controller(server,pos);
+                if (controller!=null && !player.isSpectator()) player.openMenu(new SimpleMenuProvider(
+                        (id,inventory,owner)->new MachineEnchantmentMenu(id,inventory,server,controller),Component.translatable("container.better_enchant.title")));
+                return InteractionResult.SUCCESS;
+            }
             player.sendSystemMessage(Component.literal("[Better Enchant] Formed 3x3x2; controller=" + part.controller.toShortString()
                     + "; facing=" + state.getValue(BlockStateProperties.HORIZONTAL_FACING) + "; part=" + part.index
                     + ". Break any part to disassemble."));

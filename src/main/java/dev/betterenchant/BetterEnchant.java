@@ -16,8 +16,13 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.flag.FeatureFlags;
+import dev.betterenchant.enchanting.*;
 
 public final class BetterEnchant implements ModInitializer {
+    public static final MenuType<MachineEnchantmentMenu> ENCHANTMENT_MENU = Registry.register(BuiltInRegistries.MENU,
+            Identifier.fromNamespaceAndPath("better_enchant", "random_enchanting"),new MenuType<>(MachineEnchantmentMenu::new,FeatureFlags.DEFAULT_FLAGS));
     public static final Identifier PART_ID = Identifier.fromNamespaceAndPath("better_enchant", "machine_part");
     public static final MachinePartBlock PART = Registry.register(BuiltInRegistries.BLOCK, PART_ID,
             new MachinePartBlock(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, PART_ID))
@@ -28,6 +33,11 @@ public final class BetterEnchant implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        try { EnchantingConfig.load(); } catch (java.io.IOException | IllegalArgumentException error) { throw new IllegalStateException("Invalid Better Enchant server configuration",error); }
+        EnchantingCommands.register();
+        net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server,resources,success)->{
+            if (success) EnchantmentCandidates.invalidate();
+        });
         UseBlockCallback.EVENT.register((player, level, hand, hit) -> {
             if (hand != InteractionHand.MAIN_HAND || !player.isShiftKeyDown() || !player.getMainHandItem().isEmpty()
                     || !player.getOffhandItem().isEmpty() || player.isSpectator()

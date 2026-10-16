@@ -66,7 +66,10 @@ public final class FormationService {
                 part.index = i;
                 part.original = s.state();
                 part.originalEntity = s.entity();
-                if (s.pos().equals(controller)) part.controllerSnapshot = snapshots.stream().map(Snapshot::state).toList();
+                if (s.pos().equals(controller)) {
+                    part.controllerSnapshot = snapshots.stream().map(Snapshot::state).toList();
+                    part.setMachineTier(dev.betterenchant.enchanting.EnchantingConfig.current().defaultTier());
+                }
                 part.setChanged();
             }
         } catch (RuntimeException failure) {

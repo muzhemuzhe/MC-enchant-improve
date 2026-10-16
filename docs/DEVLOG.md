@@ -87,3 +87,71 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 截图已交付在 `docs/screenshots/`：形成前、形成后、磁盘重进后、重进后拆解。下一轮应优先完成真实分区块卸载/恢复、多人/保护兼容测试和碰撞细化，再讨论附魔行为。当前机器不接管原版菜单；拆解后的原版附魔台恢复使用。
 
 按任务书将所有交付创建一次本地 Git 提交；使用既有用户配置 `muzhemuzhe` / `1193069167@qq.com`，不追加归属 trailer，不配置 remote，不 push。
+
+## 第二轮 · A / 实现前检查与最小改造计划
+
+2026-10-16 重新阅读规则、设计、日志和全部生产/测试源码，重跑 `gradlew.bat build runGametest --console=plain` 成功（`.tools/phase2-baseline.log`）。没有将上轮历史日志当作本轮验收。现有实体没有机器等级字段；右击只返回状态文字，没有附魔入口或库存。
+
+计划保留原有形成/拆解/模型，新增纯 Java `RandomEnchantPolicy`、配置、注册表适配器和服务端 `EnchantmentMenu` 子类。沿用原版菜单类型、两个槽、三项选项、客户端界面、同步/归还物品机制；仅形成机器打开该子类，普通附魔台不变，无 Mixin。门槛等级与实际扣除等级明确分开，保持原版 1/2/3 青金石及等级消耗。等级和概率系数来自服务端配置，开发命令仅供管理员调整控制器等级并持久化。
+
+先实现并证明完整合法支持集，再运行固定种子抽样，最后接游戏。种类权重采用原注册权重的可调幂次，等级使用对归一化等级的指数倾斜，两者独立；多重附魔逐次剔除全部已选附魔的互斥候选。候选只从当前 `in_enchanting_table` 标签中读取，检查物品 primary/support、treasure/curse 和自定义禁用标签，不列举原版附魔名。
+
+书架仍用原版 BOOKSHELF_OFFSETS、power provider/transmitter 标签；自机部件在中间通道中特判为可传导，否则形成后的实体环使下层书架永远无效。不修改全局 vanilla 标签。只查已加载区块。菜单每次提交检查完整结构、机器 UUID、距离、物品、书架/等级和费用；服务器缓存确定性选项，世界持久化私有盐 + 玩家原版附魔种子用于避免关闭/重开/拆装机器免费重抽。客户端只收到原版费用和一个提示，不收到完整抽取结果或私有盐。
+
+B–D 实际完成后的小范围 UI 调整：若直接沿用 vanilla MenuType，无法添加同步的 tier/shelves（原版客户端没有对应 DataSlot）。因此注册专属 MenuType，菜单和画面仍分别继承原版 EnchantmentMenu/EnchantmentScreen，增加 tier/shelves 同步与动态标题，随后补充报价版本和外观种子同步（见 E）；不访问私有字段、不添加 Mixin、不影响未形成附魔台。4 项原结构单元测试与 5 项概率测试成功；真实注册表钻石剑 6 组×100,000 抽样成功，详见 ENCHANTING_BALANCE.md。
+
+## 第二轮 · B–D / 独立算法与模拟结果
+
+- 实际顺序为先完成 policy/配置及单元测试，再添加真实注册表适配与 600,000 次模拟，最后接菜单。没有把概率公式塞到 Mixin/GUI。
+- 种类原生权重的幂次与归一化等级的指数倾斜分开配置；低 T、零 B 也保留每个合法候选全部合法等级。解析支持集、增益单调性和异常值边界均有测试；有限抽样只作补充。
+- 固定真实钻石剑、选项三、seed=20261016，T=1/3/5 × B=0/15，每组 100,000；另有纯 Java 合成池 3 组×100,000 并逐次重放验证。没有用随机客户端存档的 seed 作为模拟 seed。
+- T1/B0 首个多等级附魔恰为最高级 4.075%，T5/B0 为 37.796%；T1/B15 为 19.582%。首个原始权重<=2 的比例分别 21.848%、29.143%、27.093%。这些不是“锋利 V 总概率”，完整统计口径和逐等级表在 `ENCHANTING_BALANCE.md`。
+- 实际支持集从 in_enchanting_table 来，排除 treasure、curse 和可扩展 excluded_from_random 标签。非书物品检查 primary/support、组件与已有附魔；选择中检查所有已选附魔的双向互斥，无原版名称白名单。
+
+## 第二轮 · E / 游戏接入与正确性
+
+- 新的 MenuType 使用原版双槽/三选项/提示/青金石图标/书动画/背包交互和关闭归还机制；普通附魔台不变。原有静态模型文件未修改。T/B 动态标题为唯一视觉扩展。
+- controller 新增持久化 machine_tier，旧存档默认 1；配置控制默认值和上限。权限 2 命令 `/better_enchant tier <partPos> <tier>` 及 `/better_enchant reload` 可用于比较；只查已加载整机，不自动载入区块。
+- 每名玩家各自的槽和报价。完整结果只由服务器抽取并缓存；客户端同步费用、一个真实附魔提示、T/B、外观 seed 和报价版本。屏幕 5/15/30 是需要达到的等级，实际花 1/2/3 等级和青金石，tooltip 明确显示；创造免费。
+- 为避免上下文更新与网络到达间的旧点击误提交，补充 29 位版本+2 位选项的标准 button VarInt 编码，拆成两个 DataSlot 同步版本。版本不是抽取种子；成功、输入/书架/tier/配置/数据包变化后旧请求一律拒绝。最后实际提交重查物品、费用、合法池、互斥和机器 UUID/完整性。
+- 世界 SavedData 中保存私有盐，与玩家 UUID 和原版种子混合；不使用机器坐标/UUID重抽，同物品同上下文关闭/重开/拆装机器保持报价。成功更新原版玩家 seed；不把私有盐发客户端。
+- 源码核对发现新玩家未保存的 enchantmentSeed 可为 0，原版 load 会把 0 当哨兵重新生成。本轮客户端保存重进测试先捕获了预览变化错误，现首次报价前用原版零费用接口初始化哨兵，再验证玩家 seed、私有盐混合结果和报价在磁盘重进后均不变。
+- 数据包成功 reload 的 Fabric lifecycle 事件使候选缓存失效；重算仍使用原随机流，提交仍重查当前标签。事件失效与旧报价拒绝有服务端测试；并未动态加载一整个外部模组整合包。
+
+## 第二轮 · F / 确切命令与实际结果
+
+沿用第一轮独立 JDK 25.0.4.1+1、Gradle 9.7.1、Loom 1.18.4、Loader 0.19.5、API 0.155.3+26.1.2；没有升级/重写构建映射。版本号增至 0.2.0。
+
+```powershell
+$env:JAVA_HOME = (Resolve-Path '.tools/jdk-25.0.4.1+1').Path
+$env:Path = "$env:JAVA_HOME/bin;$env:Path"
+.\gradlew.bat build runGametest --console=plain
+.\gradlew.bat test --console=plain
+.\gradlew.bat runGametest --console=plain
+.\gradlew.bat clean build runGametest runClientGametest --console=plain
+# 之后补充数据包缓存失效、外观种子同步、费用 tooltip 验证，再跑最终命令：
+.\gradlew.bat build runGametest runClientGametest --console=plain
+```
+
+最终命令于 2026-10-16 14:39 完成，**BUILD SUCCESSFUL in 46s**。清理后的完整构建与客户端流程此前也成功，最终修改后重新执行所有相关检查：
+
+- JUnit：9 项通过（4 结构、5 概率/配置），包括极端合法参数无概率下溢、非法权重拒绝、种类/等级增益独立、兼容组合与确定性重放。
+- 真正 Minecraft 服务端：**14 项项目测试 + 1 项原版测试，15 项全部通过**。原 7 项结构/掉落/爆炸/存档回归；1 项实际注册表模拟；6 项菜单、费用、报价、多人、书架、命令、tier 存档和兼容性测试。
+- 真正 OpenGL 客户端：2 项官方 Fabric Client GameTest 都运行完成。保留原形成/保存重进/拆解；新增通过实际右击开界面、真实 container input 网络移动物品、真实鼠标点击选项、旧 button 网络包拒绝、T/B 实时同步、保存重进预览不变、40→37 经验等级、12→9 青金石、结果移回背包再保存重进仅一把带附魔剑。
+- 4 张新增 1280×720 截图逐张检查：`05-random-enchanting-offers`、`06-live-machine-tier`、`07-enchanted-item-result`、`08-enchanting-cost-tooltip`。最后一张实际显示提示附魔和 3 青金石/3 等级。不是生成图或 GUI 模拟。
+- 测试夹具额外注册一个带 enchantable 组件的物品和五个测试附魔；通过标签获得原版锋利及自定义合法附魔，拒绝 treasure/curse/显式禁用/不支持物品附魔。夹具只在 gametest sourceSet，发布 JAR 不包含。
+- 本轮没有额外手工操作普通 runClient；实际启动和操作由 runClientGametest 完成，未声称两台独立客户端手动联机测试。
+
+保留的问题与修复：
+
+1. 首次 screen 注册时泛型推断不接受 EnchantmentMenu 子类画面；按原版 MenuAccess<EnchantmentMenu> 显式注册工厂后编译成功，无反射或 Mixin。
+2. 测试夹具最初误用 enchantable/sword 标签；检查 26.1.2 游戏数据确认锋利 primary 为 enchantable/melee_weapon，改正夹具后通过，没有放宽生产适配规则。
+3. 客户端测试最初用了旧 ClickType/handleInventoryMouseClick 名称，编译失败；检查目标 JAR 后改为实际 ContainerInput/handleContainerInput，最终编译和网络测试通过。
+4. 首次真正保存重进失败暴露上述 0 seed 哨兵问题；修复后重复运行通过，未删除断言或用测试固定 seed 掩盖。
+5. clean 后 GameTest 首启日志含找不到 server.properties/eula.txt 的初始提示，Fabric 测试服务端随后正常创建并完成；官方 Client GameTest 仍含 Anisotropic Filtering=0 选项报错及开发身份 Realms 提示，无本模组异常或缺失模型错误。原始日志保留，不把日志无 ERROR 作为通过依据。
+
+证据：`docs/validation/phase2/` 包含本轮 baseline、最终全流程日志、两个 JUnit XML、GameTest XML、完整固定 seed 模拟输出。发布文件 `build/libs/better-enchant-0.2.0.jar`，SHA-256 `d3da74b17a248a136117561ddb0f064eec35a0d6822a0affaad02fd3f48eac7e`。
+
+仍需手动/后续验证：真实单侧 chunk 卸载恢复；两台独立客户端的延迟/断线压力；满背包关闭；常用保护/改菜单模组整合；所有物品种类与实际第三方大模组的玩法平衡；崩溃/断电跨区块一致性。双服务端玩家菜单测试已经通过，但不等于以上联机压力测试。正常存档、跨四区块客户端结构、seed/tier 和结果物品保存已实际测过。
+
+临时参数与未定机制全部在 `ENCHANTING_BALANCE.md`；没有实现指定模式、原创附魔、额外宝藏获取、升级材料、能源或新机器模型。使用原本 Git 作者/提交者，创建本地提交，不 push，不追加 AI trailer。

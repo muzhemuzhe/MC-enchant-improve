@@ -1,3 +1,5 @@
 {
-  "block.better_enchant.machine_part": "附魔机器部件（已组装）"
+  "block.better_enchant.machine_part": "附魔机器部件（已组装）",
+  "container.better_enchant.title": "随机附魔",
+  "container.better_enchant.status": "随机附魔 · 等级%s / 书架%s"
 }

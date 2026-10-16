@@ -1,3 +1,5 @@
 {
-  "block.better_enchant.machine_part": "Formed Enchanting Machine"
+  "block.better_enchant.machine_part": "Formed Enchanting Machine",
+  "container.better_enchant.title": "Better Enchant",
+  "container.better_enchant.status": "Enchanting | T%s B%s"
 }

@@ -1,0 +1,10 @@
+{
+  "values": [
+    "better_enchant_tests:probe",
+    "better_enchant_tests:treasure_probe",
+    "better_enchant_tests:curse_probe",
+    "better_enchant_tests:excluded_probe",
+    "better_enchant_tests:unsupported_probe"
+  ],
+  "replace": false
+}

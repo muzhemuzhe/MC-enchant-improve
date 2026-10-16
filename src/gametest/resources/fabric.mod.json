@@ -5,8 +5,9 @@
   "name": "Better Enchant Integration Tests",
   "environment": "*",
   "entrypoints": {
-    "fabric-gametest": ["dev.betterenchant.MachineGameTests"],
-    "fabric-client-gametest": ["dev.betterenchant.MachineClientGameTest"]
+    "main": ["dev.betterenchant.CompatibilityTestMod"],
+    "fabric-gametest": ["dev.betterenchant.MachineGameTests", "dev.betterenchant.EnchantingProbabilityGameTests", "dev.betterenchant.EnchantingMenuGameTests"],
+    "fabric-client-gametest": ["dev.betterenchant.MachineClientGameTest", "dev.betterenchant.EnchantingClientGameTest"]
   },
   "depends": { "better_enchant": "*", "fabric-gametest-api-v1": "*" }
 }

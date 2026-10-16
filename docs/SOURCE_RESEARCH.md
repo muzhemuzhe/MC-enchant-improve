@@ -57,3 +57,17 @@
 依赖源码模块：GameTest API `4.0.18+867b87624c`、Client GameTest API `5.1.0+0a5283664c`。客户端测试接口标记 experimental，仅用于开发验收。
 
 发现该游戏版本 GameTestHelper.relativePos() 使用 rotation+180 的转换，在本次未旋转模板中并不与 absolutePos() 互逆；掉落断言改为真实世界 AABB 查询，没有为适应测试修改掉落逻辑。临时教程与反编译源码仅保存在忽略目录 .tools/，不随源码提交。
+
+## 第二轮：随机附魔实际接口核对
+
+继续使用本地实际 26.1.2 依赖源码与 javap，并查阅 [26.1.2 Fabric Block Entities 文档](https://docs.fabricmc.net/26.1.2/develop/blocks/block-entities)。没有从 1.21 菜单示例移植实现。
+
+- `EnchantmentMenu`：原版双槽、三个 costs/clue、DataSlot 同步、quickMoveStack、removed/clearContainer；以子类最小替换报价和提交，使用自有 MenuType。注册工厂采用原版 MenuAccess<EnchantmentMenu> 泛型，画面复用 EnchantmentScreen。
+- `Enchantment.isPrimaryItem` 包含 supportedItems 判断；`Enchantment.areCompatible` 对两侧 exclusiveSet 检查。原版候选 getAvailableEnchantmentResults 按 getMinCost/getMaxCost 截断等级，因此没有直接调用它或提高 enchanting power 作为新模型。
+- 当前 `EnchantmentTags.IN_ENCHANTING_TABLE / TREASURE / CURSE` 和物品 `DataComponents.ENCHANTABLE`；书本原版例外保留。锋利的实际 JSON primary 为 `#minecraft:enchantable/melee_weapon`、supported 为 `#minecraft:enchantable/sharp_weapon`，非旧教程的 sword 标签。
+- `EnchantingTableBlock.BOOKSHELF_OFFSETS` 与 provider/transmitter 标签；自机通道处理另见 balance 文档。
+- `Player.onEnchantmentPerformed` 消耗等级并更新原版 seed；Player.loadAdditional 对 XpSeed=0 重新生成，必须处理新玩家首次存档的哨兵。
+- `SavedDataType` 接受 Identifier、Supplier、Codec；存储实际类型为 `SavedDataStorage`（不是旧版 DimensionDataStorage）。本轮 SavedData 保存私有盐，并在真实客户端退出/重进验证。
+- `ServerboundContainerButtonClickPacket` 的 buttonId 使用 VAR_INT，可编码报价版本；DataSlot 同步为短整数，版本拆低/高段再恢复。没有让客户端提交附魔 ID、等级或费用。
+- `MultiPlayerGameMode.handleContainerInput` / `ContainerInput.QUICK_MOVE` 是目标版真实物品移动接口；界面使用 `GuiGraphicsExtractor`、`extractLabels` 和 `MouseButtonEvent`，没有旧 renderBg/ClickType API。
+- `Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)` 是本版权限接口；Fabric `ServerLifecycleEvents.END_DATA_PACK_RELOAD` 在成功时使候选缓存失效。

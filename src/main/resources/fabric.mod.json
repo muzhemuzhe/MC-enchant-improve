@@ -3,9 +3,12 @@
   "id": "better_enchant",
   "version": "${version}",
   "name": "Better Enchant",
-  "description": "Reversible 3x3x2 enchanting machine prototype.",
+  "description": "Reversible 3x3x2 enchanting machine with configurable random enchanting.",
   "environment": "*",
-  "entrypoints": { "main": ["dev.betterenchant.BetterEnchant"] },
+  "entrypoints": {
+    "main": ["dev.betterenchant.BetterEnchant"],
+    "client": ["dev.betterenchant.client.BetterEnchantClient"]
+  },
   "depends": {
     "fabricloader": ">=0.19.5",
     "minecraft": "26.1.2",
