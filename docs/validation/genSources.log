@@ -1,0 +1,14 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :validateAccessWidener NO-SOURCE
+
+> Task :genSourcesWithVineflower
+Decompile cache stats: 6882 hits, 0 misses
+
+> Task :genSources
+
+BUILD SUCCESSFUL in 8s
+1 actionable task: 1 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.1/userguide/configuration_cache_enabling.html

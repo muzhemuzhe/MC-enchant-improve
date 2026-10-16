@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "better_enchant",
+  "version": "${version}",
+  "name": "Better Enchant",
+  "description": "Reversible 3x3x2 enchanting machine prototype.",
+  "environment": "*",
+  "entrypoints": { "main": ["dev.betterenchant.BetterEnchant"] },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "26.1.2",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}

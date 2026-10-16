@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "better_enchant_tests",
+  "version": "1.0.0",
+  "name": "Better Enchant Integration Tests",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-gametest": ["dev.betterenchant.MachineGameTests"],
+    "fabric-client-gametest": ["dev.betterenchant.MachineClientGameTest"]
+  },
+  "depends": { "better_enchant": "*", "fabric-gametest-api-v1": "*" }
+}

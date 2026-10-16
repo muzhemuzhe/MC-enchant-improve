@@ -1,0 +1,10 @@
+# Third-party materials
+
+- Build skeleton and Gradle wrapper files originated from the official [Fabric example mod, branch 26.1.2](https://github.com/FabricMC/fabric-example-mod/tree/26.1.2). Its CC0 text is in `licenses/Fabric-Example-CC0.txt`.
+- The Gradle wrapper is Gradle software, Copyright Gradle, Inc. and contributors, Apache License 2.0. See `licenses/Gradle-LICENSE.txt` and `licenses/Gradle-NOTICE.txt`. Gradle distributions are downloaded by the wrapper and are not bundled in the mod JAR.
+- Runtime dependencies are Fabric Loader (Apache-2.0) and Fabric API (Apache-2.0); build dependency Fabric Loom is MIT; test dependency JUnit 5 is EPL-2.0. These are resolved from their repositories, not shaded into this mod. Their original artifacts retain their notices. Sources: [Loader](https://github.com/FabricMC/fabric-loader), [API](https://github.com/FabricMC/fabric), [Loom](https://github.com/FabricMC/fabric-loom), [JUnit](https://github.com/junit-team/junit-framework).
+- Development uses Eclipse Temurin / OpenJDK 25 (GPLv2 with Classpath Exception), downloaded separately into ignored `.tools/`; it is not redistributed with this repository or mod.
+- All machine geometry and gameplay implementation are original to this project. Models reference Minecraft textures by identifier. No Minecraft texture files, game JARs or decompiled game sources are included in the repository or mod.
+- Immersive Engineering and Meridian remain architectural references in the supplied design notes. No code, model, texture or runtime dependency from either project was copied into this implementation.
+
+This file describes third-party materials; it does not assign a license to the project's own code.
