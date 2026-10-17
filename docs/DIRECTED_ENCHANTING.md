@@ -1,6 +1,6 @@
 # 第四轮指定附魔原型
 
-铭纹石：**Runic Stone / 铭纹石 / `better_enchant:runic_stone`**。默认堆叠64，暂用 RARE 名称颜色和原创16×16石片/刻纹图；不代表最终掉落概率与经济。通过创造材料栏或 `/give @s better_enchant:runic_stone 5` 取得。本轮没有配方、遗迹或要塞战利品注入。
+铭纹石：**Runic Stone / 铭纹石 / `differentenchant:runic_stone`**。默认堆叠64，暂用 RARE 名称颜色和原创16×16石片/刻纹图；不代表最终掉落概率与经济。通过创造材料栏或 `/give @s differentenchant:runic_stone 5` 取得。本轮没有配方、遗迹或要塞战利品注入。
 
 ## 操作
 
@@ -29,7 +29,7 @@ batch = 所有计划步骤 step 之和
 实际扣除 batch 个等级及步骤数颗铭纹石；不检查扣后剩余30级
 ```
 
-`config/better_enchant.properties` 新字段（旧配置缺少时采用同样默认值，使用原管理员 `/better_enchant reload`）：
+`config/differentenchant.properties` 新字段（旧配置缺少时采用同样默认值，使用原管理员 `/differentenchant reload`）：
 
 |字段|临时默认|
 |---|---|
@@ -46,7 +46,7 @@ batch = 所有计划步骤 step 之和
 
 ## 合法性、同步与提交
 
-- `DirectedCandidates` 使用完整动态注册表及 `isSupportedItem`，不使用固定原版列表或随机 `IN_ENCHANTING_TABLE` 筛选。保留原版存储组件约束，因此支持已有附魔、盾牌等不能在随机桌附魔的装备；不扩大注册表声明的适配。专用禁用标签为 `better_enchant:excluded_from_directed`。
+- `DirectedCandidates` 使用完整动态注册表及 `isSupportedItem`，不使用固定原版列表或随机 `IN_ENCHANTING_TABLE` 筛选。保留原版存储组件约束，因此支持已有附魔、盾牌等不能在随机桌附魔的装备；不扩大注册表声明的适配。专用禁用标签为 `differentenchant:excluded_from_directed`。
 - 默认过滤 TREASURE、CURSE 及禁用标签；已有这些附魔不会被删除。候选及原附魔、规划之间均查原版双向 exclusive_set。已有非法组合拒绝继续规划，不清理或“修复”原物品。
 - `DirectedEnchantPolicy` 无 Minecraft 依赖；按有序步骤计算目标与逐步费用。`DirectedSession` 为每名玩家的当前菜单维护规划与全局单调64位版本，重放加号和最终操作均拒绝。
 - S2C 快照带容器、随机报价上下文版本、规划版本、输入及材料副本、实际总费用、服务端可用标记、完整合法候选行。名称由客户端同步注册表解析。C2S 只有动作、候选 ID 和版本，没有客户端目标、费用或结果物品。
@@ -56,7 +56,7 @@ batch = 所有计划步骤 step 之和
 
 ## 资源与截图
 
-- 新物品定义 `assets/better_enchant/items/runic_stone.json`、`models/item/runic_stone.json`、`textures/item/runic_stone.png`。
+- 新物品定义 `assets/differentenchant/items/runic_stone.json`、`models/item/runic_stone.json`、`textures/item/runic_stone.png`。
 - 程序生成源 `tools/generate-runic-stone.ps1`，使用 System.Drawing 绘制原创像素，不复制第三方纹理。
 - 原版 GUI 底板、书本、字体、按钮继续运行时引用，没有更改机器模型。
 

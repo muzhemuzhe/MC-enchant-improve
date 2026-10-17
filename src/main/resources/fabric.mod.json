@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "id": "better_enchant",
+  "id": "differentenchant",
   "version": "${version}",
-  "name": "Better Enchant",
+  "name": "Differentenchant",
   "description": "Reversible 3x3x2 enchanting machine with server-authoritative random and directed enchanting.",
   "environment": "*",
   "entrypoints": {
-    "main": ["dev.betterenchant.BetterEnchant"],
-    "client": ["dev.betterenchant.client.BetterEnchantClient"]
+    "main": ["dev.differentenchant.DifferentEnchant"],
+    "client": ["dev.differentenchant.client.DifferentEnchantClient"]
   },
   "depends": {
     "fabricloader": ">=0.19.5",

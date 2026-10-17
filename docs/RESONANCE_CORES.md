@@ -4,7 +4,7 @@
 
 ## 合成与物品
 
-`better_enchant:resonance_core`（共鸣核心 / Resonance Core）最大堆叠1，初始能量0。原生3×3有序配方：
+`differentenchant:resonance_core`（共鸣核心 / Resonance Core）最大堆叠1，初始能量0。原生3×3有序配方：
 
 ```text
 C A C
@@ -14,7 +14,7 @@ C A C
 
 C是铁锭，A是普通书或任意附魔书，L是青金石块。四个书位可自由混用，不限制附魔书的附魔种类、等级或条数。原生Ingredient集合只匹配物品ID；正常消耗四铁锭、四书、一青金石块，产出一个无充能核心，不转移书的附魔。
 
-`better_enchant:attuned_resonance_core`（谐调的共鸣核心 / Attuned Resonance Core）没有直接配方，无额外状态时堆叠64。创造材料栏提供两者，亦可用 `/give @s better_enchant:resonance_core` 测试。贴图为 `tools/generate-resonance-cores.ps1` 生成的原创16×16像素：普通核心铁框深蓝晶体，谐调核心金色框与亮青晶体；不改整机模型。
+`differentenchant:attuned_resonance_core`（谐调的共鸣核心 / Attuned Resonance Core）没有直接配方，无额外状态时堆叠64。创造材料栏提供两者，亦可用 `/give @s differentenchant:resonance_core` 测试。贴图为 `tools/generate-resonance-cores.ps1` 生成的原创16×16像素：普通核心铁框深蓝晶体，谐调核心金色框与亮青晶体；不改整机模型。
 
 ## 收集与升级
 
@@ -28,7 +28,7 @@ C是铁锭，A是普通书或任意附魔书，L是青金石块。四个书位�
 
 控制器独占一个SimpleContainer持久槽，菜单尾部追加核心槽38。原装备/材料槽0/1及玩家槽2..37编号和坐标不变；核心位于背包左侧预留留白，和独立小进度条0/12..12/12组成一列。两种模式共用核心槽，无新页签。物品悬停在机器或原版容器中均显示真实组件能量/成品说明，中英文均提供。GUI只读原生菜单同步后的ItemStack，不发送客户端充能或升级指令。
 
-`better_enchant:resonance_energy` 是注册的Integer数据组件，具有持久Codec和网络StreamCodec。充能替换物品副本并标记控制器保存；转化用transmuteCopy并只移除本组件，保留无关组件。控制器 `resonance_core` 字段用ItemStack.OPTIONAL_CODEC存储，旧存档无字段按空槽加载。只有控制器保存核心，17个从属部件不复制它。
+`differentenchant:resonance_energy` 是注册的Integer数据组件，具有持久Codec和网络StreamCodec。充能替换物品副本并标记控制器保存；转化用transmuteCopy并只移除本组件，保留无关组件。控制器 `resonance_core` 字段用ItemStack.OPTIONAL_CODEC存储，旧存档无字段按空槽加载。只有控制器保存核心，17个从属部件不复制它。
 
 核心是共享机器库存，装备/材料和指定计划仍归各菜单。服务器线程串行处理多个玩家取放和附魔；每次成功只更新当时安装的物品。关闭/断线仅返还原临时槽与鼠标持物，不返还安装的核心。Shift转移显式区分核心38与玩家2..37，安装槽最大1，支持成品从堆叠中取一枚安装。菜单失效后不允许通过旧核心槽取放。
 

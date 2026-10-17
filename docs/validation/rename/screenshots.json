@@ -1,0 +1,38 @@
+[
+  {
+    "file": "01-formed-machine.png",
+    "sha256": "7adefc4f95a319e732459bf4e7fcd559224682e307341823f52963a487640b12"
+  },
+  {
+    "file": "02-random-en.png",
+    "sha256": "0bef00f20c95900f61564344cdcb346795996ac248b3d1b8d59b07338803604b"
+  },
+  {
+    "file": "03-random-core-zero-zh.png",
+    "sha256": "04e1c4e6223af8acae41bc61f0c50ce637737e1a8b64f4f1c5a98846684f1967"
+  },
+  {
+    "file": "04-core-mid-zh.png",
+    "sha256": "6cdde0ededf3a2c1910fe83419c643d0e2e3d5c3c727e2e4e8019bd96833dee4"
+  },
+  {
+    "file": "05-core-full-tier2-zh.png",
+    "sha256": "a0e97ce53935869d22dc69a24a9d0a05b988737e84d0a21a90252feb3c19a000"
+  },
+  {
+    "file": "06-directed-en.png",
+    "sha256": "2b6e9cf7cefee6303db6e38a08b19246b57f47081a5ae43d97404d870ba3cee4"
+  },
+  {
+    "file": "07-attuned-item-zh.png",
+    "sha256": "0b5fb3fb6257e30125f9a09a8e0007bf24f2989d46d87a26e8c07ba33e727ef3"
+  },
+  {
+    "file": "08-saved-reloaded-tier2-en.png",
+    "sha256": "be88577427d645b5b11d611e31c635f3e15aed73a1827ff38f332186ed3ccd19"
+  },
+  {
+    "file": "09-chunk-reloaded-core-en.png",
+    "sha256": "27bea6d7634d6d30dd5e61931ef439e42fcb45f7dbeb020519c5f336e1b45d29"
+  }
+]

@@ -364,3 +364,23 @@ GUI在背包左侧留白布置独立槽、小进度条和数值；随机/指定�
 真实OpenGL客户端完整0→3→6、关闭/磁盘重进/跨机转移仍6、9→11→12升级2、指定批量再次成品仍2、实际存档重进、两个成品正常堆叠、控制器区块实际卸载(getChunkNow=null)/返回和拆解单份7点核心均通过。7点卸载夹具明确由服务器注入，仅测持久库存；此前升级由实际随机支付完成。截图23张在docs/screenshots/resonance，含中英文物品tooltip、可用随机选项0/6/11、升级成品和指定重复产出。
 
 尚未覆盖两台独立客户端高延迟/断网、完整整合包、单侧区块长时间缺失时序及强制崩溃一致性；没有把服务器双玩家或编译当作这些实测。实现细节见 [RESONANCE_CORES.md](RESONANCE_CORES.md)。只追加现有Git身份本地提交，保留先前两个未推送提交，不push，不实现研究台、Lv.3+、祛魔或新维度。
+
+## 2026-10-17 · 正式重命名 / 实施前
+
+从本地ce00558开始，工作区干净，main比origin/main领先3个提交（共鸣核心、原版独立台禁用、36架）；不reset或回退。现有origin为ssh://git@ssh.github.com:443/muzhemuzhe/MC-enchant-improve.git，按用户要求保持仓库及remote原样。此次仅命名迁移：展示Differentenchant、ID/资源differentenchant、包dev.differentenchant、入口DifferentEnchant/ DifferentEnchantClient、配置differentenchant.properties及产物differentenchant-0.5.0.jar。不改变业务计算、GUI几何、12点容量、30级门槛、模型或碰撞。
+
+必要路径迁移包括三个Java源集、资源/数据目录、测试夹具及配置默认资源。历史DEVLOG正文、validation原日志/测试XML、截图、prompts和官方接口研究保留，避免篡改历史；当前安装说明与功能设计文档更新。无需旧注册ID/旧配置迁移，不加别名或数据修复。清理生成构建目录以防旧类/资源混包，旧发布JAR及开发配置先归档在忽略的.tools/rename-backup内，不保留在发布目录或当前config中。用户已明确要求本次完成后push，使用原Git身份提交并推送现有远程。
+
+## 2026-10-17 · 正式重命名完成 · Differentenchant 0.5.0
+
+生产、单元、GameTest三个源集改为dev.differentenchant，入口DifferentEnchant与DifferentEnchantClient。Fabric/Loom ID、assets/data、注册物品/方块/BlockEntity/Menu、翻译键、三个Payload、世界私盐SavedData、能量组件、标签、配方、命令、配置及模型/物品引用统一differentenchant；自有兼容性夹具统一differentenchant_tests。根项目、archive及group更新，运行JAR为differentenchant-0.5.0.jar。原版minecraft和外部第三方标识/许可未更改。
+
+改名前 `.\gradlew.bat build runGametest --console=plain` 16s通过。改名后 `.\gradlew.bat clean build runGametest runClientGametest --console=plain` 2m28s通过，**25单元、40服务端（39项目+1原版）、6真实OpenGL客户端入口**全部完成。新增命名GameTest核对加载器元数据、每类注册ID、Payload、SavedData、新配置实际文件及全量设置；真实客户端中英文均断言Differentenchant标题及新命名空间资源存在。
+
+实际重新创建世界，形成/拆解、随机/指定收费与真实预览、36架动态更新、铭纹石、核心16配方组合和成功充能/转化/仅升2、保存磁盘退出重进、等级/核心状态与跨机转移、完整区块卸载/返回均回归。界面/字体/布局不动，命名后的真实截图9张见docs/screenshots/rename。没有把旧存档“不兼容”当作跳过新世界持久化验证的理由。
+
+64份生产文件逐项对照ce00558并规范化允许的命名替换，额外业务差异0；3张PNG blob不变。JAR条目及class/JSON/properties无旧标识，元数据/入口正确，不含测试模组。27×100,000模拟的28份输出与改名前SHA-256相同。旧发布JAR均归档而非留在build/libs，两个当前测试config目录都只生成differentenchant.properties。核心容量保持原先固定12，没有编造旧版本并不存在的容量配置或改变费用。当前README同步更正“无共享库存/无生存升级”的过时文字。
+
+日志包含clean首次运行的原生server.properties/eula默认文件提示，以及既有客户端各向异性选项/离线Realms认证提示；未发现模组缺模型、缺贴图、注册冲突、旧类加载或网络ID错误，未为隐藏日志而修改游戏。详见 [RENAMING.md](RENAMING.md)、[测试与审计](validation/rename/README.md)。历史DEVLOG、旧任务书、旧validation与截图保持原文；本机checkout文件夹及忽略缓存也不影响新运行标识。高延迟双独立客户端/整合包边界不冒充实测。
+
+git ls-remote确认原main仍356b859；origin保持ssh://git@ssh.github.com:443/muzhemuzhe/MC-enchant-improve.git。使用原muzhemuzhe身份正常追加提交，不改历史，无额外署名，按本轮明确授权推送当前main（包含先前保留的三个本地提交）。不实施任何后续玩法。

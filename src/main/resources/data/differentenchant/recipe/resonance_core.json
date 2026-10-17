@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["CAC", "ALA", "CAC"],
+  "key": {
+    "C": "minecraft:iron_ingot",
+    "A": ["minecraft:book", "minecraft:enchanted_book"],
+    "L": "minecraft:lapis_block"
+  },
+  "result": {"id": "differentenchant:resonance_core", "count": 1}
+}

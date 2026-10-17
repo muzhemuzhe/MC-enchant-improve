@@ -1,0 +1,21 @@
+{
+  "supported_items": "differentenchant_tests:preview_tool",
+  "weight": 3,
+  "description": {
+    "text": "Archive 2 — A deliberately long third party enchantment name for checking wrapped registry descriptions, complete results and scrolling tooltips in a small Minecraft window without losing any part of this test enchantment's displayed name"
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "max_level": 4,
+  "anvil_cost": 1,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 0
+  },
+  "max_cost": {
+    "base": 99,
+    "per_level_above_first": 0
+  },
+  "effects": {}
+}

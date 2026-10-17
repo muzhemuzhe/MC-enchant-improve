@@ -28,8 +28,8 @@ foreach($attuned in @($false,$true)) {
     }}
     $rune=if($attuned){[Drawing.Color]::FromArgb(255,239,255,219)}else{[Drawing.Color]::FromArgb(255,126,160,197)}
     foreach($pixel in @(@(7,5),@(8,5),@(6,6),@(9,6),@(7,7),@(8,7),@(7,8),@(8,8),@(6,9),@(9,9))) {$bitmap.SetPixel($pixel[0],$pixel[1],$rune)}
-    $bitmap.Save((Join-Path $PSScriptRoot "../src/main/resources/assets/better_enchant/textures/item/$name.png"),[Drawing.Imaging.ImageFormat]::Png)
+    $bitmap.Save((Join-Path $PSScriptRoot "../src/main/resources/assets/differentenchant/textures/item/$name.png"),[Drawing.Imaging.ImageFormat]::Png)
     $bitmap.Dispose()
-    Set-Content -LiteralPath (Join-Path $PSScriptRoot "../src/main/resources/assets/better_enchant/items/$name.json") -Encoding utf8 -Value ('{"model":{"type":"minecraft:model","model":"better_enchant:item/'+$name+'"}}')
-    Set-Content -LiteralPath (Join-Path $PSScriptRoot "../src/main/resources/assets/better_enchant/models/item/$name.json") -Encoding utf8 -Value ('{"parent":"minecraft:item/generated","textures":{"layer0":"better_enchant:item/'+$name+'"}}')
+    Set-Content -LiteralPath (Join-Path $PSScriptRoot "../src/main/resources/assets/differentenchant/items/$name.json") -Encoding utf8 -Value ('{"model":{"type":"minecraft:model","model":"differentenchant:item/'+$name+'"}}')
+    Set-Content -LiteralPath (Join-Path $PSScriptRoot "../src/main/resources/assets/differentenchant/models/item/$name.json") -Encoding utf8 -Value ('{"parent":"minecraft:item/generated","textures":{"layer0":"differentenchant:item/'+$name+'"}}')
 }

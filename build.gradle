@@ -2,6 +2,8 @@ plugins {
     id 'net.fabricmc.fabric-loom' version "${loom_version}"
 }
 
+base { archivesName = 'differentenchant' }
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     implementation "net.fabricmc:fabric-loader:${loader_version}"
@@ -34,13 +36,13 @@ configurations {
 }
 loom {
     mods {
-        better_enchant { sourceSet sourceSets.main }
-        better_enchant_tests { sourceSet sourceSets.gametest }
+        differentenchant { sourceSet sourceSets.main }
+        differentenchant_tests { sourceSet sourceSets.gametest }
     }
     runs {
         gametest {
             server()
-            name 'Better Enchant GameTest'
+            name 'Differentenchant GameTest'
             source sourceSets.gametest
             vmArg '-Dfabric-api.gametest'
             vmArg "-Dfabric-api.gametest.report-file=${layout.buildDirectory.get()}/gametest-results.xml"
@@ -48,7 +50,7 @@ loom {
         }
         clientGametest {
             client()
-            name 'Better Enchant Client GameTest'
+            name 'Differentenchant Client GameTest'
             source sourceSets.gametest
             vmArg '-Dfabric.client.gametest'
             runDir 'build/client-gametest'

@@ -30,7 +30,7 @@
 - `minecraft:container/enchanting_table/level_1..3` 和 disabled 版本：青金石/等级选项图标。右侧数字仍是需要达到的等级。
 - `minecraft:textures/entity/enchantment/enchanting_table_book.png`、原版 BOOK 模型及 `EnchantmentNames`：纸页书本与符文。书本开合纯客户端装饰，不消耗抽取随机数。
 
-主要文件：`client/MachineEnchantmentScreen.java`、`client/BetterEnchantClient.java`、`enchanting/MachineGuiLayout.java`、`enchanting/PreviewPolicy.java`、`enchanting/EnchantingPreviewPayload.java`、`enchanting/MachineEnchantmentMenu.java`，均位于 `src/main/java/dev/betterenchant/`；翻译在 `src/main/resources/assets/better_enchant/lang/en_us.json` 和 `zh_cn.json`。
+主要文件：`client/MachineEnchantmentScreen.java`、`client/DifferentEnchantClient.java`、`enchanting/MachineGuiLayout.java`、`enchanting/PreviewPolicy.java`、`enchanting/EnchantingPreviewPayload.java`、`enchanting/MachineEnchantmentMenu.java`，均位于 `src/main/java/dev/differentenchant/`；翻译在 `src/main/resources/assets/differentenchant/lang/en_us.json` 和 `zh_cn.json`。
 
 ## 预览与种子同步
 

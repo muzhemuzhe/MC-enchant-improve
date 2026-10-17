@@ -1,0 +1,61 @@
+{
+  "version": "0.5.0",
+  "mod_id": "differentenchant",
+  "display_name": "Differentenchant",
+  "minecraft": "26.1.2",
+  "java": 25,
+  "base_commit": "ce0055855e039c23dae78d507fa0fce5b079adc4",
+  "unit_suites": [
+    {
+      "name": "dev.differentenchant.enchanting.BookshelfScanTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.differentenchant.enchanting.DirectedEnchantPolicyTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.differentenchant.enchanting.PreviewPolicyTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.differentenchant.enchanting.RandomEnchantPolicyTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.differentenchant.resonance.ResonancePolicyTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.differentenchant.structure.StructureValidatorTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    }
+  ],
+  "unit_tests": 25,
+  "server_tests": 40,
+  "server_failures": 0,
+  "client_entrypoints": 6,
+  "full_command": ".\\gradlew.bat clean build runGametest runClientGametest --console=plain",
+  "full_result": "BUILD SUCCESSFUL in 2m 28s",
+  "fresh_world_disk_persistence": true,
+  "actual_chunk_unload_reload": true,
+  "chinese_english_new_title": true,
+  "new_namespace_resources_verified": true,
+  "screenshot_count": 9,
+  "jar": "build/libs/differentenchant-0.5.0.jar",
+  "jar_sha256": "1b49f15b76dab1a2e2acc25e901c5efb85f5a8a045c5d98cebf1f37051a232e9",
+  "origin": "ssh://git@ssh.github.com:443/muzhemuzhe/MC-enchant-improve.git",
+  "origin_unchanged": true
+}

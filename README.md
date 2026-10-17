@@ -1,8 +1,8 @@
-# Better Enchant · 第五轮共鸣核心与 Lv.2 原型
+# Differentenchant · 随机 / 指定附魔与共鸣核心
 
 Minecraft Java **26.1.2 / Fabric / JDK 25**。原版材料搭建的 3×3×2 机器提供装备/材料输入、三选项随机附魔、铭纹石指定升级及独立共鸣核心槽。机器等级与有效书架分别改善概率，一级、零书架也保留所有合法高级结果的非零机会。没有原创附魔、遗迹生成或默认额外宝藏来源。
 
-![真实客户端中的形成态](docs/screenshots/02-formed-machine.png)
+![真实客户端中的形成态](docs/screenshots/rename/01-formed-machine.png)
 
 ## 构建与启动
 
@@ -17,7 +17,9 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/better-enchant-0.5.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.5.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+
+正式 Mod ID 与资源命名空间均为 **`differentenchant`**，Java 包为 `dev.differentenchant`。本次更换注册 ID，请使用**新建世界**；不迁移旧测试世界，也不读取旧名配置。首次启动生成 `config/differentenchant.properties`，全部已有选项及默认数值保留；核心容量仍固定12点，没有新增容量配置。[重命名范围、测试及截图](docs/RENAMING.md)。GitHub仓库和remote不随模组名称修改。
 
 ## 共鸣核心与升级
 
@@ -27,11 +29,11 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 
 核心可中途取出、转移机器；关闭界面仍安装在机器内，存档/区块加载保存能量和机器等级。拆解时安装核心只掉落一次。没有核心时附魔正常，不积攒历史能量；创造模式、预览、规划和失败不充能。
 
-创造材料栏或 `/give @s better_enchant:resonance_core` / `/give @s better_enchant:attuned_resonance_core` 可测试。[核心规则、存档与同步](docs/RESONANCE_CORES.md) · [本轮验证](docs/validation/resonance/README.md)。没有研究台、Lv.3升级、新遗迹或祛魔实现。
+创造材料栏或 `/give @s differentenchant:resonance_core` / `/give @s differentenchant:attuned_resonance_core` 可测试。[核心规则、存档与同步](docs/RESONANCE_CORES.md) · [本轮验证](docs/validation/resonance/README.md)。没有研究台、Lv.3升级、新遗迹或祛魔实现。
 
 ## 指定附魔操作
 
-1. 从创造材料栏取得铭纹石，或使用 `/give @s better_enchant:runic_stone 5`；本轮没有普通合成配方。
+1. 从创造材料栏取得铭纹石，或使用 `/give @s differentenchant:runic_stone 5`；本轮没有普通合成配方。
 2. 打开已组装机器，选择 Directed / 指定附魔，放入装备和铭纹石（复用原青金石槽，不会自动转换材料）。
 3. 滚轮浏览合法列表，`+` 分配一步，`−` 取消一步；已有附魔可逐级升级，新附魔从 I 开始。五颗最多五步，可同时计划多种兼容附魔。
 4. 查看实际总消耗，点击 **Enchant / 附魔** 才统一提交。每步消耗一颗和5–8经验等级；现有服务端仍要求达到30级且足够支付合计，扣后不要求剩余30级。界面已按修正要求去掉门槛提示。
@@ -47,7 +49,7 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 2. 放入一件未附魔装备或普通书，以及青金石。有效书架可以为 0。标题边显示机器等级，输入槽下方显示有效书架数；变化时实时同步。
 3. 三选项默认分别要求玩家达到 **5 / 15 / 30 级**，选项区分等级要求与实际扣费，悬停显示完整已揭示结果和费用；点击后实际扣除 **1 / 2 / 3 个经验等级及青金石**，与原版操作习惯一致。Lv.1/2 揭示 1 条，Lv.3/4 最多 2 条，Lv.5 全部；??? 表示真实存在的隐藏附魔。长名称和多条结果可在悬停提示中滚轮查看。点击提交同一份服务端结果。指定页签已在第四轮启用；随机模式的规则与概率不变。
 4. 取回结果；书会转为附魔书。成功后才更新随机种子。取出放回相同物品、关闭重开或正常保存重进不会独立重抽。已经附魔的物品不再接受附魔。
-5. 关闭、离开或机器拆解导致菜单失效时，暂存槽物品按原版容器规则返还；满背包时可能掉落在玩家旁边。机器中没有共享库存。
+5. 关闭、离开或机器拆解导致菜单失效时，装备/材料暂存槽物品按原版容器规则返还；满背包时可能掉落在玩家旁边。核心槽为机器共享持久库存，关闭不返还，拆解仅掉落一次。
 
 书架检测以整台机器为基准：水平7×7排除机器3×3占地，上下对应机器本体两层（相对上层中央控制器y=-1/0），共有80个可能位置。第一圈可紧贴，第二圈也有效，不要求空气通道或固定图案。使用原版 `enchantment_power_provider` 方块标签识别正常注册的模组书架，只读取已加载区块。有效数量与加成最多36；界面显示 `B/36`，超过36无额外收益。默认0..15保留基础增益，16..36继续以递减边际收益改善概率；旧配置 `bookshelf_scale=15` 不会使收益停在15。
 
@@ -56,13 +58,13 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 管理员开发命令（权限等级 2）：
 
 ```text
-/better_enchant tier <任一已加载部件x> <y> <z> <等级1..5>
-/better_enchant reload
+/differentenchant tier <任一已加载部件x> <y> <z> <等级1..5>
+/differentenchant reload
 ```
 
-示例 `/better_enchant tier 0 65 0 3`。默认机器为 1 级，最高测试级 5；等级正常存档，但拆解重建回到配置默认级。本轮不实现生存升级。首次启动生成游戏目录内的 `config/better_enchant.properties`，可分别配置种类稀有度、附魔等级、多重次数、书架增益和显示等级要求；reload 失败保持旧配置。完整公式、临时参数与每组 100,000 次的实测数据见 [ENCHANTING_BALANCE](docs/ENCHANTING_BALANCE.md)。
+示例 `/differentenchant tier 0 65 0 3`。默认机器为 1 级，最高测试级 5；等级正常存档，但拆解重建回到配置默认级。生存Lv.1→Lv.2通过共鸣核心完成。首次启动生成游戏目录内的 `config/differentenchant.properties`，可分别配置种类稀有度、附魔等级、多重次数、书架增益和显示等级要求；reload 失败保持旧配置。完整公式、临时参数与每组 100,000 次的实测数据见 [ENCHANTING_BALANCE](docs/ENCHANTING_BALANCE.md)。
 
-![实际客户端的随机附魔界面](docs/screenshots/phase3/05-random-enchanting-offers.png)
+![实际客户端的随机附魔界面](docs/screenshots/rename/03-random-core-zero-zh.png)
 
 界面以原版米灰底板、棕色符文选项、绿色等级数字与书本为主；只有悬停才显示真实附魔。底部采用原版凹槽，不带独立装饰框。 [视觉修正与新旧截图对比](docs/GUI_PREVIEW.md)。
 
@@ -109,10 +111,10 @@ D=磨制深板岩，A=紫水晶块，O=黑曜石，E=附魔台。两层全部填
 .\gradlew.bat runClientGametest
 ```
 
-- `build`：成功，22项JUnit（4结构、7随机概率/配置、3书架扫描、2预览/布局、6指定策略）通过，含逐架严格正概率改善、旧配置新后段、36后确定性封顶与未加载读取防护。
-- 服务端：30项本项目GameTest + 1项原版。原有结构、附魔和书架回归保留；新增真实右击入口拦截、双手/持物、成功/失败组装、恢复后的禁用、原版配方/放置/潜行邻接放置/采集掉落和铁砧/砂轮菜单。
+- `build`：成功，25项JUnit（4结构、7随机概率/配置、3书架扫描、2预览/布局、6指定策略、3核心策略）通过，含逐架严格正概率改善、36后封顶、未加载读取防护及12点充能边界。
+- 服务端：39项本项目GameTest + 1项原版。结构、附魔、书架、原版台禁用、核心配方/支付/转化/共享库存/拆解均回归；新增规范Mod ID、所有注册类别、Payload、SavedData和新配置的检查。
 - 模拟：固定钻石剑注册池，T=1/3/5 × B=0/1/15/16/32/35/36/37/80，27组×100,000，共2,700,000次；0/15的6份逐级输出与0.4.1一致，36/37/80逐项相同。另有纯Java合成池3组×100,000并重复重放。
-- 客户端：五个官方Client GameTest在真实26.1.2 OpenGL客户端运行。原结构、随机和指定四项完整回归保留；新增正常开口式双层书架布局，上下各18架，覆盖实际贴边与第二圈。真实网络验证15/16/35/36数量、37物理架仍有效36、上下层拆放后的新报价、旧点击拒绝、回到原布局恢复同结果、实际附魔与预览及费用一致；保存重进机器与书架仍在，拆解不动外部书架。测试机器位于x/z=0，跨四个区块。
+- 客户端：六个官方Client GameTest在真实26.1.2 OpenGL客户端运行。结构、随机/指定、36架上下层/两圈、支付和真实预览回归；核心0→12、升级Lv.2与重复生产、跨机转移、磁盘保存重进和实际区块卸载/返回通过。中英文实际显示Differentenchant，新命名空间物品/18段模型/语言资源存在。最新命令、日志及截图见 [本次验证](docs/validation/rename/README.md)。
 - 普通 `runClient` 在第一轮已启动。本轮使用 `runClientGametest` 执行上述实际游戏测试；未声称人工手动鼠标验收或两台独立客户端联机。
 
 0.4.3还在真实客户端验证创造、生存、旁观者普通右击、失败组装、存档后拆解恢复和生存重新组装；监听原版EnchantmentScreen初始化，确认没有短暂闪开，并发送无菜单按钮请求确认服务端不扣费。机器随机与指定完整客户端流程仍通过。截图和日志见 `docs/validation/standalone-table/`。

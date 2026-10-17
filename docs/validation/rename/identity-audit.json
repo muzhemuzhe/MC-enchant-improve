@@ -1,0 +1,11 @@
+{
+  "base_commit": "ce0055855e039c23dae78d507fa0fce5b079adc4",
+  "production_files_compared": 64,
+  "non_naming_production_changes": [],
+  "unchanged_texture_files": 3,
+  "old_jar_entries": 0,
+  "old_jar_symbols": 0,
+  "release_excludes_tests": true,
+  "probability_outputs_unchanged": 28,
+  "jar_sha256": "1b49f15b76dab1a2e2acc25e901c5efb85f5a8a045c5d98cebf1f37051a232e9"
+}

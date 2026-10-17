@@ -42,8 +42,8 @@
 
 ## 文件与验证
 
-- `src/main/java/dev/betterenchant/client/MachineEnchantmentScreen.java`：随机状态、池项、最终等级、按钮与有限 tooltip。
-- `src/main/resources/assets/better_enchant/lang/{en_us,zh_cn}.json`：实际费用、资源不足与简短长名称提示。
+- `src/main/java/dev/differentenchant/client/MachineEnchantmentScreen.java`：随机状态、池项、最终等级、按钮与有限 tooltip。
+- `src/main/resources/assets/differentenchant/lang/{en_us,zh_cn}.json`：实际费用、资源不足与简短长名称提示。
 - 三个已有附魔客户端测试：新增实际加减标签断言、预算禁用点击与恢复断言、正常与不足状态截图。服务端与概率实现未修改。
 - 版本0.4.1；截图为真实26.1.2 OpenGL客户端测试输出，无合成截图。命令、结果与范围见 DEVLOG 和 `docs/validation/ui-polish/`。
 

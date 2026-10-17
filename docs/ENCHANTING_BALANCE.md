@@ -12,7 +12,7 @@
 
 ## 合法候选支持集
 
-原始池来自 `minecraft:in_enchanting_table`，额外排除 `minecraft:treasure`、`minecraft:curse` 和 `better_enchant:excluded_from_random`。本轮配置不能打开额外宝藏或诅咒。物品需要原版 ENCHANTABLE 组件、空 ENCHANTMENTS、数量为 1。非书物品使用附魔的 `isPrimaryItem`（包含 supported_items 和 primary_items 判断）；普通书按原版可存储池内附魔，结果转为附魔书。已经附魔的装备/附魔书不再次附魔。
+原始池来自 `minecraft:in_enchanting_table`，额外排除 `minecraft:treasure`、`minecraft:curse` 和 `differentenchant:excluded_from_random`。本轮配置不能打开额外宝藏或诅咒。物品需要原版 ENCHANTABLE 组件、空 ENCHANTMENTS、数量为 1。非书物品使用附魔的 `isPrimaryItem`（包含 supported_items 和 primary_items 判断）；普通书按原版可存储池内附魔，结果转为附魔书。已经附魔的装备/附魔书不再次附魔。
 
 不使用附魔名称白名单，也不通过 `getMinCost/getMaxCost` 筛选附魔等级。每个合法候选保留注册定义的所有 `minLevel..maxLevel`；这些 cost 字段在此不再充当等级获取门槛。注册数据的物品适配、最大等级和 exclusive_set 仍有效。其他模组需要按数据约定将附魔加入 table tag、给物品适当组件/标签，才参与抽取；不会无条件开放它们刻意排除的附魔。
 
@@ -76,7 +76,7 @@ p = clamp(extra.base + extra.tier*t + extra.shelves*s + extra.option*o, 0, 0.8)
 
 ## 临时参数及费用
 
-启动生成 `config/better_enchant.properties`；完整默认文件在 `src/main/resources/better_enchant-defaults.properties`。单人测试/开发实例的文件位于相应游戏目录 config/，不是仓库根目录配置。命令 `/better_enchant reload` 原子替换配置快照。
+启动生成 `config/differentenchant.properties`；完整默认文件在 `src/main/resources/differentenchant-defaults.properties`。单人测试/开发实例的文件位于相应游戏目录 config/，不是仓库根目录配置。命令 `/differentenchant reload` 原子替换配置快照。
 
 | 参数 | 默认值 | 用途 |
 | --- | --- | --- |

@@ -64,22 +64,22 @@ for (let y=0;y<2;y++) for (let z=0;z<3;z++) for (let x=0;x<3;x++,index++) {
     const faces=Object.fromEntries(['down','up','north','south','west','east'].map(side=>[side,{texture:'#'+b.texture}]));
     elements.push({from,to,faces});
   }
-  write(`assets/better_enchant/models/block/part_${index}.json`,{textures,elements});
+  write(`assets/differentenchant/models/block/part_${index}.json`,{textures,elements});
   for (const [facing,rotation] of [['north',0],['east',90],['south',180],['west',270]]) {
-    variants[`facing=${facing},part=${index}`]={model:`better_enchant:block/part_${index}`,y:rotation};
+    variants[`facing=${facing},part=${index}`]={model:`differentenchant:block/part_${index}`,y:rotation};
   }
 }
-write('assets/better_enchant/blockstates/machine_part.json',{variants});
-write('assets/better_enchant/lang/en_us.json',{
-  'block.better_enchant.machine_part':'Formed Enchanting Machine',
-  'container.better_enchant.title':'Better Enchant',
-  'container.better_enchant.status':'Enchanting | T%s B%s'
+write('assets/differentenchant/blockstates/machine_part.json',{variants});
+write('assets/differentenchant/lang/en_us.json',{
+  'block.differentenchant.machine_part':'Formed Enchanting Machine',
+  'container.differentenchant.title':'Differentenchant',
+  'container.differentenchant.status':'Enchanting | T%s B%s'
 });
-write('assets/better_enchant/lang/zh_cn.json',{
-  'block.better_enchant.machine_part':'附魔机器部件（已组装）',
-  'container.better_enchant.title':'随机附魔',
-  'container.better_enchant.status':'随机附魔 · 等级%s / 书架%s'
+write('assets/differentenchant/lang/zh_cn.json',{
+  'block.differentenchant.machine_part':'附魔机器部件（已组装）',
+  'container.differentenchant.title':'Differentenchant',
+  'container.differentenchant.status':'随机附魔 · 等级%s / 书架%s'
 });
-write('data/minecraft/tags/block/mineable/pickaxe.json',{replace:false,values:['better_enchant:machine_part']});
-write('data/minecraft/tags/block/needs_diamond_tool.json',{replace:false,values:['better_enchant:machine_part']});
+write('data/minecraft/tags/block/mineable/pickaxe.json',{replace:false,values:['differentenchant:machine_part']});
+write('data/minecraft/tags/block/needs_diamond_tool.json',{replace:false,values:['differentenchant:machine_part']});
 console.log(`Generated ${index} model segments and ${Object.keys(variants).length} oriented states.`);

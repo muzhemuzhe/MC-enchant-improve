@@ -1,4 +1,6 @@
-# Better Enchant – Development rules
+# Differentenchant – Development rules
+
+Canonical identity: display `Differentenchant`, mod/resource ID `differentenchant`, Java package `dev.differentenchant`, entrypoints `DifferentEnchant` / `DifferentEnchantClient`, configuration `differentenchant.properties`, artifact `differentenchant-<version>.jar`. Preserve historical logs/screenshots; current code, resources and instructions use this identity.
 
 1. Build a real playable Minecraft mod, not a simulation, mock-up or unused stub. Report what actually ran. If you cannot compile or launch, explicitly say so.
 2. Target Minecraft Java 26.1.2 / Fabric initially; use JDK 25 and a current compatible Fabric Loom / Loader / API combination confirmed from official version metadata. Do not copy 1.21.1 or pre-26.1 Yarn/remapping setup into 26.1.2.

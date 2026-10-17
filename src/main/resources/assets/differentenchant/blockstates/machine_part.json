@@ -1,0 +1,292 @@
+{
+  "variants": {
+    "facing=north,part=0": {
+      "model": "differentenchant:block/part_0",
+      "y": 0
+    },
+    "facing=east,part=0": {
+      "model": "differentenchant:block/part_0",
+      "y": 90
+    },
+    "facing=south,part=0": {
+      "model": "differentenchant:block/part_0",
+      "y": 180
+    },
+    "facing=west,part=0": {
+      "model": "differentenchant:block/part_0",
+      "y": 270
+    },
+    "facing=north,part=1": {
+      "model": "differentenchant:block/part_1",
+      "y": 0
+    },
+    "facing=east,part=1": {
+      "model": "differentenchant:block/part_1",
+      "y": 90
+    },
+    "facing=south,part=1": {
+      "model": "differentenchant:block/part_1",
+      "y": 180
+    },
+    "facing=west,part=1": {
+      "model": "differentenchant:block/part_1",
+      "y": 270
+    },
+    "facing=north,part=2": {
+      "model": "differentenchant:block/part_2",
+      "y": 0
+    },
+    "facing=east,part=2": {
+      "model": "differentenchant:block/part_2",
+      "y": 90
+    },
+    "facing=south,part=2": {
+      "model": "differentenchant:block/part_2",
+      "y": 180
+    },
+    "facing=west,part=2": {
+      "model": "differentenchant:block/part_2",
+      "y": 270
+    },
+    "facing=north,part=3": {
+      "model": "differentenchant:block/part_3",
+      "y": 0
+    },
+    "facing=east,part=3": {
+      "model": "differentenchant:block/part_3",
+      "y": 90
+    },
+    "facing=south,part=3": {
+      "model": "differentenchant:block/part_3",
+      "y": 180
+    },
+    "facing=west,part=3": {
+      "model": "differentenchant:block/part_3",
+      "y": 270
+    },
+    "facing=north,part=4": {
+      "model": "differentenchant:block/part_4",
+      "y": 0
+    },
+    "facing=east,part=4": {
+      "model": "differentenchant:block/part_4",
+      "y": 90
+    },
+    "facing=south,part=4": {
+      "model": "differentenchant:block/part_4",
+      "y": 180
+    },
+    "facing=west,part=4": {
+      "model": "differentenchant:block/part_4",
+      "y": 270
+    },
+    "facing=north,part=5": {
+      "model": "differentenchant:block/part_5",
+      "y": 0
+    },
+    "facing=east,part=5": {
+      "model": "differentenchant:block/part_5",
+      "y": 90
+    },
+    "facing=south,part=5": {
+      "model": "differentenchant:block/part_5",
+      "y": 180
+    },
+    "facing=west,part=5": {
+      "model": "differentenchant:block/part_5",
+      "y": 270
+    },
+    "facing=north,part=6": {
+      "model": "differentenchant:block/part_6",
+      "y": 0
+    },
+    "facing=east,part=6": {
+      "model": "differentenchant:block/part_6",
+      "y": 90
+    },
+    "facing=south,part=6": {
+      "model": "differentenchant:block/part_6",
+      "y": 180
+    },
+    "facing=west,part=6": {
+      "model": "differentenchant:block/part_6",
+      "y": 270
+    },
+    "facing=north,part=7": {
+      "model": "differentenchant:block/part_7",
+      "y": 0
+    },
+    "facing=east,part=7": {
+      "model": "differentenchant:block/part_7",
+      "y": 90
+    },
+    "facing=south,part=7": {
+      "model": "differentenchant:block/part_7",
+      "y": 180
+    },
+    "facing=west,part=7": {
+      "model": "differentenchant:block/part_7",
+      "y": 270
+    },
+    "facing=north,part=8": {
+      "model": "differentenchant:block/part_8",
+      "y": 0
+    },
+    "facing=east,part=8": {
+      "model": "differentenchant:block/part_8",
+      "y": 90
+    },
+    "facing=south,part=8": {
+      "model": "differentenchant:block/part_8",
+      "y": 180
+    },
+    "facing=west,part=8": {
+      "model": "differentenchant:block/part_8",
+      "y": 270
+    },
+    "facing=north,part=9": {
+      "model": "differentenchant:block/part_9",
+      "y": 0
+    },
+    "facing=east,part=9": {
+      "model": "differentenchant:block/part_9",
+      "y": 90
+    },
+    "facing=south,part=9": {
+      "model": "differentenchant:block/part_9",
+      "y": 180
+    },
+    "facing=west,part=9": {
+      "model": "differentenchant:block/part_9",
+      "y": 270
+    },
+    "facing=north,part=10": {
+      "model": "differentenchant:block/part_10",
+      "y": 0
+    },
+    "facing=east,part=10": {
+      "model": "differentenchant:block/part_10",
+      "y": 90
+    },
+    "facing=south,part=10": {
+      "model": "differentenchant:block/part_10",
+      "y": 180
+    },
+    "facing=west,part=10": {
+      "model": "differentenchant:block/part_10",
+      "y": 270
+    },
+    "facing=north,part=11": {
+      "model": "differentenchant:block/part_11",
+      "y": 0
+    },
+    "facing=east,part=11": {
+      "model": "differentenchant:block/part_11",
+      "y": 90
+    },
+    "facing=south,part=11": {
+      "model": "differentenchant:block/part_11",
+      "y": 180
+    },
+    "facing=west,part=11": {
+      "model": "differentenchant:block/part_11",
+      "y": 270
+    },
+    "facing=north,part=12": {
+      "model": "differentenchant:block/part_12",
+      "y": 0
+    },
+    "facing=east,part=12": {
+      "model": "differentenchant:block/part_12",
+      "y": 90
+    },
+    "facing=south,part=12": {
+      "model": "differentenchant:block/part_12",
+      "y": 180
+    },
+    "facing=west,part=12": {
+      "model": "differentenchant:block/part_12",
+      "y": 270
+    },
+    "facing=north,part=13": {
+      "model": "differentenchant:block/part_13",
+      "y": 0
+    },
+    "facing=east,part=13": {
+      "model": "differentenchant:block/part_13",
+      "y": 90
+    },
+    "facing=south,part=13": {
+      "model": "differentenchant:block/part_13",
+      "y": 180
+    },
+    "facing=west,part=13": {
+      "model": "differentenchant:block/part_13",
+      "y": 270
+    },
+    "facing=north,part=14": {
+      "model": "differentenchant:block/part_14",
+      "y": 0
+    },
+    "facing=east,part=14": {
+      "model": "differentenchant:block/part_14",
+      "y": 90
+    },
+    "facing=south,part=14": {
+      "model": "differentenchant:block/part_14",
+      "y": 180
+    },
+    "facing=west,part=14": {
+      "model": "differentenchant:block/part_14",
+      "y": 270
+    },
+    "facing=north,part=15": {
+      "model": "differentenchant:block/part_15",
+      "y": 0
+    },
+    "facing=east,part=15": {
+      "model": "differentenchant:block/part_15",
+      "y": 90
+    },
+    "facing=south,part=15": {
+      "model": "differentenchant:block/part_15",
+      "y": 180
+    },
+    "facing=west,part=15": {
+      "model": "differentenchant:block/part_15",
+      "y": 270
+    },
+    "facing=north,part=16": {
+      "model": "differentenchant:block/part_16",
+      "y": 0
+    },
+    "facing=east,part=16": {
+      "model": "differentenchant:block/part_16",
+      "y": 90
+    },
+    "facing=south,part=16": {
+      "model": "differentenchant:block/part_16",
+      "y": 180
+    },
+    "facing=west,part=16": {
+      "model": "differentenchant:block/part_16",
+      "y": 270
+    },
+    "facing=north,part=17": {
+      "model": "differentenchant:block/part_17",
+      "y": 0
+    },
+    "facing=east,part=17": {
+      "model": "differentenchant:block/part_17",
+      "y": 90
+    },
+    "facing=south,part=17": {
+      "model": "differentenchant:block/part_17",
+      "y": 180
+    },
+    "facing=west,part=17": {
+      "model": "differentenchant:block/part_17",
+      "y": 270
+    }
+  }
+}

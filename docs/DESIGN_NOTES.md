@@ -1,5 +1,9 @@
 # 设计笔记（非最终机制规格）
 
+## 正式命名
+
+模组展示名Differentenchant，Mod ID及资源/数据包命名空间differentenchant，Java包dev.differentenchant，入口DifferentEnchant及DifferentEnchantClient。产物differentenchant-0.5.0.jar，配置config/differentenchant.properties，命令/differentenchant。所有现有注册项仅改命名空间，路径、用途、12点充能及其持久化、概率和费用均不变。旧测试世界/旧配置不迁移；新世界保存重进必须回归。GitHub仓库及remote维持muzhemuzhe/MC-enchant-improve。历史日志、任务书及截图保留原名，详见 [RENAMING.md](RENAMING.md)。
+
 ## 第五轮：共鸣核心与首次升级
 
 共鸣核心是长期可重复生产的材料，不是一次性升级任务。铁锭C、普通书或任意附魔书A、青金石块L组成 `CAC / ALA / CAC` 原生有序配方，产出一个能量0、最大堆叠1的核心；书位可混用且附魔书内容正常消耗。容量固定12点，ItemStack持久组件保留取出、转移、保存的能量。谐调核心无直接配方，可堆叠64。
@@ -77,9 +81,9 @@ E = 原版附魔台（激活位置，中心）；A = 紫水晶块；O = 黑曜�
 
 ## 第四轮：铭纹石与指定附魔
 
-- 铭纹石 `better_enchant:runic_stone`，Runic Stone / 铭纹石。每颗仅提供一步升级，没有时从 I 开始，已有时逐级升级到注册正常上限。普通合成和遗迹生成均未实现；创造材料栏或 `/give` 取得。
+- 铭纹石 `differentenchant:runic_stone`，Runic Stone / 铭纹石。每颗仅提供一步升级，没有时从 I 开始，已有时逐级升级到注册正常上限。普通合成和遗迹生成均未实现；创造材料栏或 `/give` 取得。
 - 双槽复用：设备槽不变，第二槽在随机模式放青金石，在指定模式放铭纹石。切换模式不会兑换、删除或丢弃任何物品；放错材料会禁用操作，玩家自行取回。
-- DirectedCandidates 读取完整附魔注册表、supported_items 和原版附魔存储组件；不以随机获取标签或 `isEnchantable()` 排除已附魔装备、盾牌、鞘翅等合法装备。默认不新增宝藏/诅咒，已有的仍保留。`better_enchant:excluded_from_directed` 和独立配置支持将来调整。
+- DirectedCandidates 读取完整附魔注册表、supported_items 和原版附魔存储组件；不以随机获取标签或 `isEnchantable()` 排除已附魔装备、盾牌、鞘翅等合法装备。默认不新增宝藏/诅咒，已有的仍保留。`differentenchant:excluded_from_directed` 和独立配置支持将来调整。
 - DirectedEnchantPolicy 纯 Java 校验一步一步的分配、上限、互斥和费用；DirectedSession 管理每个菜单独立的有版本规划。列表直接显示规划完成后的附魔名与等级，没有时只显示名称；`+` 分配一步、`−` 只撤销规划，不降低物品原有等级。最多分配实际铭纹石数量，可一次计划多个兼容附魔。
 - 取走/替换装备（即使序列化内容相同）、组件变化、关闭或重连清空未提交规划；铭纹石减少撤销最新超额步骤，增加不会自动恢复取消的步骤。机器等级变化保留合法目标但重算费用，成功数据包/配置 reload 清空规划并失效旧报价。书架仍只影响原随机策略。
 - 客户端只提交模式/加/减/附魔动作、候选 ID 和版本，不提交费用、目标等级或完整结果。服务端检查当前玩家/容器/维度、整机、原输入对象与组件、当前注册表和标签、全部互斥、经验门槛与合计费用、实际铭纹石，准备独立输出副本后一次提交。
