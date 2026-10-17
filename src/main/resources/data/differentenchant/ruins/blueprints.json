@@ -1,0 +1,320 @@
+{
+  "small_surface": {
+    "size": [
+      12,
+      6,
+      10
+    ],
+    "blocks": 480,
+    "chests": [
+      {
+        "pos": [
+          2,
+          1,
+          3
+        ],
+        "tier": "small"
+      },
+      {
+        "pos": [
+          9,
+          1,
+          6
+        ],
+        "tier": "small"
+      }
+    ],
+    "chiseled_shelves": [
+      {
+        "pos": [
+          4,
+          1,
+          7
+        ],
+        "tier": "small"
+      }
+    ],
+    "spawners": [],
+    "spiral_walk": []
+  },
+  "small_buried": {
+    "size": [
+      12,
+      6,
+      10
+    ],
+    "blocks": 480,
+    "chests": [
+      {
+        "pos": [
+          2,
+          1,
+          3
+        ],
+        "tier": "small"
+      },
+      {
+        "pos": [
+          9,
+          1,
+          6
+        ],
+        "tier": "small"
+      }
+    ],
+    "chiseled_shelves": [
+      {
+        "pos": [
+          4,
+          1,
+          7
+        ],
+        "tier": "small"
+      }
+    ],
+    "spawners": [],
+    "spiral_walk": []
+  },
+  "incomplete_machine": {
+    "controller": [
+      8,
+      6,
+      7
+    ],
+    "missing": [
+      [
+        7,
+        6,
+        6
+      ],
+      [
+        8,
+        6,
+        7
+      ],
+      [
+        9,
+        6,
+        8
+      ]
+    ]
+  },
+  "workshop": {
+    "size": [
+      20,
+      15,
+      15
+    ],
+    "blocks": 3202,
+    "chests": [
+      {
+        "pos": [
+          3,
+          1,
+          5
+        ],
+        "tier": "common"
+      },
+      {
+        "pos": [
+          16,
+          1,
+          2
+        ],
+        "tier": "common"
+      },
+      {
+        "pos": [
+          11,
+          1,
+          11
+        ],
+        "tier": "common"
+      },
+      {
+        "pos": [
+          3,
+          5,
+          10
+        ],
+        "tier": "research"
+      },
+      {
+        "pos": [
+          16,
+          5,
+          4
+        ],
+        "tier": "research"
+      },
+      {
+        "pos": [
+          16,
+          9,
+          3
+        ],
+        "tier": "study"
+      },
+      {
+        "pos": [
+          3,
+          9,
+          9
+        ],
+        "tier": "study"
+      },
+      {
+        "pos": [
+          11,
+          9,
+          11
+        ],
+        "tier": "study"
+      }
+    ],
+    "chiseled_shelves": [
+      {
+        "pos": [
+          1,
+          5,
+          6
+        ],
+        "tier": "medium"
+      },
+      {
+        "pos": [
+          1,
+          5,
+          8
+        ],
+        "tier": "medium"
+      },
+      {
+        "pos": [
+          3,
+          5,
+          3
+        ],
+        "tier": "medium"
+      },
+      {
+        "pos": [
+          5,
+          5,
+          3
+        ],
+        "tier": "medium"
+      },
+      {
+        "pos": [
+          3,
+          9,
+          4
+        ],
+        "tier": "high"
+      },
+      {
+        "pos": [
+          5,
+          9,
+          4
+        ],
+        "tier": "high"
+      }
+    ],
+    "spawners": [
+      [
+        4,
+        1,
+        9
+      ]
+    ],
+    "spiral_walk": [
+      {
+        "x": 15,
+        "z": 9,
+        "feet": 1
+      },
+      {
+        "x": 15,
+        "z": 10,
+        "feet": 1.5
+      },
+      {
+        "x": 14,
+        "z": 10,
+        "feet": 2
+      },
+      {
+        "x": 13,
+        "z": 10,
+        "feet": 2.5
+      },
+      {
+        "x": 13,
+        "z": 9,
+        "feet": 3
+      },
+      {
+        "x": 13,
+        "z": 8,
+        "feet": 3.5
+      },
+      {
+        "x": 14,
+        "z": 8,
+        "feet": 4
+      },
+      {
+        "x": 15,
+        "z": 8,
+        "feet": 4.5
+      },
+      {
+        "x": 15,
+        "z": 9,
+        "feet": 5
+      },
+      {
+        "x": 15,
+        "z": 10,
+        "feet": 5.5
+      },
+      {
+        "x": 14,
+        "z": 10,
+        "feet": 6
+      },
+      {
+        "x": 13,
+        "z": 10,
+        "feet": 6.5
+      },
+      {
+        "x": 13,
+        "z": 9,
+        "feet": 7
+      },
+      {
+        "x": 13,
+        "z": 8,
+        "feet": 7.5
+      },
+      {
+        "x": 14,
+        "z": 8,
+        "feet": 8
+      },
+      {
+        "x": 15,
+        "z": 8,
+        "feet": 8.5
+      },
+      {
+        "x": 15,
+        "z": 9,
+        "feet": 9
+      }
+    ]
+  }
+}

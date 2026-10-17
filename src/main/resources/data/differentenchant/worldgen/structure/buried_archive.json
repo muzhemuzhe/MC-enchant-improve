@@ -1,0 +1,9 @@
+{
+  "type": "differentenchant:ruin",
+  "template": "differentenchant:ruins/small_buried",
+  "buried": true,
+  "biomes": "#differentenchant:ruin_buried",
+  "spawn_overrides": {},
+  "step": "underground_structures",
+  "terrain_adaptation": "none"
+}

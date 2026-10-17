@@ -1,0 +1,49 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :processIncludeJars UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :sourcesJar UP-TO-DATE
+> Task :assemble UP-TO-DATE
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+> Task :test
+> Task :validateAccessWidener NO-SOURCE
+> Task :check
+> Task :build
+
+> Task :compileGametestJava FAILED
+
+[Incubating] Problems report is available at: file:///<workspace>/build/reports/problems/problems-report.html
+<workspace>\src\gametest\java\dev\differentenchant\RuinGameTests.java:33: 错误: 无法将记录 ChunkPos中的构造器 ChunkPos应用到给定类型;
+        piece.postProcess(level,level.structureManager(),level.getChunkSource().getGenerator(),RandomSource.create(20261017),BoundingBox.infinite(),new ChunkPos(pos),pos);
+                                                                                                                                                    ^
+  需要: int,int
+  找到:    BlockPos
+  原因: 实际参数列表和形式参数列表长度不同
+1 个错误
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  <workspace>\src\gametest\java\dev\differentenchant\RuinGameTests.java:33: 错误: 无法将记录 ChunkPos中的构造器 ChunkPos应用到给定类型;
+          piece.postProcess(level,level.structureManager(),level.getChunkSource().getGenerator(),RandomSource.create(20261017),BoundingBox.infinite(),new ChunkPos(pos),pos);
+                                                                                                                                                      ^
+    需要: int,int
+    找到:    BlockPos
+    原因: 实际参数列表和形式参数列表长度不同
+  1 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 3s
+8 actionable tasks: 3 executed, 5 up-to-date

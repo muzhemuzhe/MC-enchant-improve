@@ -1,6 +1,6 @@
 # 第四轮指定附魔原型
 
-铭纹石：**Runic Stone / 铭纹石 / `differentenchant:runic_stone`**。默认堆叠64，暂用 RARE 名称颜色和原创16×16石片/刻纹图；不代表最终掉落概率与经济。通过创造材料栏或 `/give @s differentenchant:runic_stone 5` 取得。本轮没有配方、遗迹或要塞战利品注入。
+铭纹石：**Runic Stone / 铭纹石 / `differentenchant:runic_stone`**。默认堆叠64，RARE名称颜色和原创16×16石片/刻纹图。0.6.0可从遗迹箱子低概率取得，仍可创造材料栏或 `/give @s differentenchant:runic_stone 5` 测试。没有普通配方或要塞战利品注入；探索掉率见 [RUINS](RUINS.md)，不代表最终经济。
 
 ## 操作
 

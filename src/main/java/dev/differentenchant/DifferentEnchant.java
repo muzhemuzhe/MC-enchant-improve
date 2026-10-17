@@ -36,6 +36,7 @@ public final class DifferentEnchant implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        dev.differentenchant.ruins.Ruins.initialize();
         dev.differentenchant.resonance.ResonanceItems.initialize();
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.clientboundPlay().register(EnchantingPreviewPayload.TYPE,EnchantingPreviewPayload.CODEC);
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.clientboundPlay().registerLarge(DirectedPreviewPayload.TYPE,DirectedPreviewPayload.CODEC,4*1024*1024);

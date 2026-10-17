@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "differentenchant:abandoned_workshop",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1017343,
+    "spacing": 36,
+    "separation": 16,
+    "exclusion_zone": {
+      "other_set": "minecraft:villages",
+      "chunk_count": 10
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "differentenchant:small_archive",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1017341,
+    "spacing": 20,
+    "separation": 8,
+    "exclusion_zone": {
+      "other_set": "minecraft:villages",
+      "chunk_count": 10
+    }
+  }
+}

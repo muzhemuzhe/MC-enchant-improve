@@ -1,0 +1,17 @@
+[
+  {
+    "file": "src/main/resources/data/differentenchant/structure/ruins/small_buried.nbt",
+    "sha256": "7455389c351eba5b79db649b26ea2d985c17102f9ccad26d2042f66345e38298",
+    "reproduced": true
+  },
+  {
+    "file": "src/main/resources/data/differentenchant/structure/ruins/small_surface.nbt",
+    "sha256": "0438b3b6394ff9254282aefccf421cb6e1a657f944180df8f5e28d7de066d810",
+    "reproduced": true
+  },
+  {
+    "file": "src/main/resources/data/differentenchant/structure/ruins/workshop.nbt",
+    "sha256": "4af41c8d2a88a8a1a13e7215f844374eb22cfbf6cb27d7135cbe47f6a6f6407e",
+    "reproduced": true
+  }
+]

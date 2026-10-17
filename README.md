@@ -1,6 +1,6 @@
 # Differentenchant · 随机 / 指定附魔与共鸣核心
 
-Minecraft Java **26.1.2 / Fabric / JDK 25**。原版材料搭建的 3×3×2 机器提供装备/材料输入、三选项随机附魔、铭纹石指定升级及独立共鸣核心槽。机器等级与有效书架分别改善概率，一级、零书架也保留所有合法高级结果的非零机会。没有原创附魔、遗迹生成或默认额外宝藏来源。
+Minecraft Java **26.1.2 / Fabric / JDK 25**。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和共鸣核心。机器等级与36书架分别改善概率，一级、零书架也保留合法高级结果的非零机会。0.6.0新增两种主世界探索遗迹；没有原创附魔、新维度或高级机器升级路线。
 
 ![真实客户端中的形成态](docs/screenshots/rename/01-formed-machine.png)
 
@@ -17,9 +17,15 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.5.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.6.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
 
-正式 Mod ID 与资源命名空间均为 **`differentenchant`**，Java 包为 `dev.differentenchant`。本次更换注册 ID，请使用**新建世界**；不迁移旧测试世界，也不读取旧名配置。首次启动生成 `config/differentenchant.properties`，全部已有选项及默认数值保留；核心容量仍固定12点，没有新增容量配置。[重命名范围、测试及截图](docs/RENAMING.md)。GitHub仓库和remote不随模组名称修改。
+正式 Mod ID 与资源命名空间均为 **`differentenchant`**，Java 包为 `dev.differentenchant`。0.5.0曾更换注册ID，改名前的旧测试世界和旧名配置不迁移；0.6.0可延续正式改名后的世界，遗迹只在新生成区块出现。首次启动生成 `config/differentenchant.properties`，全部已有选项及默认数值保留；核心容量仍固定12点，没有新增容量配置。[重命名范围、测试及截图](docs/RENAMING.md)。GitHub仓库和remote不随模组名称修改。
+
+## 主世界遗迹试作
+
+小型档案遗迹约12×10×6，有地表和封闭埋藏两种放置版本：研究角、书架、两只小箱子，没有刷怪笼。废弃附魔工坊约20×15×15，有侧翼/前塔、三层内饰和可走的螺旋楼梯；一层仅一枚僵尸笼，二层有缺少附魔台和两块紫水晶的机器，三层是较高价值藏书/管理者区域。
+
+两种建筑在新生成主世界区块自然出现。原版`/locate structure differentenchant:small_archive`、`differentenchant:buried_archive`、`differentenchant:abandoned_workshop`可查找；候选区域spacing分别20/24/36区块，实际还会筛选生物群系及坡度。雕纹书架有真实随机附魔书，箱子包含原版学习材料、低概率铭纹石/核心相关奖励。[尺寸、材料、频率、战利品及源码](docs/RUINS.md) · [生成测试与截图](docs/validation/ruins/README.md)。本轮不做第三种遗迹、研究台、Boss或新维度。
 
 ## 共鸣核心与升级
 
@@ -29,11 +35,11 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 
 核心可中途取出、转移机器；关闭界面仍安装在机器内，存档/区块加载保存能量和机器等级。拆解时安装核心只掉落一次。没有核心时附魔正常，不积攒历史能量；创造模式、预览、规划和失败不充能。
 
-创造材料栏或 `/give @s differentenchant:resonance_core` / `/give @s differentenchant:attuned_resonance_core` 可测试。[核心规则、存档与同步](docs/RESONANCE_CORES.md) · [本轮验证](docs/validation/resonance/README.md)。没有研究台、Lv.3升级、新遗迹或祛魔实现。
+创造材料栏或 `/give @s differentenchant:resonance_core` / `/give @s differentenchant:attuned_resonance_core` 可测试。[核心规则、存档与同步](docs/RESONANCE_CORES.md) · [核心验证](docs/validation/resonance/README.md)。没有研究台、Lv.3升级或祛魔实现。
 
 ## 指定附魔操作
 
-1. 从创造材料栏取得铭纹石，或使用 `/give @s differentenchant:runic_stone 5`；本轮没有普通合成配方。
+1. 铭纹石现可低概率从遗迹箱子取得，也可用创造材料栏或 `/give @s differentenchant:runic_stone 5` 测试；没有普通合成配方。
 2. 打开已组装机器，选择 Directed / 指定附魔，放入装备和铭纹石（复用原青金石槽，不会自动转换材料）。
 3. 滚轮浏览合法列表，`+` 分配一步，`−` 取消一步；已有附魔可逐级升级，新附魔从 I 开始。五颗最多五步，可同时计划多种兼容附魔。
 4. 查看实际总消耗，点击 **Enchant / 附魔** 才统一提交。每步消耗一颗和5–8经验等级；现有服务端仍要求达到30级且足够支付合计，扣后不要求剩余30级。界面已按修正要求去掉门槛提示。
@@ -111,10 +117,10 @@ D=磨制深板岩，A=紫水晶块，O=黑曜石，E=附魔台。两层全部填
 .\gradlew.bat runClientGametest
 ```
 
-- `build`：成功，25项JUnit（4结构、7随机概率/配置、3书架扫描、2预览/布局、6指定策略、3核心策略）通过，含逐架严格正概率改善、36后封顶、未加载读取防护及12点充能边界。
-- 服务端：39项本项目GameTest + 1项原版。结构、附魔、书架、原版台禁用、核心配方/支付/转化/共享库存/拆解均回归；新增规范Mod ID、所有注册类别、Payload、SavedData和新配置的检查。
+- `build`：成功，27项JUnit（原25项加2项遗迹地形选址）通过，含逐架严格正概率改善、36后封顶、未加载读取防护及12点充能边界。
+- 服务端：41项本项目GameTest + 1项原版。结构、附魔、书架、原版台禁用、核心配方/支付/转化/共享库存/拆解均回归；另检查规范Mod ID、注册类别、Payload、SavedData、新配置，以及遗迹四方向模板、战利品、书架、楼梯空间和持久化。
 - 模拟：固定钻石剑注册池，T=1/3/5 × B=0/1/15/16/32/35/36/37/80，27组×100,000，共2,700,000次；0/15的6份逐级输出与0.4.1一致，36/37/80逐项相同。另有纯Java合成池3组×100,000并重复重放。
-- 客户端：六个官方Client GameTest在真实26.1.2 OpenGL客户端运行。结构、随机/指定、36架上下层/两圈、支付和真实预览回归；核心0→12、升级Lv.2与重复生产、跨机转移、磁盘保存重进和实际区块卸载/返回通过。中英文实际显示Differentenchant，新命名空间物品/18段模型/语言资源存在。最新命令、日志及截图见 [本次验证](docs/validation/rename/README.md)。
+- 客户端：七个官方Client GameTest在真实26.1.2 OpenGL客户端运行。原有结构、随机/指定、36架、核心升级/重复生产/跨机转移及存档重进回归；新增正常主世界三种自然生成放置、三层内容、真实步行螺旋楼梯、僵尸笼实际刷怪和书架内容保存重进。最新命令、日志及截图见 [遗迹验证](docs/validation/ruins/README.md)，此前命名检查见 [0.5.0验证](docs/validation/rename/README.md)。
 - 普通 `runClient` 在第一轮已启动。本轮使用 `runClientGametest` 执行上述实际游戏测试；未声称人工手动鼠标验收或两台独立客户端联机。
 
 0.4.3还在真实客户端验证创造、生存、旁观者普通右击、失败组装、存档后拆解恢复和生存重新组装；监听原版EnchantmentScreen初始化，确认没有短暂闪开，并发送无菜单按钮请求确认服务端不扣费。机器随机与指定完整客户端流程仍通过。截图和日志见 `docs/validation/standalone-table/`。

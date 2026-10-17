@@ -1,0 +1,51 @@
+{
+  "base_commit": "88b890057449bfc1785a2f2c4e9fac7e688f3d78",
+  "version": "0.6.0",
+  "junit": {
+    "tests": 27,
+    "failures": 0,
+    "errors": 0
+  },
+  "server_gametest": {
+    "tests": 42,
+    "project": 41,
+    "vanilla": 1,
+    "failures": 0
+  },
+  "client_gametest": {
+    "entrypoints": [
+      "dev.differentenchant.MachineClientGameTest",
+      "dev.differentenchant.EnchantingClientGameTest",
+      "dev.differentenchant.EnchantingGuiClientGameTest",
+      "dev.differentenchant.DirectedClientGameTest",
+      "dev.differentenchant.BookshelfClientGameTest",
+      "dev.differentenchant.ResonanceClientGameTest",
+      "dev.differentenchant.RuinClientGameTest"
+    ],
+    "passed": 7,
+    "natural_seed": 20261017,
+    "placed_via_commands": false,
+    "spiral_walked_half_steps": 17,
+    "walked_out_into_second_and_third_storey_and_returned": true,
+    "flight_or_jump_used": false,
+    "actual_zombie_spawn": true,
+    "shelf_inventory_exact_after_disk_reconnect": true
+  },
+  "probability_outputs_unchanged": 28,
+  "existing_production_files_changed": [
+    "src/main/java/dev/differentenchant/DifferentEnchant.java"
+  ],
+  "release": {
+    "file": "build/libs/differentenchant-0.6.0.jar",
+    "sha256": "853bd6668a0a4abd560142404ae92bf79e8564a63bdf8a73cfbd8c24d2153f15",
+    "size": 183212,
+    "template_entries": [
+      "data/differentenchant/structure/ruins/small_buried.nbt",
+      "data/differentenchant/structure/ruins/small_surface.nbt",
+      "data/differentenchant/structure/ruins/workshop.nbt"
+    ],
+    "loot_tables": 7,
+    "contains_test_classes": false
+  },
+  "screenshots": 10
+}

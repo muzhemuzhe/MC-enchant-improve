@@ -1,0 +1,9 @@
+{
+  "type": "differentenchant:ruin",
+  "template": "differentenchant:ruins/small_surface",
+  "buried": false,
+  "biomes": "#differentenchant:ruin_land",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "terrain_adaptation": "none"
+}

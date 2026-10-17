@@ -384,3 +384,23 @@ GUI在背包左侧留白布置独立槽、小进度条和数值；随机/指定�
 日志包含clean首次运行的原生server.properties/eula默认文件提示，以及既有客户端各向异性选项/离线Realms认证提示；未发现模组缺模型、缺贴图、注册冲突、旧类加载或网络ID错误，未为隐藏日志而修改游戏。详见 [RENAMING.md](RENAMING.md)、[测试与审计](validation/rename/README.md)。历史DEVLOG、旧任务书、旧validation与截图保持原文；本机checkout文件夹及忽略缓存也不影响新运行标识。高延迟双独立客户端/整合包边界不冒充实测。
 
 git ls-remote确认原main仍356b859；origin保持ssh://git@ssh.github.com:443/muzhemuzhe/MC-enchant-improve.git。使用原muzhemuzhe身份正常追加提交，不改历史，无额外署名，按本轮明确授权推送当前main（包含先前保留的三个本地提交）。不实施任何后续玩法。
+
+## 2026-10-17 · 遗迹试作 / 实施前
+
+基于88b8900、工作区干净；先读规则/命名/设计/当前源码，build runGametest基线15s通过。现有工程没有结构生成或战利品模块。此次必要新增独立ruins包及NBT模板/数据包，不改已有附魔、GUI、12点核心、原版台拦截和机器碰撞。采用目标26.1.2原生Structure/TemplateStructurePiece和数据驱动StructureSet；运行时不手写建筑逐块逻辑，仅选址、有限地基和数据标记初始化。模板用可复现的原创建筑脚本生成，保留尺寸、房间、楼梯路径清单，便于回归与后续编辑。只两种建筑：小档案遗迹（地表/埋藏两个放置版本）与三层工坊；不增加大型建筑/研究台/升级路线。本轮本地提交，不push。
+
+## 2026-10-17 · 遗迹第一轮完成 · Differentenchant 0.6.0
+
+核对固定26.1.2的Structure、StructureTemplate、TemplateStructurePiece、WorldGenRegion、ChiseledBookShelfBlockEntity、SpawnerBlockEntity、LootParams及原版结构/战利品JSON，沿用当前Fabric/JDK组合。新增独立ruins注册、九点噪声地形选址、原生分区块模板放置/持久化、数据标记内容初始化及最多6格地板支撑。没有监听区块加载再搭建筑，也没有添加主动区块ticket。新增注册调用以外，既有生产Java文件未改。
+
+原创建筑脚本tools/generate-ruins.mjs可重复生成三份原生压缩NBT（DataVersion4790）、清单和数据包。两种建筑：12×10×6小档案遗迹有地表/封闭埋藏版本，无笼、两箱、研究桌椅/书架/损坏基座；20×15×15工坊有侧翼/前塔/连续木坡顶、三层纹样地面/柱子/家具、一层三普通箱和唯一僵尸笼、二层缺中心附魔台和两块紫水晶的现有机器/四组雕纹书架/两研究箱、三层书房/床/两雕纹书架/三高价值箱。两圈3×3半砖螺旋连接三层，不使用梯子或飞行。
+
+StructureSet候选spacing/separation分别20/8、24/10、36/16区块；平原、森林、针叶林、草甸为主，地下额外兼容繁茂/溶洞。地表九点最大坡差4格、最低不低于海平面，埋藏14–32格、坡差12；不保证固定间距或旧区块补生成。三张表原生exclusion_zone避开村庄候选10区块，原因是下述真实自然生成冲突。7张模块化loot_table，附魔书查询in_enchanting_table标签；雕纹书架生成时抽2–4本放入唯一槽位并保存。铭纹石为各层低概率额外奖励，仅三层1/50普通0点核心，不产谐调核心，12点充能不动。材料与收益仅为试玩初稿。
+
+实测发现并修复：首次GameTest错误使用ChunkPos(BlockPos)，编译3s失败后按目标API修正；首次自然生成调用书架setItem触发ProtoChunk实体尚无Level的NPE，改为原生库存列表+WorldGenRegion更新occupied属性；第二次客户端相机gamemode控制台没有目标导致死亡，修正真实玩家模式并检查存活；第三次原生村庄地基覆盖工坊笼，读取实际区块结构引用确认后添加村庄避让。失败日志均保留，没有在截图前手工补结构。定向客户端通过后发现屋顶悬空，模板补成连续坡顶并再次完整回归。
+
+基线build runGametest15s、首次接入18s、新服务端16s通过；遗迹定向客户端1m8s通过。楼梯出口修复后，完整命令 `.\gradlew.bat build runGametest runClientGametest --console=plain` 以3m9s运行27项JUnit、42项服务端（41项目+1原版）及7个真实OpenGL客户端入口；原6入口完整回归。随后只补小建筑门廊/扶壁/屋檐资源，再执行27单元/42服务端及单独遗迹客户端，验证最终模板并保存截图；之后恢复7入口并build processGametestResources，不删除其他测试。确切用时见 [完整日志](validation/ruins/full-validation.log) 与 [最终模板日志](validation/ruins/final-template-validation.log)。27×100,000机器概率实验28份输出与0.5.0 SHA-256完全相同，未改随机/指定/GUI/核心/30级门槛/18格碰撞/原版台规则。
+
+正常新世界种子20261017，原生定位并自然生成森林小遗迹(-184,65,1448)、地下(-568,46,1368；地面65)、工坊(-1672,65,-1640)，没有用/place或人工测试搭建冒充自然生成。森林树叶遮挡较多，最终定位同一种子的平原小遗迹(1688,66,1288)拍摄，未清树。小遗迹补了浅门廊/扶壁/屋檐，尺寸仍12×10×6。旁观者/夜视仅用于室内取景，实际结构与光源未改。出口复核发现原楼梯靠外墙、围栏封住楼层出口，内移一格并开放东侧走廊；补测真实玩家不飞不跳走完17个螺旋半格路径点，分别走出二/三层进入房间再返回。原生笼实际刷出僵尸；正常磁盘保存退出重进后书架完整物品数据逐字相同，并再次核对工坊。最终截图10张见docs/screenshots/ruins，覆盖两个小版本、外观、三层、楼梯和重进。
+
+详见 [RUINS.md](RUINS.md) 与 [测试记录](validation/ruins/README.md)。仍需更多种子/整合包、坡地入口/树木邻接、地下发现率、狭窄楼梯和奖励密度试玩，未声称全面平衡或人工双客户端验证。旧0.5.0产物移至忽略的.tools/ruins-backup，发布目录仅0.6.0运行包与sources。使用原Git身份本地提交，不push，不扩展大型遗迹、研究台、Lv.3+、新维度或其他阶段。

@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "differentenchant:buried_archive",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1017342,
+    "spacing": 24,
+    "separation": 10,
+    "exclusion_zone": {
+      "other_set": "minecraft:villages",
+      "chunk_count": 10
+    }
+  }
+}

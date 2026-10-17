@@ -1,8 +1,14 @@
 # 设计笔记（非最终机制规格）
 
+## 遗迹第一轮试作（0.6.0）
+
+只增加小型档案遗迹与中型三层废弃工坊。前者12×10×6，有地上/封闭地下两个模板版本，不放刷怪笼；后者20×15×15，三层、半砖螺旋楼梯，一层原版僵尸笼与普通箱子，二层是不完整的3×3×2机器（中心台与两块紫水晶缺失）及混合书架/雕纹书架，三层为较高价值书房。内饰、容器和可取附魔书是本轮重点，不做空壳建筑。
+
+原生NBT模板和StructureSet自然生成，命名空间沿用differentenchant。独立ruins模块不改现有机器/附魔/GUI/数值。三种放置ID代表两种建筑，不是第三种大型遗迹。原版战利品表模块化管理，雕纹书架在生成时抽取并持久保存；不注入要塞图书馆，不添加研究材料/研究台新物品。铭纹石和上层低概率普通核心只是奖励初稿，不替未来经济定案。详见 [RUINS.md](RUINS.md)。
+
 ## 正式命名
 
-模组展示名Differentenchant，Mod ID及资源/数据包命名空间differentenchant，Java包dev.differentenchant，入口DifferentEnchant及DifferentEnchantClient。产物differentenchant-0.5.0.jar，配置config/differentenchant.properties，命令/differentenchant。所有现有注册项仅改命名空间，路径、用途、12点充能及其持久化、概率和费用均不变。旧测试世界/旧配置不迁移；新世界保存重进必须回归。GitHub仓库及remote维持muzhemuzhe/MC-enchant-improve。历史日志、任务书及截图保留原名，详见 [RENAMING.md](RENAMING.md)。
+模组展示名Differentenchant，Mod ID及资源/数据包命名空间differentenchant，Java包dev.differentenchant，入口DifferentEnchant及DifferentEnchantClient。当前产物differentenchant-0.6.0.jar，配置config/differentenchant.properties，命令/differentenchant。正式改名时所有现有注册项仅改命名空间，路径、用途、12点充能及其持久化、概率和费用均不变。改名前旧测试世界/旧配置不迁移；新世界保存重进必须回归。GitHub仓库及remote维持muzhemuzhe/MC-enchant-improve。历史日志、任务书及截图保留原名，详见 [RENAMING.md](RENAMING.md)。
 
 ## 第五轮：共鸣核心与首次升级
 
@@ -81,7 +87,7 @@ E = 原版附魔台（激活位置，中心）；A = 紫水晶块；O = 黑曜�
 
 ## 第四轮：铭纹石与指定附魔
 
-- 铭纹石 `differentenchant:runic_stone`，Runic Stone / 铭纹石。每颗仅提供一步升级，没有时从 I 开始，已有时逐级升级到注册正常上限。普通合成和遗迹生成均未实现；创造材料栏或 `/give` 取得。
+- 铭纹石 `differentenchant:runic_stone`，Runic Stone / 铭纹石。每颗仅提供一步升级，没有时从 I 开始，已有时逐级升级到注册正常上限。无普通合成；0.6.0遗迹箱子低概率获得，亦可创造材料栏或 `/give` 取得。
 - 双槽复用：设备槽不变，第二槽在随机模式放青金石，在指定模式放铭纹石。切换模式不会兑换、删除或丢弃任何物品；放错材料会禁用操作，玩家自行取回。
 - DirectedCandidates 读取完整附魔注册表、supported_items 和原版附魔存储组件；不以随机获取标签或 `isEnchantable()` 排除已附魔装备、盾牌、鞘翅等合法装备。默认不新增宝藏/诅咒，已有的仍保留。`differentenchant:excluded_from_directed` 和独立配置支持将来调整。
 - DirectedEnchantPolicy 纯 Java 校验一步一步的分配、上限、互斥和费用；DirectedSession 管理每个菜单独立的有版本规划。列表直接显示规划完成后的附魔名与等级，没有时只显示名称；`+` 分配一步、`−` 只撤销规划，不降低物品原有等级。最多分配实际铭纹石数量，可一次计划多个兼容附魔。
