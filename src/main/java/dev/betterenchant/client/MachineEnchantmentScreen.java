@@ -212,6 +212,9 @@ public final class MachineEnchantmentScreen extends AbstractContainerScreen<Mach
     }
     @Override protected void extractTooltip(GuiGraphicsExtractor g,int x,int y) {
         super.extractTooltip(g,x,y);
+        if(new Rect(10,99,76,12).contains(x-leftPos,y-topPos)) {
+            g.setTooltipForNextFrame(font,font.split(tr("shelves_help",menu.bookshelfCount(),BookshelfScan.MAX_EFFECTIVE),180),x,y);return;
+        }
         if(menu.isDirected()) {directedTooltip(g,x,y);return;}
         if(hoveredOption<0) return;
         int i=hoveredOption;

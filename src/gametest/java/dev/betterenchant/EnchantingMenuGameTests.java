@@ -13,7 +13,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.EnchantingTableBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import dev.betterenchant.structure.StructurePattern;
 import dev.betterenchant.enchanting.*;
@@ -138,19 +137,16 @@ public class EnchantingMenuGameTests {
         first.removed(a); second.removed(b); h.succeed();
     }
     @GameTest
-    public void vanillaShelfPositionsObstructionAndTierCommand(GameTestHelper h) {
+    public void wholeMachineShelvesAndTierCommand(GameTestHelper h) {
         var master=machine(h); var level=h.getLevel(); var origin=master.getBlockPos();
         h.assertTrue(MachineAccess.shelves(level,master)==0,"zero bookshelves supported");
-        level.setBlockAndUpdate(origin.offset(2,0,0),Blocks.BOOKSHELF.defaultBlockState());
-        h.assertTrue(MachineAccess.shelves(level,master)==1,"own part transmits to vanilla shelf position");
-        level.setBlockAndUpdate(origin.offset(2,0,0),Blocks.AIR.defaultBlockState());
-        level.setBlockAndUpdate(origin.offset(2,1,0),Blocks.BOOKSHELF.defaultBlockState());
-        h.assertTrue(MachineAccess.shelves(level,master)==1,"upper shelf");
-        level.setBlockAndUpdate(origin.offset(1,1,0),Blocks.STONE.defaultBlockState());
-        h.assertTrue(MachineAccess.shelves(level,master)==0,"external obstruction blocks upper shelf");
+        level.setBlockAndUpdate(origin.offset(2,-1,0),Blocks.BOOKSHELF.defaultBlockState());
+        level.setBlockAndUpdate(origin.offset(3,0,0),Blocks.BOOKSHELF.defaultBlockState());
+        level.setBlockAndUpdate(origin.offset(2,0,0),Blocks.STONE.defaultBlockState());
+        h.assertTrue(MachineAccess.shelves(level,master)==2,"both actual machine layers, no transmitter/air condition");
         var player=player(h,master); var menu=menu(h,master,player);
         int quote=menu.buttonIdFor(0);
-        level.setBlockAndUpdate(origin.offset(1,1,0),Blocks.AIR.defaultBlockState()); menu.broadcastChanges();
+        level.setBlockAndUpdate(origin.offset(2,-1,0),Blocks.AIR.defaultBlockState()); menu.broadcastChanges();
         h.assertTrue(menu.bookshelfCount()==1 && !menu.clickMenuButton(player,quote),"shelf quote invalidation");
         String command="better_enchant tier "+origin.getX()+" "+origin.getY()+" "+origin.getZ()+" 3";
         level.getServer().getCommands().performPrefixedCommand(level.getServer().createCommandSourceStack(),command);

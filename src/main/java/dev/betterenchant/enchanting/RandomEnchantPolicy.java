@@ -16,20 +16,22 @@ public final class RandomEnchantPolicy {
     public record Choice(String id, int level) {}
     public record Context(int tier, int shelves, int slot) {
         public Context {
-            if (tier < 1 || tier > 10 || shelves < 0 || shelves > 32 || slot < 0 || slot > 2)
+            if (tier < 1 || tier > 10 || shelves < 0 || slot < 0 || slot > 2)
                 throw new IllegalArgumentException("Invalid enchanting context");
+            shelves=Math.min(shelves,BookshelfScan.MAX_EFFECTIVE);
         }
     }
     public record Parameters(double rarityTier, double rarityShelves, double raritySlot,
                              double levelBase, double levelTier, double levelShelves, double levelSlot,
                              double extraBase, double extraTier, double extraShelves, double extraSlot,
-                             int maxEnchantments, int shelfScale, Map<String, Double> typeMultipliers) {
+                             int maxEnchantments, int shelfScale, double shelfTailGain, Map<String, Double> typeMultipliers) {
         public Parameters {
             for (double value : new double[]{rarityTier, rarityShelves, raritySlot, levelTier, levelShelves, levelSlot})
                 finiteRange(value, 0, 4);
             finiteRange(levelBase, -12, 12);
             for (double value : new double[]{extraBase, extraTier, extraShelves, extraSlot}) finiteRange(value, 0, 1);
-            if (maxEnchantments < 1 || maxEnchantments > 6 || shelfScale < 1 || shelfScale > 32)
+            finiteRange(shelfTailGain,.01,1);
+            if (maxEnchantments < 1 || maxEnchantments > 6 || shelfScale < 1 || shelfScale > BookshelfScan.MAX_EFFECTIVE)
                 throw new IllegalArgumentException("Invalid multi-enchantment/shelf limit");
             typeMultipliers = Map.copyOf(typeMultipliers);
             typeMultipliers.forEach((id, value) -> {
@@ -38,19 +40,22 @@ public final class RandomEnchantPolicy {
             });
         }
         public static Parameters defaults() {
-            return new Parameters(.35, .8, .2, -4, .8, 2, .6, .15, .04, .15, .1, 4, 15, Map.of());
+            return new Parameters(.35, .8, .2, -4, .8, 2, .6, .15, .04, .15, .1, 4, 15, .5, Map.of());
         }
     }
     private static void finiteRange(double value, double min, double max) {
         if (!Double.isFinite(value) || value < min || value > max) throw new IllegalArgumentException("Invalid probability parameter: " + value);
     }
     public static double rarityExponent(Context c, Parameters p) {
-        return 1 / (1 + p.rarityTier * (c.tier - 1) + p.rarityShelves * shelves(c, p) + p.raritySlot * c.slot);
+        return 1 / (1 + p.rarityTier * (c.tier - 1) + p.rarityShelves * bookshelfInfluence(c, p) + p.raritySlot * c.slot);
     }
     public static double levelTilt(Context c, Parameters p) {
-        return Math.clamp(p.levelBase + p.levelTier * (c.tier - 1) + p.levelShelves * shelves(c, p) + p.levelSlot * c.slot, -12, 12);
+        return Math.clamp(p.levelBase + p.levelTier * (c.tier - 1) + p.levelShelves * bookshelfInfluence(c, p) + p.levelSlot * c.slot, -12, 12);
     }
-    private static double shelves(Context c, Parameters p) { return Math.min(c.shelves, p.shelfScale) / (double) p.shelfScale; }
+    public static double bookshelfInfluence(Context c, Parameters p) {
+        double base=Math.min(c.shelves,p.shelfScale)/(double)p.shelfScale;
+        return base+p.shelfTailGain*Math.log1p(Math.max(0,c.shelves-p.shelfScale)/(double)p.shelfScale);
+    }
     public static double typeWeight(Candidate candidate, Context c, Parameters p) {
         return p.typeMultipliers.getOrDefault(candidate.id, 1.0) * Math.pow(candidate.weight, rarityExponent(c, p));
     }
@@ -85,7 +90,7 @@ public final class RandomEnchantPolicy {
                 levels[i] = levelProbabilities(pool.get(i), c, p);
             }
             limit = p.maxEnchantments;
-            continuation = Math.clamp(p.extraBase + p.extraTier * (c.tier - 1) + p.extraShelves * shelves(c, p) + p.extraSlot * c.slot, 0, .8);
+            continuation = Math.clamp(p.extraBase + p.extraTier * (c.tier - 1) + p.extraShelves * bookshelfInfluence(c, p) + p.extraSlot * c.slot, 0, .8);
         }
         public List<Choice> roll(RandomGenerator random) {
             var available = new ArrayList<Integer>();

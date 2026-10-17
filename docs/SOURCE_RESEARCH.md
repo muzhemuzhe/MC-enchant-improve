@@ -94,3 +94,9 @@
 - `Player.giveExperienceLevels` 支付等级且不重置随机种子，与原随机 onEnchantmentPerformed 的功能不同。门槛与合计费用分别校验。
 - `PayloadTypeRegistry.clientboundPlay().registerLarge`、64位版本和 serverbound 注册/处理器；处理器在服务器线程内执行，当前容器/所有者再次验证。
 - `Component.translatableWithFallback` 在原版没有等级翻译键时回退数字，避免模组超过 X 的正常等级把列表撑坏。InputConstants.isKeyDown(Window,key) 用于 Shift+滚轮阅读极长 tooltip，保留原版库存键鼠。
+
+## 整机书架修正（0.4.2）
+
+继续使用已固定的26.1.2依赖，直接核对本机依赖生成源码：`StructurePattern`明确controller在上层、另一层y=-1，旧版原版offsets y=0/1与整机高度不一致。当前 `BlockTags.ENCHANTMENT_POWER_PROVIDER` 仍是书架提供者标签；保留此标签而去掉机器菜单的空气/传导条件，不修改原版台全局行为。
+
+`LevelReader.hasChunkAt(BlockPos)`只查visible holder和FULL ticket级别，不能单独证明FULL数据已就绪；`Level.getBlockState`随后会调用常规getChunk，可能等待/添加UNKNOWN ticket。因此本次扫描最终使用 `ServerChunkCache.getChunkNow`：只查看FULL缓存或holder.getChunkIfPresent，不创建ticket、不等待任务；缺失则跳过，存在时直接从LevelChunk.getBlockState读取。纯Java测试混合已加载/未加载视图，真实GameTest另对远处全部未加载坐标扫描并核对已加载区块数不变；没有以此声称完整玩家卸载/重载压力测试已覆盖。

@@ -13,7 +13,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.EnchantingTableBlock;
 
 /** Real mouse slot/hotbar interaction, all rows/tiers, large registry names and a small viewport. */
 public final class EnchantingGuiClientGameTest implements FabricClientGameTest {
@@ -45,7 +44,7 @@ public final class EnchantingGuiClientGameTest implements FabricClientGameTest {
                 for(var cell:StructurePattern.CELLS) level.setBlockAndUpdate(FormationService.position(ORIGIN,cell,0),FormationService.originalBlock(cell.material()).defaultBlockState());
                 check(FormationService.form(level,ORIGIN,Direction.NORTH).startsWith("Formed"),"form fixture");
                 var master=(MachineControllerBlockEntity)level.getBlockEntity(ORIGIN); master.setMachineTier(5);
-                for(var offset:EnchantingTableBlock.BOOKSHELF_OFFSETS.subList(0,15)) level.setBlockAndUpdate(ORIGIN.offset(offset),Blocks.BOOKSHELF.defaultBlockState());
+                BookshelfFixtures.playerLayout(level,ORIGIN,15);
                 var player=server.getPlayerList().getPlayers().getFirst(); player.setGameMode(GameType.SURVIVAL);player.experienceLevel=40;player.getInventory().setSelectedSlot(8);
                 // Find an actual four-result quote using the unchanged production algorithm, only for this fixture.
                 var probe=new MachineEnchantmentMenu(77,player.getInventory(),level,master);
@@ -89,7 +88,7 @@ public final class EnchantingGuiClientGameTest implements FabricClientGameTest {
             c.takeScreenshot("12-directed-mode-no-stones");click(c,120,23);c.waitFor(client->!((MachineEnchantmentMenu)client.player.containerMenu).isDirected() && ((MachineEnchantmentMenu)client.player.containerMenu).controlState()!=null);
             // A real bookshelf change invalidates the old quote and updates both UI values and previews.
             int old=c.computeOnClient(client->((MachineEnchantmentMenu)client.player.containerMenu).buttonIdFor(0));
-            world.getServer().runOnServer(server->server.overworld().setBlockAndUpdate(ORIGIN.offset(EnchantingTableBlock.BOOKSHELF_OFFSETS.getFirst()),Blocks.AIR.defaultBlockState()));
+            world.getServer().runOnServer(server->server.overworld().setBlockAndUpdate(BookshelfFixtures.position(ORIGIN,BookshelfFixtures.PLAYER_LAYOUT.getFirst()),Blocks.AIR.defaultBlockState()));
             c.waitFor(client->((MachineEnchantmentMenu)client.player.containerMenu).bookshelfCount()==14 && ((MachineEnchantmentMenu)client.player.containerMenu).preview()!=null);
             c.runOnClient(client->{var menu=(MachineEnchantmentMenu)client.player.containerMenu;check(menu.buttonIdFor(0)!=old,"shelf quote invalidated");client.gameMode.handleInventoryButtonClick(menu.containerId,old);});c.waitTicks(3);
             world.getServer().runOnServer(server->check(server.getPlayerList().getPlayers().getFirst().experienceLevel==40,"stale shelf button not charged"));

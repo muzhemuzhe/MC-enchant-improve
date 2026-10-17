@@ -22,8 +22,9 @@ public class EnchantingProbabilityGameTests {
         }
         var report=new StringBuilder("# Actual registry simulation · diamond sword\n\nSeed=20261016; 100,000 rolls per row; option=3; first means first selected enchantment.\n\n");
         report.append("Pool (id / native weight / levels): ").append(pool.candidates().stream().map(c->c.id()+" / "+c.weight()+" / "+c.minLevel()+".."+c.maxLevel()).toList()).append("\n\n");
-        report.append("|Tier|Shelves|First weight<=2 %|First multi-level max %|First rare AND max %|Mean count|First levels I/II/III/IV/V (counts)|All-selection rarity counts (10/5/2/1)|\n|---|---|---|---|---|---|---|---|\n");
-        for(int shelves:List.of(0,15)) {
+        report.append("|Tier|Physical shelves|Effective|Influence|First weight<=2 %|First multi-level max %|First rare AND max %|Mean count|First levels I/II/III/IV/V (counts)|All-selection rarity counts (10/5/2/1)|\n|---|---|---|---|---|---|---|---|---|---|\n");
+        var plateau=new HashMap<Integer,String>();
+        for(int shelves:List.of(0,1,15,16,32,35,36,37,80)) {
             double previousRare=-1, previousMax=-1;
             for(int tier:List.of(1,3,5)) {
                 var context=new Context(tier,shelves,2);
@@ -59,7 +60,10 @@ public class EnchantingProbabilityGameTests {
                 }
                 helper.assertTrue(rare>previousRare && max>previousMax,"observed quality improves in fixed pool");
                 previousRare=rare; previousMax=max;
-                report.append(String.format(Locale.ROOT,"|%d|%d|%.3f|%.3f|%.3f|%.5f|%s|%s|%n",tier,shelves,rare/1000.0,max/1000.0,joint/1000.0,total/100000.0,Arrays.toString(firstLevels),rarityCounts));
+                report.append(String.format(Locale.ROOT,"|%d|%d|%d|%.6f|%.3f|%.3f|%.3f|%.5f|%s|%s|%n",tier,shelves,context.shelves(),RandomEnchantPolicy.bookshelfInfluence(context,Parameters.defaults()),rare/1000.0,max/1000.0,joint/1000.0,total/100000.0,Arrays.toString(firstLevels),rarityCounts));
+                String fullResult=everyKind+" / "+Arrays.toString(firstLevels)+" / "+rarityCounts+" / "+total;
+                if(shelves==36) plateau.put(tier,fullResult);
+                if(shelves>36) helper.assertTrue(plateau.get(tier).equals(fullResult),"identical 100,000-roll statistics after cap at tier "+tier);
                 Path details=Path.of("../reports/enchanting/sword-tier"+tier+"-shelves"+shelves+".txt");
                 Files.createDirectories(details.getParent());
                 Files.writeString(details,everyKind.toString()+"\n");

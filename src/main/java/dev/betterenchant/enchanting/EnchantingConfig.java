@@ -45,7 +45,8 @@ public final class EnchantingConfig {
                 number(p,"rarity.tier",defaults.rarityTier()), number(p,"rarity.shelves",defaults.rarityShelves()), number(p,"rarity.option",defaults.raritySlot()),
                 number(p,"level.base",defaults.levelBase()), number(p,"level.tier",defaults.levelTier()), number(p,"level.shelves",defaults.levelShelves()), number(p,"level.option",defaults.levelSlot()),
                 number(p,"extra.base",defaults.extraBase()), number(p,"extra.tier",defaults.extraTier()), number(p,"extra.shelves",defaults.extraShelves()), number(p,"extra.option",defaults.extraSlot()),
-                integer(p,"max_enchantments",defaults.maxEnchantments()), integer(p,"bookshelf_scale",defaults.shelfScale()), multipliers);
+                integer(p,"max_enchantments",defaults.maxEnchantments()), integer(p,"bookshelf_scale",defaults.shelfScale()),
+                number(p,"bookshelf_tail_gain",defaults.shelfTailGain()), multipliers);
         return new Settings(parameters, integer(p,"max_machine_tier",5), integer(p,"default_machine_tier",1),
                 List.of(integer(p,"required_level.1",5),integer(p,"required_level.2",15),integer(p,"required_level.3",30)),
                 new DirectedEnchantPolicy.Parameters(number(p,"directed.base",5),number(p,"directed.rarity",1.5),number(p,"directed.target",1.5),number(p,"directed.tier_discount",.5),

@@ -4,11 +4,12 @@ import java.util.*;
 import dev.betterenchant.*;
 import dev.betterenchant.structure.StructurePattern;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.SectionPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.EnchantingTableBlock;
+import net.minecraft.world.level.chunk.LevelChunk;
 
-/** Machine ownership and vanilla-style bookshelf scanning without acquiring chunks. */
+/** Machine ownership and whole-machine bookshelf scanning without acquiring chunks. */
 public final class MachineAccess {
     public static MachineControllerBlockEntity controller(ServerLevel level, BlockPos partPos) {
         if (!level.hasChunkAt(partPos) || !(level.getBlockEntity(partPos) instanceof MachineControllerBlockEntity part)) return null;
@@ -29,18 +30,20 @@ public final class MachineAccess {
         return master.machineId()!=null;
     }
     public static int shelves(ServerLevel level, MachineControllerBlockEntity master) {
-        int count=0;
         BlockPos origin=master.getBlockPos();
-        for(BlockPos offset:EnchantingTableBlock.BOOKSHELF_OFFSETS) {
-            BlockPos provider=origin.offset(offset);
-            BlockPos gap=origin.offset(offset.getX()/2,offset.getY(),offset.getZ()/2);
-            if(!level.hasChunkAt(provider) || !level.hasChunkAt(gap)) continue;
-            if(!level.getBlockState(provider).is(BlockTags.ENCHANTMENT_POWER_PROVIDER)) continue;
-            boolean ownPart=level.getBlockEntity(gap) instanceof MachineControllerBlockEntity part
-                    && Objects.equals(master.machineId(),part.machineId()) && origin.equals(part.controllerPosition());
-            if(ownPart || level.getBlockState(gap).is(BlockTags.ENCHANTMENT_POWER_TRANSMITTER)) count++;
-        }
-        return count;
+        return BookshelfScan.count(new BookshelfScan.View() {
+            private BlockPos position(StructurePattern.Offset offset) {return origin.offset(offset.x(),offset.y(),offset.z());}
+            private LevelChunk loadedChunk(StructurePattern.Offset offset) {
+                var p=position(offset);
+                // A ticket/holder alone does not mean FULL data is ready. Never request a chunk or wait for it.
+                return level.getChunkSource().getChunkNow(SectionPos.blockToSectionCoord(p.getX()),SectionPos.blockToSectionCoord(p.getZ()));
+            }
+            @Override public boolean isLoaded(StructurePattern.Offset offset) {return loadedChunk(offset)!=null;}
+            @Override public boolean isProvider(StructurePattern.Offset offset) {
+                var chunk=loadedChunk(offset);
+                return chunk!=null && chunk.getBlockState(position(offset)).is(BlockTags.ENCHANTMENT_POWER_PROVIDER);
+            }
+        });
     }
     private MachineAccess() {}
 }

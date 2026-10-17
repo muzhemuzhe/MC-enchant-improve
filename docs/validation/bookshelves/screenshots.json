@@ -1,0 +1,42 @@
+[
+  {
+    "file": "bookshelves-01-world-two-layers-36.png",
+    "sha256": "1091c0b9f830bdca50427cdce92a867955cab7c96f33bd74bade26d507fa5502"
+  },
+  {
+    "file": "bookshelves-02-gui-36.png",
+    "sha256": "7782d530d6a95f50e7fc470695ac0763812d6df8bb9693d1d88b2393acd27378"
+  },
+  {
+    "file": "bookshelves-03-cap-tooltip.png",
+    "sha256": "2fbbafa8d641d5b7c468bdb2d9a5e580e4579cbb9a964dbc7a5ec178d0f6e08b"
+  },
+  {
+    "file": "bookshelves-04-physical-37-effective-36.png",
+    "sha256": "882c98a21185ca3f674d87514f275494301b7044bedb3e28f8669d97c7216d36"
+  },
+  {
+    "file": "bookshelves-05-removed-upper-35.png",
+    "sha256": "be84185deb8c6e64462db8916aae8c84d7f99c941687c43874e79ed22b917b1c"
+  },
+  {
+    "file": "bookshelves-06-live-count-15.png",
+    "sha256": "f01c0cb36e9c4da8b54129be428b6088983c4d8cdc7a9117735cddd3a351f023"
+  },
+  {
+    "file": "bookshelves-06-live-count-16.png",
+    "sha256": "f3e8e15c3ab80682e2feb115422bfed6672552afa570360431cd156f60e7195f"
+  },
+  {
+    "file": "bookshelves-06-live-count-36.png",
+    "sha256": "e3ffffebeb248f1a91907aa42ed9dc0c973e35762fe255a080c9923d1322e0a6"
+  },
+  {
+    "file": "bookshelves-07-actual36-preview.png",
+    "sha256": "541e6a69d1ee7dcd26242510d353281fc1338982a8db13713870e08bad259dce"
+  },
+  {
+    "file": "bookshelves-08-committed-result.png",
+    "sha256": "d77d6854734d1cb50b51491641824e3015520998e33f387f6b34f3626e388ba7"
+  }
+]

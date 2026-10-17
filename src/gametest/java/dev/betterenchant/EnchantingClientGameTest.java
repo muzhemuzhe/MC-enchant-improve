@@ -55,8 +55,7 @@ public final class EnchantingClientGameTest implements FabricClientGameTest {
                 for(var cell:StructurePattern.CELLS) level.setBlockAndUpdate(FormationService.position(ORIGIN,cell,0),FormationService.originalBlock(cell.material()).defaultBlockState());
                 require(FormationService.form(level,ORIGIN,Direction.NORTH).startsWith("Formed"),"formed fixture");
                 var master=(MachineControllerBlockEntity)level.getBlockEntity(ORIGIN); master.setMachineTier(3);
-                for(var offset:net.minecraft.world.level.block.EnchantingTableBlock.BOOKSHELF_OFFSETS.subList(0,15))
-                    level.setBlockAndUpdate(ORIGIN.offset(offset),net.minecraft.world.level.block.Blocks.BOOKSHELF.defaultBlockState());
+                BookshelfFixtures.playerLayout(level,ORIGIN,15);
                 var player=server.getPlayerList().getPlayers().getFirst();
                 player.setGameMode(GameType.SURVIVAL); player.experienceLevel=40;
                 player.getInventory().setSelectedSlot(8);

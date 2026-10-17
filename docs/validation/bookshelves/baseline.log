@@ -1,0 +1,172 @@
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :processIncludeJars UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :sourcesJar UP-TO-DATE
+> Task :assemble UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test UP-TO-DATE
+> Task :validateAccessWidener NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build UP-TO-DATE
+> Task :compileGametestJava UP-TO-DATE
+> Task :generateLog4jConfig UP-TO-DATE
+> Task :generateDLIConfig UP-TO-DATE
+> Task :configureLaunch UP-TO-DATE
+> Task :processGametestResources UP-TO-DATE
+> Task :gametestClasses UP-TO-DATE
+
+> Task :runGametest
+[10:10:53] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 26.1.2 with Fabric Loader 0.19.5
+[10:10:53] [main/INFO] (FabricLoader/Mappings) Mappings not present!
+[10:10:53] [main/INFO] (FabricLoader) Loading 44 mods:
+	- better_enchant 0.4.1
+	- better_enchant_tests 1.0.0
+	- fabric-api 0.155.3+26.1.2
+	- fabric-api-base 2.0.3+ece063234c
+	- fabric-api-lookup-api-v1 2.0.12+d5a053b64c
+	- fabric-biome-api-v1 18.0.5+2fa62b4e4c
+	- fabric-block-api-v1 3.0.2+ec56b6014c
+	- fabric-block-getter-api-v2 2.0.6+ec56b6014c
+	- fabric-command-api-v2 3.0.5+e2bdee784c
+	- fabric-content-registries-v0 11.3.1+af8a297c4c
+	- fabric-convention-tags-v2 4.6.2+4f11f7994c
+	- fabric-crash-report-info-v1 1.0.3+9f78a5a84c
+	- fabric-creative-tab-api-v1 5.0.12+a981f2874c
+	- fabric-data-attachment-api-v1 2.2.10+44a0bd1d4c
+	- fabric-data-generation-api-v1 24.3.4+cda368334c
+	- fabric-debug-api-v1 1.0.1+c792624d4c
+	- fabric-dimensions-v1 5.1.7+ad343a8d4c
+	- fabric-entity-events-v1 5.0.2+e2bdee784c
+	- fabric-events-interaction-v0 5.2.3+07b380be4c
+	- fabric-game-rule-api-v1 4.0.5+d871b99e4c
+	- fabric-gametest-api-v1 4.0.18+867b87624c
+	- fabric-item-api-v1 14.3.0+6d1aaa724c
+	- fabric-lifecycle-events-v1 4.1.1+df84eb3d4c
+	- fabric-loot-api-v3 3.0.12+00a1fba64c
+	- fabric-menu-api-v1 2.0.15+d871b99e4c
+	- fabric-message-api-v1 7.0.5+dae8ce3e4c
+	- fabric-networking-api-v1 6.3.2+a217cccf4c
+	- fabric-object-builder-api-v1 23.1.1+abb459f14c
+	- fabric-particles-v1 5.0.16+b61fef434c
+	- fabric-permission-api-v1 1.0.3+5730ecca4c
+	- fabric-recipe-api-v1 9.0.17+be4b75ae4c
+	- fabric-registry-sync-v0 7.1.1+2fa62b4e4c
+	- fabric-rendering-fluids-v1 6.0.1+d871b99e4c
+	- fabric-resource-conditions-api-v1 6.1.0+83dd0ba34c
+	- fabric-resource-loader-v0 3.3.17+4fc5413f4c
+	- fabric-resource-loader-v1 2.0.10+7c44c7324c
+	- fabric-serialization-api-v1 2.0.3+11a26f314c
+	- fabric-tag-api-v1 2.1.1+371cf5db4c
+	- fabric-transfer-api-v1 8.0.6+357ea7334c
+	- fabric-transitive-access-wideners-v1 8.1.3+3ff549fb4c
+	- fabricloader 0.19.5
+	- java 25
+	- minecraft 26.1.2
+	- mixinextras 0.5.5
+[10:10:53] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/muzhe/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.17.4+mixin.0.8.7/5f66cc9f59b8efaa942155a3d5a30599bf6640dd/sponge-mixin-0.17.4+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
+[10:10:54] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[10:11:00] [main/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[10:11:00] [main/INFO] (FabricGameTestRunner) Starting test server
+[10:11:02] [main/INFO] (Minecraft) Loaded 1515 recipes
+[10:11:02] [main/INFO] (Minecraft) Loaded 1617 advancements
+[10:11:02] [main/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 65 new biomes in 1.298 ms
+[10:11:02] [Server thread/INFO] (Minecraft) Selecting global world spawn...
+[10:11:02] [Server thread/INFO] (Minecraft) Loading 0 persistent chunks...
+[10:11:02] [Server thread/INFO] (Minecraft) Preparing spawn area: 100%
+[10:11:03] [Server thread/INFO] (Minecraft) Time elapsed: 210 ms
+[10:11:03] [Server thread/INFO] (Minecraft) Started game test server
+[10:11:03] [Server thread/INFO] (Minecraft) 23 tests are now running at position -9645422, -59, -7100948!
+[10:11:04] [Server thread/INFO] (Minecraft) Running test environment 'minecraft:default' batch 0 (23 tests)...
+[10:11:04] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 5 at (0.0, 0.0, 0.0)
+[10:11:04] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 7 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 8 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) Machine tier = 3
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 9 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 10 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 11 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 12 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[10:11:05] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2432ms or 48 ticks behind
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 13 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 14 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 15 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 16 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 17 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 18 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 19 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 20 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 21 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 22 at (0.0, 0.0, 0.0)
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[10:11:05] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[10:11:05] [Server thread/INFO] (Minecraft) [+++_+++++++++++++++++++]
+[10:11:05] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++]
+[10:11:06] [Server thread/INFO] (Minecraft) ========= 23 GAME TESTS COMPLETE IN 2.975 s ======================
+[10:11:06] [Server thread/INFO] (Minecraft) All 23 required tests passed :)
+[10:11:06] [Server thread/INFO] (Minecraft) ====================================================
+[10:11:06] [Server thread/INFO] (Minecraft) Stopping server
+[10:11:06] [Server thread/INFO] (Minecraft) Saving players
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[10:11:06] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[10:11:06] [Server thread/INFO] (Minecraft) Saving worlds
+[10:11:06] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[10:11:07] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[10:11:07] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[10:11:07] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (world): All chunks are saved
+[10:11:07] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[10:11:07] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[10:11:07] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
+[10:11:07] [Server thread/INFO] (Minecraft) Game test server shutting down
+
+BUILD SUCCESSFUL in 23s
+12 actionable tasks: 1 executed, 11 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.1/userguide/configuration_cache_enabling.html

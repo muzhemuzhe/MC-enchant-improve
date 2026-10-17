@@ -16,7 +16,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.EnchantingTableBlock;
 import static dev.betterenchant.enchanting.MachineGuiLayout.*;
 
 /** Actual screen/list/buttons/slot packets, server batch commit and disk reconnects. */
@@ -80,7 +79,7 @@ public final class DirectedClientGameTest implements FabricClientGameTest {
         var level=server.overworld();
         for(var cell:StructurePattern.CELLS) level.setBlockAndUpdate(FormationService.position(ORIGIN,cell,0),FormationService.originalBlock(cell.material()).defaultBlockState());
         check(FormationService.form(level,ORIGIN,Direction.NORTH).startsWith("Formed"),"formed fixture");
-        for(var offset:EnchantingTableBlock.BOOKSHELF_OFFSETS.subList(0,15)) level.setBlockAndUpdate(ORIGIN.offset(offset),Blocks.BOOKSHELF.defaultBlockState());
+        BookshelfFixtures.playerLayout(level,ORIGIN,15);
         var player=server.getPlayerList().getPlayers().getFirst();player.setGameMode(GameType.SURVIVAL);player.experienceLevel=60;player.getInventory().setSelectedSlot(8);
         player.getInventory().setItem(9,gear);
     }

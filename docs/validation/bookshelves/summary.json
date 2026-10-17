@@ -1,0 +1,57 @@
+{
+  "version": "0.4.2",
+  "minecraft": "26.1.2",
+  "java": 25,
+  "command": ".\\gradlew.bat build runGametest runClientGametest --console=plain",
+  "result": "BUILD SUCCESSFUL in 1m 46s",
+  "unit_suites": [
+    {
+      "name": "dev.betterenchant.enchanting.BookshelfScanTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.enchanting.DirectedEnchantPolicyTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.enchanting.PreviewPolicyTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.enchanting.RandomEnchantPolicyTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.structure.StructureValidatorTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    }
+  ],
+  "unit_tests": 22,
+  "server_tests": 27,
+  "client_entrypoints": [
+    "MachineClientGameTest",
+    "EnchantingClientGameTest",
+    "EnchantingGuiClientGameTest",
+    "DirectedClientGameTest",
+    "BookshelfClientGameTest"
+  ],
+  "client_result": "Five configured entrypoints completed in real OpenGL client; Gradle exit 0",
+  "simulation_contexts": 27,
+  "samples_per_context": 100000,
+  "actual_registry_samples": 2700000,
+  "effective_cap": 36,
+  "candidate_positions": 80,
+  "screenshot_count": 10,
+  "jar": "build/libs/better-enchant-0.4.2.jar",
+  "jar_sha256": "9f38ace88c10052dd60c2df11b6ad46a5ccd0312af27e26a4ca54c3e05394902"
+}
