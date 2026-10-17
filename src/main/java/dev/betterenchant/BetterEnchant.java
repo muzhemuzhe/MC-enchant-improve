@@ -49,15 +49,17 @@ public final class BetterEnchant implements ModInitializer {
             if (success) EnchantmentCandidates.invalidate();
         });
         UseBlockCallback.EVENT.register((player, level, hand, hit) -> {
-            if (hand != InteractionHand.MAIN_HAND || !player.isShiftKeyDown() || !player.getMainHandItem().isEmpty()
-                    || !player.getOffhandItem().isEmpty() || player.isSpectator()
-                    || !player.mayBuild() || !level.getBlockState(hit.getBlockPos()).is(Blocks.ENCHANTING_TABLE)) {
-                return InteractionResult.PASS;
-            }
-            if (level instanceof ServerLevel server) {
+            if (!level.getBlockState(hit.getBlockPos()).is(Blocks.ENCHANTING_TABLE)) return InteractionResult.PASS;
+            if (player.isSpectator()) return InteractionResult.FAIL;
+            boolean emptyHands=player.getMainHandItem().isEmpty() && player.getOffhandItem().isEmpty();
+            // Vanilla skips block use in this exact case, allowing item placement against the table.
+            if (player.isSecondaryUseActive() && !emptyHands) return InteractionResult.PASS;
+            if (hand==InteractionHand.MAIN_HAND && player.isShiftKeyDown() && emptyHands && player.mayBuild()
+                    && level instanceof ServerLevel server) {
                 String result = FormationService.form(server, hit.getBlockPos(), player.getDirection());
                 player.sendSystemMessage(Component.literal("[Better Enchant] " + result));
             }
+            // Consume on both sides: client sends one use packet; server never reaches vanilla menu opening.
             return InteractionResult.SUCCESS;
         });
     }

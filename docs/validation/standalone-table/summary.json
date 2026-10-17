@@ -1,0 +1,51 @@
+{
+  "version": "0.4.3",
+  "minecraft": "26.1.2",
+  "java": 25,
+  "preserved_parent": "372b40a2413c50cbdff09d4e48db64db0a7550fe",
+  "unit_suites": [
+    {
+      "name": "dev.betterenchant.enchanting.BookshelfScanTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.enchanting.DirectedEnchantPolicyTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.enchanting.PreviewPolicyTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.enchanting.RandomEnchantPolicyTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.structure.StructureValidatorTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    }
+  ],
+  "unit_tests": 22,
+  "server_tests": 31,
+  "full_command": ".\\gradlew.bat build runGametest runClientGametest --console=plain",
+  "full_result": "BUILD SUCCESSFUL in 1m 51s",
+  "final_server_command": ".\\gradlew.bat build runGametest --console=plain",
+  "final_server_result": "BUILD SUCCESSFUL in 16s",
+  "client_entrypoints": 5,
+  "native_enchanting_screen_initializations": 0,
+  "client_scope": "Actual creative, survival, spectator, incomplete/restored attempts and survival reassembly; all existing random/directed/bookshelf client paths also passed",
+  "probability_outputs_unchanged": 28,
+  "screenshot_count": 7,
+  "jar": "build/libs/better-enchant-0.4.3.jar",
+  "jar_sha256": "a30379b6b9612fd88e8ad16768679b3d439aaba8527fbae445af89cbc78c3710"
+}

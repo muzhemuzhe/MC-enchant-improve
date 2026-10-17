@@ -100,3 +100,13 @@
 继续使用已固定的26.1.2依赖，直接核对本机依赖生成源码：`StructurePattern`明确controller在上层、另一层y=-1，旧版原版offsets y=0/1与整机高度不一致。当前 `BlockTags.ENCHANTMENT_POWER_PROVIDER` 仍是书架提供者标签；保留此标签而去掉机器菜单的空气/传导条件，不修改原版台全局行为。
 
 `LevelReader.hasChunkAt(BlockPos)`只查visible holder和FULL ticket级别，不能单独证明FULL数据已就绪；`Level.getBlockState`随后会调用常规getChunk，可能等待/添加UNKNOWN ticket。因此本次扫描最终使用 `ServerChunkCache.getChunkNow`：只查看FULL缓存或holder.getChunkIfPresent，不创建ticket、不等待任务；缺失则跳过，存在时直接从LevelChunk.getBlockState读取。纯Java测试混合已加载/未加载视图，真实GameTest另对远处全部未加载坐标扫描并核对已加载区块数不变；没有以此声称完整玩家卸载/重载压力测试已覆盖。
+
+## 独立附魔台使用拦截（0.4.3）
+
+核对固定Fabric模块 `fabric-events-interaction-v0:5.2.3+07b380be4c` 的官方[maven源码](https://maven.fabricmc.net/net/fabricmc/fabric-api/fabric-events-interaction-v0/5.2.3+07b380be4c/fabric-events-interaction-v0-5.2.3+07b380be4c-sources.jar)，以及目标版ServerPlayerGameMode/EnchantingTableBlock生成源码：
+
+- UseBlockCallback在服务器useItemOn入口执行，非PASS会取消后续处理，包含旁观者原版getMenuProvider路径。客户端SUCCESS会发送一个预测序号使用包并终止后续处理；不能用PASS表示“禁用”，也不能用客户端FAIL阻止应当发往服务器的组装操作。
+- 只处理目标BlockState是原版ENCHANTING_TABLE的情况：普通使用双端SUCCESS消费，主手+潜行+双空手+mayBuild时仅服务器尝试原组装。成功与失败均消费，不执行原useWithoutItem打开菜单；旁观者服务器FAIL，客户端Fabric自己的旁观者分支可能绕过回调，但服务器仍拒绝其包。
+- 原版明确在isSecondaryUseActive且任一手非空时跳过方块useWithoutItem，直接进入ItemStack.useOn。对此精确条件PASS可保留潜行持物邻接放置，又不开放原版菜单。
+- 没有Mixin或EnchantmentMenu类级封禁；MachinePartBlock的正常打开入口不匹配原版方块ID，MachineEnchantmentMenu虽继承原版菜单仍可正常工作。
+- 原版GameTestHelper.makeMockServerPlayerInLevel覆写gameMode()固定CREATIVE；不拿它伪装验证isSpectator。旁观者用真实客户端/真实玩家覆盖，生存与创造放置/采集仍检查实际abilities与ServerPlayerGameMode入口行为。

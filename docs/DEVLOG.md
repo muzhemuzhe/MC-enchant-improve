@@ -313,3 +313,30 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 10张新截图在 `docs/screenshots/bookshelves/`；基线、各次完整日志、JUnit/GameTest XML、27组模拟与哈希对照在 `docs/validation/bookshelves/`。日志按公共规则仅将本机仓库绝对路径改为相对路径。检查了世界双层结构、15/16/35/36与超额37、封顶提示、真实结果。发布 `build/libs/better-enchant-0.4.2.jar`，SHA-256 **9f38ace88c10052dd60c2df11b6ad46a5ccd0312af27e26a4ca54c3e05394902**，不含测试模组/资源。
 
 剩余边界：真实大整合包/资源包、非默认字体、高延迟双客户端、玩家远离造成的完整区块卸载/返回压力仍需人工验证。getChunkNow保护及远处未加载坐标断言不替代整套压力测试。后段强度仍是临时可配置原型，不改长期经济，也不改碰撞、模型和存储格式。现有Git身份本地提交，本轮不push。
+
+## 2026-10-17 · 禁用原版附魔台独立使用 · 0.4.3
+
+起点为尚未推送的372b40a，工作区干净；保留该提交，不reset或改写历史。先读规则与最新交互、结构、菜单和测试，并跑现有构建/服务端基线。没有结构改写，只扩展既有UseBlockCallback，不引入Mixin或菜单类级封禁。
+
+以固定Fabric interaction模块5.2.3+07b380be4c的官方源码和26.1.2真实ServerPlayerGameMode核对返回值：目标不是原版ENCHANTING_TABLE时PASS；是原版台时普通操作双端SUCCESS消费，客户端发送使用包、服务器阻止原版打开菜单。仅主手+潜行+双空手+mayBuild在服务器继续原形成服务，成功/失败都消费，失败不会回落原版界面。旁观者服务器FAIL。潜行持物精确匹配原版suppressed block use条件，PASS保留ItemStack.useOn和邻接放置；不能把所有原版台交互一律FAIL而阻断组装或正常建造。
+
+方块注册、原配方、原生方块实体/书本、放置、破坏、战利品均保持；恢复的原版台自动适用同一禁用规则。不触及MachinePartBlock或MachineEnchantmentMenu，后者继承原版EnchantmentMenu仍可正常打开并使用。未更改铁砧、砂轮、附魔书或村民交易代码。只记录未来附魔师工作方块方向，没有注册新职业、POI、交易、升级或维度。
+
+```powershell
+$env:JAVA_HOME = (Resolve-Path '.tools/jdk-25.0.4.1+1').Path
+$env:Path = "$env:JAVA_HOME/bin;$env:Path"
+.\gradlew.bat build runGametest --console=plain                 # 基线通过，15s
+.\gradlew.bat build runGametest --console=plain                 # 首次新测试，旁观者替身断言失败，17s
+.\gradlew.bat build runGametest runClientGametest --console=plain # 修正验证路径后全通过，1m51s
+.\gradlew.bat build runGametest --console=plain                 # 最终测试源码通过，16s
+```
+
+首次失败不是通过删掉旁观者覆盖解决：核对GameTestHelper发现原版mock player覆写gameMode()固定CREATIVE，设置其gameMode组件并不能使实体isSpectator真实为true。生存/创造/冒险的原版交互与abilities测试保留，将旁观者改为真实客户端玩家验证；客户端实际旁观者右击同样没有菜单。
+
+最终 **22项JUnit、31项服务端（30项目+1原版）、5项真实OpenGL客户端通过**。新增服务端4项用真实ServerPlayerGameMode.useItemOn入口走Fabric生产注入，覆盖双手和不同持物、无菜单按钮不能附魔/扣费、完整/不完整/副手单独/副手持物组装、重复形成不换UUID、机器菜单仍可打开、拆解后普通和失败组装均禁用；原配方matches/assemble、实际生存放置及消耗、潜行在台旁放置、钻石镐每台一份掉落、创造放置不耗及破坏不掉；铁砧和砂轮实际菜单仍打开。原附魔书、随机/指定费用、库存、网络、书架及存档回归保留。
+
+实际客户端扩展原MachineClientGameTest：创造/生存普通右击、不完整组装、正常磁盘重进后拆解恢复、修复后生存重新组装并打开自定义界面，另有真实旁观者。监听ScreenEvents.BEFORE_INIT断言原版EnchantmentScreen初始化次数为0，检查没有闪开；发送当前库存容器的伪造附魔按钮请求后，服务器仍无附魔菜单且经验不变。其余4个客户端入口执行随机三选项、指定批量附魔、真实材料槽、正确扣费/重放拒绝、预览一致和36架布局等完整流程。没有把编译当作GUI验证，也未声称人工手动或高延迟双客户端测试。
+
+原27组×100,000的概率输出28份文件（含汇总）与0.4.2逐文件SHA-256完全一致。新增7张截图在 `docs/screenshots/standalone-table/`，基线、首次失败、完整客户端与最终服务端日志、XML和哈希对照见 `docs/validation/standalone-table/`。日志仅按公共规则规范化本机路径。发布 `build/libs/better-enchant-0.4.3.jar`，SHA-256 **a30379b6b9612fd88e8ad16768679b3d439aaba8527fbae445af89cbc78c3710**，不含测试模组/资源。
+
+本次只修改独立原版台交互，保留原Git身份追加本地提交，不push。真实整合包中其他模组的事件优先级、网络高延迟/掉线仍需后续联合验证。

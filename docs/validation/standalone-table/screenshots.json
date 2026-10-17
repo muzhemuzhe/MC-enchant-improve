@@ -1,0 +1,30 @@
+[
+  {
+    "file": "standalone-01-creative-no-menu.png",
+    "sha256": "6d414323547fe33ef5b8f6fc383e03373b2e1864823aabbd7677ae2b467cb67a"
+  },
+  {
+    "file": "standalone-02-survival-no-menu.png",
+    "sha256": "174a2a4b00b6ff920a60ea5ccf449e0cbe2c87f3b33f61f6b2f146b4bf312ca5"
+  },
+  {
+    "file": "standalone-03-incomplete-no-menu.png",
+    "sha256": "09597c41a96cbafa921a772876d01a283e0fcb5b6ea3d9bac5ca9b5b660e624b"
+  },
+  {
+    "file": "standalone-04-restored-no-menu.png",
+    "sha256": "5df91bc847e7d8e76c029a9f5d7de664bd756a427b448702a94e53bc8e1f8d13"
+  },
+  {
+    "file": "standalone-05-restored-incomplete-no-menu.png",
+    "sha256": "5abaef6d0c8f7735bf97e0d7ce32a35339f8a9310a8c6bebca68d04c17beedd5"
+  },
+  {
+    "file": "standalone-06-survival-reassembled-machine-gui.png",
+    "sha256": "b175b5f38360a188258726bdc4c09d2be266f8d90786e798c7ab5c5486b255ef"
+  },
+  {
+    "file": "standalone-07-spectator-no-menu.png",
+    "sha256": "9b35cc79db7f28708a5500fa26c2691845b5e1778a7a9237573b6ad03589d92e"
+  }
+]

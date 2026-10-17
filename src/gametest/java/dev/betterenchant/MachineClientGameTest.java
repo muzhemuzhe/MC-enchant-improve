@@ -32,9 +32,30 @@ public class MachineClientGameTest implements FabricClientGameTest {
             }
         });
     }
+    private static void disabledUse(ClientGameTestContext context,TestSingleplayerContext world,
+            java.util.concurrent.atomic.AtomicInteger vanillaScreens,boolean sneak,String screenshot) {
+        if(sneak) {context.getInput().holdKey(o->o.keyShift);context.waitTicks(3);}
+        context.getInput().pressKey(o->o.keyUse);context.waitTicks(4);
+        if(sneak) {context.getInput().releaseKey(o->o.keyShift);context.waitTicks(2);}
+        context.runOnClient(client->{
+            require(client.screen==null && client.player.containerMenu==client.player.inventoryMenu,"standalone use never opens a screen");
+            require(vanillaScreens.get()==0,"no transient native enchanting screen was initialized");
+            // A forged button request cannot create a server menu or charge a standalone table.
+            client.gameMode.handleInventoryButtonClick(client.player.containerMenu.containerId,2);
+        });context.waitTicks(3);
+        world.getServer().runOnServer(server->{var p=server.getPlayerList().getPlayers().getFirst();
+            require(p.containerMenu==p.inventoryMenu && p.experienceLevel==40,"server has no enchanting menu or payment");
+            require(server.overworld().getBlockState(ORIGIN).is(Blocks.ENCHANTING_TABLE),"standalone/incomplete table remains native");
+        });
+        context.runOnClient(client->client.getToastManager().clear());context.takeScreenshot(screenshot);
+    }
     @Override
     public void runTest(ClientGameTestContext context) {
         context.getInput().resizeWindow(1280, 720);
+        var vanillaScreens=new java.util.concurrent.atomic.AtomicInteger();
+        net.fabricmc.fabric.api.client.screen.v1.ScreenEvents.BEFORE_INIT.register((client,screen,width,height)->{
+            if(screen instanceof net.minecraft.client.gui.screens.inventory.EnchantmentScreen) vanillaScreens.incrementAndGet();
+        });
         TestWorldSave save;
         try (var world = context.worldBuilder().create()) {
             save = world.getWorldSave();
@@ -45,6 +66,7 @@ public class MachineClientGameTest implements FabricClientGameTest {
                         FormationService.position(ORIGIN, cell, 0), FormationService.originalBlock(cell.material()).defaultBlockState());
                 var player = server.getPlayerList().getPlayers().getFirst();
                 player.setGameMode(GameType.CREATIVE);
+                player.experienceLevel=40;
                 player.getAbilities().flying = true;
                 player.onUpdateAbilities();
                 player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
@@ -59,6 +81,15 @@ public class MachineClientGameTest implements FabricClientGameTest {
             world.getServer().runCommand("tp @a 0.5 -58 0.5");
             context.waitTicks(3);
             context.getInput().lookAt(ORIGIN);
+            context.waitTicks(3);
+            disabledUse(context,world,vanillaScreens,false,"standalone-01-creative-no-menu");
+            world.getServer().runOnServer(server->server.getPlayerList().getPlayers().getFirst().setGameMode(GameType.SPECTATOR));context.waitTicks(3);
+            disabledUse(context,world,vanillaScreens,false,"standalone-07-spectator-no-menu");
+            world.getServer().runOnServer(server->server.getPlayerList().getPlayers().getFirst().setGameMode(GameType.SURVIVAL));context.waitTicks(3);
+            disabledUse(context,world,vanillaScreens,false,"standalone-02-survival-no-menu");
+            world.getServer().runOnServer(server->server.overworld().setBlockAndUpdate(FormationService.position(ORIGIN,StructurePattern.CELLS.getFirst(),0),Blocks.AIR.defaultBlockState()));
+            disabledUse(context,world,vanillaScreens,true,"standalone-03-incomplete-no-menu");
+            world.getServer().runOnServer(server->{server.overworld().setBlockAndUpdate(FormationService.position(ORIGIN,StructurePattern.CELLS.getFirst(),0),Blocks.POLISHED_DEEPSLATE.defaultBlockState());server.getPlayerList().getPlayers().getFirst().setGameMode(GameType.CREATIVE);});context.waitTicks(3);
             context.getInput().holdKey(options -> options.keyShift);
             context.waitTicks(3);
             context.runOnClient(client -> {
@@ -97,6 +128,19 @@ public class MachineClientGameTest implements FabricClientGameTest {
             context.waitTicks(5);
             reopened.getClientLevel().waitForChunksRender();
             context.takeScreenshot("04-disassembled-after-reload");
+            reopened.getServer().runOnServer(server->server.getPlayerList().getPlayers().getFirst().setGameMode(GameType.SURVIVAL));
+            reopened.getServer().runCommand("tp @a 0.5 -58 0.5");context.waitTicks(4);context.getInput().lookAt(ORIGIN);context.waitTicks(3);
+            disabledUse(context,reopened,vanillaScreens,false,"standalone-04-restored-no-menu");
+            disabledUse(context,reopened,vanillaScreens,true,"standalone-05-restored-incomplete-no-menu");
+            reopened.getServer().runOnServer(server->{for(var cell:StructurePattern.CELLS) {
+                var pos=FormationService.position(ORIGIN,cell,0);
+                if(server.overworld().getBlockState(pos).isAir()) server.overworld().setBlockAndUpdate(pos,FormationService.originalBlock(cell.material()).defaultBlockState());
+            }});
+            context.getInput().holdKey(o->o.keyShift);context.waitTicks(3);context.getInput().pressKey(o->o.keyUse);context.waitTicks(4);
+            context.getInput().releaseKey(o->o.keyShift);context.waitTicks(3);assertFormed(reopened);
+            context.getInput().pressKey(o->o.keyUse);context.waitForScreen(dev.betterenchant.client.MachineEnchantmentScreen.class);
+            require(vanillaScreens.get()==0,"survival reassembly opens only the custom screen");context.takeScreenshot("standalone-06-survival-reassembled-machine-gui");
+            context.getInput().pressKey(o->o.keyInventory);context.waitForScreen(null);
         }
     }
 }
