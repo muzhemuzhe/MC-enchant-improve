@@ -4,6 +4,8 @@ package dev.betterenchant.enchanting;
 public final class MachineGuiLayout {
     private MachineGuiLayout() {}
     public static final int WIDTH=260, HEIGHT=208;
+    public static final int CORE_SLOT=38;
+    public static final Rect CORE_PROGRESS=new Rect(10,151,32,5);
     public record Rect(int x,int y,int width,int height) {
         public boolean contains(double px,double py) { return px>=x && px<x+width && py>=y && py<y+height; }
     }
@@ -18,7 +20,8 @@ public final class MachineGuiLayout {
     public static Rect plus(int visible) {return new Rect(238,37+20*visible,12,12);}
     public static Rect minus(int visible) {return new Rect(223,37+20*visible,12,12);}
     public static Point slot(int index) {
-        if(index<0 || index>=38) throw new IllegalArgumentException("Invalid slot");
+        if(index<0 || index>CORE_SLOT) throw new IllegalArgumentException("Invalid slot");
+        if(index==CORE_SLOT) return new Point(18,128);
         if(index<2) return new Point(25+20*index,78);
         if(index<29) return new Point(49+18*((index-2)%9),126+18*((index-2)/9));
         return new Point(49+18*(index-29),184);

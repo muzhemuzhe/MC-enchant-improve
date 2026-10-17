@@ -28,6 +28,10 @@ public final class DisassemblyService {
         if (!FormationService.BUSY.add(level)) return;
         var restored = new ArrayList<BlockPos>();
         try {
+            // The removed controller may already be absent from the world's block-entity lookup.
+            source.dropCore(level);
+            if (level.hasChunkAt(source.controller) && level.getBlockEntity(source.controller) instanceof MachineControllerBlockEntity master
+                    && belongs(master, source, 13)) master.dropCore(level);
             for (var cell : StructurePattern.CELLS) {
                 BlockPos p = FormationService.position(source.controller, cell, source.rotation);
                 if (p.equals(removed) || !level.hasChunkAt(p)) continue;

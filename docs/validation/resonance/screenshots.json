@@ -1,0 +1,94 @@
+[
+  {
+    "file": "resonance-01-before-zero-zh.png",
+    "sha256": "0d4f7e13d23ad8bf2d4cb53df192b64f35272e7f7f6dd2accca90340e4784c4f"
+  },
+  {
+    "file": "resonance-02-item-core-tooltip-zh.png",
+    "sha256": "99b5f42276dc537d38e1a9240e2da7a98753ab238d08b1f4c2bd6b6c4be11171"
+  },
+  {
+    "file": "resonance-03-charged-3.png",
+    "sha256": "45a2dc8a9cec36212cf0f14441756bf3348196dd50bce5284d0e6bc32f2af500"
+  },
+  {
+    "file": "resonance-04-charged-6.png",
+    "sha256": "6f240b3129908f034e567a1001ab4acef1a386647b0cf984d4af451b5129fc2b"
+  },
+  {
+    "file": "resonance-05-partial-item-tooltip-6.png",
+    "sha256": "5cf471fdc288ba799f6c7be5aef9c0cbb591a46466411996970e9495c3f456a5"
+  },
+  {
+    "file": "resonance-06-reopened-still-6.png",
+    "sha256": "801f1573e6cc9ff8bd782c839717ff2a7d0c0319e6fb99b8cf295a633d8b372a"
+  },
+  {
+    "file": "resonance-07-disk-reload-still-6.png",
+    "sha256": "b8dd9407a2d2506b728b14cee0d3bc8ff73843fc68ce5b6b706d9e62b0ff5f03"
+  },
+  {
+    "file": "resonance-08-transfer-other-machine-6.png",
+    "sha256": "5470e28be5b558621b01c8defd376b445b870ae74535d65bc433bf4fac93dd8f"
+  },
+  {
+    "file": "resonance-09-charged-9.png",
+    "sha256": "176791ed6219db3435164b2d324b704b4c3741b7435c7508a997c627a11e75ef"
+  },
+  {
+    "file": "resonance-10-charged-11-tier1.png",
+    "sha256": "4e50b0a4badb29b58ed22920e2f08b01eb64978227a5a266a8445ecf67f9f3de"
+  },
+  {
+    "file": "resonance-11-full-tier2-upgrade.png",
+    "sha256": "608b736f6811b1236b9500a9e39d65430f29099fe94281500d59c15c75ccbdc5"
+  },
+  {
+    "file": "resonance-12-item-attuned-tooltip-zh.png",
+    "sha256": "c4607dbcbb346376cb6f0d9671878f0ee077174fbc8f1583d4d5d8694e2ac5ea"
+  },
+  {
+    "file": "resonance-13-directed-repeat-plan-no-charge.png",
+    "sha256": "0c20bdf31cc34f66516924b16b88d7a34a4566e22f7b798350cf76b98e07c6ca"
+  },
+  {
+    "file": "resonance-14-repeat-attuned-still-tier2.png",
+    "sha256": "3858641b1aa791c6f1c127b644e646358a5d0e2ec347ec3a545908336e42df11"
+  },
+  {
+    "file": "resonance-15-directed-attuned-en.png",
+    "sha256": "5329cba4e8b318db4d868428328d0c871ef873889524c0800e5ad3f35b8ad8e7"
+  },
+  {
+    "file": "resonance-16-item-attuned-tooltip-en.png",
+    "sha256": "e13477969136d21c15590ef554c61df5c8383f4f3a67cb604ac4c599648a4b74"
+  },
+  {
+    "file": "resonance-17-upgrade-and-result-persisted.png",
+    "sha256": "78f881decc5e2194cbfd18692873a0c00c46da9b336a3c81150b4317062a0a00"
+  },
+  {
+    "file": "resonance-18-chunk-reload-partial-7.png",
+    "sha256": "cf63bc7d18584945be4131a94a1f1bb99991481adab2b08878d30aa932b563d6"
+  },
+  {
+    "file": "resonance-19-dismantled-core-drop.png",
+    "sha256": "fabdc326a099150a43b9d50b9b87d314753096c900053ca14f33b6d7b2404f98"
+  },
+  {
+    "file": "resonance-20-before-active-random-zero.png",
+    "sha256": "360d49853cd39629c2c10e70732f5062d2011e51543d87a75cb31be74139fb05"
+  },
+  {
+    "file": "resonance-21-middle-active-random-6.png",
+    "sha256": "96b17c29750648242b2882d371a18c06e3c319699e896c5b5671fd737c2d55be"
+  },
+  {
+    "file": "resonance-22-before-final-active-random-11.png",
+    "sha256": "e1e63ef3d88d9888057b64ebdce58ba2962797eeb3b066fd92acdee53c85840d"
+  },
+  {
+    "file": "resonance-23-upgrade-enchanted-result-tier2.png",
+    "sha256": "4ba086361f590bd49acb260786352b7a761308d6a8bce8c06c895bb410f56d97"
+  }
+]

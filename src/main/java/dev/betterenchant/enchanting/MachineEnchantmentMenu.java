@@ -11,6 +11,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
+import dev.betterenchant.resonance.ResonanceItems;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -48,12 +50,14 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
         super(id,inventory);
         owner=inventory.player;
         relocateSlots();
+        addCoreSlot(new SimpleContainer(1));
         addDataSlot(tierData); addDataSlot(shelfData); addDataSlot(quoteLow); addDataSlot(quoteHigh); addDataSlot(visualSeed);
     }
     public MachineEnchantmentMenu(int id, Inventory inventory, ServerLevel level, MachineControllerBlockEntity master) {
         super(id,inventory,ContainerLevelAccess.create(level,master.getBlockPos()));
         owner=inventory.player; server=level; origin=master.getBlockPos().immutable(); machineId=master.machineId();
         relocateSlots();
+        addCoreSlot(master.coreInventory());
         addDataSlot(tierData); addDataSlot(shelfData); addDataSlot(quoteLow); addDataSlot(quoteHigh); addDataSlot(visualSeed);
         refresh();
     }
@@ -61,6 +65,18 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
     @Override public int getEnchantmentSeed() { return visualSeed.get(); }
     public int machineTier() { return tierData.get(); }
     public int bookshelfCount() { return shelfData.get(); }
+    private void addCoreSlot(Container inventory) {
+        var point=MachineGuiLayout.slot(MachineGuiLayout.CORE_SLOT);
+        addSlot(new Slot(inventory,0,point.x(),point.y()) {
+            @Override public boolean mayPlace(ItemStack stack) { return stillValid(owner) && ResonanceItems.isCore(stack); }
+            @Override public boolean mayPickup(Player player) { return stillValid(player); }
+            @Override public int getMaxStackSize() { return 1; }
+        });
+    }
+    private void chargeCore(int spent,Player player) {
+        var master=MachineAccess.controller(server,origin);
+        if(master!=null && machineId.equals(master.machineId())) master.chargeCore(spent,player.hasInfiniteMaterials());
+    }
     private void relocateSlots() {
         // Slot coordinates are final in 26.1.2. Preserve containers, indices and vanilla filters.
         for(int i=0;i<slots.size();i++) {
@@ -186,6 +202,7 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
             if(!creative) lapis.shrink(spent);
             getSlot(1).set(lapis.isEmpty() ? ItemStack.EMPTY : lapis);
             getSlot(0).set(output);
+            chargeCore(creative?0:spent,player);
         } finally { committing=false; }
         player.awardStat(Stats.ENCHANT_ITEM);
         CriteriaTriggers.ENCHANTED_ITEM.trigger((ServerPlayer)player,output,spent);
@@ -252,6 +269,7 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
             player.giveExperienceLevels(-plan.levels());
             var remainder=material.copy();remainder.shrink(plan.upgrades());
             getSlot(1).set(remainder.isEmpty()?ItemStack.EMPTY:remainder);getSlot(0).set(output);directed.clear();
+            chargeCore(plan.levels(),player);
         } finally {committing=false;}
         player.awardStat(Stats.ENCHANT_ITEM);
         CriteriaTriggers.ENCHANTED_ITEM.trigger((ServerPlayer)player,output,plan.upgrades());
@@ -259,13 +277,24 @@ public final class MachineEnchantmentMenu extends EnchantmentMenu {
         return true;
     }
     @Override public ItemStack quickMoveStack(Player player,int index) {
-        if(index>=2 && index<slots.size() && getSlot(index).getItem().is(BetterEnchant.RUNIC_STONE)) {
-            var slot=getSlot(index);var item=slot.getItem();var original=item.copy();
+        if(index<0 || index>=slots.size() || !stillValid(player)) return ItemStack.EMPTY;
+        var slot=getSlot(index);
+        if(!slot.hasItem() || !slot.mayPickup(player)) return ItemStack.EMPTY;
+        var item=slot.getItem();var original=item.copy();
+        // Keep native player indices [2,38); the appended shared core is never treated as player storage.
+        if(index<2 || index==MachineGuiLayout.CORE_SLOT) {
+            if(!moveItemStackTo(item,2,38,true)) return ItemStack.EMPTY;
+        } else if(ResonanceItems.isCore(item)) {
+            if(!moveItemStackTo(item,MachineGuiLayout.CORE_SLOT,MachineGuiLayout.CORE_SLOT+1,false)) return ItemStack.EMPTY;
+        } else if(item.is(Items.LAPIS_LAZULI) || item.is(BetterEnchant.RUNIC_STONE)) {
             if(!moveItemStackTo(item,1,2,true)) return ItemStack.EMPTY;
-            if(item.isEmpty()) slot.setByPlayer(ItemStack.EMPTY);else slot.setChanged();
-            slot.onTake(player,item);return original;
+        } else {
+            if(getSlot(0).hasItem() || !getSlot(0).mayPlace(item)) return ItemStack.EMPTY;
+            getSlot(0).setByPlayer(item.split(1));
         }
-        return super.quickMoveStack(player,index);
+        if(item.getCount()==original.getCount()) return ItemStack.EMPTY;
+        if(item.isEmpty()) slot.setByPlayer(ItemStack.EMPTY);else slot.setChanged();
+        slot.onTake(player,item);return original;
     }
     @Override public void removed(Player player) {
         if(closed) return;

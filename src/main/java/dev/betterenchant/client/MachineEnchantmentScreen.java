@@ -3,6 +3,7 @@ package dev.betterenchant.client;
 import java.util.ArrayList;
 import java.util.List;
 import dev.betterenchant.enchanting.*;
+import dev.betterenchant.resonance.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -164,6 +165,12 @@ public final class MachineEnchantmentScreen extends AbstractContainerScreen<Mach
         g.pose().pushMatrix();g.pose().translate(leftPos,topPos);
         panel(g);
         for(var slot:menu.slots) region(g,slot.x-1,slot.y-1,18,18,14,46,18,18);
+        // Use the reserved left margin beside the inventory, without moving or covering either mode.
+        var progress=CORE_PROGRESS;
+        var core=menu.getSlot(CORE_SLOT).getItem();
+        int energy=ResonanceItems.energy(core);
+        g.fill(progress.x(),progress.y(),progress.x()+progress.width(),progress.y()+progress.height(),0xFF645B4B);
+        g.fill(progress.x()+1,progress.y()+1,progress.x()+1+(progress.width()-2)*energy/ResonancePolicy.CAPACITY,progress.y()+progress.height()-1,core.is(ResonanceItems.ATTUNED_CORE)?0xFFE2C76B:0xFF4D8E9A);
         // Modest text tabs share the panel, rather than becoming separate framed panels.
         var activeTab=menu.isDirected()?DIRECTED_TAB:RANDOM_TAB;
         g.fill(activeTab.x(),activeTab.y()+11,activeTab.x()+activeTab.width(),activeTab.y()+12,0xFF8D8066);
@@ -209,9 +216,16 @@ public final class MachineEnchantmentScreen extends AbstractContainerScreen<Mach
         clipped(g,tr("shelves",menu.bookshelfCount()),10,101,76,MUTED);
         if(!menu.isDirected()) clipped(g,tr("hover_preview"),92,101,158,MUTED);
         g.text(font,playerInventoryTitle,49,115,0xFF404040,false);
+        clipped(g,tr("core"),10,115,32,MUTED);
+        var core=menu.getSlot(CORE_SLOT).getItem();
+        g.centeredText(font,Component.literal(ResonanceItems.energy(core)+"/"+ResonancePolicy.CAPACITY),26,160,MUTED);
     }
     @Override protected void extractTooltip(GuiGraphicsExtractor g,int x,int y) {
         super.extractTooltip(g,x,y);
+        if(new Rect(10,149,32,23).contains(x-leftPos,y-topPos)
+                || (menu.getSlot(CORE_SLOT).getItem().isEmpty() && new Rect(17,127,18,18).contains(x-leftPos,y-topPos))) {
+            g.setTooltipForNextFrame(font,font.split(tr("core_help"),180),x,y);return;
+        }
         if(new Rect(10,99,76,12).contains(x-leftPos,y-topPos)) {
             g.setTooltipForNextFrame(font,font.split(tr("shelves_help",menu.bookshelfCount(),BookshelfScan.MAX_EFFECTIVE),180),x,y);return;
         }

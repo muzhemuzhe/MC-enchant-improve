@@ -6,8 +6,8 @@
   "environment": "*",
   "entrypoints": {
     "main": ["dev.betterenchant.CompatibilityTestMod"],
-    "fabric-gametest": ["dev.betterenchant.MachineGameTests", "dev.betterenchant.EnchantingProbabilityGameTests", "dev.betterenchant.EnchantingMenuGameTests", "dev.betterenchant.EnchantingPreviewGameTests", "dev.betterenchant.DirectedGameTests", "dev.betterenchant.BookshelfGameTests", "dev.betterenchant.VanillaTableGameTests"],
-    "fabric-client-gametest": ["dev.betterenchant.MachineClientGameTest", "dev.betterenchant.EnchantingClientGameTest", "dev.betterenchant.EnchantingGuiClientGameTest", "dev.betterenchant.DirectedClientGameTest", "dev.betterenchant.BookshelfClientGameTest"]
+    "fabric-gametest": ["dev.betterenchant.MachineGameTests", "dev.betterenchant.EnchantingProbabilityGameTests", "dev.betterenchant.EnchantingMenuGameTests", "dev.betterenchant.EnchantingPreviewGameTests", "dev.betterenchant.DirectedGameTests", "dev.betterenchant.BookshelfGameTests", "dev.betterenchant.VanillaTableGameTests", "dev.betterenchant.ResonanceGameTests"],
+    "fabric-client-gametest": ["dev.betterenchant.MachineClientGameTest", "dev.betterenchant.EnchantingClientGameTest", "dev.betterenchant.EnchantingGuiClientGameTest", "dev.betterenchant.DirectedClientGameTest", "dev.betterenchant.BookshelfClientGameTest", "dev.betterenchant.ResonanceClientGameTest"]
   },
   "depends": { "better_enchant": "*", "fabric-gametest-api-v1": "*" }
 }

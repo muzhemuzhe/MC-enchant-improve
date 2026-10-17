@@ -36,6 +36,7 @@ public final class BetterEnchant implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        dev.betterenchant.resonance.ResonanceItems.initialize();
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.clientboundPlay().register(EnchantingPreviewPayload.TYPE,EnchantingPreviewPayload.CODEC);
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.clientboundPlay().registerLarge(DirectedPreviewPayload.TYPE,DirectedPreviewPayload.CODEC,4*1024*1024);
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.serverboundPlay().register(DirectedActionPayload.TYPE,DirectedActionPayload.CODEC);
@@ -43,6 +44,10 @@ public final class BetterEnchant implements ModInitializer {
             if(context.player().containerMenu instanceof MachineEnchantmentMenu menu) menu.handleDirected(context.player(),payload);
         });
         net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents.modifyOutputEvent(net.minecraft.world.item.CreativeModeTabs.INGREDIENTS).register(output->output.accept(RUNIC_STONE));
+        net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents.modifyOutputEvent(net.minecraft.world.item.CreativeModeTabs.INGREDIENTS).register(output->{
+            output.accept(dev.betterenchant.resonance.ResonanceItems.CORE);
+            output.accept(dev.betterenchant.resonance.ResonanceItems.ATTUNED_CORE);
+        });
         try { EnchantingConfig.load(); } catch (java.io.IOException | IllegalArgumentException error) { throw new IllegalStateException("Invalid Better Enchant server configuration",error); }
         EnchantingCommands.register();
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server,resources,success)->{

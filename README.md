@@ -1,6 +1,6 @@
-# Better Enchant · 第四轮铭纹石与指定附魔原型
+# Better Enchant · 第五轮共鸣核心与 Lv.2 原型
 
-Minecraft Java **26.1.2 / Fabric / JDK 25**。原版材料搭建的 3×3×2 机器现可使用双槽、三选项的随机附魔界面。机器等级与有效书架分别改善概率，一级、零书架也保留所有合法高级结果的非零机会。指定模式现可用铭纹石逐级升级；没有原创附魔、遗迹生成或默认额外宝藏来源。
+Minecraft Java **26.1.2 / Fabric / JDK 25**。原版材料搭建的 3×3×2 机器提供装备/材料输入、三选项随机附魔、铭纹石指定升级及独立共鸣核心槽。机器等级与有效书架分别改善概率，一级、零书架也保留所有合法高级结果的非零机会。没有原创附魔、遗迹生成或默认额外宝藏来源。
 
 ![真实客户端中的形成态](docs/screenshots/02-formed-machine.png)
 
@@ -17,7 +17,17 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/better-enchant-0.4.3.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/better-enchant-0.5.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+
+## 共鸣核心与升级
+
+工作台有序配方 `CAC / ALA / CAC`：C铁锭，A普通书或任意附魔书，L青金石块；四个书位可混用，所有材料正常消耗，产出一个无充能的**共鸣核心**。普通核心最大堆叠1，持久保存能量；**谐调的共鸣核心**没有直接合成，可堆叠64。
+
+在机器背包左侧的独立核心槽安装共鸣核心。正常成功随机附魔收集实际支付的1/2/3经验等级，指定附魔收集本次实际总费用；不会额外扣经验。**12点充满**后自动转为谐调核心留在槽内，Lv.1机器同时升至Lv.2，播放粒子/音效。Lv.2以上再充满只生产材料，绝不会因此升至Lv.3。取出成品后可安装新核心，长期重复生产。
+
+核心可中途取出、转移机器；关闭界面仍安装在机器内，存档/区块加载保存能量和机器等级。拆解时安装核心只掉落一次。没有核心时附魔正常，不积攒历史能量；创造模式、预览、规划和失败不充能。
+
+创造材料栏或 `/give @s better_enchant:resonance_core` / `/give @s better_enchant:attuned_resonance_core` 可测试。[核心规则、存档与同步](docs/RESONANCE_CORES.md) · [本轮验证](docs/validation/resonance/README.md)。没有研究台、Lv.3升级、新遗迹或祛魔实现。
 
 ## 指定附魔操作
 

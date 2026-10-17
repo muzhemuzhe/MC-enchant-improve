@@ -1,0 +1,43 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :processIncludeJars UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :sourcesJar UP-TO-DATE
+> Task :assemble UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test UP-TO-DATE
+> Task :validateAccessWidener NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build UP-TO-DATE
+
+> Task :compileGametestJava FAILED
+
+[Incubating] Problems report is available at: file:///./build/reports/problems/problems-report.html
+.\src\gametest\java\dev\betterenchant\ResonanceClientGameTest.java:123: 错误: items 在 Inventory 中是 private 访问控制
+            shiftSlot(c,CORE_SLOT);world.getServer().runOnServer(s->{var p=s.getPlayerList().getPlayers().getFirst();check(p.getInventory().countItem(ResonanceItems.ATTUNED_CORE)==2,"both finished cores remain, no extra output");check(p.getInventory().items.stream().anyMatch(stack->stack.is(ResonanceItems.ATTUNED_CORE) && stack.getCount()==2),"finished cores stack together normally");});
+                                                                                                                                                                                                                                                           ^
+1 个错误
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  .\src\gametest\java\dev\betterenchant\ResonanceClientGameTest.java:123: 错误: items 在 Inventory 中是 private 访问控制
+              shiftSlot(c,CORE_SLOT);world.getServer().runOnServer(s->{var p=s.getPlayerList().getPlayers().getFirst();check(p.getInventory().countItem(ResonanceItems.ATTUNED_CORE)==2,"both finished cores remain, no extra output");check(p.getInventory().items.stream().anyMatch(stack->stack.is(ResonanceItems.ATTUNED_CORE) && stack.getCount()==2),"finished cores stack together normally");});
+                                                                                                                                                                                                                                                             ^
+  1 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+8 actionable tasks: 1 executed, 7 up-to-date

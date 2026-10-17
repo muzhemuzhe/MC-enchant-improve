@@ -1,0 +1,72 @@
+{
+  "version": "0.5.0",
+  "minecraft": "26.1.2",
+  "java": 25,
+  "parent": "4cb6eaf7fcce733e1add26d69acc873e3f13f5d4",
+  "preserved_bookshelf_commit": "372b40a2413c50cbdff09d4e48db64db0a7550fe",
+  "unit_suites": [
+    {
+      "name": "dev.betterenchant.enchanting.BookshelfScanTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.enchanting.DirectedEnchantPolicyTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.enchanting.PreviewPolicyTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.enchanting.RandomEnchantPolicyTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.resonance.ResonancePolicyTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "dev.betterenchant.structure.StructureValidatorTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    }
+  ],
+  "unit_tests": 25.0,
+  "server_tests": 39,
+  "server_failures": 0,
+  "client_entrypoints": 6,
+  "full_command": ".\\gradlew.bat build runGametest runClientGametest --console=plain",
+  "full_result": "BUILD SUCCESSFUL in 2m 26s",
+  "final_server_result": "BUILD SUCCESSFUL in 17s",
+  "actual_random_energy_path": [
+    0,
+    3,
+    6,
+    9,
+    11,
+    12
+  ],
+  "actual_tier_path": [
+    1,
+    2,
+    2
+  ],
+  "actual_disk_reload": true,
+  "actual_chunk_unload_reload": true,
+  "two_independent_clients_tested": false,
+  "probability_outputs_unchanged": 28,
+  "screenshot_count": 23,
+  "jar": "build/libs/better-enchant-0.5.0.jar",
+  "jar_sha256": "04e288d8191bfacb638e9529696b010c0c0fcb0e8a8af2b9d83658d708d62528"
+}

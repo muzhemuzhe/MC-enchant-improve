@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.betterenchant.enchanting.RandomEnchantPolicyTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-17T04:36:06.880Z" hostname="MUZHE" time="0.311">
+  <properties/>
+  <testcase name="everyShelfThroughThirtySixChangesActualProbabilitiesAndTailDiminishes()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.015"/>
+  <testcase name="fullLegalSupportIsPositiveAnalyticallyAtEveryTierAndNoShelves()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.002"/>
+  <testcase name="qualityImprovesMonotonicallyAndBookshelvesAreIndependent()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.001"/>
+  <testcase name="oldConfigGetsTailGainAndScaleSupportsAllThirtySix()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.004"/>
+  <testcase name="probabilityAxesCanBeDisabledSeparately()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.001"/>
+  <testcase name="exclusionsEmptyPoolAndBadWeightsFailSafely()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.002"/>
+  <testcase name="oneHundredThousandPerContextAreDeterministicCompatibleAndBounded()" classname="dev.betterenchant.enchanting.RandomEnchantPolicyTest" time="0.282"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

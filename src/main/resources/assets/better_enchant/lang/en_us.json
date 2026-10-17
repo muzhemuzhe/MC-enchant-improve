@@ -1,4 +1,13 @@
 {
+  "item.better_enchant.resonance_core": "Resonance Core",
+  "item.better_enchant.attuned_resonance_core": "Attuned Resonance Core",
+  "item.better_enchant.resonance_core.energy": "Resonance: %s/%s",
+  "item.better_enchant.resonance_core.help": "Collects paid enchanting levels.",
+  "item.better_enchant.resonance_core.help_extra": "Keeps its charge when removed.",
+  "item.better_enchant.attuned_resonance_core.help": "Fully attuned. Ready to take out.",
+  "item.better_enchant.attuned_resonance_core.help_extra": "Install a new core to collect more.",
+  "gui.better_enchant.core": "Core",
+  "gui.better_enchant.core_help": "Install a Resonance Core. Successful enchanting collects paid levels, up to 12. Full cores become attuned and upgrade Lv.1 to Lv.2. Creative mode generates no resonance.",
   "block.better_enchant.machine_part": "Formed Enchanting Machine",
   "container.better_enchant.title": "Better Enchant",
   "container.better_enchant.status": "Enchanting | T%s B%s",

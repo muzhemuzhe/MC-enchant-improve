@@ -11,6 +11,9 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.item.ItemStack;
+import dev.betterenchant.resonance.*;
 
 /** All parts retain recovery data, even when their controller chunk is absent. */
 public final class MachineControllerBlockEntity extends BlockEntity {
@@ -22,6 +25,37 @@ public final class MachineControllerBlockEntity extends BlockEntity {
     CompoundTag originalEntity;
     List<BlockState> controllerSnapshot = List.of();
     private int machineTier = 1;
+    private final SimpleContainer core = new SimpleContainer(1) {
+        @Override public void setChanged() { super.setChanged(); MachineControllerBlockEntity.this.setChanged(); }
+    };
+    public SimpleContainer coreInventory() { return core; }
+
+    /** Called only within a successful menu commit on the server thread. */
+    public void chargeCore(int paidLevels, boolean creative) {
+        if (!(level instanceof ServerLevel server) || index != 13 || creative) return;
+        ItemStack stack = core.getItem(0);
+        if (!stack.is(ResonanceItems.CORE) || stack.getCount() != 1) return;
+        var result = ResonancePolicy.charge(ResonanceItems.energy(stack), paidLevels, false, machineTier);
+        if (result.completed()) {
+            ItemStack attuned = stack.transmuteCopy(ResonanceItems.ATTUNED_CORE, 1);
+            attuned.remove(ResonanceItems.ENERGY);
+            core.setItem(0, attuned);
+            machineTier = result.tier();
+            server.sendParticles(net.minecraft.core.particles.ParticleTypes.ENCHANT, worldPosition.getX()+.5, worldPosition.getY()+.6, worldPosition.getZ()+.5, 32, .7, .4, .7, .5);
+            server.playSound(null, worldPosition, net.minecraft.sounds.SoundEvents.PLAYER_LEVELUP, net.minecraft.sounds.SoundSource.BLOCKS, .8f, 1.3f);
+        } else {
+            ItemStack charged = stack.copy(); charged.set(ResonanceItems.ENERGY, result.energy()); core.setItem(0, charged);
+        }
+        setChanged();
+    }
+
+    /** Drain before spawning/restoring, including when the controller itself was the broken part. */
+    void dropCore(ServerLevel server) {
+        if (index != 13) return;
+        ItemStack drop = core.removeItemNoUpdate(0);
+        setChanged();
+        if (!drop.isEmpty()) net.minecraft.world.Containers.dropItemStack(server, worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), drop);
+    }
 
     public UUID machineId() { return machineId; }
     public BlockPos controllerPosition() { return controller; }
@@ -46,6 +80,7 @@ public final class MachineControllerBlockEntity extends BlockEntity {
         out.putInt("rotation", rotation);
         out.putInt("index", index);
         out.putInt("machine_tier", machineTier);
+        if (index == 13) out.store("resonance_core", ItemStack.OPTIONAL_CODEC, core.getItem(0));
         if (index >= 0 && index < 18) {
             var offset = dev.betterenchant.structure.StructurePattern.CELLS.get(index).offset();
             out.store("local_offset", BlockPos.CODEC, new BlockPos(offset.x(), offset.y(), offset.z()));
@@ -63,6 +98,7 @@ public final class MachineControllerBlockEntity extends BlockEntity {
         rotation = Math.floorMod(in.getIntOr("rotation", 0), 4);
         index = in.getIntOr("index", -1);
         machineTier = Math.clamp(in.getIntOr("machine_tier", 1), 1, 10);
+        core.setItem(0, index == 13 ? in.read("resonance_core", ItemStack.OPTIONAL_CODEC).orElse(ItemStack.EMPTY) : ItemStack.EMPTY);
         original = in.read("original", BlockState.CODEC).orElse(Blocks.AIR.defaultBlockState());
         originalEntity = in.read("original_entity", CompoundTag.CODEC).orElse(null);
         controllerSnapshot = in.read("snapshot", BlockState.CODEC.listOf()).orElse(List.of());
