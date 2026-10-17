@@ -1,0 +1,74 @@
+[
+  {
+    "file": "ruins-01-small-surface-natural.png",
+    "sha256": "472df869e3659f1e4f160012d68c22a34d47bed4c8891b0dfd50df45f17657fe",
+    "source": "build/client-gametest/screenshots/0000_ruins-01-small-surface-natural.png",
+    "timestamp": "2026-10-17T06:15:40.083Z"
+  },
+  {
+    "file": "ruins-01a-small-surface-front.png",
+    "sha256": "82d86ad71bb1f1c533aa2fde28aa4e88444379c42cb28b23a8d71c45e7c20331",
+    "source": "build/client-gametest/screenshots/0001_ruins-01a-small-surface-front.png",
+    "timestamp": "2026-10-17T06:15:40.656Z"
+  },
+  {
+    "file": "ruins-02-small-surface-interior.png",
+    "sha256": "1034f78fce07563e95f5942496ca8e4c98b004bc2c1fe5f60c7642e669673d8f",
+    "source": "build/client-gametest/screenshots/0002_ruins-02-small-surface-interior.png",
+    "timestamp": "2026-10-17T06:15:41.269Z"
+  },
+  {
+    "file": "ruins-03-small-underground-natural.png",
+    "sha256": "8b1dcd43ae09e48530304cd293a1d8e106e9740c209794e9a4e7add25460ceb7",
+    "source": "build/client-gametest/screenshots/0003_ruins-03-small-underground-natural.png",
+    "timestamp": "2026-10-17T06:15:47.461Z"
+  },
+  {
+    "file": "ruins-04-workshop-exterior-natural.png",
+    "sha256": "7b0c9a3dd4e3895b62a95fe961ee7f145a27274c980d232f7269702a3d865b16",
+    "source": "build/client-gametest/screenshots/0004_ruins-04-workshop-exterior-natural.png",
+    "timestamp": "2026-10-17T06:15:53.868Z"
+  },
+  {
+    "file": "ruins-05-workshop-first-floor-spawner.png",
+    "sha256": "f2034aa91ae7da3edc722971df17acaa6397c6930c3f9d29590d0049cb462160",
+    "source": "build/client-gametest/screenshots/0005_ruins-05-workshop-first-floor-spawner.png",
+    "timestamp": "2026-10-17T06:15:54.462Z"
+  },
+  {
+    "file": "ruins-05a-workshop-entry-study.png",
+    "sha256": "d3ac7badfed0cac5105da103940a1c9cb666f17700f7cd9aa0d8d008b30acf6f",
+    "source": "build/client-gametest/screenshots/0006_ruins-05a-workshop-entry-study.png",
+    "timestamp": "2026-10-17T06:15:55.061Z"
+  },
+  {
+    "file": "ruins-06-workshop-second-broken-machine.png",
+    "sha256": "311b5840225d077e7e31c0d709dfbf47411b82209ff505c94756a95a2ad65148",
+    "source": "build/client-gametest/screenshots/0007_ruins-06-workshop-second-broken-machine.png",
+    "timestamp": "2026-10-17T06:15:55.666Z"
+  },
+  {
+    "file": "ruins-06a-workshop-research-tools.png",
+    "sha256": "58a2eb248067521bbf8bf8300ac2f05b349f55f0c2a2ca1e51d3304645e39f16",
+    "source": "build/client-gametest/screenshots/0008_ruins-06a-workshop-research-tools.png",
+    "timestamp": "2026-10-17T06:15:56.279Z"
+  },
+  {
+    "file": "ruins-07-workshop-third-library.png",
+    "sha256": "182d945dcbec58dce3af93a4f9ec2ed4625e3d5923ca32f5a2bd2cd80b00d5a6",
+    "source": "build/client-gametest/screenshots/0009_ruins-07-workshop-third-library.png",
+    "timestamp": "2026-10-17T06:15:56.858Z"
+  },
+  {
+    "file": "ruins-08-spiral-walked-to-third-floor.png",
+    "sha256": "2509912441208f8f4e31cb8bae1f5b8c27696e5bc456bcc8e3afc81c14d3512c",
+    "source": "build/client-gametest/screenshots/0010_ruins-08-spiral-walked-to-third-floor.png",
+    "timestamp": "2026-10-17T06:16:11.996Z"
+  },
+  {
+    "file": "ruins-09-reloaded-shelf-books.png",
+    "sha256": "e107062a285b577e1d39ab736d0d66188b26276e5f7351b13ae7a29af866e14b",
+    "source": "build/client-gametest/screenshots/0011_ruins-09-reloaded-shelf-books.png",
+    "timestamp": "2026-10-17T06:16:16.214Z"
+  }
+]

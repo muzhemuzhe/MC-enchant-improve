@@ -1,0 +1,24 @@
+[
+  {
+    "structure": "small_archive",
+    "template": "small_surface",
+    "origin": "1688, 66, 1288",
+    "rotation": "NONE",
+    "bounds": "BoundingBox{minX\u003d1688, minY\u003d66, minZ\u003d1288, maxX\u003d1699, maxY\u003d73, maxZ\u003d1297}"
+  },
+  {
+    "structure": "buried_archive",
+    "template": "small_buried",
+    "origin": "-568, 46, 1368",
+    "rotation": "NONE",
+    "bounds": "BoundingBox{minX\u003d-568, minY\u003d46, minZ\u003d1368, maxX\u003d-557, maxY\u003d51, maxZ\u003d1377}",
+    "ground_y": 65
+  },
+  {
+    "structure": "abandoned_workshop",
+    "template": "workshop",
+    "origin": "-1672, 65, -1640",
+    "rotation": "CLOCKWISE_180",
+    "bounds": "BoundingBox{minX\u003d-1691, minY\u003d65, minZ\u003d-1654, maxX\u003d-1672, maxY\u003d83, maxZ\u003d-1640}"
+  }
+]

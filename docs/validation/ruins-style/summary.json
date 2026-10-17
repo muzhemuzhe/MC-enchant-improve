@@ -1,0 +1,38 @@
+{
+  "base_commit": "e73f9ea56c06f85cb8328d97761fd5cf6eee61be",
+  "version": "0.6.1",
+  "quick_visual_iterations": 2,
+  "quick_server_tests_each": 3,
+  "quick_client_entrypoints_each": 1,
+  "comprehensive_attempts": 1,
+  "comprehensive_exit": "failed in new ruins test assertion: native template filter clipped to last chunk; original six clients completed",
+  "focused_recheck_after_test_fix": {
+    "server_tests": 3,
+    "client_entrypoints": 1,
+    "passed": true
+  },
+  "junit": 27,
+  "comprehensive_server_tests_passed": 42,
+  "client_coverage_across_runs": 7,
+  "restored_client_entrypoints": [
+    "dev.differentenchant.MachineClientGameTest",
+    "dev.differentenchant.EnchantingClientGameTest",
+    "dev.differentenchant.EnchantingGuiClientGameTest",
+    "dev.differentenchant.DirectedClientGameTest",
+    "dev.differentenchant.BookshelfClientGameTest",
+    "dev.differentenchant.ResonanceClientGameTest",
+    "dev.differentenchant.RuinClientGameTest"
+  ],
+  "probability_reports_unchanged": 28,
+  "production_java_changes": [],
+  "loot_and_placement_changes": [],
+  "natural_seed": 20261017,
+  "templates": 3,
+  "buildings": 2,
+  "third_palace_implemented": false,
+  "screenshots": 12,
+  "jar": {
+    "file": "build/libs/differentenchant-0.6.1.jar",
+    "sha256": "a55602f6ddcea63b1a60bc72d65baddb6485cfb9aff01b4e806d8f5256374897"
+  }
+}

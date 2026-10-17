@@ -25,7 +25,7 @@ class Building {
   marker(x,y,z,metadata) {this.block(x,y,z,'structure_block',{mode:'data'},{id:S('minecraft:structure_block'),mode:S('DATA'),metadata:S(metadata)});}
   chest(x,y,z,tier,facing='north') {this.block(x,y,z,'chest',{facing,type:'single',waterlogged:'false'},{id:S('minecraft:chest'),LootTable:S('differentenchant:chests/'+tier)});this.chests.push({pos:[x,y,z],tier});}
   shelf(x,y,z,facing,tier='medium') {this.block(x,y,z,'chiseled_bookshelf',{facing});this.marker(x,y+1,z,'books_'+tier);this.shelves.push({pos:[x,y,z],tier});}
-  table(x,y,z) {this.block(x,y,z,'crafting_table');this.block(x+1,y,z,'spruce_slab',{type:'top',waterlogged:'false'});this.block(x,y+1,z,'candle',{candles:'2',lit:'true',waterlogged:'false'});}
+  table(x,y,z) {this.block(x,y,z,'crafting_table');this.block(x+1,y,z,'birch_slab',{type:'top',waterlogged:'false'});this.block(x,y+1,z,'candle',{candles:'2',lit:'true',waterlogged:'false'});}
   lamp(x,y,z) {this.block(x,y,z,'lantern',{hanging:'true',waterlogged:'false'});}
   save() {
     const palettes=[],indices=new Map(),blocks=[];
@@ -39,67 +39,95 @@ class Building {
     manifests[this.name]={size:this.size,blocks:blocks.length,chests:this.chests,chiseled_shelves:this.shelves,spawners:this.spawners,spiral_walk:this.stairs};
   }
 }
-const aged=(x,y,z)=>{const n=(x*31+y*17+z*13)%19;return n<2?'mossy_stone_bricks':n<5?'cracked_stone_bricks':'stone_bricks';};
 function small(buried) {
-  const b=new Building(buried?'small_buried':'small_surface',[12,6,10],(x,z)=>x>=1&&x<=10&&z>=1&&z<=8);
+  const b=new Building(buried?'small_buried':'small_surface',[12,buried?6:8,10],(x,z)=>x>=1&&x<=10&&z>=1&&z<=8);
   for(let x=1;x<=10;x++) for(let z=1;z<=8;z++) {
     b.block(x,0,z,'stone_bricks');
-    for(let y=1;y<=3;y++) b.block(x,y,z,x===1||x===10||z===1||z===8?aged(x,y,z):'air');
-    b.block(x,4,z,'polished_deepslate');
-    if(x>=3&&x<=8) b.block(x,5,z,'spruce_planks');
+    if(x>1&&x<10&&z>1&&z<8) b.block(x,0,z,'birch_planks');
+    for(let y=1;y<=3;y++) b.block(x,y,z,x===1||x===10||z===1||z===8?'pale_oak_planks':'air');
+    b.block(x,4,z,'birch_planks');
   }
-  for(const x of [1,10]) for(const z of [2,7]) b.fill(x,1,z,x,4,z,'chiseled_stone_bricks');
-  // Buttresses and a shallow porch distinguish the compact archive from a rectangular room.
-  for(const x of [0,11]) for(const z of [2,7]) {
-    b.fill(x,0,z,x,2,z,'stone_bricks');
-    b.block(x,3,z,'stone_brick_stairs',{facing:x===0?'east':'west',half:'bottom',shape:'straight',waterlogged:'false'});
+  for(const x of [1,10]) for(const z of [1,5,8]) b.fill(x,1,z,x,4,z,'birch_log',{axis:'y'});
+  if(buried) {
+    // A sealed timber archive with a low, ribbed ceiling, not the surface roof copied underground.
+    for(const z of [2,5,7]) b.fill(2,3,z,9,3,z,'stripped_pale_oak_log',{axis:'x'});
+    b.fill(1,5,1,10,5,8,'mossy_stone_bricks');
+    b.fill(5,1,1,6,3,1,'cracked_stone_bricks');
+  } else {
+    for(let x=0;x<12;x++) for(let z=0;z<10;z++) {
+      const distance=Math.min(x,11-x),y=4+Math.floor(distance/2);
+      if(distance%2===0) b.block(x,y,z,'birch_stairs',{facing:x<6?'east':'west',half:'bottom',shape:'straight',waterlogged:'false'});
+      else b.block(x,y,z,'birch_planks');
+      if((z===1||z===8)&&x>=2&&x<=9) for(let fill=4;fill<y;fill++) b.block(x,fill,z,'pale_oak_planks');
+    }
+    b.fill(5,7,0,6,7,9,'pale_oak_slab',{type:'bottom'});
+    for(const z of [1,8]) {b.fill(5,4,z,6,5,z,'glass_pane');b.block(5,6,z,'amethyst_block');}
+    for(const x of [1,10]) for(const z of [3,4,6,7]) b.fill(x,2,z,x,3,z,'glass_pane');
+    for(const x of [5,6]) {b.fill(x,1,1,x,3,1,'air');b.block(x,0,0,'stone_bricks');}
+    for(const x of [4,7]) {b.block(x,0,0,'stone_bricks');b.fill(x,1,0,x,3,0,'stripped_pale_oak_log',{axis:'y'});}
+    b.fill(4,4,0,7,4,0,'pale_oak_slab',{type:'bottom'});
+    b.lamp(5,3,0);b.lamp(6,3,0);
   }
-  for(const x of [1,10]) for(const z of [4,5]) b.block(x,2,z,buried?'cracked_stone_bricks':'iron_bars');
-  for(const x of [5,6]) {b.fill(x,1,1,x,3,1,buried?'cracked_stone_bricks':'air');b.block(x,0,0,'stone_bricks');}
-  for(const x of [4,7]) b.fill(x,0,0,x,3,0,'chiseled_stone_bricks');
-  for(const x of [5,6]) b.block(x,3,0,'stone_brick_slab',{type:'top'});
-  b.fill(4,4,0,7,4,0,'deepslate_brick_slab',{type:'bottom'});
-  for(let z=1;z<=8;z++) for(const x of [3,8]) b.block(x,5,z,'spruce_stairs',{facing:x===3?'east':'west',half:'bottom',shape:'straight',waterlogged:'false'});
-  b.fill(4,0,3,7,0,6,'deepslate_tiles');b.fill(5,0,4,6,0,5,'polished_andesite');
+  b.fill(4,0,3,7,0,6,'polished_andesite');b.fill(5,0,4,6,0,5,'calcite');
   b.fill(2,1,7,3,2,7,'bookshelf');b.shelf(4,1,7,'north','small');
-  b.table(7,1,6);b.block(8,1,5,'spruce_stairs',{facing:'south',half:'bottom',shape:'straight',waterlogged:'false'});
+  b.table(7,1,6);b.block(8,1,5,'birch_stairs',{facing:'south',half:'bottom',shape:'straight',waterlogged:'false'});
   b.chest(2,1,3,'small','east');b.chest(9,1,6,'small','west');
-  b.block(8,1,3,'obsidian');b.block(9,1,3,'amethyst_block');b.block(8,2,3,'stone_brick_slab',{type:'bottom'});
-  b.block(2,3,2,'cobweb');b.lamp(5,3,5);b.save();
+  b.block(8,1,3,'lectern',{facing:'west',has_book:'false',powered:'false'});b.block(9,1,3,'amethyst_block');
+  if(buried) {b.block(2,1,5,'lectern',{facing:'east',has_book:'false',powered:'false'});b.block(6,1,6,'white_carpet');}
+  b.block(2,3,2,'cobweb');b.lamp(5,3,4);b.save();
 }
 small(false);small(true);
 function workshop() {
   const footprint=(x,z)=>(x>=2&&x<=17&&z>=2&&z<=12)||(x>=0&&x<=5&&z>=4&&z<=10)||(x>=14&&x<=19&&z>=0&&z<=5)||(x>=7&&x<=12&&z>=0&&z<=2);
-  const b=new Building('workshop',[20,15,15],footprint);
+  const upper=(x,z)=>(x>=6&&x<=17&&z>=2&&z<=12)||(x>=14&&x<=19&&z>=0&&z<=5)||(x>=7&&x<=12&&z>=0&&z<=2);
+  const b=new Building('workshop',[20,19,15],footprint);
   for(let x=0;x<20;x++) for(let z=0;z<15;z++) if(footprint(x,z)) {
-    const wall=[[1,0],[-1,0],[0,1],[0,-1]].some(([dx,dz])=>!footprint(x+dx,z+dz));
-    for(let y=0;y<=12;y++) {
-      let material=y%4===0?'stone_bricks':wall?aged(x,y,z):'air';
-      if(y>0&&y%4===0) material='polished_deepslate';
+    const height=upper(x,z)?12:8;
+    for(let y=0;y<=height;y++) {
+      const shape=y>=9?upper:footprint;
+      const wall=[[1,0],[-1,0],[0,1],[0,-1]].some(([dx,dz])=>!shape(x+dx,z+dz));
+      let material=y===0?'stone_bricks':y%4===0?'birch_planks':wall?'pale_oak_planks':'air';
+      if(wall&&y%4!==0&&((x+z)%4===0)) material='birch_log';
+      if(wall&&y%4>=2&&material!=='birch_log'&&!(y<4&&x<=7&&z>=6)) material='glass_pane';
       b.block(x,y,z,material);
     }
-    if(wall) for(const y of [6,10]) if((x+z)%4===0) b.block(x,y,z,'iron_bars');
-    if(wall&&z<=2) b.block(x,2,z,(x+z)%4===0?'iron_bars':aged(x,2,z));
-    const rise=x>=14&&z<=5?Math.min(x-14,19-x,z,5-z):Math.min(2,Math.max(0,Math.min(z-2,12-z)));
-    const roofY=12+Math.min(2,rise);
-    if(roofY>12) b.fill(x,13,z,x,roofY,z,'spruce_planks');
-    b.block(x,roofY,z,'spruce_stairs',{facing:z<7?'south':'north',half:'bottom',shape:'straight',waterlogged:'false'});
   }
-  // Clear front arch, with a framed entrance and broad stone porch.
+  // Staggered roofs: two-storey archive wing, tall main gable, entrance gable, and projecting turret.
+  function gable(x1,x2,z1,z2,base) {
+    for(let x=x1;x<=x2;x++) for(let z=z1;z<=z2;z++) {
+      const y=base+Math.min(x-x1,x2-x);
+      if((z===z1+1||z===z2-1)&&x>x1&&x<x2) for(let fill=base;fill<y;fill++) b.block(x,fill,z,'pale_oak_planks');
+      b.block(x,y,z,'birch_stairs',{facing:x<=(x1+x2)/2?'east':'west',half:'bottom',shape:'straight',waterlogged:'false'});
+    }
+  }
+  gable(0,5,3,11,8);gable(5,18,5,13,12);gable(6,13,0,5,12);
+  for(let x=14;x<=19;x++) for(let z=0;z<=5;z++) {
+    const top=12+Math.min(x-14,19-x,z,5-z);
+    for(let y=12;y<top;y++) b.block(x,y,z,'pale_oak_planks');
+    b.block(x,top,z,'pale_oak_stairs',{facing:z<3?'south':'north',half:'bottom',shape:'straight',waterlogged:'false'});
+  }
+  b.fill(16,15,2,17,15,3,'pale_oak_planks');b.block(16,16,2,'amethyst_block');
+  b.fill(10,14,6,13,15,6,'glass_pane');b.block(11,16,6,'amethyst_block');
+  b.fill(9,13,1,10,14,1,'glass_pane');
+  // A light timber vestibule rather than a fortified stone portal.
   b.fill(8,1,0,11,3,2,'air');
-  for(const x of [7,12]) b.fill(x,1,0,x,3,0,'chiseled_stone_bricks');
-  b.fill(8,3,0,11,3,0,'stone_brick_slab',{type:'top'});
-  for(const [x,z] of [[2,2],[2,12],[17,12],[0,4],[0,10],[19,0],[19,5]]) b.fill(x,1,z,x,11,z,'stone_bricks');
-  for(const x of [3,5]) {b.fill(x,0,1,x,11,1,'stone_bricks');b.block(x,12,1,'spruce_slab',{type:'bottom'});}
-  for(const y of [3,7,11]) b.fill(3,y,1,6,y,1,'stone_brick_stairs',{facing:'south',half:'top',shape:'straight',waterlogged:'false'});
+  for(const [x,z] of [[2,2],[2,12],[17,12],[0,4],[0,10],[19,0],[19,5],[7,0],[12,0]]) {
+    b.block(x,1,z,'chiseled_stone_bricks');b.fill(x,2,z,x,(upper(x,z)?11:7),z,'birch_log',{axis:'y'});
+  }
+  b.fill(8,3,0,11,3,0,'pale_oak_slab',{type:'top'});
+  for(const y of [4,8]) {
+    for(let x=2;x<=17;x++) b.block(x,y,2,'stripped_pale_oak_log',{axis:'x'});
+    for(let z=2;z<=12;z++) b.block(17,y,z,'stripped_pale_oak_log',{axis:'z'});
+  }
+  b.lamp(8,3,1);b.lamp(11,3,1);
   // Inlaid floors and freestanding columns give each storey a readable plan.
   for(const floor of [0,4,8]) {
-    b.fill(8,floor,3,10,floor,11,'deepslate_tiles');
-    for(const [x,z] of [[6,5],[11,5],[6,10],[11,10]]) b.fill(x,floor+1,z,x,floor+3,z,'polished_deepslate');
-    for(const z of [4,10]) b.block(9,floor,z,'chiseled_stone_bricks');
+    b.fill(8,floor,3,10,floor,11,'birch_planks');
+    for(const [x,z] of [[6,5],[11,5],[6,10],[11,10]]) {b.block(x,floor+1,z,'polished_andesite');b.fill(x,floor+2,z,x,floor+3,z,'stripped_pale_oak_log',{axis:'y'});}
+    for(const z of [4,10]) b.block(9,floor,z,'calcite');
   }
   // Ground floor: partitioned storage/work bay; cage isolated from the lit entrance.
-  b.fill(7,1,7,7,3,11,'stone_bricks');b.fill(7,1,8,7,2,9,'air');
+  b.fill(7,1,7,7,3,11,'pale_oak_planks');b.fill(7,1,8,7,2,9,'air');
   b.chest(3,1,5,'common','east');b.chest(16,1,2,'common','south');b.chest(11,1,11,'common');
   b.table(4,1,3);b.block(16,1,5,'cauldron');b.block(17,1,6,'barrel',{facing:'up',open:'false'});
   b.block(4,2,3,'candle',{candles:'2',lit:'false',waterlogged:'false'});
@@ -115,25 +143,28 @@ function workshop() {
   b.fill(1,5,5,1,6,9,'bookshelf');b.shelf(1,5,6,'east');b.shelf(1,5,8,'east');
   b.shelf(3,5,3,'south');b.shelf(5,5,3,'south');b.fill(2,5,11,5,6,11,'bookshelf');
   b.table(11,5,3);b.chest(3,5,10,'research','east');b.chest(16,5,4,'research','west');
-  b.block(12,5,10,'barrel',{facing:'up',open:'false'});b.block(13,5,10,'amethyst_block');
+  b.block(13,5,3,'barrel',{facing:'up',open:'false'});b.block(14,5,3,'amethyst_block');
+  b.block(12,5,4,'brewing_stand',{has_bottle_0:'false',has_bottle_1:'false',has_bottle_2:'false'});
+  b.block(4,5,4,'lectern',{facing:'south',has_book:'false',powered:'false'});
   b.lamp(9,7,5);b.lamp(4,7,8);
   // Top storey: library and overseer's study, higher-value containers.
-  b.fill(1,9,5,1,10,9,'bookshelf');b.fill(3,9,11,5,10,11,'bookshelf');
-  b.shelf(3,9,4,'south','high');b.shelf(5,9,4,'south','high');
-  b.table(15,9,1);b.chest(16,9,3,'study');b.chest(3,9,9,'study','east');b.chest(11,9,11,'study');
+  b.fill(7,9,7,7,10,9,'bookshelf');b.fill(7,9,11,10,10,11,'bookshelf');
+  b.shelf(8,9,11,'north','high');b.shelf(10,9,11,'north','high');
+  b.table(15,9,1);b.chest(16,9,3,'study');b.chest(7,9,5,'study','east');b.chest(11,9,11,'study');
+  b.block(9,9,7,'lectern',{facing:'north',has_book:'false',powered:'false'});
   b.block(8,9,3,'white_bed',{facing:'west',part:'foot',occupied:'false'});b.block(7,9,3,'white_bed',{facing:'west',part:'head',occupied:'false'});
   b.fill(8,9,5,10,9,5,'blue_carpet');b.block(2,11,10,'cobweb');b.lamp(9,11,7);b.lamp(16,11,2);
   // Two complete helical turns: eight half-slabs per four-block storey, three-block headroom.
-  b.fill(13,1,8,15,11,10,'air');b.fill(14,1,9,14,11,9,'polished_deepslate');
+  b.fill(13,1,8,15,11,10,'air');b.fill(14,1,9,14,11,9,'stripped_pale_oak_log',{axis:'y'});
   const ring=[[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[0,-1],[1,-1]];
   for(let step=0;step<=16;step++) {
     const [dx,dz]=ring[step%8],top=1+step/2,y=Math.ceil(top)-1;
-    b.block(14+dx,y,9+dz,'stone_brick_slab',{type:Number.isInteger(top)?'top':'bottom',waterlogged:'false'});
+    b.block(14+dx,y,9+dz,'birch_slab',{type:Number.isInteger(top)?'top':'bottom',waterlogged:'false'});
     b.stairs.push({x:14+dx,z:9+dz,feet:top});
   }
   // Leave the entire east landing corridor open, connecting each storey to its rooms.
   for(const floor of [4,8]) for(const [x,z] of [[12,8],[12,9],[12,10],[13,7],[14,7],[15,7],[13,11],[14,11],[15,11]])
-    b.block(x,floor+1,z,'spruce_fence');
+    b.block(x,floor+1,z,'birch_fence');
   b.save();
 }
 workshop();

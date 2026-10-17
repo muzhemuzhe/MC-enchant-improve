@@ -6,9 +6,15 @@
 
 原生NBT模板和StructureSet自然生成，命名空间沿用differentenchant。独立ruins模块不改现有机器/附魔/GUI/数值。三种放置ID代表两种建筑，不是第三种大型遗迹。原版战利品表模块化管理，雕纹书架在生成时抽取并持久保存；不注入要塞图书馆，不添加研究材料/研究台新物品。铭纹石和上层低概率普通核心只是奖励初稿，不替未来经济定案。详见 [RUINS.md](RUINS.md)。
 
+### 第二轮风格纠偏（0.6.1）
+
+撤掉石砖/深板岩主墙和铁栅窗，转为白桦原木/木板、苍白橡木木板/去皮梁柱、玻璃与浅色斜屋顶。石材只承担地基、柱脚、地面及少量结构。地表小屋12×10×8，新增前廊、高窗与斜顶；地下版12×10×6为封闭木构档案室，保留低梁与不同陈设。工坊20×15×19，三层主楼、两层侧翼、错落山墙和小型采光塔顶替竖直石塔；三层功能、坏机器、书架内容、螺旋及出口不变。大小变化仅为屋顶和建筑轮廓，不是机器碰撞或玩法更改。
+
+未来大型约100×80×80宫殿、主/侧殿、前庭和尖塔只记入 [FUTURE_PALACE_RUIN.md](FUTURE_PALACE_RUIN.md)，本轮没有第三种遗迹注册或大型模板。
+
 ## 正式命名
 
-模组展示名Differentenchant，Mod ID及资源/数据包命名空间differentenchant，Java包dev.differentenchant，入口DifferentEnchant及DifferentEnchantClient。当前产物differentenchant-0.6.0.jar，配置config/differentenchant.properties，命令/differentenchant。正式改名时所有现有注册项仅改命名空间，路径、用途、12点充能及其持久化、概率和费用均不变。改名前旧测试世界/旧配置不迁移；新世界保存重进必须回归。GitHub仓库及remote维持muzhemuzhe/MC-enchant-improve。历史日志、任务书及截图保留原名，详见 [RENAMING.md](RENAMING.md)。
+模组展示名Differentenchant，Mod ID及资源/数据包命名空间differentenchant，Java包dev.differentenchant，入口DifferentEnchant及DifferentEnchantClient。当前产物differentenchant-0.6.1.jar，配置config/differentenchant.properties，命令/differentenchant。正式改名时所有现有注册项仅改命名空间，路径、用途、12点充能及其持久化、概率和费用均不变。改名前旧测试世界/旧配置不迁移；新世界保存重进必须回归。GitHub仓库及remote维持muzhemuzhe/MC-enchant-improve。历史日志、任务书及截图保留原名，详见 [RENAMING.md](RENAMING.md)。
 
 ## 第五轮：共鸣核心与首次升级
 

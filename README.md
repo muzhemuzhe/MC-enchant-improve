@@ -17,15 +17,15 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.6.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.6.1.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
 
 正式 Mod ID 与资源命名空间均为 **`differentenchant`**，Java 包为 `dev.differentenchant`。0.5.0曾更换注册ID，改名前的旧测试世界和旧名配置不迁移；0.6.0可延续正式改名后的世界，遗迹只在新生成区块出现。首次启动生成 `config/differentenchant.properties`，全部已有选项及默认数值保留；核心容量仍固定12点，没有新增容量配置。[重命名范围、测试及截图](docs/RENAMING.md)。GitHub仓库和remote不随模组名称修改。
 
 ## 主世界遗迹试作
 
-小型档案遗迹约12×10×6，有地表和封闭埋藏两种放置版本：研究角、书架、两只小箱子，没有刷怪笼。废弃附魔工坊约20×15×15，有侧翼/前塔、三层内饰和可走的螺旋楼梯；一层仅一枚僵尸笼，二层有缺少附魔台和两块紫水晶的机器，三层是较高价值藏书/管理者区域。
+0.6.1把遗迹改成白桦/苍白橡木主导的浅色附魔研究建筑，玻璃窗、木构斜顶、前廊和藏书取代石堡/铁栅风格。地表小屋12×10×8，封闭地下档案室12×10×6：研究角、书架、两只小箱子，没有刷怪笼。废弃工坊20×15×19，有低侧翼、错落山墙、三层主楼内饰和可走的螺旋楼梯；一层仅一枚僵尸笼，二层有缺少附魔台和两块紫水晶的机器及酿造/材料角，三层是较高价值藏书/管理者区域。
 
-两种建筑在新生成主世界区块自然出现。原版`/locate structure differentenchant:small_archive`、`differentenchant:buried_archive`、`differentenchant:abandoned_workshop`可查找；候选区域spacing分别20/24/36区块，实际还会筛选生物群系及坡度。雕纹书架有真实随机附魔书，箱子包含原版学习材料、低概率铭纹石/核心相关奖励。[尺寸、材料、频率、战利品及源码](docs/RUINS.md) · [生成测试与截图](docs/validation/ruins/README.md)。本轮不做第三种遗迹、研究台、Boss或新维度。
+两种建筑在新生成主世界区块自然出现。原版`/locate structure differentenchant:small_archive`、`differentenchant:buried_archive`、`differentenchant:abandoned_workshop`可查找；候选区域spacing分别20/24/36区块，实际还会筛选生物群系及坡度。雕纹书架有真实随机附魔书，箱子包含原版学习材料、低概率铭纹石/核心相关奖励，掉率未随外观改动。[尺寸、材料、频率、战利品及源码](docs/RUINS.md) · [本轮风格与截图](docs/validation/ruins-style/README.md)。大型宫殿仅记录[未来方向](docs/FUTURE_PALACE_RUIN.md)，本轮不实现第三种遗迹、研究台、Boss或新维度。
 
 ## 共鸣核心与升级
 
@@ -120,7 +120,7 @@ D=磨制深板岩，A=紫水晶块，O=黑曜石，E=附魔台。两层全部填
 - `build`：成功，27项JUnit（原25项加2项遗迹地形选址）通过，含逐架严格正概率改善、36后封顶、未加载读取防护及12点充能边界。
 - 服务端：41项本项目GameTest + 1项原版。结构、附魔、书架、原版台禁用、核心配方/支付/转化/共享库存/拆解均回归；另检查规范Mod ID、注册类别、Payload、SavedData、新配置，以及遗迹四方向模板、战利品、书架、楼梯空间和持久化。
 - 模拟：固定钻石剑注册池，T=1/3/5 × B=0/1/15/16/32/35/36/37/80，27组×100,000，共2,700,000次；0/15的6份逐级输出与0.4.1一致，36/37/80逐项相同。另有纯Java合成池3组×100,000并重复重放。
-- 客户端：七个官方Client GameTest在真实26.1.2 OpenGL客户端运行。原有结构、随机/指定、36架、核心升级/重复生产/跨机转移及存档重进回归；新增正常主世界三种自然生成放置、三层内容、真实步行螺旋楼梯、僵尸笼实际刷怪和书架内容保存重进。最新命令、日志及截图见 [遗迹验证](docs/validation/ruins/README.md)，此前命名检查见 [0.5.0验证](docs/validation/rename/README.md)。
+- 客户端：七个官方Client GameTest在真实26.1.2 OpenGL客户端运行。原有结构、随机/指定、36架、核心升级/重复生产/跨机转移及存档重进回归；遗迹包含正常主世界三种自然生成放置、三层内容、真实步行螺旋楼梯、僵尸笼实际刷怪和书架内容保存重进。0.6.1细调仅跑遗迹专项；最终综合的原6入口完成，遗迹新断言因区块扫描范围误判而失败，修测试后仅定向重验通过，未再跑全套。分次覆盖、失败日志和截图见 [风格验证](docs/validation/ruins-style/README.md)，此前命名检查见 [0.5.0验证](docs/validation/rename/README.md)。
 - 普通 `runClient` 在第一轮已启动。本轮使用 `runClientGametest` 执行上述实际游戏测试；未声称人工手动鼠标验收或两台独立客户端联机。
 
 0.4.3还在真实客户端验证创造、生存、旁观者普通右击、失败组装、存档后拆解恢复和生存重新组装；监听原版EnchantmentScreen初始化，确认没有短暂闪开，并发送无菜单按钮请求确认服务端不扣费。机器随机与指定完整客户端流程仍通过。截图和日志见 `docs/validation/standalone-table/`。

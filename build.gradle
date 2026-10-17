@@ -34,6 +34,21 @@ configurations {
     gametestImplementation.extendsFrom implementation
     gametestRuntimeOnly.extendsFrom runtimeOnly
 }
+
+// Scope visual iterations to ruins without changing the committed test entrypoints.
+tasks.named('processGametestResources') {
+    def ruinsOnly = providers.gradleProperty('ruinsOnly').isPresent()
+    inputs.property('ruinsOnly', ruinsOnly)
+    doLast {
+        if (ruinsOnly) {
+            def metadata = new File(destinationDir, 'fabric.mod.json')
+            def parsed = new groovy.json.JsonSlurper().parse(metadata)
+            parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.RuinGameTests']
+            parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.RuinClientGameTest']
+            metadata.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(parsed))
+        }
+    }
+}
 loom {
     mods {
         differentenchant { sourceSet sourceSets.main }

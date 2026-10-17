@@ -104,7 +104,9 @@ public final class RuinClientGameTest implements FabricClientGameTest {
                 } else {
                     camera(c,world,piece,new BlockPos(-13,10,-15),new BlockPos(9,6,6),"ruins-04-workshop-exterior-natural");
                     camera(c,world,piece,new BlockPos(6,1,6),new BlockPos(3,1,10),"ruins-05-workshop-first-floor-spawner");
+                    camera(c,world,piece,new BlockPos(9,1,2),new BlockPos(4,1,5),"ruins-05a-workshop-entry-study");
                     camera(c,world,piece,new BlockPos(10,6,9),new BlockPos(8,6,7),"ruins-06-workshop-second-broken-machine");
+                    camera(c,world,piece,new BlockPos(15,5,6),new BlockPos(12,5,3),"ruins-06a-workshop-research-tools");
                     camera(c,world,piece,new BlockPos(12,9,8),new BlockPos(4,9,7),"ruins-07-workshop-third-library");
                     walkSpiral(c,world,piece);
                 }

@@ -37,6 +37,14 @@ public final class RuinGameTests {
     static void verify(ServerLevel level,RuinPiece piece,String name) {
         var plan=BLUEPRINTS.getAsJsonObject(name);var size=point(plan.getAsJsonArray("size"));
         check(piece.template().getSize().equals(size),"native template size "+name);
+        // Native postProcess leaves settings clipped to its last chunk. Audit the whole authored template.
+        var authored=piece.placeSettings().copy().setBoundingBox(null);
+        int paleWood=0;
+        for(var block:new net.minecraft.world.level.block.Block[]{Blocks.BIRCH_PLANKS,Blocks.PALE_OAK_PLANKS,Blocks.BIRCH_LOG,Blocks.STRIPPED_PALE_OAK_LOG})
+            paleWood+=piece.template().filterBlocks(piece.templatePosition(),authored,block).size();
+        check(paleWood>piece.template().filterBlocks(piece.templatePosition(),authored,Blocks.STONE_BRICKS).size(),"pale timber dominates the authored template");
+        check(piece.template().filterBlocks(piece.templatePosition(),authored,Blocks.IRON_BARS).isEmpty(),"glazing replaces fortress bars");
+        check(name.equals("small_buried") || !piece.template().filterBlocks(piece.templatePosition(),authored,Blocks.GLASS_PANE).isEmpty(),"surface study has real windows");
         int spawners=0;
         for(var p:BlockPos.betweenClosed(piece.getBoundingBox().minX(),piece.getBoundingBox().minY(),piece.getBoundingBox().minZ(),piece.getBoundingBox().maxX(),piece.getBoundingBox().maxY(),piece.getBoundingBox().maxZ()))
             if(level.getBlockState(p).is(Blocks.SPAWNER)) spawners++;
