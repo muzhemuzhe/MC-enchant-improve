@@ -29,7 +29,8 @@ public final class RuinStructure extends Structure {
         var floor=RuinPlacementPolicy.floor(heights,buried,context.chunkGenerator().getSeaLevel(),context.heightAccessor().getMinY(),14+context.random().nextInt(19));
         if(floor.isEmpty() || context.heightAccessor().isOutsideBuildHeight(floor.getAsInt()+probe.template().getSize().getY()-1)) return Optional.empty();
         var position=anchor.atY(floor.getAsInt());
-        return Optional.of(new GenerationStub(position,builder->builder.addPiece(new RuinPiece(context.structureTemplateManager(),template,position,rotation))));
+        long cacheSeed=template.equals(Ruins.id(LanternCachePolicy.TEMPLATE))?context.random().nextLong():0L;
+        return Optional.of(new GenerationStub(position,builder->builder.addPiece(new RuinPiece(context.structureTemplateManager(),template,position,rotation,cacheSeed))));
     }
     @Override public StructureType<?> type() {return Ruins.TYPE;}
 }

@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import zlib from 'node:zlib';
 import {verifyLocks} from './verify-ruins.mjs';
+import {lanternSanctum} from './lantern-ruin.mjs';
 const root=new URL('../src/main/resources/data/differentenchant/',import.meta.url);
 const write=(path,data)=>{const url=new URL(path,root);fs.mkdirSync(new URL('.',url),{recursive:true});fs.writeFileSync(url,data);};
 const json=(path,data)=>write(path,JSON.stringify(data,null,2)+'\n');
@@ -271,6 +272,7 @@ function workshop() {
     ]});
 }
 workshop();
+lanternSanctum(Building,manifests);
 json('ruins/blueprints.json',manifests);
 // Native loot functions query the registry/tag; no fixed vanilla enchantment whitelist.
 const count=(min,max)=>({function:'minecraft:set_count',count:{type:'minecraft:uniform',min,max}});
@@ -285,11 +287,16 @@ for(const [tier,min,max,rolls,chance] of [['small',8,18,3,20],['common',10,20,4,
 }
 for(const [tier,min,max] of [['small',8,18],['medium',15,25],['high',22,30]])
   json('loot_table/chests/books_'+tier+'.json',{type:'minecraft:chest',pools:[pool({type:'minecraft:uniform',min:2,max:4},[enchanted(min,max)])]});
+json('loot_table/chests/lantern_cache.json',{type:'minecraft:chest',pools:[
+  pool({type:'minecraft:uniform',min:3,max:5},[item('minecraft:book',10,[count(1,3)]),item('minecraft:paper',8,[count(2,6)]),item('minecraft:lapis_lazuli',10,[count(3,8)]),item('minecraft:experience_bottle',4,[count(1,3)]),item('minecraft:gold_ingot',2,[count(1,2)]),enchanted(16,28,5)]),
+  pool(1,[{type:'minecraft:empty',weight:11},item('differentenchant:runic_stone')]),
+  pool(1,[{type:'minecraft:empty',weight:63},item('differentenchant:resonance_core')])
+]});
 json('tags/worldgen/biome/ruin_land.json',{values:['minecraft:plains','minecraft:sunflower_plains','#minecraft:is_forest','#minecraft:is_taiga','minecraft:meadow']});
 json('tags/worldgen/biome/ruin_buried.json',{values:['#differentenchant:ruin_land','minecraft:lush_caves','minecraft:dripstone_caves']});
-for(const [id,template,buried,spacing,separation,salt] of [['small_archive','small_surface',false,20,8,1017341],['buried_archive','small_buried',true,24,10,1017342],['abandoned_workshop','workshop',false,36,16,1017343]]) {
+for(const [id,template,buried,spacing,separation,salt] of [['small_archive','small_surface',false,20,8,1017341],['buried_archive','small_buried',true,24,10,1017342],['abandoned_workshop','workshop',false,36,16,1017343],['lantern_sanctum','lantern_sanctum',false,48,24,1017344]]) {
   json('worldgen/structure/'+id+'.json',{type:'differentenchant:ruin',template:'differentenchant:ruins/'+template,buried,biomes:'#differentenchant:'+(buried?'ruin_buried':'ruin_land'),spawn_overrides:{},step:buried?'underground_structures':'surface_structures',terrain_adaptation:'none'});
   json('worldgen/structure_set/'+id+'.json',{structures:[{structure:'differentenchant:'+id,weight:1}],placement:{type:'minecraft:random_spread',salt,spacing,separation,exclusion_zone:{other_set:'minecraft:villages',chunk_count:10}}});
 }
 verifyLocks();
-console.log('Generated 3 native templates for 2 buildings, 7 loot tables and 3 natural placements; approved geometry locks verified.');
+console.log('Generated 4 native templates for 3 buildings, 8 loot tables and 4 natural placements; approved geometry locks verified.');

@@ -40,15 +40,21 @@ tasks.named('processGametestResources') {
     def ruinsOnly = providers.gradleProperty('ruinsOnly').isPresent()
     def smallReview = providers.gradleProperty('smallReview').isPresent()
     def mediumReview = providers.gradleProperty('mediumReview').isPresent()
+    def lanternOnly = providers.gradleProperty('lanternOnly').isPresent()
     inputs.property('ruinsOnly', ruinsOnly)
     inputs.property('smallReview', smallReview)
     inputs.property('mediumReview', mediumReview)
+    inputs.property('lanternOnly', lanternOnly)
     doLast {
-        if (ruinsOnly || smallReview || mediumReview) {
+        if (ruinsOnly || smallReview || mediumReview || lanternOnly) {
             def metadata = new File(destinationDir, 'fabric.mod.json')
             def parsed = new groovy.json.JsonSlurper().parse(metadata)
             parsed.entrypoints['fabric-gametest'] = smallReview || mediumReview ? [] : ['dev.differentenchant.RuinGameTests']
             parsed.entrypoints['fabric-client-gametest'] = mediumReview ? ['dev.differentenchant.MediumRuinReviewClientGameTest'] : smallReview ? ['dev.differentenchant.SmallRuinReviewClientGameTest'] : ['dev.differentenchant.RuinClientGameTest']
+            if (lanternOnly) {
+                parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.LanternGameTests']
+                parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.LanternClientGameTest']
+            }
             metadata.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(parsed))
         }
     }

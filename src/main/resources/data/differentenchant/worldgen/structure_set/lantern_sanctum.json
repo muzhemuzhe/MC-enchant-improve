@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "differentenchant:lantern_sanctum",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1017344,
+    "spacing": 48,
+    "separation": 24,
+    "exclusion_zone": {
+      "other_set": "minecraft:villages",
+      "chunk_count": 10
+    }
+  }
+}

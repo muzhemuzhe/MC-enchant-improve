@@ -1,0 +1,6 @@
+Flat template CacheSeed 2026101807: real door use; both switchback stair flights and all three floors walked without flight/jump.
+Flat selected caches: [Position[x=13, y=1, z=9], Position[x=9, y=1, z=19], Position[x=23, y=1, z=13], Position[x=19, y=1, z=13], Position[x=23, y=1, z=19]].
+Day/night screenshots without night vision; crown block-light >=10. Test-only one-carpet cutaway, actual barrel use and loot GUI.
+Natural Overworld seed 20261018, origin BlockPos{x=-3816, y=68, z=2536}, rotation CLOCKWISE_90, CacheSeed 613543361155470422.
+Natural selected caches: [Position[x=13, y=1, z=9], Position[x=19, y=1, z=9], Position[x=19, y=1, z=13], Position[x=13, y=1, z=23], Position[x=23, y=1, z=23], Position[x=9, y=1, z=9], Position[x=13, y=1, z=13]].
+Natural cache block entities identical and native structure CacheSeed preserved after actual disk save/reopen.

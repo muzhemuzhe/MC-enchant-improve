@@ -1,6 +1,6 @@
-# 主世界遗迹（0.6.2 · 固定建筑与自然生成）
+# 主世界遗迹（0.7.0 · 固定建筑与灯笼原型）
 
-两种建筑：小型附魔研究屋（地表/地下两个模板）和中型废弃附魔研究馆。小屋与中型外观均已通过用户审核，本轮不再设计体块、窗户或屋顶。没有第三种建筑、研究台、新维度、怪物种类或附魔机制改动。
+已接受的两种建筑：小型附魔研究屋（地表/地下两个模板）和中型废弃附魔研究馆，外观继续锁定。0.7.0另按用户要求新增[大型灯笼原型](LANTERN_RUIN.md)，与百格宫殿规划分开；没有研究台、新维度、新怪物种类或附魔机制改动。下文旧建筑的尺寸、功能、奖励及验证记录保持原意。
 
 ## 注册与模板
 
@@ -9,6 +9,7 @@
 | `differentenchant:small_archive` | `differentenchant:ruins/small_surface` | 13×11×10 | 主世界地表 | 20/8区块 |
 | `differentenchant:buried_archive` | `differentenchant:ruins/small_buried` | 12×10×6 | 主世界地下 | 24/10区块 |
 | `differentenchant:abandoned_workshop` | `differentenchant:ruins/workshop` | 23×18×20 | 主世界地表 | 36/16区块 |
+| `differentenchant:lantern_sanctum` | `differentenchant:ruins/lantern_sanctum` | 33×33×26 | 主世界地表 | 48/24区块（临时） |
 
 原生NBT在`src/main/resources/data/differentenchant/structure/ruins/`，DataVersion4790；`worldgen/structure/abandoned_workshop.json`引用当前workshop模板，使用原有`differentenchant:ruin` StructureType和PieceType；`worldgen/structure_set/abandoned_workshop.json`提供原生random_spread放置。沿用已存在的接线，没有新增一套并行生成器或重复注册类型。
 

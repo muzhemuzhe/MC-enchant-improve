@@ -1,0 +1,57 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava
+注: G:\better-enchant-codex-starter\better-enchant-starter\src\main\java\dev\differentenchant\ruins\RuinPiece.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :processResources
+> Task :classes
+
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\LanternGameTests.java:25: 错误: 无法将记录 ChunkPos中的构造器 ChunkPos应用到给定类型;
+        piece.postProcess(level,level.structureManager(),level.getChunkSource().getGenerator(),RandomSource.create(seed),BoundingBox.infinite(),new ChunkPos(pos),pos);
+                                                                                                                                                ^
+> Task :compileGametestJava FAILED
+  需要: int,int
+  找到:    BlockPos
+  原因: 实际参数列表和形式参数列表长度不同
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\LanternGameTests.java:73: 错误: 找不到符号
+        for(var chunk:chunks) piece.postProcess(level,level.structureManager(),level.getChunkSource().getGenerator(),RandomSource.create(chunk.toLong()),
+                                                                                                                                              ^
+  符号:   方法 toLong()
+  位置: 类型为ChunkPos的变量 chunk
+2 个错误
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\LanternGameTests.java:25: 错误: 无法将记录 ChunkPos中的构造器 ChunkPos应用到给定类型;
+          piece.postProcess(level,level.structureManager(),level.getChunkSource().getGenerator(),RandomSource.create(seed),BoundingBox.infinite(),new ChunkPos(pos),pos);
+                                                                                                                                                  ^
+    需要: int,int
+    找到:    BlockPos
+    原因: 实际参数列表和形式参数列表长度不同
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\LanternGameTests.java:73: 错误: 找不到符号
+          for(var chunk:chunks) piece.postProcess(level,level.structureManager(),level.getChunkSource().getGenerator(),RandomSource.create(chunk.toLong()),
+                                                                                                                                                ^
+    符号:   方法 toLong()
+    位置: 类型为ChunkPos的变量 chunk
+  2 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 3s
+3 actionable tasks: 3 executed
