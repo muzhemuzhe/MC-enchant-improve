@@ -1,0 +1,52 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :compileGametestJava FAILED
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResearchClientGameTest.java:79: 错误: 对append的引用不明确
+                .append("World seed ").append(world.getServer().computeOnServer(s->s.overworld().getSeed())).append(", UUID ").append(playerId).append(".\n")
+                                      ^
+  StringBuilder 中的方法 append(char[]) 和 StringBuilder 中的方法 append(String) 都匹配
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResearchClientGameTest.java:79: 错误: 不兼容的类型: 推论变量 T 具有不兼容的上限
+                .append("World seed ").append(world.getServer().computeOnServer(s->s.overworld().getSeed())).append(", UUID ").append(playerId).append(".\n")
+                                                                               ^
+    上限：char[],Object
+    下限：Long
+  其中, T,E是类型变量:
+    T扩展已在方法 <T,E>computeOnServer(FailableFunction<MinecraftServer,T,E>)中声明的Object
+    E扩展已在方法 <T,E>computeOnServer(FailableFunction<MinecraftServer,T,E>)中声明的Throwable
+注: 某些消息已经过简化; 请使用 -Xdiags:verbose 重新编译以获得完整输出
+2 个错误
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResearchClientGameTest.java:79: 错误: 对append的引用不明确
+                  .append("World seed ").append(world.getServer().computeOnServer(s->s.overworld().getSeed())).append(", UUID ").append(playerId).append(".\n")
+                                        ^
+    StringBuilder 中的方法 append(char[]) 和 StringBuilder 中的方法 append(String) 都匹配
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResearchClientGameTest.java:79: 错误: 不兼容的类型: 推论变量 T 具有不兼容的上限
+                  .append("World seed ").append(world.getServer().computeOnServer(s->s.overworld().getSeed())).append(", UUID ").append(playerId).append(".\n")
+                                                                                 ^
+      上限：char[],Object
+      下限：Long
+    其中, T,E是类型变量:
+      T扩展已在方法 <T,E>computeOnServer(FailableFunction<MinecraftServer,T,E>)中声明的Object
+      E扩展已在方法 <T,E>computeOnServer(FailableFunction<MinecraftServer,T,E>)中声明的Throwable
+  注: 某些消息已经过简化; 请使用 -Xdiags:verbose 重新编译以获得完整输出
+  2 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 2s
+3 actionable tasks: 2 executed, 1 up-to-date

@@ -1,0 +1,6 @@
+Survival placed original table; real use opened custom GUI. Mouse pickup, shift-core, Research packets, shift-output and swapped known recipe verified.
+Success: two books + one core. Scroll: preserved both original ItemStacks including name/repair component, one core consumed. Four extra records earned through commits; record scroll and English/Chinese checked.
+World seed 1, UUID 8896e73a-aee7-316e-8768-fb46f8d5ace7.
+Success recipe minecraft:aqua_affinity@1|minecraft:aqua_affinity@1; scroll recipe minecraft:aqua_affinity@1|minecraft:density@2.
+Disconnected with menu open: inventory plus nearby native item-drop totals unchanged. Disk reopen retains world snapshot, UUID discoveries and known preview.
+Actual equipped underwater client receives Lantern Sight via normal scheduled server callback and effect synchronization.

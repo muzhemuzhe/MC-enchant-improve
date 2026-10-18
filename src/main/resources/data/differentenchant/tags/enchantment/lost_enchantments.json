@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#differentenchant:lost_tier_1",
+    "#differentenchant:lost_tier_2",
+    "#differentenchant:lost_tier_3",
+    "#differentenchant:lost_tier_4"
+  ]
+}

@@ -1,0 +1,11 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+BUILD SUCCESSFUL in 1s
+2 actionable tasks: 1 executed, 1 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.1/userguide/configuration_cache_enabling.html

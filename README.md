@@ -1,6 +1,6 @@
-# Differentenchant · 随机 / 指定附魔与共鸣核心
+# Differentenchant · 附魔机器与失落魔法研究
 
-Minecraft Java **26.1.2 / Fabric / JDK 25**。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和共鸣核心。机器等级与36书架分别改善概率，一级、零书架也保留合法高级结果的非零机会。0.6.0新增两种主世界探索遗迹；没有原创附魔、新维度或高级机器升级路线。
+Minecraft Java **26.1.2 / Fabric / JDK 25**。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和12点共鸣核心；36书架与机器等级分别改善概率。0.8.0加入独立失落魔法研究台、世界专属固定研究配方、个人发现记录和首批8种实际失落附魔。已有研究屋、研究馆与灯笼遗迹保留，没有新维度或Lv.3以上机器升级实现。
 
 ![真实客户端中的形成态](docs/screenshots/rename/01-formed-machine.png)
 
@@ -17,9 +17,19 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.7.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.8.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
 
 正式 Mod ID 与资源命名空间均为 **`differentenchant`**，Java 包为 `dev.differentenchant`。0.5.0曾更换注册ID，改名前的旧测试世界和旧名配置不迁移；0.6.0可延续正式改名后的世界，遗迹只在新生成区块出现。首次启动生成 `config/differentenchant.properties`，全部已有选项及默认数值保留；核心容量仍固定12点，没有新增容量配置。[重命名范围、测试及截图](docs/RENAMING.md)。GitHub仓库和remote不随模组名称修改。
+
+## 失落魔法研究台（0.8.0）
+
+独立工作方块 `differentenchant:lost_research_table`，原创书桌/书本/紫水晶模型和16×16像素贴图。生存有序配方 `ABA / QLQ / III`：A紫水晶碎片、B书架、Q下界石英、L讲台、I铁锭。无需新遗迹材料。
+
+两本**各恰好一条附魔**的附魔书，加一颗现有**谐调的共鸣核心**进行研究。附魔注册ID与等级共同构成无序配方；A+B与B+A相同，不按元素或装备类别分类。世界种子与存档中冻结的规则决定永久结果，点击不会重抽。成功消耗两书/一核心并得到真正的失落附魔书；II级以上少量配方固定产出失落卷轴，只消耗核心、完整保留两书。
+
+未发现时预览只显示`???`；自己的首次研究记录到世界存档中的UUID档案，再投入同一组合显示名称、等级和稀有度。研究台“配方记录”支持滚动，别人的发现不会替你解锁。关闭/断线/方块破坏按原版工作台语义返还或掉落临时物品，不自动领取免费结果。
+
+首批：行旅步幅、矿脉回声、潜光、生息书页、学者之手、守望凝神、引力丝线、终末残页；通过**原版铁砧**施加到合法装备。失落附魔的获取稀有度I–IV与自身最高等级分开。研究参数位于 `config/differentenchant-research.properties`，只影响首次建立快照的世界；普通重载或修改配置不会重洗已有世界。[完整机制/八种效果/模拟](docs/LOST_RESEARCH.md) · [测试、截图与命令](docs/validation/research/README.md)。本轮没有Lv.3、Lv.4、祛魔机或村民职业。
 
 ## 主世界遗迹试作
 

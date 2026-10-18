@@ -1,0 +1,37 @@
+{
+  "description": {
+    "translate": "enchantment.differentenchant.prospectors_echo"
+  },
+  "supported_items": "#minecraft:enchantable/mining",
+  "weight": 10,
+  "max_level": 4,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 0
+  },
+  "max_cost": {
+    "base": 60,
+    "per_level_above_first": 0
+  },
+  "anvil_cost": 2,
+  "slots": [
+    "mainhand"
+  ],
+  "effects": {
+    "minecraft:block_experience": [
+      {
+        "effect": {
+          "type": "minecraft:add",
+          "value": {
+            "type": "minecraft:linear",
+            "base": 1,
+            "per_level_above_first": 1
+          }
+        }
+      }
+    ]
+  },
+  "exclusive_set": [
+    "minecraft:silk_touch"
+  ]
+}

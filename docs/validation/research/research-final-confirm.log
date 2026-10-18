@@ -1,0 +1,227 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava
+注: G:\better-enchant-codex-starter\better-enchant-starter\src\main\java\dev\differentenchant\research\ResearchMenu.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :processIncludeJars UP-TO-DATE
+> Task :jar
+> Task :sourcesJar
+> Task :assemble
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test
+> Task :validateAccessWidener NO-SOURCE
+> Task :check
+> Task :build
+> Task :compileGametestJava UP-TO-DATE
+> Task :generateLog4jConfig UP-TO-DATE
+> Task :generateDLIConfig UP-TO-DATE
+> Task :configureLaunch UP-TO-DATE
+> Task :processGametestResources
+> Task :gametestClasses
+
+> Task :runGametest
+[22:17:13] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 26.1.2 with Fabric Loader 0.19.5
+[22:17:13] [main/INFO] (FabricLoader/Mappings) Mappings not present!
+[22:17:13] [main/INFO] (FabricLoader) Loading 44 mods:
+	- differentenchant 0.8.0
+	- differentenchant_tests 1.0.0
+	- fabric-api 0.155.3+26.1.2
+	- fabric-api-base 2.0.3+ece063234c
+	- fabric-api-lookup-api-v1 2.0.12+d5a053b64c
+	- fabric-biome-api-v1 18.0.5+2fa62b4e4c
+	- fabric-block-api-v1 3.0.2+ec56b6014c
+	- fabric-block-getter-api-v2 2.0.6+ec56b6014c
+	- fabric-command-api-v2 3.0.5+e2bdee784c
+	- fabric-content-registries-v0 11.3.1+af8a297c4c
+	- fabric-convention-tags-v2 4.6.2+4f11f7994c
+	- fabric-crash-report-info-v1 1.0.3+9f78a5a84c
+	- fabric-creative-tab-api-v1 5.0.12+a981f2874c
+	- fabric-data-attachment-api-v1 2.2.10+44a0bd1d4c
+	- fabric-data-generation-api-v1 24.3.4+cda368334c
+	- fabric-debug-api-v1 1.0.1+c792624d4c
+	- fabric-dimensions-v1 5.1.7+ad343a8d4c
+	- fabric-entity-events-v1 5.0.2+e2bdee784c
+	- fabric-events-interaction-v0 5.2.3+07b380be4c
+	- fabric-game-rule-api-v1 4.0.5+d871b99e4c
+	- fabric-gametest-api-v1 4.0.18+867b87624c
+	- fabric-item-api-v1 14.3.0+6d1aaa724c
+	- fabric-lifecycle-events-v1 4.1.1+df84eb3d4c
+	- fabric-loot-api-v3 3.0.12+00a1fba64c
+	- fabric-menu-api-v1 2.0.15+d871b99e4c
+	- fabric-message-api-v1 7.0.5+dae8ce3e4c
+	- fabric-networking-api-v1 6.3.2+a217cccf4c
+	- fabric-object-builder-api-v1 23.1.1+abb459f14c
+	- fabric-particles-v1 5.0.16+b61fef434c
+	- fabric-permission-api-v1 1.0.3+5730ecca4c
+	- fabric-recipe-api-v1 9.0.17+be4b75ae4c
+	- fabric-registry-sync-v0 7.1.1+2fa62b4e4c
+	- fabric-rendering-fluids-v1 6.0.1+d871b99e4c
+	- fabric-resource-conditions-api-v1 6.1.0+83dd0ba34c
+	- fabric-resource-loader-v0 3.3.17+4fc5413f4c
+	- fabric-resource-loader-v1 2.0.10+7c44c7324c
+	- fabric-serialization-api-v1 2.0.3+11a26f314c
+	- fabric-tag-api-v1 2.1.1+371cf5db4c
+	- fabric-transfer-api-v1 8.0.6+357ea7334c
+	- fabric-transitive-access-wideners-v1 8.1.3+3ff549fb4c
+	- fabricloader 0.19.5
+	- java 25
+	- minecraft 26.1.2
+	- mixinextras 0.5.5
+[22:17:13] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/muzhe/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.17.4+mixin.0.8.7/5f66cc9f59b8efaa942155a3d5a30599bf6640dd/sponge-mixin-0.17.4+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
+[22:17:14] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[22:17:19] [main/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[22:17:19] [main/INFO] (FabricGameTestRunner) Starting test server
+[22:17:20] [main/INFO] (Minecraft) Loaded 1517 recipes
+[22:17:20] [main/INFO] (Minecraft) Loaded 1617 advancements
+[22:17:20] [main/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 65 new biomes in 1.345 ms
+[22:17:20] [Server thread/INFO] (Minecraft) Selecting global world spawn...
+[22:17:20] [Server thread/INFO] (Minecraft) Loading 0 persistent chunks...
+[22:17:20] [Server thread/INFO] (Minecraft) Preparing spawn area: 100%
+[22:17:20] [Server thread/INFO] (Minecraft) Time elapsed: 154 ms
+[22:17:20] [Server thread/INFO] (Minecraft) Started game test server
+[22:17:20] [Server thread/INFO] (Minecraft) 12 tests are now running at position -7792333, -59, 11059868!
+[22:17:21] [Server thread/INFO] (Minecraft) Running test environment 'minecraft:default' batch 0 (12 tests)...
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 4 at (0.0, 0.0, 0.0)
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 5 at (0.0, 0.0, 0.0)
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 6 at (0.0, 0.0, 0.0)
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 7 at (0.0, 0.0, 0.0)
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 8 at (0.0, 0.0, 0.0)
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 9 at (0.0, 0.0, 0.0)
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 16 at (0.0, 0.0, 0.0)
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player died
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 18 at (0.0, 0.0, 0.0)
+[22:17:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:23] [Server thread/ERROR] (Minecraft) Error loading saved data: SavedDataType[differentenchant:lost_research]
+
+java.lang.IllegalStateException: Unsupported research save version 999; refusing to reshuffle world
+	at knot//dev.differentenchant.research.ResearchWorldData.decode(ResearchWorldData.java:41)
+	at knot//dev.differentenchant.research.ResearchWorldData.lambda$static$1(ResearchWorldData.java:34)
+	at knot//com.mojang.datafixers.util.Pair.mapFirst(Pair.java:64)
+	at knot//com.mojang.serialization.Decoder$2.lambda$decode$0(Decoder.java:63)
+	at knot//com.mojang.serialization.DataResult$Success.map(DataResult.java:175)
+	at knot//com.mojang.serialization.Decoder$2.decode(Decoder.java:63)
+	at knot//com.mojang.serialization.Codec$2.decode(Codec.java:74)
+	at knot//com.mojang.serialization.Decoder.parse(Decoder.java:18)
+	at knot//com.mojang.serialization.codecs.FieldDecoder.decode(FieldDecoder.java:29)
+	at knot//com.mojang.serialization.MapCodec$2.decode(MapCodec.java:78)
+	at knot//com.mojang.serialization.MapDecoder.lambda$compressedDecode$1(MapDecoder.java:52)
+	at knot//com.mojang.serialization.DataResult$Success.flatMap(DataResult.java:201)
+	at knot//com.mojang.serialization.MapDecoder.compressedDecode(MapDecoder.java:52)
+	at knot//com.mojang.serialization.MapCodec$MapCodecCodec.decode(MapCodec.java:159)
+	at knot//com.mojang.serialization.codecs.EitherCodec.decode(EitherCodec.java:14)
+	at knot//com.mojang.serialization.Decoder$2.decode(Decoder.java:63)
+	at knot//com.mojang.serialization.Codec$2.decode(Codec.java:74)
+	at knot//com.mojang.serialization.Decoder.parse(Decoder.java:18)
+	at knot//net.minecraft.world.level.storage.SavedDataStorage.readSavedData(SavedDataStorage.java:92)
+	at knot//net.minecraft.world.level.storage.SavedDataStorage.get(SavedDataStorage.java:79)
+	at knot//dev.differentenchant.research.ResearchPersistence.load(ResearchPersistence.java:15)
+	at knot//dev.differentenchant.research.ResearchPersistenceGameTests.futureVersionCannotBeReplacedByFreshDefaults(ResearchPersistenceGameTests.java:20)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at knot//net.fabricmc.fabric.impl.gametest.TestAnnotationLocator$TestMethod.lambda$testFunction$0(TestAnnotationLocator.java:144)
+	at knot//net.minecraft.gametest.framework.FunctionGameTestInstance.run(FunctionGameTestInstance.java:34)
+	at knot//net.minecraft.gametest.framework.GameTestInfo.startTest(GameTestInfo.java:161)
+	at knot//net.minecraft.gametest.framework.GameTestInfo.tickInternal(GameTestInfo.java:119)
+	at knot//net.minecraft.gametest.framework.GameTestInfo.tick(GameTestInfo.java:104)
+	at knot//net.minecraft.gametest.framework.GameTestTicker.lambda$tick$0(GameTestTicker.java:47)
+	at java.base/java.util.concurrent.CopyOnWriteArrayList.forEach(CopyOnWriteArrayList.java:905)
+	at knot//net.minecraft.gametest.framework.GameTestTicker.tick(GameTestTicker.java:47)
+	at knot//net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1134)
+	at knot//net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:983)
+	at knot//net.minecraft.gametest.framework.GameTestServer.tickServer(GameTestServer.java:241)
+	at knot//net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1013)
+	at knot//net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:761)
+	at knot//net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:308)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 19 at (0.0, 0.0, 0.0)
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 20 at (0.0, 0.0, 0.0)
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 21 at (0.0, 0.0, 0.0)
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player[embedded] logged in with entity id 22 at (0.0, 0.0, 0.0)
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Enchanter]
+[22:17:23] [Server thread/INFO] (Minecraft) [++++++++++++]
+[22:17:23] [Server thread/INFO] (Minecraft) ========= 12 GAME TESTS COMPLETE IN 2.201 s ======================
+[22:17:23] [Server thread/INFO] (Minecraft) All 12 required tests passed :)
+[22:17:23] [Server thread/INFO] (Minecraft) ====================================================
+[22:17:23] [Server thread/INFO] (Minecraft) Stopping server
+[22:17:23] [Server thread/INFO] (Minecraft) Saving players
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player lost connection: Server closed
+[22:17:23] [Server thread/INFO] (Minecraft) test-mock-player left the game
+[22:17:23] [Server thread/INFO] (Minecraft) Saving worlds
+[22:17:23] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[22:17:24] [Yggdrasil Key Fetcher/ERROR] (Minecraft) Failed to request yggdrasil public key
+
+com.mojang.authlib.exceptions.MinecraftClientException: Failed to read from https://api.minecraftservices.com/publickeys due to Connect timed out
+	at knot//com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:111)
+	at knot//com.mojang.authlib.minecraft.client.MinecraftClient.get(MinecraftClient.java:56)
+	at knot//com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo.fetch(YggdrasilServicesKeyInfo.java:114)
+	at knot//com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo$1.run(YggdrasilServicesKeyInfo.java:89)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:309)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.net.SocketTimeoutException: Connect timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284)
+	at java.base/java.net.Socket.connect(Socket.java:659)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:161)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:524)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:612)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:207)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:289)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:196)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1011)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:902)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:875)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:181)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1379)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1305)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:493)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:307)
+	at knot//com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:82)
+	... 9 more
+[22:17:24] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[22:17:24] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[22:17:24] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (world): All chunks are saved
+[22:17:24] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[22:17:24] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[22:17:24] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
+[22:17:24] [Server thread/INFO] (Minecraft) Game test server shutting down
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 16s
+12 actionable tasks: 6 executed, 6 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.1/userguide/configuration_cache_enabling.html

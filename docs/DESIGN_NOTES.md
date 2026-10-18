@@ -1,5 +1,13 @@
 # 设计笔记（非最终机制规格）
 
+## 第六阶段：失落魔法研究（0.8.0）
+
+独立研究工作方块；两本各单条附魔书加现有谐调核心，无研究经验费用。无序书ID+等级、世界种子、版本化稳定SHA-256映射决定结果，研究不按元素/装备方向分类。原生世界级SavedData冻结输入属性、规则与I–IV标签输出池，保存已发现的客观答案与UUID个人记录；未知答案不发送客户端，结果池不会随配置reload自动变化。新增输入注册信息在服务器启动/数据reload时观察并追加，旧属性不覆盖。
+
+成功消耗两书/一核心产出真实失落书；II级以上默认6%配方固定为卷轴，只消耗核心，原书组件全留。8种原型附魔效果与研究策略完全分开，采用原生数据驱动效果和独立服务端事件；标准铁砧合法应用，不进入现有随机/指定池。原版式临时工作台菜单四槽，关闭/断线/失效单次返还或掉落，不在方块另存库存。存档为原生NBT树，支持大量记录，已有文件读取失败拒绝用默认数据覆盖。详见[机制、参数与第一批效果](LOST_RESEARCH.md)。
+
+未来Lv.3路线：玩家首次取得失落研究成果后，将未来规定的那份成果交给现有附魔机器，触发粒子并升级Lv.3。现有 `ResearchBooks.read`、`ResearchWorldData.records/knows/isLostResult` 可供后续识别成果/发现状态；本轮没有升级按钮、投料操作或机器等级修改。卷轴未来用于Lv.4互斥机制，本轮仅注册和研究获取；不实现互斥突破、附魔师、新维度或新遗迹。
+
 ## 遗迹第一轮试作（0.6.0）
 
 只增加小型档案遗迹与中型三层废弃工坊。前者12×10×6，有地上/封闭地下两个模板版本，不放刷怪笼；后者20×15×15，三层、半砖螺旋楼梯，一层原版僵尸笼与普通箱子，二层是不完整的3×3×2机器（中心台与两块紫水晶缺失）及混合书架/雕纹书架，三层为较高价值书房。内饰、容器和可取附魔书是本轮重点，不做空壳建筑。
@@ -14,7 +22,7 @@
 
 ## 正式命名
 
-模组展示名Differentenchant，Mod ID及资源/数据包命名空间differentenchant，Java包dev.differentenchant，入口DifferentEnchant及DifferentEnchantClient。当前产物differentenchant-0.6.2.jar，配置config/differentenchant.properties，命令/differentenchant。正式改名时所有现有注册项仅改命名空间，路径、用途、12点充能及其持久化、概率和费用均不变。改名前旧测试世界/旧配置不迁移；新世界保存重进必须回归。GitHub仓库及remote维持muzhemuzhe/MC-enchant-improve。历史日志、任务书及截图保留原名，详见 [RENAMING.md](RENAMING.md)。
+模组展示名Differentenchant，Mod ID及资源/数据包命名空间differentenchant，Java包dev.differentenchant，入口DifferentEnchant及DifferentEnchantClient。当前产物differentenchant-0.8.0.jar，原附魔机配置config/differentenchant.properties，研究新世界初始参数config/differentenchant-research.properties，命令/differentenchant。正式改名时所有现有注册项仅改命名空间，路径、用途、12点充能及其持久化、概率和费用均不变。改名前旧测试世界/旧配置不迁移；新世界保存重进必须回归。GitHub仓库及remote维持muzhemuzhe/MC-enchant-improve。历史日志、任务书及截图保留原名，详见 [RENAMING.md](RENAMING.md)。
 
 ## 第五轮：共鸣核心与首次升级
 

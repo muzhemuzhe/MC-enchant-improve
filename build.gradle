@@ -41,12 +41,16 @@ tasks.named('processGametestResources') {
     def smallReview = providers.gradleProperty('smallReview').isPresent()
     def mediumReview = providers.gradleProperty('mediumReview').isPresent()
     def lanternOnly = providers.gradleProperty('lanternOnly').isPresent()
+    def researchOnly = providers.gradleProperty('researchOnly').isPresent()
+    def researchAffected = providers.gradleProperty('researchAffected').isPresent()
     inputs.property('ruinsOnly', ruinsOnly)
     inputs.property('smallReview', smallReview)
     inputs.property('mediumReview', mediumReview)
     inputs.property('lanternOnly', lanternOnly)
+    inputs.property('researchOnly', researchOnly)
+    inputs.property('researchAffected', researchAffected)
     doLast {
-        if (ruinsOnly || smallReview || mediumReview || lanternOnly) {
+        if (ruinsOnly || smallReview || mediumReview || lanternOnly || researchOnly) {
             def metadata = new File(destinationDir, 'fabric.mod.json')
             def parsed = new groovy.json.JsonSlurper().parse(metadata)
             parsed.entrypoints['fabric-gametest'] = smallReview || mediumReview ? [] : ['dev.differentenchant.RuinGameTests']
@@ -54,6 +58,11 @@ tasks.named('processGametestResources') {
             if (lanternOnly) {
                 parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.LanternGameTests']
                 parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.LanternClientGameTest']
+            }
+            if (researchOnly) {
+                parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.ResearchGameTests', 'dev.differentenchant.LostEffectsGameTests', 'dev.differentenchant.research.ResearchPersistenceGameTests']
+                if (researchAffected) parsed.entrypoints['fabric-gametest'] += ['dev.differentenchant.ResearchIntegrationGameTests']
+                parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.ResearchClientGameTest']
             }
             metadata.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(parsed))
         }

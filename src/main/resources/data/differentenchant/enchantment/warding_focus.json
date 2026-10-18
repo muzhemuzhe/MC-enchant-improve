@@ -1,0 +1,24 @@
+{
+  "description": {
+    "translate": "enchantment.differentenchant.warding_focus"
+  },
+  "supported_items": [
+    "minecraft:shield"
+  ],
+  "weight": 2,
+  "max_level": 2,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 0
+  },
+  "max_cost": {
+    "base": 60,
+    "per_level_above_first": 0
+  },
+  "anvil_cost": 2,
+  "slots": [
+    "offhand",
+    "mainhand"
+  ],
+  "effects": {}
+}

@@ -1,4 +1,6 @@
-# 共鸣核心与 Lv.2（0.5.0 原型）
+# 共鸣核心与 Lv.2（充能规则沿用0.5.0，现更新至0.8.0）
+
+0.8.0谐调核心已有实际用途：[失落魔法研究台](LOST_RESEARCH.md)每次研究消耗现有 `differentenchant:attuned_resonance_core` 一颗；没有注册第二种不兼容材料。无论产出失落附魔书还是固定失落卷轴均消耗一颗，研究不额外扣经验。12点充能、普通/谐调核心转化、重复生产和Lv.1→Lv.2规则不变。
 
 0.6.0新增的工坊顶层箱子有1/50独立概率获得一个未充能普通核心；不会直接提供谐调核心，也不改变本节12点生产与升级规则。遗迹中的青金石块/书/铁锭亦可支持原配方，见 [RUINS](RUINS.md)。
 
@@ -42,4 +44,4 @@ C是铁锭，A是普通书或任意附魔书，L是青金石块。四个书位�
 
 依据[Fabric 26.1.2组件文档](https://docs.fabricmc.net/26.1.2/develop/items/custom-data-components)，并逐项核对固定依赖中的DataComponentType、ItemStack、Item.appendHoverText、SimpleContainer、EnchantmentMenu、CraftingMenu与Ingredient源码。没有使用旧版NBT物品标签接口或Yarn命名。
 
-最终命令、实际结果、截图和未覆盖边界见 [DEVLOG](DEVLOG.md) 与 [验证记录](validation/resonance/README.md)。后续研究台/高级机器只是成品用途规划；本轮未实现其配方、研究、Lv.3+、祛魔或新维度。
+原核心实现的命令、实际结果、截图和未覆盖边界见 [DEVLOG](DEVLOG.md) 与 [验证记录](validation/resonance/README.md)。0.8.0已实现研究台消费与研究产物；高级机器仍只是后续规划，没有Lv.3+、祛魔或新维度。

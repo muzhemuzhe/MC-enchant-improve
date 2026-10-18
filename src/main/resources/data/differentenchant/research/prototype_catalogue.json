@@ -1,0 +1,87 @@
+[
+  {
+    "id": "differentenchant:trail_stride",
+    "en": "Trail Stride",
+    "zh": "行旅步幅",
+    "rarity": 1,
+    "max": 2,
+    "supported": "#minecraft:enchantable/foot_armor",
+    "description_en": "Step up an extra half block per level.",
+    "description_zh": "每级增加半格自动跨越高度。"
+  },
+  {
+    "id": "differentenchant:prospectors_echo",
+    "en": "Prospector’s Echo",
+    "zh": "矿脉回声",
+    "rarity": 1,
+    "max": 4,
+    "supported": "#minecraft:enchantable/mining",
+    "description_en": "Experience-dropping blocks yield +1 XP per level; incompatible with Silk Touch.",
+    "description_zh": "采集原本掉落经验的方块时，每级额外获得1经验；与精准采集互斥。"
+  },
+  {
+    "id": "differentenchant:lantern_sight",
+    "en": "Lantern Sight",
+    "zh": "潜光",
+    "rarity": 1,
+    "max": 1,
+    "supported": "#minecraft:enchantable/head_armor",
+    "description_en": "Grants night vision while submerged; lingers for 12 seconds.",
+    "description_zh": "潜入水下时获得夜视，离水后最多保留12秒。"
+  },
+  {
+    "id": "differentenchant:living_margin",
+    "en": "Living Margin",
+    "zh": "生息书页",
+    "rarity": 2,
+    "max": 3,
+    "supported": "#minecraft:enchantable/chest_armor",
+    "description_en": "At 18+ food, heals 1 health per level every 10 seconds, adding exhaustion.",
+    "description_zh": "饥饿值至少18时，每10秒恢复每级1点生命，并增加消耗度。"
+  },
+  {
+    "id": "differentenchant:archivists_reach",
+    "en": "Archivist’s Reach",
+    "zh": "学者之手",
+    "rarity": 2,
+    "max": 2,
+    "supported": "#minecraft:enchantable/mining",
+    "description_en": "While holding a tool, extends block and entity interaction reach by 0.5 per level.",
+    "description_zh": "持工具时，每级增加0.5格方块与实体交互距离。"
+  },
+  {
+    "id": "differentenchant:warding_focus",
+    "en": "Warding Focus",
+    "zh": "守望凝神",
+    "rarity": 3,
+    "max": 2,
+    "supported": [
+      "minecraft:shield"
+    ],
+    "description_en": "While actively blocking, grants Resistance I/II; lingers for 2 seconds.",
+    "description_zh": "持续举盾格挡时获得抗性提升I/II，放下后最多保留2秒。"
+  },
+  {
+    "id": "differentenchant:gravity_thread",
+    "en": "Gravity Thread",
+    "zh": "引力丝线",
+    "rarity": 3,
+    "max": 2,
+    "supported": [
+      "minecraft:bow",
+      "minecraft:crossbow"
+    ],
+    "description_en": "Projectile hits levitate the victim for 1/2 seconds.",
+    "description_zh": "远程命中令目标漂浮1/2秒。"
+  },
+  {
+    "id": "differentenchant:last_page",
+    "en": "Last Page",
+    "zh": "终末残页",
+    "rarity": 4,
+    "max": 1,
+    "supported": "#minecraft:enchantable/chest_armor",
+    "description_en": "Survives one fatal hit with 6 health and brief absorption. 20-minute world-time cooldown; damages armor by 32. Void/admin damage excluded.",
+    "description_zh": "致命伤害时保留6生命并获得短暂伤害吸收；世界时间20分钟冷却，消耗32护甲耐久。虚空及管理伤害除外。"
+  }
+]

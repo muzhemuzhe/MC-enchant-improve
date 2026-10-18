@@ -1,0 +1,44 @@
+{
+  "description": {
+    "translate": "enchantment.differentenchant.archivists_reach"
+  },
+  "supported_items": "#minecraft:enchantable/mining",
+  "weight": 5,
+  "max_level": 2,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 0
+  },
+  "max_cost": {
+    "base": 60,
+    "per_level_above_first": 0
+  },
+  "anvil_cost": 2,
+  "slots": [
+    "mainhand"
+  ],
+  "effects": {
+    "minecraft:attributes": [
+      {
+        "id": "differentenchant:archivists_reach.block",
+        "attribute": "minecraft:block_interaction_range",
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.5,
+          "per_level_above_first": 0.5
+        },
+        "operation": "add_value"
+      },
+      {
+        "id": "differentenchant:archivists_reach.entity",
+        "attribute": "minecraft:entity_interaction_range",
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.5,
+          "per_level_above_first": 0.5
+        },
+        "operation": "add_value"
+      }
+    ]
+  }
+}

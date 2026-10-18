@@ -1,0 +1,28 @@
+{
+  "artifact": "G:\\better-enchant-codex-starter\\better-enchant-starter\\build\\libs\\differentenchant-0.8.0.jar",
+  "sha256": "c309bebc1127d4ab6e5e314e55c6739a0dc2739069efb59beb945f49557423e6",
+  "resource_files_verified": 90,
+  "test_classes_packaged": false,
+  "ruins": [
+    {
+      "unchanged_from_65e6e45": true,
+      "sha256": "d0ce4b86d9f298e160e8258dbcdd315574f59706251447a8c4dc025dffb63d2c",
+      "name": "small_surface"
+    },
+    {
+      "unchanged_from_65e6e45": true,
+      "sha256": "b2ad99d75df4d185504fd45ed4293fda0720da8aa5a164f263768267df0e218e",
+      "name": "small_buried"
+    },
+    {
+      "unchanged_from_65e6e45": true,
+      "sha256": "123d8b165c060244f38fdda5aa1b0f357eaa73f73dbbfc319bee2a415e035835",
+      "name": "workshop"
+    },
+    {
+      "unchanged_from_65e6e45": true,
+      "sha256": "90cdc098ff4ccad3044e7f04f878c2053e78ecc9a1446243d720b62df32f590c",
+      "name": "lantern_sanctum"
+    }
+  ]
+}

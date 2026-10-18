@@ -1,1 +1,6 @@
-{"values":[]}
+{
+  "replace": false,
+  "values": [
+    "#differentenchant:lost_enchantments"
+  ]
+}

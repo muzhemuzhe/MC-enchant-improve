@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABA",
+    "QLQ",
+    "III"
+  ],
+  "key": {
+    "A": "minecraft:amethyst_shard",
+    "B": "minecraft:bookshelf",
+    "Q": "minecraft:quartz",
+    "L": "minecraft:lectern",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "differentenchant:lost_research_table",
+    "count": 1
+  }
+}
