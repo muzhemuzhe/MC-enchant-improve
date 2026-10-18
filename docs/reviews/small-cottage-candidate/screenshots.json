@@ -1,0 +1,42 @@
+[
+  {
+    "file": "01-front.png",
+    "source": "build/client-gametest/screenshots/0000_small-candidate-01-front.png",
+    "sha256": "1589de4360ca1f8331b4951130374001fe41aed8b4bdb58dcff0fb27b79c1c0c"
+  },
+  {
+    "file": "02-side.png",
+    "source": "build/client-gametest/screenshots/0001_small-candidate-02-side.png",
+    "sha256": "ff23596efd0c6d0496989e606fd67304ce35e2e83db7bbd10e084f0a238f5f47"
+  },
+  {
+    "file": "03-diagonal.png",
+    "source": "build/client-gametest/screenshots/0002_small-candidate-03-diagonal.png",
+    "sha256": "0dedfa60e22b4a34de8abaa4a70a3f166999eafec5362c37bcf0f3e6b0fbb635"
+  },
+  {
+    "file": "04-roof.png",
+    "source": "build/client-gametest/screenshots/0003_small-candidate-04-roof.png",
+    "sha256": "ad4d2f373e7a3e2a5528f710f48d24dce793c5ab201e44a7821d22e80ffc473f"
+  },
+  {
+    "file": "05-interior.png",
+    "source": "build/client-gametest/screenshots/0004_small-candidate-05-interior.png",
+    "sha256": "9ff6bec6fe7fc3eb16fd1b7243461ce38f4e64af67ec5ed78e798d38e3aecef1"
+  },
+  {
+    "file": "05a-reading-bay.png",
+    "source": "build/client-gametest/screenshots/0005_small-candidate-05a-reading-bay.png",
+    "sha256": "2023d596e2e8460463b327908e30e0d91a10fea0413401c9d0f6c346b9b7710d"
+  },
+  {
+    "file": "06-first-chest-open.png",
+    "source": "build/client-gametest/screenshots/0006_small-candidate-06-first-chest-open.png",
+    "sha256": "831b13f73015d1628ee97a8030d8913276e17ba28d38409603596920a166ecf1"
+  },
+  {
+    "file": "07-second-chest-open.png",
+    "source": "build/client-gametest/screenshots/0007_small-candidate-07-second-chest-open.png",
+    "sha256": "8e3d5c54b59ffb4422edb12b0425f37ab8d907fa0efb7b5f263f1660325ce7f3"
+  }
+]

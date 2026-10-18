@@ -1,0 +1,52 @@
+[
+  {
+    "sha256": "335a7f0a45a3d2635d1a22541c965c2fbe185774695fa32ec02d742107799fd8",
+    "file": "01-front.png",
+    "source": "build/client-gametest/screenshots/0000_medium-massing-01-front.png"
+  },
+  {
+    "sha256": "fe6af43fad8f095a8f0f6f2d27378f60144e698219db3913a372252d8caf5148",
+    "file": "02-diagonal.png",
+    "source": "build/client-gametest/screenshots/0001_medium-massing-02-diagonal.png"
+  },
+  {
+    "sha256": "642d63c1b7faec49fbef2fd577281bccaea863cd726521afec24959537070af0",
+    "file": "03-side.png",
+    "source": "build/client-gametest/screenshots/0002_medium-massing-03-side.png"
+  },
+  {
+    "sha256": "a31da84da70422d33d9af69e53889b611b4fd1069fa99e4501a9d59b7af0ff59",
+    "file": "04-first-floor.png",
+    "source": "build/client-gametest/screenshots/0003_medium-massing-04-ground-spawner.png"
+  },
+  {
+    "sha256": "5516661f2066d8cd8e0d02f6e0639f33287467c9490e8c66e994050da74d4081",
+    "file": "05-second-floor.png",
+    "source": "build/client-gametest/screenshots/0004_medium-massing-05-second-machine.png"
+  },
+  {
+    "sha256": "3aef863181df9ec5224ffbcf34f3ccb7c48676b0ddaada10e34332059137bc82",
+    "file": "06-third-floor.png",
+    "source": "build/client-gametest/screenshots/0005_medium-massing-06-third-study.png"
+  },
+  {
+    "sha256": "ae377d59b9f34a84332da064450302e9464dad9bff6d5f1d748cacd69b221134",
+    "file": "07-natural-world.png",
+    "source": "build/client-gametest/screenshots/0004_ruins-medium-world-generated.png"
+  },
+  {
+    "sha256": "0b681c259665011325d79af492d555b43588b88ce4566d94452aad60cd98de24",
+    "file": "08-machine-details.png",
+    "source": "build/client-gametest/screenshots/0006_medium-massing-09-machine-missing-parts.png"
+  },
+  {
+    "sha256": "cd206a3aa7468de35ca41f253628fd76e5f33e177934d4e09a693c391d2bdc06",
+    "file": "09-reward-open.png",
+    "source": "build/client-gametest/screenshots/0007_medium-massing-08-reward-chest.png"
+  },
+  {
+    "sha256": "56f38fb08019ebc5a1c29545dd9fb24b6b6826a69df9717a3148e69489528eca",
+    "file": "10-natural-second-floor.png",
+    "source": "build/client-gametest/screenshots/0009_ruins-workshop-05-second-machine-natural.png"
+  }
+]

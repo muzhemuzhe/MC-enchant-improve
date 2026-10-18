@@ -14,7 +14,7 @@
 
 ## 正式命名
 
-模组展示名Differentenchant，Mod ID及资源/数据包命名空间differentenchant，Java包dev.differentenchant，入口DifferentEnchant及DifferentEnchantClient。当前产物differentenchant-0.6.1.jar，配置config/differentenchant.properties，命令/differentenchant。正式改名时所有现有注册项仅改命名空间，路径、用途、12点充能及其持久化、概率和费用均不变。改名前旧测试世界/旧配置不迁移；新世界保存重进必须回归。GitHub仓库及remote维持muzhemuzhe/MC-enchant-improve。历史日志、任务书及截图保留原名，详见 [RENAMING.md](RENAMING.md)。
+模组展示名Differentenchant，Mod ID及资源/数据包命名空间differentenchant，Java包dev.differentenchant，入口DifferentEnchant及DifferentEnchantClient。当前产物differentenchant-0.6.2.jar，配置config/differentenchant.properties，命令/differentenchant。正式改名时所有现有注册项仅改命名空间，路径、用途、12点充能及其持久化、概率和费用均不变。改名前旧测试世界/旧配置不迁移；新世界保存重进必须回归。GitHub仓库及remote维持muzhemuzhe/MC-enchant-improve。历史日志、任务书及截图保留原名，详见 [RENAMING.md](RENAMING.md)。
 
 ## 第五轮：共鸣核心与首次升级
 
@@ -64,6 +64,12 @@
 E = 原版附魔台（激活位置，中心）；A = 紫水晶块；O = 黑曜石；D = 磨制深板岩。
 
 这 18 个格位仅是测试**形成/拆解/保存与渲染**的方便样例，并非定稿配方、升级材料或附魔逻辑。
+
+## 遗迹建筑审核状态（2026-10-18）
+
+地表小型附魔研究屋已接受并锁定为正式候选：13×11×10（宽×深×高），浅色木材主体、石英轮廓、正常小屋比例、双坡屋顶和门廊。后续只小调内饰、奖励、地下适配及生成细节，不再反复改变比例或整体风格；模板指纹与实拍见[接受记录](reviews/small-cottage-expanded/ACCEPTED.md)。
+
+中型23×18×20新体块已通过审核，[0.6.2正式固化](reviews/medium-research-massing/ACCEPTED.md)：中央三层研究厅、退后的两侧两层研究翼、前凸门厅和独立分层山墙，第三层书房进入真实坡屋顶；不再改外形。原生workshop模板、abandoned_workshop结构与36/16区块自然放置沿用；保留唯一笼、螺旋、缺件机器、6随机书架和8箱，其中三层一只主study奖励箱，其余两只辅助箱research。几何指纹、原点/朝向与[结构/真实生成验证](validation/medium-ruin/README.md)已记录。不扩展大型遗迹或下一阶段。
 
 ## 架构倾向
 

@@ -65,10 +65,17 @@ public final class RuinGameTests {
             check(count>=2 && count<=4,"2..4 real books per shelf");
         }
         if(name.equals("workshop")) {
-            var origin=world(piece,new BlockPos(8,6,7));
+            var door=world(piece,point(plan.getAsJsonArray("entry_door")));
+            check(level.getBlockState(door).is(Blocks.BIRCH_DOOR) && level.getBlockState(door).getValue(DoorBlock.FACING)==piece.getRotation().rotate(Direction.NORTH),"entrance door rotates with the template");
+            int mainRewards=0;
+            for(var entry:plan.getAsJsonArray("chests"))if(entry.getAsJsonObject().get("tier").getAsString().equals("study"))mainRewards++;
+            check(mainRewards==1,"one principal high-tier third-floor reward chest");
+            var machine=BLUEPRINTS.getAsJsonObject("incomplete_machine");
+            var origin=world(piece,point(machine.getAsJsonArray("controller")));
             check(!FormationService.form(level,origin,Direction.NORTH).startsWith("Formed"),"broken display machine cannot assemble");
-            check(level.getBlockState(origin).isAir() && level.getBlockState(world(piece,new BlockPos(7,6,6))).isAir() && level.getBlockState(world(piece,new BlockPos(9,6,8))).isAir(),"centre and two amethyst blocks absent");
-            var cage=(SpawnerBlockEntity)level.getBlockEntity(world(piece,new BlockPos(4,1,9)));
+            for(var missing:machine.getAsJsonArray("missing"))
+                check(level.getBlockState(world(piece,point(missing.getAsJsonArray()))).isAir(),"centre and two amethyst blocks absent");
+            var cage=(SpawnerBlockEntity)level.getBlockEntity(world(piece,point(plan.getAsJsonArray("spawners").get(0).getAsJsonArray())));
             var nbt=cage.saveWithFullMetadata(level.registryAccess());
             check(nbt.toString().contains("minecraft:zombie"),"native zombie spawner initialized");
             // Conservative player-sized headroom checks at every half-step of the authored helix.

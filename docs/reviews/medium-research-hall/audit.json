@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-18",
+  "base_commit": "b0eb40f",
+  "status": "medium candidate awaiting visual review; no commit or push",
+  "small_surface_sha256": "d0ce4b86d9f298e160e8258dbcdd315574f59706251447a8c4dc025dffb63d2c",
+  "accepted_small_surface_unchanged": true,
+  "small_surface_manifest_unchanged": true,
+  "underground_template_unchanged": true,
+  "underground_manifest_unchanged": true,
+  "previous_medium_template_sha256": "83abb6aa4534bbdbf8511473baa516f01e9cd8dcfceba39a2b6fa673403e904a",
+  "medium_template_sha256": "cf39888fcfc229349062c075eed0123333e60afa742f66148d197bb984d701a4",
+  "geometry_unchanged_between_camera_runs": true,
+  "dimensions_width_depth_height": [
+    21,
+    16,
+    21
+  ],
+  "floors": [
+    0,
+    5,
+    10
+  ],
+  "chests": 8,
+  "chiseled_shelves": 6,
+  "spawners": 1,
+  "spiral_waypoints": 21,
+  "compile_and_client": "BUILD SUCCESSFUL in 47s",
+  "real_client_interaction": {
+    "door_opened": true,
+    "walked_from_ground_through_porch_and_entry": true,
+    "walked_all_spiral_steps_without_flight_or_jump": true,
+    "entered_and_returned_from_both_upper_rooms": true,
+    "opened_third_floor_reward_chest": true
+  },
+  "verified_on_integrated_server": {
+    "native_loot_nonempty": true,
+    "random_stored_enchantments_and_shelf_occupancy": true,
+    "broken_machine_cannot_form": true,
+    "native_zombie_spawner_id": true,
+    "worldgen_registration": true
+  },
+  "empty_daytime_superflat": true,
+  "night_vision_used": false,
+  "natural_terrain_tested": false,
+  "mob_spawn_waited": false,
+  "disk_reload_tested": false,
+  "junit_run": false,
+  "standalone_server_gametest_run": false,
+  "full_enchanting_regression_run": false,
+  "release_jar_built": false,
+  "production_java_loot_worldgen_diff": ""
+}

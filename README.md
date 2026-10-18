@@ -17,15 +17,17 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.6.1.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.6.2.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
 
 正式 Mod ID 与资源命名空间均为 **`differentenchant`**，Java 包为 `dev.differentenchant`。0.5.0曾更换注册ID，改名前的旧测试世界和旧名配置不迁移；0.6.0可延续正式改名后的世界，遗迹只在新生成区块出现。首次启动生成 `config/differentenchant.properties`，全部已有选项及默认数值保留；核心容量仍固定12点，没有新增容量配置。[重命名范围、测试及截图](docs/RENAMING.md)。GitHub仓库和remote不随模组名称修改。
 
 ## 主世界遗迹试作
 
-0.6.1把遗迹改成白桦/苍白橡木主导的浅色附魔研究建筑，玻璃窗、木构斜顶、前廊和藏书取代石堡/铁栅风格。地表小屋12×10×8，封闭地下档案室12×10×6：研究角、书架、两只小箱子，没有刷怪笼。废弃工坊20×15×19，有低侧翼、错落山墙、三层主楼内饰和可走的螺旋楼梯；一层仅一枚僵尸笼，二层有缺少附魔台和两块紫水晶的机器及酿造/材料角，三层是较高价值藏书/管理者区域。
+0.6.2已正式固化两栋通过审核的建筑：[13×11×10小型研究屋](docs/reviews/small-cottage-expanded/ACCEPTED.md)和[23×18×20中型附魔研究馆](docs/reviews/medium-research-massing/ACCEPTED.md)，不再修改外形。中型采用中央三层、两侧两层研究翼、前门厅和分层屋顶；原生四向旋转、门厅/楼梯/两翼/三层通行已专项实测。
 
-两种建筑在新生成主世界区块自然出现。原版`/locate structure differentenchant:small_archive`、`differentenchant:buried_archive`、`differentenchant:abandoned_workshop`可查找；候选区域spacing分别20/24/36区块，实际还会筛选生物群系及坡度。雕纹书架有真实随机附魔书，箱子包含原版学习材料、低概率铭纹石/核心相关奖励，掉率未随外观改动。[尺寸、材料、频率、战利品及源码](docs/RUINS.md) · [本轮风格与截图](docs/validation/ruins-style/README.md)。大型宫殿仅记录[未来方向](docs/FUTURE_PALACE_RUIN.md)，本轮不实现第三种遗迹、研究台、Boss或新维度。
+浅木主体、石英轮廓和少量石基。中型一层有唯一僵尸笼、旧实验室/接待区；二层缺件附魔机厅连接档案/材料翼，四组雕纹书架有真实随机附魔书；三层坡顶私人书房、床/桌/讲台、两组高等级书架和一只主奖励箱，另外两只辅助箱使用研究级奖励。保留8箱、6书架，不添加未来研究物品。地下小档案室仍12×10×6，小型两个版本均无笼。
+
+两种建筑在新生成主世界区块自然出现，适合平原、森林/白桦森林等自然区域。原版`/locate structure differentenchant:small_archive`、`differentenchant:buried_archive`、`differentenchant:abandoned_workshop`可查找；候选区域spacing分别20/24/36区块，中型更稀疏，另筛选生物群系/坡度并避让村庄。主奖励有较好随机附魔书、低概率铭纹石与0能量普通核心，书架内容正常持久保存。[固定尺寸、原点、频率与战利品](docs/RUINS.md) · [本轮结构/自然生成验证和七张截图](docs/validation/medium-ruin/README.md)。大型宫殿仅记录[未来方向](docs/FUTURE_PALACE_RUIN.md)，不自动开发第三种遗迹、研究台、Boss或新维度。
 
 ## 共鸣核心与升级
 

@@ -1,0 +1,5 @@
+Superflat daytime command placement at 0, -60, 0
+Real door use; walked without flight or jumping from grass up porch and through door, then back outside.
+Both chests opened by client use packets with native nonempty loot.
+Research worktable opened real crafting menu.
+Small template only; no medium or enchanting system tests.

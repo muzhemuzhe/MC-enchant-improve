@@ -1,0 +1,69 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources
+> Task :classes
+> Task :processIncludeJars UP-TO-DATE
+> Task :jar
+> Task :sourcesJar
+> Task :assemble
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test
+> Task :validateAccessWidener NO-SOURCE
+> Task :check
+> Task :build
+
+> Task :compileGametestJava FAILED
+<workspace>\src\gametest\java\dev\differentenchant\RuinClientGameTest.java:101: 错误: 对addProperty的引用不明确
+                    record.addProperty("biome",world.getServer().computeOnServer(s->s.overworld().getBiome(piece.templatePosition()).unwrapKey().orElseThrow().identifier().toString()));
+                          ^
+  JsonObject 中的方法 addProperty(String,Boolean) 和 JsonObject 中的方法 addProperty(String,Character) 都匹配
+<workspace>\src\gametest\java\dev\differentenchant\RuinClientGameTest.java:101: 错误: 不兼容的类型: 推论变量 T 具有不兼容的上限
+                    record.addProperty("biome",world.getServer().computeOnServer(s->s.overworld().getBiome(piece.templatePosition()).unwrapKey().orElseThrow().identifier().toString()));
+                                                                                ^
+    上限：Boolean,Object
+    下限：String
+  其中, T,E是类型变量:
+    T扩展已在方法 <T,E>computeOnServer(FailableFunction<MinecraftServer,T,E>)中声明的Object
+    E扩展已在方法 <T,E>computeOnServer(FailableFunction<MinecraftServer,T,E>)中声明的Throwable
+注: 某些消息已经过简化; 请使用 -Xdiags:verbose 重新编译以获得完整输出
+2 个错误
+
+[Incubating] Problems report is available at: file:///<workspace>/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  <workspace>\src\gametest\java\dev\differentenchant\RuinClientGameTest.java:101: 错误: 对addProperty的引用不明确
+                      record.addProperty("biome",world.getServer().computeOnServer(s->s.overworld().getBiome(piece.templatePosition()).unwrapKey().orElseThrow().identifier().toString()));
+                            ^
+    JsonObject 中的方法 addProperty(String,Boolean) 和 JsonObject 中的方法 addProperty(String,Character) 都匹配
+  <workspace>\src\gametest\java\dev\differentenchant\RuinClientGameTest.java:101: 错误: 不兼容的类型: 推论变量 T 具有不兼容的上限
+                      record.addProperty("biome",world.getServer().computeOnServer(s->s.overworld().getBiome(piece.templatePosition()).unwrapKey().orElseThrow().identifier().toString()));
+                                                                                  ^
+      上限：Boolean,Object
+      下限：String
+    其中, T,E是类型变量:
+      T扩展已在方法 <T,E>computeOnServer(FailableFunction<MinecraftServer,T,E>)中声明的Object
+      E扩展已在方法 <T,E>computeOnServer(FailableFunction<MinecraftServer,T,E>)中声明的Throwable
+  注: 某些消息已经过简化; 请使用 -Xdiags:verbose 重新编译以获得完整输出
+  2 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 3s
+8 actionable tasks: 5 executed, 3 up-to-date

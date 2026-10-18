@@ -1,0 +1,42 @@
+[
+  {
+    "file": "01-front.png",
+    "source": "build/client-gametest/screenshots/0000_small-expanded-01-front.png",
+    "sha256": "f5da6e4dc26a80ab18e68854fa7eade60416b46a278a7c9b7cd68be570d57716"
+  },
+  {
+    "file": "02-side.png",
+    "source": "build/client-gametest/screenshots/0001_small-expanded-02-side.png",
+    "sha256": "4c48dcd658f989d8ee81fa001adc2a04a08cd6c850a0caea7be20701ace442f6"
+  },
+  {
+    "file": "03-diagonal.png",
+    "source": "build/client-gametest/screenshots/0002_small-expanded-03-diagonal.png",
+    "sha256": "c36a7119459b48f0ef98482d10629cb40aa7ce91203c2b3233c6dedb218450f7"
+  },
+  {
+    "file": "04-roof.png",
+    "source": "build/client-gametest/screenshots/0003_small-expanded-04-roof.png",
+    "sha256": "36a0218234b33d9ef557add333fd1347166f0678acde9b9d833b04ee5856b725"
+  },
+  {
+    "file": "05-interior.png",
+    "source": "build/client-gametest/screenshots/0004_small-expanded-05-interior.png",
+    "sha256": "99084b6a4cde3da5a737607bc5cb2e42c18d308221ab6a83414377dd991445c8"
+  },
+  {
+    "file": "05a-reading-bay.png",
+    "source": "build/client-gametest/screenshots/0005_small-expanded-05a-reading-bay.png",
+    "sha256": "698e3212207d6703a9eb715e26e64a09bae0845571aa0e9e60cc30329f534f00"
+  },
+  {
+    "file": "06-first-chest-open.png",
+    "source": "build/client-gametest/screenshots/0006_small-expanded-06-first-chest-open.png",
+    "sha256": "d417a8df9598e2324d5917288d4b0473bb34a76a599fe580d5ecc22207b76533"
+  },
+  {
+    "file": "07-second-chest-open.png",
+    "source": "build/client-gametest/screenshots/0007_small-expanded-07-second-chest-open.png",
+    "sha256": "06b3730ff968ca92a72fd3794433d3cbe46d5a2564aefee0bc5d4d7136738e39"
+  }
+]

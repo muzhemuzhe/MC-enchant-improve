@@ -1,0 +1,42 @@
+[
+  {
+    "file": "01-front.png",
+    "source": "build/client-gametest/screenshots/0000_medium-massing-01-front.png",
+    "sha256": "d3f7737b63940b6eb7784b0c686120ab13f3df072d920ebd25a4397ee05ca69d"
+  },
+  {
+    "file": "02-diagonal.png",
+    "source": "build/client-gametest/screenshots/0001_medium-massing-02-diagonal.png",
+    "sha256": "78b842b131fd3eb3b3340d40ceac4223a3ea0e2be603623e91b8c977e4d5de05"
+  },
+  {
+    "file": "03-side.png",
+    "source": "build/client-gametest/screenshots/0002_medium-massing-03-side.png",
+    "sha256": "c7f4e6d66c23fa8fec83eca106b5be5d1450fbfbfcf75e3cc9119886f885460b"
+  },
+  {
+    "file": "04-ground-spawner.png",
+    "source": "build/client-gametest/screenshots/0003_medium-massing-04-ground-spawner.png",
+    "sha256": "94029c419024451c51a948118af06de8658911c5df89422f52b97019f396c66a"
+  },
+  {
+    "file": "05-second-machine.png",
+    "source": "build/client-gametest/screenshots/0004_medium-massing-05-second-machine.png",
+    "sha256": "56ca5928df32341bccd7582365dc673d48b93ad2299dd1de21a11b4d04325149"
+  },
+  {
+    "file": "06-third-study.png",
+    "source": "build/client-gametest/screenshots/0005_medium-massing-06-third-study.png",
+    "sha256": "df9a8db5da94c25c923dc9c56f0179edf11c5a820c2ba22de76469e9cb5bd81f"
+  },
+  {
+    "file": "08-reward-chest.png",
+    "source": "build/client-gametest/screenshots/0007_medium-massing-08-reward-chest.png",
+    "sha256": "5757a4da8de77a4a83017ffa633b5da54414a5a1cc0ac1866ae376345c4a4505"
+  },
+  {
+    "file": "09-machine-missing-parts.png",
+    "source": "build/client-gametest/screenshots/0006_medium-massing-09-machine-missing-parts.png",
+    "sha256": "83a49b5c97d2cc57572e72d241b0165f8448ae1bc5263c1a4e526eb67970560a"
+  }
+]

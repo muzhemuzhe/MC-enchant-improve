@@ -1,0 +1,17 @@
+{
+  "base_commit": "b0eb40f",
+  "status": "candidate awaiting user visual review; no commit or push",
+  "workshop_template_unchanged": true,
+  "underground_template_unchanged": true,
+  "workshop_manifest_unchanged": true,
+  "surface_template_sha256": "794f0fbf1a21ffb5e3ac74c34316054dd327a5cd560f6ea88d25fac9cb018ae5",
+  "compile_and_client": "passed, 33 seconds; no JUnit or server GameTest run",
+  "real_interactions": {
+    "door_opened": true,
+    "walked_up_step_and_into_cottage_without_flight_or_jump": true,
+    "both_chests_opened_with_native_loot": true
+  },
+  "natural_generation_tested_this_round": false,
+  "empty_daytime_superflat": true,
+  "runtime_java_loot_worldgen_diff": ""
+}

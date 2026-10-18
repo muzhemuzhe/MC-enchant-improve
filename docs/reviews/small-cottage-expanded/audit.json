@@ -1,0 +1,41 @@
+{
+  "base_commit": "b0eb40f",
+  "status": "expanded candidate awaiting visual review; no commit or push",
+  "prior_candidate_sha256": "794f0fbf1a21ffb5e3ac74c34316054dd327a5cd560f6ea88d25fac9cb018ae5",
+  "template_before_width_depth_height": [
+    12,
+    10,
+    10
+  ],
+  "template_after_width_depth_height": [
+    13,
+    11,
+    10
+  ],
+  "template_footprint_increase_percent": 19.166666666666664,
+  "occupied_envelope_footprint_increase_percent": 19.999999999999996,
+  "main_room_before": [
+    5,
+    5
+  ],
+  "main_room_after": [
+    6,
+    6
+  ],
+  "clear_headroom_unchanged": 4,
+  "workshop_template_unchanged": true,
+  "underground_template_unchanged": true,
+  "workshop_manifest_unchanged": true,
+  "surface_template_sha256": "d0ce4b86d9f298e160e8258dbcdd315574f59706251447a8c4dc025dffb63d2c",
+  "compile_and_client": "BUILD SUCCESSFUL in 32s",
+  "real_interactions": {
+    "door_opened": true,
+    "walked_inside_and_back_out_without_flight_or_jump": true,
+    "both_chests_opened_with_native_loot": true,
+    "research_worktable_opened": true
+  },
+  "natural_generation_tested_this_round": false,
+  "empty_daytime_superflat": true,
+  "full_enchanting_regression_run": false,
+  "runtime_java_loot_worldgen_diff": ""
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "file": "01-front.png",
+    "source": "build/client-gametest/screenshots/0000_medium-study-01-front.png",
+    "sha256": "0aff46e231ed792e156cf005c83db4be28fbf080a529624e93a1d4d6dd91ecc2"
+  },
+  {
+    "file": "02-diagonal.png",
+    "source": "build/client-gametest/screenshots/0001_medium-study-02-diagonal.png",
+    "sha256": "0a60690dafe82a472795417e87e0c67e4e318c97aa967dcac70ecf949fd8775c"
+  },
+  {
+    "file": "03-side.png",
+    "source": "build/client-gametest/screenshots/0002_medium-study-03-side.png",
+    "sha256": "730e0dce3265ef2b6224306479edfc181e667c47f042845ff53c3035f1c8d49a"
+  },
+  {
+    "file": "04-ground-spawner.png",
+    "source": "build/client-gametest/screenshots/0003_medium-study-04-ground-spawner.png",
+    "sha256": "c1c0a05671fc3cef4f74c77893f66f03707e5ff269b85901844d9093d8feee95"
+  },
+  {
+    "file": "05-second-machine.png",
+    "source": "build/client-gametest/screenshots/0004_medium-study-05-second-machine.png",
+    "sha256": "9fbbc08a2f5c5a21d0cabee4c332a9ee4378073e7e36cf3f3e64e015c4b7d58e"
+  },
+  {
+    "file": "06-third-study.png",
+    "source": "build/client-gametest/screenshots/0005_medium-study-06-third-study.png",
+    "sha256": "4b5f868e12f51562503704cd4ddcbd7faaf2fe13047ac25f6eba21b88ab6e42b"
+  },
+  {
+    "file": "07-spiral-walked.png",
+    "source": "build/client-gametest/screenshots/0007_medium-study-07-spiral-walked.png",
+    "sha256": "3dfa6bd7117e7ea381fe300863fa105000e98d43b3f7dbef2f9d772a200e032e"
+  },
+  {
+    "file": "08-reward-chest.png",
+    "source": "build/client-gametest/screenshots/0008_medium-study-08-reward-chest.png",
+    "sha256": "ea33ef61c41d9722e343c6c81c9987ad8dd0bad506f078df5773df0fcecd627b"
+  },
+  {
+    "file": "09-machine-missing-parts.png",
+    "source": "build/client-gametest/screenshots/0006_medium-study-09-machine-missing-parts.png",
+    "sha256": "2da937c8337da56d5bfbea9a35da59f636843d531c60e04ad50858daf9d3a701"
+  }
+]

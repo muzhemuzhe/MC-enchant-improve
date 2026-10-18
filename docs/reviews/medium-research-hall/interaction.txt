@@ -1,0 +1,6 @@
+Daytime empty superflat, native template command placement at 0, -60, 0.
+Template contents: one zombie cage, missing machine centre/two crystals, six filled chiseled shelves, eight nonempty loot chests.
+Real door use and walking from grass through porch and entry.
+All 21 helix waypoints walked without flight/jump; left and returned to both upper rooms.
+Third-floor reward chest opened by actual use packet.
+No natural-terrain generation, actual mob spawning, full enchanting regression or disk reload tested in this review.

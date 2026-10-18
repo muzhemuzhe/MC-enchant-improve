@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-18",
+  "base_commit": "b0eb40f",
+  "status": "replacement massing candidate awaiting user review; no commit or push",
+  "rejected_medium_sha256": "cf39888fcfc229349062c075eed0123333e60afa742f66148d197bb984d701a4",
+  "medium_template_sha256": "80c7bcb61f90dcfcf7586099eb9fbd2d4c6bf97a8b4a1fdc439cff4d58013a1a",
+  "accepted_small_surface_sha256": "d0ce4b86d9f298e160e8258dbcdd315574f59706251447a8c4dc025dffb63d2c",
+  "accepted_small_surface_unchanged": true,
+  "small_surface_manifest_unchanged": true,
+  "underground_template_unchanged": true,
+  "underground_manifest_unchanged": true,
+  "dimensions_width_depth_height": [
+    23,
+    18,
+    20
+  ],
+  "floors": [
+    0,
+    5,
+    10
+  ],
+  "chests": 8,
+  "chiseled_shelves": 6,
+  "spawners": 1,
+  "spiral_waypoints": 21,
+  "compile_and_client": "BUILD SUCCESSFUL in 1m 4s",
+  "initial_run": "failed, 1m16s; final foot-height check rejected overlap with next half-step; preserved log",
+  "real_client_interaction": {
+    "door_opened": true,
+    "walked_from_grass_through_vestibule_and_hall": true,
+    "walked_all_spiral_steps_without_flight_or_jump": true,
+    "visited_both_second_floor_wings_and_returned": true,
+    "entered_third_floor_loft": true,
+    "opened_third_floor_reward_chest": true
+  },
+  "verified_on_integrated_server": {
+    "native_loot_nonempty": true,
+    "random_stored_enchantments_and_shelf_occupancy": true,
+    "broken_machine_cannot_form": true,
+    "native_zombie_spawner_id": true,
+    "worldgen_registration": true
+  },
+  "empty_daytime_superflat": true,
+  "night_vision_used": false,
+  "natural_terrain_tested": false,
+  "mob_spawn_waited": false,
+  "disk_reload_tested": false,
+  "junit_run": false,
+  "standalone_server_gametest_run": false,
+  "full_enchanting_regression_run": false,
+  "release_jar_built": false,
+  "production_java_loot_worldgen_diff": ""
+}

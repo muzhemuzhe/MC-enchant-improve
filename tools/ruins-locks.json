@@ -1,0 +1,20 @@
+{
+  "small_surface": {
+    "size": [
+      13,
+      10,
+      11
+    ],
+    "geometry_sha256": "060e779ac59876b7ce1d6e9ad6d0916e79965fcce24d9c2c0ee23fddd1d69869",
+    "accepted_template_sha256": "d0ce4b86d9f298e160e8258dbcdd315574f59706251447a8c4dc025dffb63d2c"
+  },
+  "workshop": {
+    "size": [
+      23,
+      20,
+      18
+    ],
+    "geometry_sha256": "b7fcb92b0cba37b8564168fa4d095088b4489da73ac396651dfa5be85678f819",
+    "accepted_template_sha256": "80c7bcb61f90dcfcf7586099eb9fbd2d4c6bf97a8b4a1fdc439cff4d58013a1a"
+  }
+}
