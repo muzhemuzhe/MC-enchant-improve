@@ -13,6 +13,7 @@ public final class DifferentEnchantClient implements ClientModInitializer {
         }
     }
     @Override public void onInitializeClient() {
+        MenuScreens.register(dev.differentenchant.disenchant.DisenchantContent.MENU,DisenchantScreen::new);
         WaterReflectionClient.initialize();
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(dev.differentenchant.lost.StarStep.TYPE,StarStepRenderer::new);
         net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.registerGlobalReceiver(dev.differentenchant.lost.AirControlConfig.Settings.TYPE,(payload,context)->dev.differentenchant.lost.AirControlConfig.current=payload);

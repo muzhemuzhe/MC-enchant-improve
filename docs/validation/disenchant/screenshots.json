@@ -1,0 +1,104 @@
+[
+  {
+    "file": "disenchant-01-assembled-exterior.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "b56ad5d01fd131cc3111bf43723e8772f3fc2558a35bf61f30c56f747e1af4ed"
+  },
+  {
+    "file": "disenchant-02-multiple-enchantments-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "bd9aa4bc25c1ab23026aaee5e5a99e59a1737597a3de33e8b95025e8b0b4247f"
+  },
+  {
+    "file": "disenchant-02b-six-choices-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "a68bfbe09cdeb569398f238b49e086f8bb160b8f93793ab21155b354df62137c"
+  },
+  {
+    "file": "disenchant-02c-scrolled-last-choice-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "6c1966683dbeeb1a96d324a0fef0196a734cc9722e8b58e912e2c9de0008a7c9"
+  },
+  {
+    "file": "disenchant-03-selected-preview-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "2130e77b313f6a80b3d178d47d6a1c8c48808b9f518b2de9ca7b084fd3194465"
+  },
+  {
+    "file": "disenchant-04-result-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "2dd750b0f10c0917268a319ecd188cda958e5465b06b48e475f3496485cc2a92"
+  },
+  {
+    "file": "disenchant-05-curse-equipment-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "0149729e29baad37f936120a14ed395c0adbbb8cf0c9e433e0c950a0465875c0"
+  },
+  {
+    "file": "disenchant-06-direct-result-pickup.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "03f9fe736d56af59308600596a0d3914b712bef63dc7f546247f3fd8a71a4a45"
+  },
+  {
+    "file": "disenchant-07-remainder-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "5d20a6991ba02ad4d8b2fcca64ef064ec4244da6a796726166c8e4a78edf455a"
+  },
+  {
+    "file": "disenchant-08-preserved-curse-tooltip-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "f2e1ca0c23559037bfe23e8697698a148a67d00bcb05db9a712fae0b21083745"
+  },
+  {
+    "file": "disenchant-09-unbreaking-result-tooltip-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "30692a3d1a5f785413b6d46e86e68569003d4b0eab118943d7104cdfae6c148a"
+  },
+  {
+    "file": "disenchant-10-mending-I-preview-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "5ebf9e68ff832c2fa273786e09287ec04e8bf8dbc503bc5021dea2b38a21811d"
+  },
+  {
+    "file": "disenchant-11-curse-only-no-selection-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "0bbc36f514fe585523eeed79bf2c72c036a19cc025eed6337be29e8be17b1ac9"
+  },
+  {
+    "file": "disenchant-12-curse-only-equipment-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "ae714952a72938cc36fbe4417cf5275603854fa6828e42df1540f539a4c879f4"
+  },
+  {
+    "file": "disenchant-13-lost-enchantment-preview-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "2c77e1a321ef8151dd7a91f1025fd0d17b84ac41ab904bf62f6e8031dc3f2c11"
+  },
+  {
+    "file": "disenchant-14-disk-reconnected-structure.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "18a5c69bfcb167488932e5b1a1343bc74ad4e47856770132c0a068c1fb69dd17"
+  },
+  {
+    "file": "disenchant-15-dismantled-safe-return.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "fe2c0d19b893feafc654981ae58b3aa95e0918ee3c8f4b235a2a50096905df31"
+  }
+]

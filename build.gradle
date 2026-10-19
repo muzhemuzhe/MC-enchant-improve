@@ -37,6 +37,10 @@ configurations {
 
 // Scope visual iterations to ruins without changing the committed test entrypoints.
 tasks.named('processGametestResources') {
+    def disenchantIntegrated = providers.gradleProperty('disenchantIntegrated').isPresent()
+    inputs.property('disenchantIntegrated', disenchantIntegrated)
+    def disenchantOnly = providers.gradleProperty('disenchantOnly').isPresent()
+    inputs.property('disenchantOnly', disenchantOnly)
     def ruinsOnly = providers.gradleProperty('ruinsOnly').isPresent()
     def smallReview = providers.gradleProperty('smallReview').isPresent()
     def mediumReview = providers.gradleProperty('mediumReview').isPresent()
@@ -56,7 +60,7 @@ tasks.named('processGametestResources') {
     inputs.property('researchGui', researchGui)
     inputs.property('researchAffected', researchAffected)
     doLast {
-        if (ruinsOnly || smallReview || mediumReview || lanternOnly || researchOnly || researchGui || lostBatchTwo) {
+        if (ruinsOnly || smallReview || mediumReview || lanternOnly || researchOnly || researchGui || lostBatchTwo || disenchantOnly) {
             def metadata = new File(destinationDir, 'fabric.mod.json')
             def parsed = new groovy.json.JsonSlurper().parse(metadata)
             parsed.entrypoints['fabric-gametest'] = smallReview || mediumReview ? [] : ['dev.differentenchant.RuinGameTests']
@@ -78,6 +82,11 @@ tasks.named('processGametestResources') {
                     parsed.entrypoints['fabric-gametest'] += ['dev.differentenchant.ResearchGameTests', 'dev.differentenchant.LostEffectsGameTests', 'dev.differentenchant.research.ResearchPersistenceGameTests']
                     parsed.entrypoints['fabric-client-gametest'] += ['dev.differentenchant.ResearchClientGameTest']
                 }
+            }
+            if (disenchantOnly) {
+                parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.DisenchantGameTests']
+                if (disenchantIntegrated) parsed.entrypoints['fabric-gametest'] += ['dev.differentenchant.ResearchIntegrationGameTests', 'dev.differentenchant.DisenchantIntegrationGameTests']
+                parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.DisenchantClientGameTest']
             }
             metadata.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(parsed))
         }

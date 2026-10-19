@@ -95,5 +95,17 @@
   "enchantment.differentenchant.star_bridge": "星桥",
   "enchantment.differentenchant.star_bridge.desc": "跑离地面边缘时短暂形成最多3格个人落脚点，冷却20秒。",
   "tag.item.differentenchant.enchantable.fire_transfer": "借火可用武器",
-  "tag.block.differentenchant.reflection_targets": "倒影感知目标"
+  "tag.block.differentenchant.reflection_targets": "倒影感知目标",
+  "block.differentenchant.disenchanting_core": "祛魔核心",
+  "block.differentenchant.disenchanting_part": "祛魔台",
+  "container.differentenchant.disenchanting": "祛魔台",
+  "disenchant.differentenchant.formed": "祛魔台组装完成，右击任一部件使用。",
+  "disenchant.differentenchant.assembly": "搭建3×3×2结构后，双手空持潜行右击核心组装。",
+  "disenchant.differentenchant.select": "选择一条附魔",
+  "disenchant.differentenchant.none": "没有可提取的附魔",
+  "disenchant.differentenchant.cost": "消耗 %s 级经验",
+  "disenchant.differentenchant.result": "提取：%s",
+  "disenchant.differentenchant.equipment": "已附魔装备",
+  "disenchant.differentenchant.book": "普通书（每次消耗一本）",
+  "disenchant.differentenchant.choose": "请选择"
 }

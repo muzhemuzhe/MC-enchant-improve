@@ -1,0 +1,3 @@
+Real Minecraft 26.1.2 OpenGL client: survival core placement, empty-hand sneak assembly, right-click GUI, native shift equipment/books, select Sharpness V -> IV, direct mouse result, exactly one book + six levels. Original damage/name/curse kept.
+Native Shift extracts Unbreaking III -> II (four levels), Mending I -> I (three levels). Curse-only remainder cannot select or extract. English/Chinese slot/gear/result tooltips. Lost Borrowed Flame II -> I preview.
+Disconnect with unclaimed lost-book preview: actual disk reload preserves all real item totals, full gear components, XP27 and machine UUID. Breaking a loaded part auto-closes native client menu and returns inputs without item loss.

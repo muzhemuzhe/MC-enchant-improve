@@ -1,0 +1,9 @@
+{
+  "artifact": "differentenchant-0.10.0.jar",
+  "sha256": "74df6ed1ce4bddadb61a36fad8863ff33dd4fce4d3d1bab2b631c61adf9a6571",
+  "resourceFilesCompared": 128,
+  "allResourcesMatch": true,
+  "noTestContent": true,
+  "version": "0.10.0",
+  "modId": "differentenchant"
+}

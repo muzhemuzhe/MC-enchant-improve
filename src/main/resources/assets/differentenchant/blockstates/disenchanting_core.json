@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "differentenchant:block/disenchanting_core"
+    }
+  }
+}

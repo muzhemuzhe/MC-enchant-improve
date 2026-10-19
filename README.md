@@ -1,6 +1,6 @@
 # Differentenchant · 附魔机器与失落魔法研究
 
-Minecraft Java **26.1.2 / Fabric / JDK 25**。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和12点共鸣核心；36书架与机器等级分别改善概率。0.9.0新增第二批9种失落附魔，共17种，包含经过真实碰撞验证的临时星桥；研究沿用0.8.1直接取结果槽交互，无评级/稀有度展示。0.8.0加入独立失落魔法研究台、世界专属固定研究配方、个人发现记录和首批8种实际失落附魔。已有研究屋、研究馆与灯笼遗迹保留，没有新维度或Lv.3以上机器升级实现。
+Minecraft Java **26.1.2 / Fabric / JDK 25**。0.10.0新增独立3×3×2祛魔台：四枚回响碎片门槛，选择普通附魔、从输出槽领取降一级的书，保留原装备其余数据。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和12点共鸣核心；36书架与机器等级分别改善概率。0.9.0新增第二批9种失落附魔，共17种，包含经过真实碰撞验证的临时星桥；研究沿用0.8.1直接取结果槽交互，无评级/稀有度展示。0.8.0加入独立失落魔法研究台、世界专属固定研究配方、个人发现记录和首批8种实际失落附魔。已有研究屋、研究馆与灯笼遗迹保留，没有新维度或Lv.3以上机器升级实现。
 
 ![真实客户端中的形成态](docs/screenshots/rename/01-formed-machine.png)
 
@@ -17,7 +17,7 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.9.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.10.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
 
 正式 Mod ID 与资源命名空间均为 **`differentenchant`**，Java 包为 `dev.differentenchant`。0.5.0曾更换注册ID，改名前的旧测试世界和旧名配置不迁移；0.6.0可延续正式改名后的世界，遗迹只在新生成区块出现。首次启动生成 `config/differentenchant.properties`，全部已有选项及默认数值保留；核心容量仍固定12点，没有新增容量配置。[重命名范围、测试及截图](docs/RENAMING.md)。GitHub仓库和remote不随模组名称修改。
 
@@ -27,9 +27,9 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 
 两本**各恰好一条附魔**的附魔书，加一颗现有**谐调的共鸣核心**进行研究。附魔注册ID与等级共同构成无序配方；A+B与B+A相同，不按元素或装备类别分类。世界种子与存档中冻结的规则决定永久结果，点击不会重抽。成功消耗两书/一核心并得到真正的失落附魔书；II级以上少量配方固定产出失落卷轴，只消耗核心、完整保留两书。
 
-未发现时预览只显示`???`；自己的首次研究记录到世界存档中的UUID档案，再投入同一组合显示名称、等级和稀有度。研究台“配方记录”支持滚动，别人的发现不会替你解锁。关闭/断线/方块破坏按原版工作台语义返还或掉落临时物品，不自动领取免费结果。
+未发现时结果格显示未知书本，悬停才显示`???`；自己的首次研究记录到世界存档中的UUID档案，再投入同一组合显示真实名称与附魔等级，不显示后台稀有度。研究台“配方记录”支持滚动，别人的发现不会替你解锁。关闭/断线/方块破坏按原版工作台语义返还或掉落临时物品，不自动领取免费结果。
 
-首批：行旅步幅、矿脉回声、潜光、生息书页、学者之手、守望凝神、引力丝线、终末残页；通过**原版铁砧**施加到合法装备。失落附魔的获取稀有度I–IV与自身最高等级分开。研究参数位于 `config/differentenchant-research.properties`，只影响首次建立快照的世界；普通重载或修改配置不会重洗已有世界。[完整机制/八种效果/模拟](docs/LOST_RESEARCH.md) · [测试、截图与命令](docs/validation/research/README.md)。本轮没有Lv.3、Lv.4、祛魔机或村民职业。
+首批：行旅步幅、矿脉回声、潜光、生息书页、学者之手、守望凝神、引力丝线、终末残页；通过**原版铁砧**施加到合法装备。失落附魔的获取稀有度I–IV与自身最高等级分开。研究参数位于 `config/differentenchant-research.properties`，只影响首次建立快照的世界；普通重载或修改配置不会重洗已有世界。[完整机制/八种效果/模拟](docs/LOST_RESEARCH.md) · [测试、截图与命令](docs/validation/research/README.md)。没有Lv.3、Lv.4或村民职业。
 
 ## 主世界遗迹试作
 
@@ -49,7 +49,7 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 
 核心可中途取出、转移机器；关闭界面仍安装在机器内，存档/区块加载保存能量和机器等级。拆解时安装核心只掉落一次。没有核心时附魔正常，不积攒历史能量；创造模式、预览、规划和失败不充能。
 
-创造材料栏或 `/give @s differentenchant:resonance_core` / `/give @s differentenchant:attuned_resonance_core` 可测试。[核心规则、存档与同步](docs/RESONANCE_CORES.md) · [核心验证](docs/validation/resonance/README.md)。没有研究台、Lv.3升级或祛魔实现。
+创造材料栏或 `/give @s differentenchant:resonance_core` / `/give @s differentenchant:attuned_resonance_core` 可测试。[核心规则、存档与同步](docs/RESONANCE_CORES.md) · [核心验证](docs/validation/resonance/README.md)。没有Lv.3升级；研究与祛魔由独立设备提供。
 
 ## 指定附魔操作
 
@@ -61,7 +61,7 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 
 [新版中文指定界面](docs/screenshots/ui-polish/ui-directed-06-chinese.png) · [新版随机界面](docs/screenshots/ui-polish/ui-random-06-vanilla-hover.png) · [加减前后、状态及 tooltip 对比](docs/GUI_POLISH.md) · [结果物品](docs/screenshots/phase4/21-directed-committed-item.png)
 
-[指定模式公式、配置、同步和限制](docs/DIRECTED_ENCHANTING.md)。祛魔属于[未来独立多方块机器](docs/FUTURE_DISENCHANTING_MACHINE.md)，当前没有祛魔页签。
+[指定模式公式、配置、同步和限制](docs/DIRECTED_ENCHANTING.md)。祛魔由[独立多方块祛魔台](docs/DISENCHANTING_MACHINE.md)提供，当前附魔机没有祛魔页签。
 
 ## 随机附魔操作
 
@@ -161,3 +161,9 @@ D=磨制深板岩，A=紫水晶块，O=黑曜石，E=附魔台。两层全部填
 研究台0.8.1交互与实机截图见 [专项验收](docs/validation/research-gui/README.md)。放入两本合法附魔书与谐调核心后，直接取右侧结果格；未知仅显示书本，悬停为???。
 
 第二批九种附魔的参数、Mixin入口、旧配方兼容与实机演示见 [0.9.0设计与状态](docs/LOST_BATCH_TWO.md)，精确测试命令、分布和截图见 [专项验收](docs/validation/lost-batch-two/README.md)。纸鸢水平控制使用服务器配置 `config/differentenchant-lost.properties`，加入游戏时同步给客户端。
+
+## 独立祛魔台（0.10.0）
+
+祛魔核心配方 `EAE / IBI / EAE`：E回响碎片、A紫水晶碎片、I铁锭、B普通书，共四枚碎片。底层九深板岩砖，上层四雕纹深板岩角、四切制铜边与中央核心；双手空持潜行右击核心组装，右击任一成形部件使用。放装备和普通书，选一条非诅咒附魔，直接取结果格才消耗一本书及3～6级经验；输出降低一级、最低I，原装备仅失去选中附魔。支持17种失落附魔与标准注册模组附魔。
+
+[完整结构/规则/兼容说明](docs/DISENCHANTING_MACHINE.md) · [17张实机截图与专项测试](docs/validation/disenchant/README.md)。

@@ -36,6 +36,7 @@ public final class DifferentEnchant implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        dev.differentenchant.disenchant.DisenchantContent.initialize();
         dev.differentenchant.ruins.Ruins.initialize();
         dev.differentenchant.resonance.ResonanceItems.initialize();
         dev.differentenchant.research.ResearchContent.initialize();

@@ -95,5 +95,17 @@
   "enchantment.differentenchant.star_bridge": "Star Bridge",
   "enchantment.differentenchant.star_bridge.desc": "Running off a ledge briefly forms up to three personal footholds. 20-second cooldown.",
   "tag.item.differentenchant.enchantable.fire_transfer": "Borrowed Flame Weapons",
-  "tag.block.differentenchant.reflection_targets": "Water Reflection Targets"
+  "tag.block.differentenchant.reflection_targets": "Water Reflection Targets",
+  "block.differentenchant.disenchanting_core": "Disenchanting Core",
+  "block.differentenchant.disenchanting_part": "Disenchanting Machine",
+  "container.differentenchant.disenchanting": "Disenchanting Machine",
+  "disenchant.differentenchant.formed": "Disenchanting machine assembled. Right-click any part to use.",
+  "disenchant.differentenchant.assembly": "Build the 3×3×2 frame, then sneak-use this core with empty hands.",
+  "disenchant.differentenchant.select": "Select an enchantment",
+  "disenchant.differentenchant.none": "No extractable enchantments",
+  "disenchant.differentenchant.cost": "Cost: %s levels",
+  "disenchant.differentenchant.result": "Extract: %s",
+  "disenchant.differentenchant.equipment": "Enchanted equipment",
+  "disenchant.differentenchant.book": "Ordinary book (one per extraction)",
+  "disenchant.differentenchant.choose": "Choose one"
 }

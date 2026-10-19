@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "EAE",
+    "IBI",
+    "EAE"
+  ],
+  "key": {
+    "E": "minecraft:echo_shard",
+    "A": "minecraft:amethyst_shard",
+    "I": "minecraft:iron_ingot",
+    "B": "minecraft:book"
+  },
+  "result": {
+    "id": "differentenchant:disenchanting_core",
+    "count": 1
+  }
+}
