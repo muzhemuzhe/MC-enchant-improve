@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "differentenchant:warding_focus",
-    "differentenchant:gravity_thread"
+    "differentenchant:gravity_thread",
+    "differentenchant:parry",
+    "differentenchant:undertow",
+    "differentenchant:water_reflection"
   ]
 }

@@ -6,13 +6,20 @@
   "description": "Reversible 3x3x2 enchanting machine with server-authoritative random and directed enchanting.",
   "environment": "*",
   "entrypoints": {
-    "main": ["dev.differentenchant.DifferentEnchant"],
-    "client": ["dev.differentenchant.client.DifferentEnchantClient"]
+    "main": [
+      "dev.differentenchant.DifferentEnchant"
+    ],
+    "client": [
+      "dev.differentenchant.client.DifferentEnchantClient"
+    ]
   },
   "depends": {
     "fabricloader": ">=0.19.5",
     "minecraft": "26.1.2",
     "java": ">=25",
     "fabric-api": "*"
-  }
+  },
+  "mixins": [
+    "differentenchant.mixins.json"
+  ]
 }

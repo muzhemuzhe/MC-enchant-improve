@@ -1,0 +1,23 @@
+{
+  "description": {
+    "translate": "enchantment.differentenchant.undertow"
+  },
+  "supported_items": [
+    "minecraft:trident"
+  ],
+  "weight": 2,
+  "max_level": 2,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 0
+  },
+  "max_cost": {
+    "base": 60,
+    "per_level_above_first": 0
+  },
+  "anvil_cost": 2,
+  "slots": [
+    "mainhand"
+  ],
+  "effects": {}
+}

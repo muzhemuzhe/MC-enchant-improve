@@ -1,0 +1,36 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava FAILED
+G:\better-enchant-codex-starter\better-enchant-starter\src\main\java\dev\differentenchant\lost\StarBridgeData.java:12: 错误: 找不到符号
+    public static StarBridgeData get(MinecraftServer server){return ResearchPersistence.load(server,TYPE,()->new StarBridgeData(Map.of()));}
+                                                                    ^
+  符号:   变量 ResearchPersistence
+  位置: 类 StarBridgeData
+注: 某些输入文件使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+1 个错误
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+  G:\better-enchant-codex-starter\better-enchant-starter\src\main\java\dev\differentenchant\lost\StarBridgeData.java:12: 错误: 找不到符号
+      public static StarBridgeData get(MinecraftServer server){return ResearchPersistence.load(server,TYPE,()->new StarBridgeData(Map.of()));}
+                                                                      ^
+    符号:   变量 ResearchPersistence
+    位置: 类 StarBridgeData
+  注: 某些输入文件使用或覆盖了已过时的 API。
+  1 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+1 actionable task: 1 executed
+BUILD FAILED in 1s

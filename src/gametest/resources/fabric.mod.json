@@ -5,9 +5,41 @@
   "name": "Differentenchant Integration Tests",
   "environment": "*",
   "entrypoints": {
-    "main": ["dev.differentenchant.CompatibilityTestMod"],
-    "fabric-gametest": ["dev.differentenchant.MachineGameTests", "dev.differentenchant.EnchantingProbabilityGameTests", "dev.differentenchant.EnchantingMenuGameTests", "dev.differentenchant.EnchantingPreviewGameTests", "dev.differentenchant.DirectedGameTests", "dev.differentenchant.BookshelfGameTests", "dev.differentenchant.VanillaTableGameTests", "dev.differentenchant.ResonanceGameTests", "dev.differentenchant.NamingGameTests", "dev.differentenchant.RuinGameTests", "dev.differentenchant.LanternGameTests", "dev.differentenchant.ResearchGameTests", "dev.differentenchant.LostEffectsGameTests", "dev.differentenchant.research.ResearchPersistenceGameTests"],
-    "fabric-client-gametest": ["dev.differentenchant.MachineClientGameTest", "dev.differentenchant.EnchantingClientGameTest", "dev.differentenchant.EnchantingGuiClientGameTest", "dev.differentenchant.DirectedClientGameTest", "dev.differentenchant.BookshelfClientGameTest", "dev.differentenchant.ResonanceClientGameTest", "dev.differentenchant.RuinClientGameTest", "dev.differentenchant.LanternClientGameTest", "dev.differentenchant.ResearchClientGameTest"]
+    "main": [
+      "dev.differentenchant.CompatibilityTestMod"
+    ],
+    "fabric-gametest": [
+      "dev.differentenchant.MachineGameTests",
+      "dev.differentenchant.EnchantingProbabilityGameTests",
+      "dev.differentenchant.EnchantingMenuGameTests",
+      "dev.differentenchant.EnchantingPreviewGameTests",
+      "dev.differentenchant.DirectedGameTests",
+      "dev.differentenchant.BookshelfGameTests",
+      "dev.differentenchant.VanillaTableGameTests",
+      "dev.differentenchant.ResonanceGameTests",
+      "dev.differentenchant.NamingGameTests",
+      "dev.differentenchant.RuinGameTests",
+      "dev.differentenchant.LanternGameTests",
+      "dev.differentenchant.ResearchGameTests",
+      "dev.differentenchant.LostEffectsGameTests",
+      "dev.differentenchant.research.ResearchPersistenceGameTests",
+      "dev.differentenchant.BatchTwoGameTests"
+    ],
+    "fabric-client-gametest": [
+      "dev.differentenchant.MachineClientGameTest",
+      "dev.differentenchant.EnchantingClientGameTest",
+      "dev.differentenchant.EnchantingGuiClientGameTest",
+      "dev.differentenchant.DirectedClientGameTest",
+      "dev.differentenchant.BookshelfClientGameTest",
+      "dev.differentenchant.ResonanceClientGameTest",
+      "dev.differentenchant.RuinClientGameTest",
+      "dev.differentenchant.LanternClientGameTest",
+      "dev.differentenchant.ResearchClientGameTest",
+      "dev.differentenchant.BatchTwoClientGameTest"
+    ]
   },
-  "depends": { "differentenchant": "*", "fabric-gametest-api-v1": "*" }
+  "depends": {
+    "differentenchant": "*",
+    "fabric-gametest-api-v1": "*"
+  }
 }

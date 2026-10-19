@@ -1,0 +1,240 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileGametestJava
+> Task :generateLog4jConfig UP-TO-DATE
+> Task :generateDLIConfig UP-TO-DATE
+> Task :configureLaunch UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :configureClientLaunch UP-TO-DATE
+> Task :processGametestResources UP-TO-DATE
+> Task :gametestClasses
+
+> Task :runClientGametest
+[10:35:04] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 26.1.2 with Fabric Loader 0.19.5
+[10:35:04] [main/INFO] (FabricLoader/Mappings) Mappings not present!
+[10:35:04] [main/INFO] (FabricLoader) Loading 52 mods:
+	- differentenchant 0.8.1
+	- differentenchant_tests 1.0.0
+	- fabric-api 0.155.3+26.1.2
+	- fabric-api-base 2.0.3+ece063234c
+	- fabric-api-lookup-api-v1 2.0.12+d5a053b64c
+	- fabric-biome-api-v1 18.0.5+2fa62b4e4c
+	- fabric-block-api-v1 3.0.2+ec56b6014c
+	- fabric-block-getter-api-v2 2.0.6+ec56b6014c
+	- fabric-client-gametest-api-v1 5.1.0+0a5283664c
+	- fabric-command-api-v2 3.0.5+e2bdee784c
+	- fabric-content-registries-v0 11.3.1+af8a297c4c
+	- fabric-convention-tags-v2 4.6.2+4f11f7994c
+	- fabric-crash-report-info-v1 1.0.3+9f78a5a84c
+	- fabric-creative-tab-api-v1 5.0.12+a981f2874c
+	- fabric-data-attachment-api-v1 2.2.10+44a0bd1d4c
+	- fabric-data-generation-api-v1 24.3.4+cda368334c
+	- fabric-debug-api-v1 1.0.1+c792624d4c
+	- fabric-dimensions-v1 5.1.7+ad343a8d4c
+	- fabric-entity-events-v1 5.0.2+e2bdee784c
+	- fabric-events-interaction-v0 5.2.3+07b380be4c
+	- fabric-game-rule-api-v1 4.0.5+d871b99e4c
+	- fabric-gametest-api-v1 4.0.18+867b87624c
+	- fabric-item-api-v1 14.3.0+6d1aaa724c
+	- fabric-key-mapping-api-v1 2.0.4+e2bdee784c
+	- fabric-lifecycle-events-v1 4.1.1+df84eb3d4c
+	- fabric-loot-api-v3 3.0.12+00a1fba64c
+	- fabric-menu-api-v1 2.0.15+d871b99e4c
+	- fabric-message-api-v1 7.0.5+dae8ce3e4c
+	- fabric-model-loading-api-v1 8.0.11+c80601bb4c
+	- fabric-networking-api-v1 6.3.2+a217cccf4c
+	- fabric-object-builder-api-v1 23.1.1+abb459f14c
+	- fabric-particles-v1 5.0.16+b61fef434c
+	- fabric-permission-api-v1 1.0.3+5730ecca4c
+	- fabric-recipe-api-v1 9.0.17+be4b75ae4c
+	- fabric-registry-sync-v0 7.1.1+2fa62b4e4c
+	- fabric-renderer-api-v1 13.0.8+c80601bb4c
+	- fabric-renderer-indigo 8.1.5+1403e82c4c
+	- fabric-rendering-fluids-v1 6.0.1+d871b99e4c
+	- fabric-rendering-v1 23.3.1+e9207d814c
+	- fabric-resource-conditions-api-v1 6.1.0+83dd0ba34c
+	- fabric-resource-loader-v0 3.3.17+4fc5413f4c
+	- fabric-resource-loader-v1 2.0.10+7c44c7324c
+	- fabric-screen-api-v1 5.1.0+981dd9b24c
+	- fabric-serialization-api-v1 2.0.3+11a26f314c
+	- fabric-sound-api-v1 2.0.4+11a26f314c
+	- fabric-tag-api-v1 2.1.1+371cf5db4c
+	- fabric-transfer-api-v1 8.0.6+357ea7334c
+	- fabric-transitive-access-wideners-v1 8.1.3+3ff549fb4c
+	- fabricloader 0.19.5
+	- java 25
+	- minecraft 26.1.2
+	- mixinextras 0.5.5
+[10:35:04] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/muzhe/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.17.4+mixin.0.8.7/5f66cc9f59b8efaa942155a3d5a30599bf6640dd/sponge-mixin-0.17.4+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[10:35:05] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[10:35:05] [Datafixer Bootstrap/INFO] (Minecraft) 291 Datafixer optimizations took 237 milliseconds
+[10:35:09] [Render thread/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[10:35:09] [Render thread/INFO] (Minecraft) Setting user: Player975
+[10:35:09] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
+[10:35:10] [Render thread/ERROR] (Minecraft) Illegal option value 0 for Anisotropic Filtering
+[10:35:10] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.4.1-snapshot
+[10:35:10] [Render thread/INFO] (Minecraft) Using optional rendering extensions: GL_ARB_buffer_storage, GL_KHR_debug, GL_ARB_vertex_attrib_binding, GL_ARB_direct_state_access, GL_EXT_texture_filter_anisotropic
+[10:35:11] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, differentenchant, differentenchant_tests, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-getter-api-v2, fabric-client-gametest-api-v1, fabric-command-api-v2, fabric-content-registries-v0, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-creative-tab-api-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-debug-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-key-mapping-api-v1, fabric-lifecycle-events-v1, fabric-loot-api-v3, fabric-menu-api-v1, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-permission-api-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-rendering-fluids-v1, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-resource-loader-v1, fabric-screen-api-v1, fabric-serialization-api-v1, fabric-sound-api-v1, fabric-tag-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader
+[10:35:11] [Worker-Main-26/INFO] (Minecraft) Found unifont_pua-17.0.01.hex, loading
+[10:35:11] [Worker-Main-24/INFO] (Minecraft) Found unifont_all_no_pua-17.0.01.hex, loading
+[10:35:11] [Worker-Main-5/INFO] (Minecraft) Found unifont_jp_patch-17.0.01.hex, loading
+[10:35:12] [Download-1/INFO] (Minecraft) Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: FabricMC
+[10:35:12] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on 扬声器 (Lenovo Services E08 USB)
+[10:35:12] [Render thread/INFO] (Minecraft) Sound engine started
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 128x128x0 minecraft:textures/atlas/decorated_pot.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 2048x1024x0 minecraft:textures/atlas/armor_trims.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/shield_patterns.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 2048x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 512x512x0 minecraft:textures/atlas/chest.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/celestials.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/banner_patterns.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 512x512x0 minecraft:textures/atlas/beds.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/items.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 1024x1024x0 minecraft:textures/atlas/gui.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 128x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/signs.png-atlas
+[10:35:12] [Render thread/INFO] (Minecraft) Created: 512x512x0 minecraft:textures/atlas/shulker_boxes.png-atlas
+[10:35:13] [IO-Worker-1/INFO] (Minecraft) Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: FabricMC
+[10:35:16] [Render thread/INFO] (Minecraft) Loaded 1517 recipes
+[10:35:16] [Render thread/INFO] (Minecraft) Loaded 1617 advancements
+[10:35:16] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.GenericMessageScreen@50b42004
+[10:35:16] [Render thread/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 65 new biomes in 1.131 ms
+[10:35:16] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 26.1.2
+[10:35:16] [Server thread/INFO] (Minecraft) Generating keypair
+[10:35:16] [Server thread/INFO] (Minecraft) Selecting global world spawn...
+[10:35:16] [Server thread/INFO] (Minecraft) Loading 0 persistent chunks...
+[10:35:16] [Server thread/INFO] (Minecraft) Preparing spawn area: 16%
+[10:35:16] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[10:35:16] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[10:35:16] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[10:35:16] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (world): All chunks are saved
+[10:35:16] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[10:35:16] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[10:35:16] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
+[10:35:16] [Server thread/WARN] (TranslationConventionLogWarnings) 
+	Dev warning - Untranslated Item Tags detected. Please translate your item tags so other mods such as recipe viewers can properly display your tag's name.
+	The format desired is tag.item.<namespace>.<path> for the translation key with slashes in path turned into periods.
+	To disable this message, set this system property in your runs: `-Dfabric-tag-conventions-v2.missingTagTranslationWarning=SILENCED`.
+	To see individual untranslated item tags found, set the system property to `-Dfabric-tag-conventions-v2.missingTagTranslationWarning=VERBOSE`.
+	Default is `SHORT`.
+
+[10:35:16] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:16] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Server thread/INFO] (Minecraft) Loading 48 chunks for player spawn...
+[10:35:17] [Server thread/INFO] (Minecraft) Preparing spawn area: 16%
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Server thread/INFO] (Minecraft) Preparing spawn area: 18%
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Server thread/INFO] (Minecraft) Time elapsed: 1188 ms
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Server thread/INFO] (Minecraft) Player975[local:E:8695ae62] logged in with entity id 1 at (0.5, -60.0, 0.5)
+[10:35:17] [Server thread/INFO] (Minecraft) Player975 joined the game
+[10:35:17] [Server thread/INFO] (Minecraft) Changing view distance to 5, from 10
+[10:35:17] [Server thread/INFO] (Minecraft) Changing simulation distance to 12, from 0
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: null screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (Minecraft) Loaded 2 advancements
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (Minecraft) Resizing Dynamic Transforms UBO, capacity limit of 2 reached during a single frame. New capacity will be 4.
+[10:35:17] [Render thread/INFO] (Minecraft) Resizing Dynamic Transforms UBO, capacity limit of 4 reached during a single frame. New capacity will be 8.
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:17] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (Minecraft) Resizing Chunk Sections UBO, capacity limit of 2 reached during a single frame. New capacity will be 8.
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (Minecraft) Resizing Chunk Sections UBO, capacity limit of 8 reached during a single frame. New capacity will be 16.
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (Minecraft) Resizing Chunk Sections UBO, capacity limit of 16 reached during a single frame. New capacity will be 32.
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: net.minecraft.client.gui.screens.LevelLoadingScreen@4ac83b28
+[10:35:18] [Render thread/INFO] (fabric-client-gametest-api-v1) World loading finished: ClientLevel screen: null
+[10:35:18] [Server thread/INFO] (Minecraft) Set minecraft:overworld to time marker minecraft:day
+[10:35:18] [Server thread/INFO] (Minecraft) Set the weather to clear
+[10:35:18] [Server thread/INFO] (Minecraft) The difficulty did not change; it is already set to normal
+[10:35:18] [Render thread/INFO] (Minecraft) Resizing Dynamic Transforms UBO, capacity limit of 8 reached during a single frame. New capacity will be 16.
+[10:35:19] [Render thread/INFO] (Minecraft) Resizing Chunk Sections UBO, capacity limit of 32 reached during a single frame. New capacity will be 64.
+[10:35:19] [Render thread/INFO] (Minecraft) Resizing Dynamic Transforms UBO, capacity limit of 16 reached during a single frame. New capacity will be 32.
+[10:35:20] [Render thread/INFO] (Minecraft) Resizing Chunk Sections UBO, capacity limit of 64 reached during a single frame. New capacity will be 128.
+[10:35:20] [Server thread/INFO] (Minecraft) Player975 has made the advancement [Ol' Betsy]
+[10:35:20] [Render thread/INFO] (Minecraft) [System] [CHAT] Player975 has made the advancement [Ol' Betsy]
+[10:35:20] [Render thread/INFO] (Minecraft) Loaded 6 advancements
+[10:35:20] [Render thread/INFO] (Minecraft) Loaded 7 advancements
+[10:35:24] [Server thread/INFO] (Minecraft) Player975 has made the advancement [Cover Me with Diamonds]
+[10:35:24] [Render thread/INFO] (Minecraft) [System] [CHAT] Player975 has made the advancement [Cover Me with Diamonds]
+[10:35:24] [Render thread/INFO] (Minecraft) Loaded 14 advancements
+[10:35:25] [Server thread/INFO] (Minecraft) Player975 lost connection: Disconnected
+[10:35:25] [Server thread/INFO] (Minecraft) Player975 left the game
+[10:35:25] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
+[10:35:25] [Server thread/INFO] (Minecraft) Stopping server
+[10:35:25] [Server thread/INFO] (Minecraft) Saving players
+[10:35:25] [Server thread/INFO] (Minecraft) Saving worlds
+[10:35:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[10:35:26] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[10:35:26] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[10:35:26] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (world): All chunks are saved
+[10:35:26] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[10:35:26] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[10:35:26] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
+[10:35:26] [Test thread/ERROR] (fabric-client-gametest-api-v1) Client gametests failed with an exception
+
+java.lang.AssertionError: actual client kite reduces horizontal drift while preserving vertical fall: [1.4050747508480512, 1.2324949882502239] drops [16.628985935240877, 16.628985935240877]
+	at knot//dev.differentenchant.BatchTwoClientGameTest.check(BatchTwoClientGameTest.java:20)
+	at knot//dev.differentenchant.BatchTwoClientGameTest.runTest(BatchTwoClientGameTest.java:39)
+	at knot//net.fabricmc.fabric.impl.client.gametest.FabricClientGameTestRunner.lambda$start$0(FabricClientGameTestRunner.java:54)
+	at knot//net.fabricmc.fabric.impl.client.gametest.threading.ThreadingImpl.lambda$runTestThread$0(ThreadingImpl.java:142)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+[10:35:26] [Render thread/ERROR] (FabricLoader) Minecraft has crashed!
+
+net.fabricmc.loader.impl.FormattedException: java.lang.AssertionError: actual client kite reduces horizontal drift while preserving vertical fall: [1.4050747508480512, 1.2324949882502239] drops [16.628985935240877, 16.628985935240877]
+	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:63)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:519)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:72)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
+Caused by: java.lang.AssertionError: actual client kite reduces horizontal drift while preserving vertical fall: [1.4050747508480512, 1.2324949882502239] drops [16.628985935240877, 16.628985935240877]
+	at knot//dev.differentenchant.BatchTwoClientGameTest.check(BatchTwoClientGameTest.java:20)
+	at knot//dev.differentenchant.BatchTwoClientGameTest.runTest(BatchTwoClientGameTest.java:39)
+	at knot//net.fabricmc.fabric.impl.client.gametest.FabricClientGameTestRunner.lambda$start$0(FabricClientGameTestRunner.java:54)
+	at knot//net.fabricmc.fabric.impl.client.gametest.threading.ThreadingImpl.lambda$runTestThread$0(ThreadingImpl.java:142)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+> Task :runClientGametest FAILED
+8 actionable tasks: 2 executed, 6 up-to-date
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runClientGametest' (registered by plugin 'fabric-loom').
+> Process 'command 'G:\better-enchant-codex-starter\better-enchant-starter\.tools\jdk-25.0.4.1+1\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 25s

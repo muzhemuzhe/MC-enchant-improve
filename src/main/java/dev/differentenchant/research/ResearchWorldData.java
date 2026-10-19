@@ -21,6 +21,7 @@ public final class ResearchWorldData extends SavedData {
         }).create();
     private static final class State {
         int version=ResearchPolicy.VERSION;
+        int catalogueRevision;
         boolean initialized;
         long seed;
         ResearchPolicy.Rules rules;
@@ -47,7 +48,8 @@ public final class ResearchWorldData extends SavedData {
     public String exportJson(){return encode(this);}
     public static ResearchWorldData importJson(String json){return decode(json);}
     public static ResearchWorldData get(MinecraftServer server) {
-        return ResearchPersistence.load(server,TYPE,()->{var data=new ResearchWorldData();data.initialize(server);return data;});
+        var data=ResearchPersistence.load(server,TYPE,()->{var value=new ResearchWorldData();value.initialize(server);return value;});
+        data.migrateBatchTwo(server.registryAccess());return data;
     }
     private void initialize(MinecraftServer server) {
         if(state.initialized)return;
@@ -62,7 +64,21 @@ public final class ResearchWorldData extends SavedData {
         }
         state.seed=server.overworld().getSeed();state.rules=ResearchConfig.current();state.catalogue=List.copyOf(catalogue.values());
         registry.listElements().forEach(holder->{var e=holder.value();state.inputs.put(holder.key().identifier().toString(),new ResearchPolicy.Input(e.getWeight(),e.getMaxLevel()));});
-        state.initialized=true;setDirty();
+        state.initialized=true;state.catalogueRevision=1;setDirty();
+    }
+    /** One explicit expansion. Pinned outcomes and UUID discoveries are never recomputed or removed. */
+    public boolean migrateBatchTwo(net.minecraft.core.RegistryAccess registries) {
+        if(state.catalogueRevision>=1)return false;
+        var registry=registries.lookupOrThrow(Registries.ENCHANTMENT);
+        var additions=registry.get(TagKey.create(Registries.ENCHANTMENT,ResearchContent.id("batch_two")));
+        if(additions.isEmpty())return false;
+        var merged=new TreeMap<String,ResearchPolicy.Entry>();state.catalogue.forEach(e->merged.put(e.id(),e));
+        for(var holder:additions.get()) {
+            int tier=0;for(int n=1;n<=4;n++)if(holder.is(TagKey.create(Registries.ENCHANTMENT,ResearchContent.id("lost_tier_"+n)))){if(tier!=0)throw new IllegalStateException("Duplicate expansion tier");tier=n;}
+            if(tier==0)throw new IllegalStateException("Expansion result has no research tier");
+            String id=holder.unwrapKey().orElseThrow().identifier().toString();merged.putIfAbsent(id,new ResearchPolicy.Entry(id,tier,holder.value().getMaxLevel()));
+        }
+        state.catalogue=List.copyOf(merged.values());state.catalogueRevision=1;setDirty();return true;
     }
     /** Newly installed input enchantments can be appended; frozen output pools and old input metadata stay fixed. */
     public void ensureInput(String id,Enchantment enchantment) {

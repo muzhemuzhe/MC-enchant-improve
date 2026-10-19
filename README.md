@@ -1,6 +1,6 @@
 # Differentenchant · 附魔机器与失落魔法研究
 
-Minecraft Java **26.1.2 / Fabric / JDK 25**。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和12点共鸣核心；36书架与机器等级分别改善概率。0.8.1改为直接取结果槽完成研究，删除大预览框并隐藏评级/稀有度展示；0.8.0加入独立失落魔法研究台、世界专属固定研究配方、个人发现记录和首批8种实际失落附魔。已有研究屋、研究馆与灯笼遗迹保留，没有新维度或Lv.3以上机器升级实现。
+Minecraft Java **26.1.2 / Fabric / JDK 25**。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和12点共鸣核心；36书架与机器等级分别改善概率。0.9.0新增第二批9种失落附魔，共17种，包含经过真实碰撞验证的临时星桥；研究沿用0.8.1直接取结果槽交互，无评级/稀有度展示。0.8.0加入独立失落魔法研究台、世界专属固定研究配方、个人发现记录和首批8种实际失落附魔。已有研究屋、研究馆与灯笼遗迹保留，没有新维度或Lv.3以上机器升级实现。
 
 ![真实客户端中的形成态](docs/screenshots/rename/01-formed-machine.png)
 
@@ -17,7 +17,7 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.8.1.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.9.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
 
 正式 Mod ID 与资源命名空间均为 **`differentenchant`**，Java 包为 `dev.differentenchant`。0.5.0曾更换注册ID，改名前的旧测试世界和旧名配置不迁移；0.6.0可延续正式改名后的世界，遗迹只在新生成区块出现。首次启动生成 `config/differentenchant.properties`，全部已有选项及默认数值保留；核心容量仍固定12点，没有新增容量配置。[重命名范围、测试及截图](docs/RENAMING.md)。GitHub仓库和remote不随模组名称修改。
 
@@ -159,3 +159,5 @@ D=磨制深板岩，A=紫水晶块，O=黑曜石，E=附魔台。两层全部填
 原始任务书和设计文档保留在 `prompts/`、`docs/`。[第三方来源与许可](THIRD_PARTY_NOTICES.md)。
 
 研究台0.8.1交互与实机截图见 [专项验收](docs/validation/research-gui/README.md)。放入两本合法附魔书与谐调核心后，直接取右侧结果格；未知仅显示书本，悬停为???。
+
+第二批九种附魔的参数、Mixin入口、旧配方兼容与实机演示见 [0.9.0设计与状态](docs/LOST_BATCH_TWO.md)，精确测试命令、分布和截图见 [专项验收](docs/validation/lost-batch-two/README.md)。纸鸢水平控制使用服务器配置 `config/differentenchant-lost.properties`，加入游戏时同步给客户端。

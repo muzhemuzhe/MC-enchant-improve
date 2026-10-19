@@ -1,0 +1,21 @@
+{
+  "description": {
+    "translate": "enchantment.differentenchant.borrowed_flame"
+  },
+  "supported_items": "#differentenchant:enchantable/fire_transfer",
+  "weight": 10,
+  "max_level": 2,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 0
+  },
+  "max_cost": {
+    "base": 60,
+    "per_level_above_first": 0
+  },
+  "anvil_cost": 2,
+  "slots": [
+    "mainhand"
+  ],
+  "effects": {}
+}

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "differentenchant:last_page"
+    "differentenchant:last_page",
+    "differentenchant:star_bridge"
   ]
 }

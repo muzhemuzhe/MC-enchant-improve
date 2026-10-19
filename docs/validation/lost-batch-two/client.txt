@@ -1,0 +1,3 @@
+Paper Kite measured drift [1.4050747508480512, 1.2324949882502239]; drop [16.628985935240877, 16.628985935240877].
+Real client: melee fire transfer; quick-charge/multishot crossbow loaded and fired; Swift Draw full charge held without auto-fire and released critical arrow; underwater tagged outline clears at surface; low incoming arrow parried; normal server vortex; quiet walking native sensor and sprint control; native runner creates collidable bridge.
+Disk restart: expanded research snapshot and equipped enchantment persist; star cooldown stays spent; temporary noSave footholds absent.

@@ -7,8 +7,8 @@ import net.minecraft.world.level.saveddata.*;
 import net.minecraft.world.level.storage.LevelResource;
 
 /** Native loading can return null for corrupt/future data. An existing file must never be replaced by defaults. */
-final class ResearchPersistence {
-    static <T extends SavedData> T load(MinecraftServer server,SavedDataType<T> type,Supplier<T> create) {
+public final class ResearchPersistence {
+    public static <T extends SavedData> T load(MinecraftServer server,SavedDataType<T> type,Supplier<T> create) {
         return load(server.getDataStorage(),type.id().withSuffix(".dat").resolveAgainst(server.getWorldPath(LevelResource.DATA)),type,create);
     }
     static <T extends SavedData> T load(net.minecraft.world.level.storage.SavedDataStorage storage,Path file,SavedDataType<T> type,Supplier<T> create) {

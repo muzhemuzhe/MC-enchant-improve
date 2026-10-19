@@ -1,0 +1,36 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava FAILED
+G:\better-enchant-codex-starter\better-enchant-starter\src\main\java\dev\differentenchant\lost\ArrowParry.java:22: 错误: 找不到符号
+        arrow.deflect(ProjectileDeflection.AIM_DEFLECT,p,EntityReference.of(p),true);arrow.setPos(exit);arrow.setDeltaMovement(direction.scale(speed));arrow.hurtMarked=true;arrow.hasImpulse=true;
+                                                                                                                                                                                  ^
+  符号:   变量 hasImpulse
+  位置: 类型为AbstractArrow的变量 arrow
+注: 某些输入文件使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+1 个错误
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+  G:\better-enchant-codex-starter\better-enchant-starter\src\main\java\dev\differentenchant\lost\ArrowParry.java:22: 错误: 找不到符号
+          arrow.deflect(ProjectileDeflection.AIM_DEFLECT,p,EntityReference.of(p),true);arrow.setPos(exit);arrow.setDeltaMovement(direction.scale(speed));arrow.hurtMarked=true;arrow.hasImpulse=true;
+                                                                                                                                                                                    ^
+    符号:   变量 hasImpulse
+    位置: 类型为AbstractArrow的变量 arrow
+  注: 某些输入文件使用或覆盖了已过时的 API。
+  1 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+1 actionable task: 1 executed

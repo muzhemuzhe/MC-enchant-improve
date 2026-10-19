@@ -1,6 +1,7 @@
 // Original cuboid workbench and 16x16 pixel textures, authored procedurally. No borrowed mod assets.
 import fs from 'node:fs';
 import zlib from 'node:zlib';
+import batchTwo from './lost-batch-two-definitions.mjs';
 const root=new URL('../src/main/resources/',import.meta.url);
 const write=(path,data)=>{const url=new URL(path,root);fs.mkdirSync(new URL('.',url),{recursive:true});fs.writeFileSync(url,data);};
 const json=(path,data)=>write(path,JSON.stringify(data,null,2)+'\n');
@@ -16,6 +17,9 @@ const definitions=[
   ['gravity_thread','Gravity Thread','引力丝线',3,2,['minecraft:bow','minecraft:crossbow'],['mainhand'],{'minecraft:post_attack':[{enchanted:'attacker',affected:'victim',effect:{type:'minecraft:apply_mob_effect',to_apply:['minecraft:levitation'],min_duration:linear(1),max_duration:linear(1),min_amplifier:0,max_amplifier:0},requirements:{condition:'minecraft:damage_source_properties',predicate:{tags:[{id:'minecraft:is_projectile',expected:true}]}}}]},'Projectile hits levitate the victim for 1/2 seconds.','远程命中令目标漂浮1/2秒。'],
   ['last_page','Last Page','终末残页',4,1,'#minecraft:enchantable/chest_armor',['chest'],{},'Survives one fatal hit with 6 health and brief absorption. 20-minute world-time cooldown; damages armor by 32. Void/admin damage excluded.','致命伤害时保留6生命并获得短暂伤害吸收；世界时间20分钟冷却，消耗32护甲耐久。虚空及管理伤害除外。']
 ];
+definitions.push(...batchTwo);
+json('data/differentenchant/tags/enchantment/batch_two.json',{replace:false,values:batchTwo.map(d=>'differentenchant:'+d[0])});
+json('data/differentenchant/tags/item/enchantable/fire_transfer.json',{replace:false,values:['#minecraft:swords','#minecraft:axes']});
 for(const [id,en,zh,tier,max,supported,slots,effects] of definitions) {
   const enchantment={description:{translate:'enchantment.differentenchant.'+id},supported_items:supported,weight:[0,10,5,2,1][tier],max_level:max,min_cost:{base:1,per_level_above_first:0},max_cost:{base:60,per_level_above_first:0},anvil_cost:2,slots,effects};
   if(id==='prospectors_echo')enchantment.exclusive_set=['minecraft:silk_touch'];
@@ -57,6 +61,8 @@ for(const lang of ['en_us','zh_cn']) {
   const path='assets/differentenchant/lang/'+lang+'.json';const value=JSON.parse(fs.readFileSync(new URL(path,root),'utf8')),zh=lang==='zh_cn';
   for(const [id,en,cn,tier,max,supported,slots,effects,helpEn,helpZh]of definitions){value['enchantment.differentenchant.'+id]=zh?cn:en;value['enchantment.differentenchant.'+id+'.desc']=zh?helpZh:helpEn;}
   const names={
+    'tag.item.differentenchant.enchantable.fire_transfer':['Borrowed Flame Weapons','借火可用武器'],
+    'tag.block.differentenchant.reflection_targets':['Water Reflection Targets','倒影感知目标'],
     'block.differentenchant.lost_research_table':['Lost Enchantment Research Table','失落魔法研究台'],
     'item.differentenchant.lost_scroll':['Lost Scroll','失落卷轴'],
     'item.differentenchant.lost_scroll.help':['A fixed research byproduct. Future use: enchantment conflicts.','固定研究副产物，未来用于互斥附魔研究。'],
@@ -75,4 +81,4 @@ for(const lang of ['en_us','zh_cn']) {
   for(const[key,text]of Object.entries(names))value[key]=text[zh?1:0];json(path,value);
 }
 json('data/differentenchant/research/prototype_catalogue.json',definitions.map(([id,en,zh,rarity,max,supported,slots,effects,helpEn,helpZh])=>({id:'differentenchant:'+id,en,zh,rarity,max,supported,description_en:helpEn,description_zh:helpZh})));
-console.log('Generated independent research table model, 6 original textures, native recipe, 8 lost enchantments and rarity tags.');
+console.log('Generated independent research table model, 6 original textures, native recipe, 17 lost enchantments and internal research tags.');

@@ -25,6 +25,7 @@ public final class ResearchContent {
         net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(output->output.accept(TABLE_ITEM));
         net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(output->output.accept(LOST_SCROLL));
         LostEffects.initialize();
+        dev.differentenchant.lost.BatchEffects.initialize();
     }
     private ResearchContent(){}
 }

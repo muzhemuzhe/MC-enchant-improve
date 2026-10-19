@@ -71,7 +71,7 @@ public final class ResearchGameTests {
         for(int i=0;i<9;i++)crafting.getSlot(i+1).set(grid.get(i).copy());
         h.assertTrue(crafting.quickMoveStack(player,0).is(ResearchContent.TABLE_ITEM),"real crafting output");
         for(int i=1;i<=9;i++)h.assertTrue(crafting.getSlot(i).getItem().isEmpty(),"craft consumes each material");crafting.removed(player);
-        var items=Map.<String,Item>of("trail_stride",Items.DIAMOND_BOOTS,"prospectors_echo",Items.DIAMOND_PICKAXE,"lantern_sight",Items.DIAMOND_HELMET,"living_margin",Items.DIAMOND_CHESTPLATE,"archivists_reach",Items.DIAMOND_PICKAXE,"warding_focus",Items.SHIELD,"gravity_thread",Items.BOW,"last_page",Items.DIAMOND_CHESTPLATE);
+        var items=Map.<String,Item>ofEntries(Map.entry("trail_stride",Items.DIAMOND_BOOTS),Map.entry("prospectors_echo",Items.DIAMOND_PICKAXE),Map.entry("lantern_sight",Items.DIAMOND_HELMET),Map.entry("living_margin",Items.DIAMOND_CHESTPLATE),Map.entry("archivists_reach",Items.DIAMOND_PICKAXE),Map.entry("warding_focus",Items.SHIELD),Map.entry("gravity_thread",Items.BOW),Map.entry("last_page",Items.DIAMOND_CHESTPLATE),Map.entry("hush_step",Items.DIAMOND_BOOTS),Map.entry("borrowed_flame",Items.DIAMOND_SWORD),Map.entry("returning_feather",Items.CROSSBOW),Map.entry("swift_draw",Items.BOW),Map.entry("paper_kite",Items.DIAMOND_BOOTS),Map.entry("parry",Items.SHIELD),Map.entry("undertow",Items.TRIDENT),Map.entry("water_reflection",Items.DIAMOND_HELMET),Map.entry("star_bridge",Items.DIAMOND_BOOTS));
         var data=ResearchWorldData.get(level.getServer());h.assertTrue(data.catalogue().size()>=8,"extensible registry-tag catalogue");
         var pos=h.absolutePos(new BlockPos(1,2,1));
         for(var entry:data.catalogue()) {

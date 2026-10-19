@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "package": "dev.differentenchant.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "EnchantmentHooksMixin",
+    "BowDrawMixin",
+    "StepEventMixin",
+    "AirControlMixin",
+    "TridentImpactMixin",
+    "ArrowParryMixin"
+  ],
+  "client": [
+    "client.BowModelMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

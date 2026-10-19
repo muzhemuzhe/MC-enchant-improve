@@ -1,0 +1,23 @@
+{
+  "description": {
+    "translate": "enchantment.differentenchant.returning_feather"
+  },
+  "supported_items": [
+    "minecraft:crossbow"
+  ],
+  "weight": 5,
+  "max_level": 3,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 0
+  },
+  "max_cost": {
+    "base": 60,
+    "per_level_above_first": 0
+  },
+  "anvil_cost": 2,
+  "slots": [
+    "mainhand"
+  ],
+  "effects": {}
+}

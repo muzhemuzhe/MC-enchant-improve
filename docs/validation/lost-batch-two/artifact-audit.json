@@ -1,0 +1,11 @@
+{
+  "artifact": "differentenchant-0.9.0.jar",
+  "sha256": "633C1D0D306989614ED0D4F43EAF77C9FB97A48EBEDF8C5443C75A0B4EE03810",
+  "version": "0.9.0",
+  "resourcesCompared": 102,
+  "resourceMismatches": [],
+  "testEntries": [],
+  "mixins": [
+    "differentenchant.mixins.json"
+  ]
+}

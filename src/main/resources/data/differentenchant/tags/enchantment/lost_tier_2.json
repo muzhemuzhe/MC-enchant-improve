@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "differentenchant:living_margin",
-    "differentenchant:archivists_reach"
+    "differentenchant:archivists_reach",
+    "differentenchant:returning_feather",
+    "differentenchant:swift_draw",
+    "differentenchant:paper_kite"
   ]
 }

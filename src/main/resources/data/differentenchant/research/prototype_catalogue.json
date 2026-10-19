@@ -83,5 +83,103 @@
     "supported": "#minecraft:enchantable/chest_armor",
     "description_en": "Survives one fatal hit with 6 health and brief absorption. 20-minute world-time cooldown; damages armor by 32. Void/admin damage excluded.",
     "description_zh": "致命伤害时保留6生命并获得短暂伤害吸收；世界时间20分钟冷却，消耗32护甲耐久。虚空及管理伤害除外。"
+  },
+  {
+    "id": "differentenchant:hush_step",
+    "en": "Hush Step",
+    "zh": "静步印",
+    "rarity": 1,
+    "max": 1,
+    "supported": "#minecraft:enchantable/foot_armor",
+    "description_en": "Walking steps do not emit vibrations. Sprinting and other actions still do.",
+    "description_zh": "正常行走不发出脚步振动；疾跑及其他活动不受影响。"
+  },
+  {
+    "id": "differentenchant:borrowed_flame",
+    "en": "Borrowed Flame",
+    "zh": "借火",
+    "rarity": 1,
+    "max": 2,
+    "supported": "#differentenchant:enchantable/fire_transfer",
+    "description_en": "Melee transfers up to 5/10 seconds of your fire and extinguishes you. Fire-immune targets cannot take it.",
+    "description_zh": "近战命中时转移自身最多5/10秒燃烧并熄灭自己；免疫火焰的目标不接受转移。"
+  },
+  {
+    "id": "differentenchant:returning_feather",
+    "en": "Returning Feather",
+    "zh": "回羽",
+    "rarity": 2,
+    "max": 3,
+    "supported": [
+      "minecraft:crossbow"
+    ],
+    "description_en": "Normal arrows may be spared when loading. Spared shots cannot be recovered.",
+    "description_zh": "装填普通箭时可能不消耗弹药；未消耗的箭射出后不可拾回。"
+  },
+  {
+    "id": "differentenchant:swift_draw",
+    "en": "Swift Draw",
+    "zh": "疾弦",
+    "rarity": 2,
+    "max": 3,
+    "supported": [
+      "minecraft:bow"
+    ],
+    "description_en": "Full draw takes 18/16/14 ticks. Maximum shot power is unchanged.",
+    "description_zh": "完整蓄力缩短至18/16/14游戏刻，满蓄力威力不变。"
+  },
+  {
+    "id": "differentenchant:paper_kite",
+    "en": "Paper Kite",
+    "zh": "纸鸢",
+    "rarity": 2,
+    "max": 3,
+    "supported": "#minecraft:enchantable/foot_armor",
+    "description_en": "Hold sneak in midair to brake and steer horizontally. Does not slow your fall.",
+    "description_zh": "空中按住潜行可水平减速与微调落点，不减缓下落。"
+  },
+  {
+    "id": "differentenchant:parry",
+    "en": "Parry",
+    "zh": "格挡",
+    "rarity": 3,
+    "max": 2,
+    "supported": [
+      "minecraft:shield"
+    ],
+    "description_en": "Raise the shield just before a frontal arrow hits to reflect it along your view.",
+    "description_zh": "在正面箭矢命中前精准举盾，将原箭朝视线方向反弹。"
+  },
+  {
+    "id": "differentenchant:undertow",
+    "en": "Undertow",
+    "zh": "逆潮",
+    "rarity": 3,
+    "max": 2,
+    "supported": [
+      "minecraft:trident"
+    ],
+    "description_en": "Thrown impacts create a brief, gentle pulling vortex.",
+    "description_zh": "投掷命中后形成短暂、平缓牵引附近生物的漩涡。"
+  },
+  {
+    "id": "differentenchant:water_reflection",
+    "en": "Water Reflection",
+    "zh": "倒影",
+    "rarity": 3,
+    "max": 1,
+    "supported": "#minecraft:enchantable/head_armor",
+    "description_en": "Underwater, sense a few nearby chests and barrels through faint outlines.",
+    "description_zh": "水下以微弱轮廓感知近处少量箱子与木桶。"
+  },
+  {
+    "id": "differentenchant:star_bridge",
+    "en": "Star Bridge",
+    "zh": "星桥",
+    "rarity": 4,
+    "max": 1,
+    "supported": "#minecraft:enchantable/foot_armor",
+    "description_en": "Running off a ledge briefly forms up to three personal footholds. 20-second cooldown.",
+    "description_zh": "跑离地面边缘时短暂形成最多3格个人落脚点，冷却20秒。"
   }
 ]

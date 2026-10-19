@@ -3,6 +3,8 @@
   "values": [
     "differentenchant:trail_stride",
     "differentenchant:prospectors_echo",
-    "differentenchant:lantern_sight"
+    "differentenchant:lantern_sight",
+    "differentenchant:hush_step",
+    "differentenchant:borrowed_flame"
   ]
 }

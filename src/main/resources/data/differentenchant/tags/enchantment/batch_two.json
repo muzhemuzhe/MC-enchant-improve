@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "differentenchant:hush_step",
+    "differentenchant:borrowed_flame",
+    "differentenchant:returning_feather",
+    "differentenchant:swift_draw",
+    "differentenchant:paper_kite",
+    "differentenchant:parry",
+    "differentenchant:undertow",
+    "differentenchant:water_reflection",
+    "differentenchant:star_bridge"
+  ]
+}

@@ -13,6 +13,9 @@ public final class DifferentEnchantClient implements ClientModInitializer {
         }
     }
     @Override public void onInitializeClient() {
+        WaterReflectionClient.initialize();
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(dev.differentenchant.lost.StarStep.TYPE,StarStepRenderer::new);
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.registerGlobalReceiver(dev.differentenchant.lost.AirControlConfig.Settings.TYPE,(payload,context)->dev.differentenchant.lost.AirControlConfig.current=payload);
         MenuScreens.register(dev.differentenchant.research.ResearchContent.MENU,ResearchScreen::new);
         net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback.EVENT.register((stack,context,flag,lines)->{
             if(stack.is(dev.differentenchant.research.ResearchContent.LOST_SCROLL))appendLostDescription(lines,net.minecraft.network.chat.Component.translatable("item.differentenchant.lost_scroll.help"));
