@@ -39,7 +39,8 @@
       "dev.differentenchant.ResearchClientGameTest",
       "dev.differentenchant.BatchTwoClientGameTest",
       "dev.differentenchant.DisenchantClientGameTest",
-      "dev.differentenchant.WorkstationClientGameTest"
+      "dev.differentenchant.WorkstationClientGameTest",
+      "dev.differentenchant.WorkstationVisualClientGameTest"
     ]
   },
   "depends": {

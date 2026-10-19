@@ -1,6 +1,6 @@
 # Differentenchant · 附魔机、研究台与祛魔机
 
-Minecraft Java **26.1.2 / Fabric / JDK 25**。0.11.0将祛魔机改为紫水晶/金/红石固定结构，并将现有研究台升级为石英/书架/向内讲台多方块。祛魔核心仍需四回响碎片；研究核心使用卷轴配方，首张卷轴可从要塞图书馆探索取得。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和12点共鸣核心；36书架与机器等级分别改善概率。0.9.0新增第二批9种失落附魔，共17种，包含经过真实碰撞验证的临时星桥；研究沿用0.8.1直接取结果槽交互，无评级/稀有度展示。0.8.0加入独立失落魔法研究台、世界专属固定研究配方、个人发现记录和首批8种实际失落附魔。已有研究屋、研究馆与灯笼遗迹保留，没有新维度或Lv.3以上机器升级实现。
+Minecraft Java **26.1.2 / Fabric / JDK 25**。0.11.1重做两台工作站的成形外观：研究台为白金书卷祭台，祛魔台为深紫收束祭台；组装前仍是原版材料，拆解后恢复。[组装前后实拍与说明](docs/WORKSTATION_VISUALS.md)。0.11.0将祛魔机改为紫水晶/金/红石固定结构，并将现有研究台升级为石英/书架/向内讲台多方块。祛魔核心仍需四回响碎片；研究核心使用卷轴配方，首张卷轴可从要塞图书馆探索取得。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和12点共鸣核心；36书架与机器等级分别改善概率。0.9.0新增第二批9种失落附魔，共17种，包含经过真实碰撞验证的临时星桥；研究沿用0.8.1直接取结果槽交互，无评级/稀有度展示。0.8.0加入独立失落魔法研究台、世界专属固定研究配方、个人发现记录和首批8种实际失落附魔。已有研究屋、研究馆与灯笼遗迹保留，没有新维度或Lv.3以上机器升级实现。
 
 ![真实客户端中的形成态](docs/screenshots/rename/01-formed-machine.png)
 
@@ -17,7 +17,7 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.11.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.11.1.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
 
 正式 Mod ID 与资源命名空间均为 **`differentenchant`**，Java 包为 `dev.differentenchant`。0.5.0曾更换注册ID，改名前的旧测试世界和旧名配置不迁移；0.6.0可延续正式改名后的世界，遗迹只在新生成区块出现。首次启动生成 `config/differentenchant.properties`，全部已有选项及默认数值保留；核心容量仍固定12点，没有新增容量配置。[重命名范围、测试及截图](docs/RENAMING.md)。GitHub仓库和remote不随模组名称修改。
 

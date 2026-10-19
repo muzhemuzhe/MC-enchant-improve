@@ -1,4 +1,4 @@
-# 两台独立工作站结构 · 0.11.0
+# 两台独立工作站结构 · 0.11.1
 
 本轮修改结构、恢复、模型及接入。原附魔机、17种失落附魔、研究映射/评分/池与发现持久化保持原实现。两台工作站共用恢复基础，各自方块/方块实体类型、Kind和UUID独立，不互认。
 
@@ -17,9 +17,9 @@ A紫水晶块×8，G金块×1，C成熟紫水晶簇×4，R红石块×4，M现有
 
 核心配方保持 `EAE / IBI / EAE`：四回响碎片、两紫水晶碎片、两铁锭、一本普通书，无下界合金。旧0.10的深板岩/铜框架不再可用；已成形旧机按保存的旧原料自动拆解，不免费转成新框架，核心仍可回收使用。
 
-成形底座为紫水晶/金，四边为红石魔力臂与金色束环，中央仍为同一祛魔核心。四角引用原版amethyst_cluster模型，碰撞直接使用原版朝上成熟簇的真实形状，不是完整方块。原版26.1纹理Transparency决定CUTOUT层，无过时BlockRenderLayerMap设置。簇的5级方块光照保留。
+0.11.1成形后切换为连续切角深紫基座、细金导流槽、四角晶簇固定座和中央紫晶收束器；原红石/金材料不再直接显示成方块。四角叠加原版amethyst_cluster模型，碰撞直接使用原版朝上成熟簇的真实形状，不是完整方块。原版26.1纹理Transparency决定CUTOUT层，无过时BlockRenderLayerMap设置。簇的5级方块光照保留。[成形外观与碰撞说明](WORKSTATION_VISUALS.md)。
 
-![组装后](screenshots/workstation-structures/workstation-02-disenchanter-assembled.png)
+![组装后](screenshots/workstation-visuals/visual-disenchanter-02-formed.png)
 
 ## 研究台固定结构
 
@@ -32,11 +32,11 @@ Q Q Q          B L B
 
 Q石英块×8，C錾制石英块×1，B普通书架×4，L讲台×4，M现有失落魔法研究台×1。没有另注册功能重复的控制器；原 `differentenchant:lost_research_table` 保留注册ID与物品，只在完整组装后能使用。
 
-讲台正面必须指向中心：北侧SOUTH、南侧NORTH、西侧EAST、东侧WEST。要求针对相对位置，整个结构连同方块状态可正常旋转；中心桌面朝向不限。原生讲台模型按保存朝向旋转，碰撞使用同朝向的原版讲台形状；四角书架增加石英细框，与中央原书桌形成整体。
+讲台正面必须指向中心：北侧SOUTH、南侧NORTH、西侧EAST、东侧WEST。要求针对相对位置，整个结构连同方块状态可正常旋转；中心桌面朝向不限。0.11.1成形后不再显示原生讲台与完整书架模型，改成向心的斜面书页阅读翼、低矮嵌入书柜、连贯白金石英基座和抬高的中央书卷；未组装与拆解恢复状态仍使用原方块及朝向。成形阅读翼按相对位置朝内，中央书卷随原控制器朝向旋转；碰撞随新轮廓调整。
 
 **组装前讲台必须为空**。同时检查HAS_BOOK与LecternBlockEntity.getBook，两者任一表示有书都会拒绝，并提示“请先取走四个讲台上的书”。即使HAS_BOOK被错误设为false但真实Book仍存在，也不会替换。失败不变更任何方块、书或NBT。通过验证的空讲台仍保存完整BlockState与方块实体NBT，拆解和重载时恢复。
 
-![组装完成与向内讲台](screenshots/workstation-structures/workstation-09-research-machine-assembled.png)
+![组装完成与向内讲台](screenshots/workstation-visuals/visual-research-02-formed.png)
 
 ## 统一操作与恢复
 

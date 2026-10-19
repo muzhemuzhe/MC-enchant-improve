@@ -1,0 +1,110 @@
+[
+  {
+    "name": "visual-disenchanter-01-before.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "797309cfe9decb70bb6890acb1683c4796faaae4f6c0d07258209b2f0d0fb213"
+  },
+  {
+    "name": "visual-disenchanter-02-formed.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "4244b6dc9a9255eeabc6cb46fac05cfb4a3eba2594ccdab7abcb267094418a41"
+  },
+  {
+    "name": "visual-disenchanter-03-low-angle.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "1c2f39e23224be69846e7ae138cfd40aa0685e9ba2ca5e570dfdf10789894d56"
+  },
+  {
+    "name": "visual-disenchanter-04-menu.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "bd3246b4c80c1be5e2da06136a8d059cbf021b08aba46fa024db5b068fd5aa6a"
+  },
+  {
+    "name": "visual-disenchanter-05-restored.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "aa3c8b61f9d86769b2538e577464bb45d1022449093ab6cd54c58e01ce23be9f"
+  },
+  {
+    "name": "visual-disenchanter-06-reassembled.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "ab6632971ba28298559413c7b88f4e65af2017ef784e8f410ff8cde169281300"
+  },
+  {
+    "name": "visual-disenchanter-07-reloaded.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "04dd6933a0f880f83911d68054923129babd3d38b9484cf629937dcf0baaf909"
+  },
+  {
+    "name": "visual-research-01-before.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "d33dee587d506f5687bcf28cbd9bc5ecf160516e6e5d0d449d72f9433c451c32"
+  },
+  {
+    "name": "visual-research-02-formed.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "f77b4418578c2192a046a0570712dab028eb316602ac715a6539d0b477fd8cd2"
+  },
+  {
+    "name": "visual-research-03-low-angle.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "a4f598d56eb930a08c4e4fa1532cb0179287212acdf285a904432a482edfb58e"
+  },
+  {
+    "name": "visual-research-04-menu.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "72816e3df39c6f3941fc2fb8916abce3303199a03eeb3fef960e6acc570f7c33"
+  },
+  {
+    "name": "visual-research-05-restored.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "94783e118e61e397780592689389e02430a9231f59ec3d8229f3a317c4002e72"
+  },
+  {
+    "name": "visual-research-06-reassembled.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "f77b4418578c2192a046a0570712dab028eb316602ac715a6539d0b477fd8cd2"
+  },
+  {
+    "name": "visual-research-07-reloaded.png",
+    "width": 1600,
+    "height": 1000,
+    "sha256": "f29cdd362654cf721c7997ebf7db41a070dfc6ebf69750b10f690b0847a35a52"
+  },
+  {
+    "name": "workstation-05-disenchanting-gui.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "6412c2f70e578666718cf8372d5db7b28db19367a5287fb871a1109eef37487c"
+  },
+  {
+    "name": "workstation-06-disenchanting-committed.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "51244d9c1a27312627e6c4c71049fcd320d37606162f4259fae1f58dc1b4b593"
+  },
+  {
+    "name": "workstation-11-research-unknown-output.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "5c7b92272c93cbb455d032fb2184a316c79a8c63740c49f332dbc609a809d06c"
+  },
+  {
+    "name": "workstation-13-research-direct-result.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "db840bce5c642b7072c8d2da4f372b9f7f55e3187cd186426c2c07815b80c2e5"
+  }
+]

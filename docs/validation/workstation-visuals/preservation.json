@@ -1,0 +1,759 @@
+{
+  "baseline": "09abcbce3d022adb787d669f9456d72d848f4d75",
+  "unchangedProductionFiles": 188,
+  "lineEndingsNormalizedForText": true,
+  "files": [
+    {
+      "path": "src/main/java/dev/differentenchant/DifferentEnchant.java",
+      "sha256": "f221f65d8dbd31d6905a853c3cf1bd1cef0126065cd5c9dc5111acdf66c96fee"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/DisassemblyService.java",
+      "sha256": "9f946e0a7a43ce157fc582d7050be45d1f959281a63c46355aa24b45c8cc2c00"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/FormationService.java",
+      "sha256": "8cdbbab58b06665f2891d5ef22f94acb58c7ee13c2b1c47a8e3786a74de9659d"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/MachineControllerBlockEntity.java",
+      "sha256": "55fb358e98168e91dd2a2a175afb3c2adcd552458157b973aa9f127956a2e45f"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/MachinePartBlock.java",
+      "sha256": "637088501145e9acde2b530638c59d7ea348d5db732d9fbec7a16cd8065090ab"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/client/ConvergingMagic.java",
+      "sha256": "0002d0fb8b0f7e925779210ee08fef98b348c7a7d338af1acbb6bb9e75408a0a"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/client/DifferentEnchantClient.java",
+      "sha256": "ae9fe633aaa23f388586fd9a59b8d4a29e8e660080a3838bd3ecb119a8a10667"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/client/DisenchantScreen.java",
+      "sha256": "f0bf628d54ae26d327f0010e9e2180355c26c8e83c7c62d4546648c3ffd6e6e6"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/client/MachineEnchantmentScreen.java",
+      "sha256": "22f1b8c3faefd78b000afde24e367908bdec1f6a22e132994d5ba1ffd8d152f9"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/client/ResearchScreen.java",
+      "sha256": "e34069a40dc68802c2b227c727b6c13317544d16f36974ba8c347663a1420465"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/client/StarStepRenderer.java",
+      "sha256": "d5ff7d42959d9d1d54292b1064045e2febf8cee56c227a99b9dbbbea30a11d7d"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/client/WaterReflectionClient.java",
+      "sha256": "79aed0d23c2eb407993000531c4f575543d829f8d994f0376f1a26ec5e86e0e1"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/disenchant/DisenchantContent.java",
+      "sha256": "7b2a457794bb1767cec16e47aad9ee3a9a1adce9ef3fabb73823807a71e9d127"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/disenchant/DisenchantCoreBlock.java",
+      "sha256": "1b0c52493eb33b01e36dbbcfa7a86dd265d6ad6f7c5e8279999fd8a3ff45cf32"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/disenchant/DisenchantMenu.java",
+      "sha256": "1e081344ca76870b2ff6a7cc0727c57cb8399ecf409b8e1958e0781c249a4e5b"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/disenchant/DisenchantPartBlock.java",
+      "sha256": "381669fe8f1fb282a9fc6aeca74a7909d35487a3bdff98257f46df8bade8e1d5"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/disenchant/DisenchantPartEntity.java",
+      "sha256": "5059b8ef6ffbb0cb495a9bffface9635b811772b41ef88e7def3aa71f29b3df8"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/disenchant/DisenchantStructure.java",
+      "sha256": "b690eb19c500b16fcce343ad7bee21b0e23aef91f8f6b901571d458fb4d8e0d3"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/disenchant/DisenchantingService.java",
+      "sha256": "c2a85bc93b46c2929c27245a4f9ced142e9f3b85cbe0e3088432b331c2bee178"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/BookshelfScan.java",
+      "sha256": "051d512ec4c2c4c272671c46de5b1220a4d7d49e819083447a3344acb7285481"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/DirectedActionPayload.java",
+      "sha256": "cec00961e78d8f5c45072d05fec93f64f91d31167748b41515cd0d9630cfca5d"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/DirectedCandidates.java",
+      "sha256": "c1bc94a7a01e6f72eb9aa817bb08433693d27750ae12f4ff384d80023e36b5a5"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/DirectedEnchantPolicy.java",
+      "sha256": "afba178747bc4350b353e865aba6a448d5103c2e84d5b1271cf759403775d80e"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/DirectedPreviewPayload.java",
+      "sha256": "17e95f77ef292d7bff9e2cbdd7dc6b370bf8470a874d617c0095590cbf59dd4c"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/DirectedSession.java",
+      "sha256": "480bf0492e9e1a5dae99ca360fb1d6514376f3ca64acdb04d3b139359bca4b13"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/EnchantingCommands.java",
+      "sha256": "ced71bf05b4cecba35e69940f177f051dc945c46bd87d5b6eb2dfcdb0733a0e8"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/EnchantingConfig.java",
+      "sha256": "2d6c53bffce49a868f97d566ac8fbd12b99ee1cf7a80fa805a75a070d97835da"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/EnchantingPreviewPayload.java",
+      "sha256": "86dc1761c9e20f4b5fd506475ad50c12b12dfcbfb104db14f33de780c51ac11c"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/EnchantingSeedData.java",
+      "sha256": "c5495cc263532f373d113be8083177eee4c9bd37b82340a632b76c7b4040ea6c"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/EnchantmentCandidates.java",
+      "sha256": "7c7db607ddbdfafdeca41ae5bd541a63cbd68e5d88ea17a0579b359d5d7a9cbb"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/MachineAccess.java",
+      "sha256": "f2712d2582a6dc123fcfd595bc9d61c3ff4f7c8a0c993b97f4bc6965bc932603"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/MachineEnchantmentMenu.java",
+      "sha256": "021cd90a6ad3168d6d81b949e140f6a69a5e0fb2131c79cf40804287eef7c5e9"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/MachineGuiLayout.java",
+      "sha256": "278e1b2129f24bc8540ac504aa0138d50ee2cd6bb3e747ea86d6b812982f1403"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/PreviewPolicy.java",
+      "sha256": "618f35f72f515c27edf0151943dd2bcc8064572fed770f932fcdbaf5e0042f38"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/enchanting/RandomEnchantPolicy.java",
+      "sha256": "99fc39ce86a49bafa34b8a3d97944d19dba7fe934b3303c50529a315adcdeb92"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/lost/AirControlConfig.java",
+      "sha256": "c0a81da5abd418ad84f49fb0ffbb6f67faabe336c98f8a19f8b5fa8caddb0d72"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/lost/ArrowParry.java",
+      "sha256": "f825071287a09f396fbcb11b6ea5c9378941b034a90fdaf42990033c6b312040"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/lost/BatchEffects.java",
+      "sha256": "b713543a230d07bbd51132345d36004c728250f48d898ca0c353d4c5f1d38f00"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/lost/BatchRules.java",
+      "sha256": "6155b904be5f168031663a1342ccb4bb85a06861c823d040dfd46ababc248d81"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/lost/LoadedArea.java",
+      "sha256": "baf0a1dbff039eecca60da5e5704a9e883e22a38bd7bbbc9cd3440a528f577c0"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/lost/ReflectionTargets.java",
+      "sha256": "150faf030b0a33944f893fc04c08b2d02872786e02ccea9431eec52a21c43a84"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/lost/StarBridgeData.java",
+      "sha256": "86b1b50e0130d757084f44f24c4c5d2e3f3f87eed1e2a0cee28a335fa1f8ee86"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/lost/StarBridges.java",
+      "sha256": "7048efbe6591191d135d99e647429b5a0e4564dfc810dba006071fce23a7cb16"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/lost/StarStep.java",
+      "sha256": "c52b7de4de393091ec7cc3b6347b0410dc02fb57e6214b4f8299f1a809901687"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/lost/TideVortices.java",
+      "sha256": "a6add09704ddbe790b310db5eeb7d4acaa019dada551982419f03469fa267626"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/mixin/AirControlMixin.java",
+      "sha256": "2c7db279b92b5ec83652aa04425a183b97a040bc19f4a6e3be02afbc9330cc42"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/mixin/ArrowParryMixin.java",
+      "sha256": "b55aa9f2f9fd203dbd066fed61a3e9e7845d34bf172b12d868b8fe888e86b788"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/mixin/BowDrawMixin.java",
+      "sha256": "72a68416494166b7f132a44678f22ea8ae907616cec9a69927a6bd415348b72c"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/mixin/EnchantmentHooksMixin.java",
+      "sha256": "6a73c993f8c550e19f52cb21922c5c08630975be59b3542ea147307383318a28"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/mixin/StepEventMixin.java",
+      "sha256": "32c0093b52cddf6716e9f6790aab4930b3a9f5552deaec5c3a9f131192df5876"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/mixin/TridentImpactMixin.java",
+      "sha256": "3810d629131707e4788ffae20c0de394ca1679cf71eefd5d1fa52551411d4878"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/mixin/client/BowModelMixin.java",
+      "sha256": "2871c3502ee74cd018ff721252234385071c5b18c07d4f1ae99429576b007cd5"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/LostEffectData.java",
+      "sha256": "eebfc0c9929917e8d9d2c2e05cb64bdd65c95eb89e10ab7e8dc747409f210ba1"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/LostEffects.java",
+      "sha256": "5acdaa6b78c5361b2abc1c6b996445ed93e6592a451dea0f2fea9bb689354d49"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchActionPayload.java",
+      "sha256": "c8bed9a187f0119804581591a459ffa8e641bd713b4184ef5d817ec4c76e2371"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchBooks.java",
+      "sha256": "0adc161794a265c24e018aad600d47dab8b424afded25e48b07fbf9c49740abe"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchConfig.java",
+      "sha256": "e8ecb4fc6f9b832331f58aa5c3fbde2a71bfaa868b0887b28c3eab183c84f989"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchContent.java",
+      "sha256": "e51acaf225271acca084d806a80e352b48ca90839bcb080018599878bcff2e6f"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchMenu.java",
+      "sha256": "09b37f61ae0356ed6c6bb93f7129188fa8253a1c6c9b3e5b2ab90593b2d11cea"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchPartBlock.java",
+      "sha256": "8b124afb5863eebc86936f565814362a2421f1414049f779745267b4759de264"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchPartEntity.java",
+      "sha256": "ab3b8953181db2c8eb87cb89f447545a079f433d68a25356ffc0ad2243fb24f0"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchPersistence.java",
+      "sha256": "7a32b4c44ded121a1d21fed6132f667b2068c001d1ca5c980a35a79cf2982aa5"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchPolicy.java",
+      "sha256": "5c2edbdf3e26d742e0a35f458dec20d557acbc8c7c8482b29f242496330964c5"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchPreviewPayload.java",
+      "sha256": "85b8909fe0f7c37ae4d469a2d53b72c013415755936887b9e4021ddaa1c75dab"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchTableBlock.java",
+      "sha256": "e678e8a00690d50468c85ece34d1fc8ceade19182f94b4115d0cc5a4e8e9165b"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/research/ResearchWorldData.java",
+      "sha256": "82b84f09517195ced58ffc7cfed3c576b6135644a0240086f4edc4ae32b4c296"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/resonance/ResonanceItems.java",
+      "sha256": "9eca70725b3c5d29e400cdb8c2aacafdabdb5a7e2260e30e7e52896d53a1d4f6"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/resonance/ResonancePolicy.java",
+      "sha256": "97deb8017c3fb78a1f06b3c77c67d1f7557fcf8dcf9fc6135c6041bf0bc65957"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/ruins/LanternCachePolicy.java",
+      "sha256": "597ef9151bdf60b2bf52755fcfa1d6490e279b99acc42ea9d1f28094d5a0f199"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/ruins/RuinPiece.java",
+      "sha256": "488790d0f5715094ac7a98e17b06e2413ff6a832aca9d8f88cfeb35598d8d08b"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/ruins/RuinPlacementPolicy.java",
+      "sha256": "24de1383cbfcef335b8c2ac025ad5e909fa96cb48791cc788480224857d89693"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/ruins/RuinStructure.java",
+      "sha256": "1eade2f1dee445de505aa4ea93ca2f06697ab6ecb81d074d9533c993995aecd2"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/ruins/Ruins.java",
+      "sha256": "b1ee4dabe7a27cd479e5d452b4d4c69b870efe4d1c59018bf6e2675dca160e8e"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/structure/StructurePattern.java",
+      "sha256": "03a8521935ae6249d2d295ea644333e025acb236877809c765765ed9d8cb48c3"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/structure/StructureValidator.java",
+      "sha256": "e36f620f7a08c2727ae573cdaed39499b85fef48f5c0031244e68336cf2dbf30"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/workstation/ScrollExploration.java",
+      "sha256": "640fb6667de2b80bb921d2888f41962acb570097ee61286b746a4731baf02733"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/workstation/WorkstationPartEntity.java",
+      "sha256": "71779106c1b8af45df20d3a8d14070c3fe33579fcd29eb43e6e4fabee5e673fb"
+    },
+    {
+      "path": "src/main/java/dev/differentenchant/workstation/WorkstationStructure.java",
+      "sha256": "ce8b2603c8325dae11040c040c65a5046c3e3d85c8884ae2b023d604d2dffa64"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/blockstates/disenchanting_core.json",
+      "sha256": "b4a39b674989b3394b16632bc55c3f011e5ebff79c899979cba39765a34b5b3a"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/blockstates/lost_research_table.json",
+      "sha256": "38214c1f6531c17bf7624e2519af87157075f16075be905f91a668f1c3cd8372"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/blockstates/machine_part.json",
+      "sha256": "d30a2dc425bd00fea231f0021d1130857002e05f186e52e140b9bb1386845fe6"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/items/attuned_resonance_core.json",
+      "sha256": "469aebbcf45364d9a08db80efc896fcab0fca88b5c27f94749d5d6ad28922b10"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/items/disenchanting_core.json",
+      "sha256": "8beffc0234fd6464c5ecf86ced57c457f94a29a25c71ccd037afdfa628238be8"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/items/lost_research_table.json",
+      "sha256": "597637894838d26908437f8df4b526fe02ae2dd7c77dbf12ec779ecf7ff02a25"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/items/lost_scroll.json",
+      "sha256": "8a1178b3b921860e2fc47aed72a93b579d27990da1707ab0953d855a08d40685"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/items/resonance_core.json",
+      "sha256": "296ad79fc3e0efd444ef6529366681d650924d6ade401d4b51eb2405372f48ec"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/items/runic_stone.json",
+      "sha256": "da0056789d61059e4971b4a26f72148c72f9386c4faad5f362f6e6bd0d092f52"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/lang/en_us.json",
+      "sha256": "8287d42566cdc6a2d53cf287b69645d6ab1b44e53ea705e4b080a9bc2186d6f5"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/lang/zh_cn.json",
+      "sha256": "d8adc16e2811db518bc017fc32ddbae427afac5f83da0fd9c7cef306b5e795b6"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/disenchanting_core.json",
+      "sha256": "b0456b4f70ec5b7ba5860d72236e0418f20d65f82f9545ceb89214da63f17300"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/lost_research_table.json",
+      "sha256": "115081b536b42425210afead5c25365d88bc37297411c17a6641dd29e6005567"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_0.json",
+      "sha256": "7650b3018803c8370bd8eaec89f6066b50426498ffafd7a0e74111ad6e7b134f"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_1.json",
+      "sha256": "6770960ca8056e4f802ef2f1a54fd27c4fa62189eb829fee0d85f84a1bf8d69c"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_10.json",
+      "sha256": "17971ec2d625b74f9ba20bd588fe51f0910005cb368d26f72215911c02d75dde"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_11.json",
+      "sha256": "f1bf1457804da2d32cfc374b6eecf110c7347627bb528abd158d3770b0d1f3a5"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_12.json",
+      "sha256": "05ae1aee524e962e3502fa127ba5adbd04d094bbd3194a5a76f212df590ae6d0"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_13.json",
+      "sha256": "21975743068148d4f66a6270a1bb9e1e5d5496efeb6d9cd8f6342ad768c6b85a"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_14.json",
+      "sha256": "b0c3daa499d534fc90694723d6329854b44356862380a2bbe50f5f80a1e492b3"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_15.json",
+      "sha256": "8628674742c895525c8bc85417559e64842897c154014d7c19e5eb68f2aa26c4"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_16.json",
+      "sha256": "059311f2a76ce6659688b7fd619ae37cb893f814033b85f8998f50e0629fbc58"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_17.json",
+      "sha256": "a61bb2fc8a79153073a9313bcb126135577c4564120d6513b942e8600eabe673"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_2.json",
+      "sha256": "102ac145e1ece2fbed36fdd1ac2f9175a1968f7987eb58fab4e07f6ad926b259"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_3.json",
+      "sha256": "185c44fb336a6570fe8132edfd453cbcf87d2c0d48353d3c90f9dc48497059a0"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_4.json",
+      "sha256": "7c409c223ad5d5f5129e9acdec6e2a771ac9c2367b4eee33e355e12385a0e278"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_5.json",
+      "sha256": "8864ebe37f63e1f52b96fcaf62d97c7181250ca1d6529ced617c1148b08c64a9"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_6.json",
+      "sha256": "460dce91f505957ef0d2d84b5fa1b1a70c9d9d282766242d599296f709e5bb6b"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_7.json",
+      "sha256": "b818493001e349af8db11c28438a8b31633ea815bac16181d29ebe0372e22f33"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_8.json",
+      "sha256": "38af462a30762ed398b4522c5e2e7e2bfbbf8aa9a10a469a88593574acbe2a7e"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/block/part_9.json",
+      "sha256": "5f81408dd870c264ae217ae274d58a24a2404a45476dc9ba6b17420abcd43023"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/item/attuned_resonance_core.json",
+      "sha256": "ebaa5ec2ef938c7db587d3d0e83345ea82d32251fc9cb1d97bc29b0c30b120ce"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/item/disenchanting_core.json",
+      "sha256": "85ed4d98180de62e07a8408f793ac4af7d98a46399ddcd05fb3b3a183b8ed7f9"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/item/lost_research_table.json",
+      "sha256": "8856ab77f6d51acd9e7a84c853615334fde051d080a1b1046d752fd3dc01b237"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/item/lost_scroll.json",
+      "sha256": "eb42851013fdd93a1a4e11511d9feed9c159f28163d762aad98fc56d9b5c5d34"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/item/resonance_core.json",
+      "sha256": "ad56b9ac89cda1ac79961765702137beebc3d5542c4d830c5455d1529796c906"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/models/item/runic_stone.json",
+      "sha256": "e663a079d2b5a7239f77fd16b430f1307ebcf363ba2cc1f33bc3003f738429d8"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/textures/block/research_book.png",
+      "sha256": "3c750a3efb83d1637861ad2e103bec12646e10f2d2bbd2af041f2cfc6cf69e4f"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/textures/block/research_crystal.png",
+      "sha256": "bc883c3dca3f40ce9ea01c528e137f0ecd0ca2adfdb22627f23ce670775990dd"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/textures/block/research_frame.png",
+      "sha256": "8dced484b661e5c1928c9c255844ce529100fb58fea8e1fc24e45857c4743043"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/textures/block/research_paper.png",
+      "sha256": "8f439db3cf490397bd5a903e2b8107f3c90f5d510d6b4378dc980743aa156bdc"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/textures/block/research_wood.png",
+      "sha256": "6bc519aa24e044466793de75fea1c5ad00a6e01f2f54e2dd964a8ecf87e674a8"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/textures/item/attuned_resonance_core.png",
+      "sha256": "b7f12f1fc18ad2015b81d90fa6e23647c65eb2d94d3b7c15236df2e68df5069b"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/textures/item/lost_scroll.png",
+      "sha256": "695e8ee46022c4acf8d55a8922429c1f87c3e758df9fa9f081aba18875b44452"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/textures/item/resonance_core.png",
+      "sha256": "b1996b34bb14600d7124205a7befe547cfca04e3641cbf4a0d801f761bc87274"
+    },
+    {
+      "path": "src/main/resources/assets/differentenchant/textures/item/runic_stone.png",
+      "sha256": "65cdc81501b87f8e3da89c2563ad14f3aafd287e32bd1cee910aa9ac8c6c646e"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/archivists_reach.json",
+      "sha256": "c563b0746fa89a0226607bf7b73181b64837ca86a005ba10c6e186f65f3c12c4"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/borrowed_flame.json",
+      "sha256": "f8d853b59cab745040e9d81005da6b740e06f840826c31d86a5204905f81af1b"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/gravity_thread.json",
+      "sha256": "afaad5422399d0931228da49069385040e05accf723b78641c36d6ce5669fe1a"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/hush_step.json",
+      "sha256": "09013b06eecefce4d8c91e540304236ca785cd04a684c42750af536153f5ac71"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/lantern_sight.json",
+      "sha256": "478760b48d4f0d5c9d9b1ee6bacf469a82a7b31c54abfad75d5a59dfa17b294c"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/last_page.json",
+      "sha256": "7d1ffbea59e2e038839442a836634e4acc586c4a560df807a51a6c19f15d3ba0"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/living_margin.json",
+      "sha256": "8d4df7ed3c1bc614f8c88b811adb874c68d01c07232324bd47966eb013c2202c"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/paper_kite.json",
+      "sha256": "0c889ad136b000d6034f6679ee13f173e90b70cfc7e2dc2a33b9a9f7361ff4be"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/parry.json",
+      "sha256": "83d038097c5dd20f7ad0ed95eccf42e53a04287f38304c7f6624384323bbfb10"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/prospectors_echo.json",
+      "sha256": "33a0a440792313ffe85232606f11136798e3f00b371f23cc23c4d3d7cb9c1d4c"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/returning_feather.json",
+      "sha256": "cf620230e98419a639a120dfef9452ffdf9905d7cb579cfad804cde5ba9e06ed"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/star_bridge.json",
+      "sha256": "e334af0d341575a2f78ddd23d2b9d56f598dd2e665510f2a5181fa3f1b1599f9"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/swift_draw.json",
+      "sha256": "6e19a2b4b876036ee626b394bc0172086367101a4f1a20e260a33c5975df9422"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/trail_stride.json",
+      "sha256": "00b9e71394f1192033e0dd6ad10ab4585b6be96e6b3353e9c6fd8f71d6cc9911"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/undertow.json",
+      "sha256": "acf8fc03b70e9dd2a6abfbe833af580b8c17725f1040b21250f7539055215f66"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/warding_focus.json",
+      "sha256": "6918118aef5189cad4077a00cd6b2a786c5e9f711ae50adf5467a806b8b6b0e3"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/enchantment/water_reflection.json",
+      "sha256": "87dae92455f28163f744c746938301419af63bb68c36bd7ee05b3800c8d3eb6e"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/loot_table/blocks/disenchanting_core.json",
+      "sha256": "3cb118256e7d116d211a8ea15a403b57042cdaabeebbc78f0892cf0393696105"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/loot_table/blocks/lost_research_table.json",
+      "sha256": "d79c0369b5db47b6cf4082eee190ef5b98495a2873861d3a6c50db74ee080dd2"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/loot_table/chests/books_high.json",
+      "sha256": "72e28ad2e6eab5b265a11b9347f594e68b1bc80e411b357bc76d1efbc66178fe"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/loot_table/chests/books_medium.json",
+      "sha256": "d8553af77624d864802c37091c5029724fd862f4909128bb69705000658eccbf"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/loot_table/chests/books_small.json",
+      "sha256": "7de4b3ad4a933336129883779dd2fff354b6dab811b4f516723a7b3fffacaa23"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/loot_table/chests/common.json",
+      "sha256": "d75fa101d07982bca05b4dbcd2e2f682e35aa3e1fdf4857a96421e97c3eb4f83"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/loot_table/chests/lantern_cache.json",
+      "sha256": "6eb3d4ac5a89acc5fe477af47ac9896e8ffa54666eac0e9cc3b5e0cec47ec115"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/loot_table/chests/research.json",
+      "sha256": "0078b1a468827e7c31d3f6c8353e60fcae843915013d556c7c198cf5cc082f5d"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/loot_table/chests/small.json",
+      "sha256": "3874e960639b5de380e0c43eea0bad75114da27fac32e045ea5ae0468b641632"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/loot_table/chests/study.json",
+      "sha256": "1d0343cccd56d3541a6fc485b737b99cce3d13fc90f6a5c7cf8cfe23c3174e14"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/recipe/disenchanting_core.json",
+      "sha256": "600c8c02caf33c1be85870cfab05e07afdb8c9ad26b496257418232b95460f4a"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/recipe/lost_research_table.json",
+      "sha256": "a8b48dc6b7134ebb0aaa8189e3d813182a033ed20763c4c755402010d3925fd7"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/recipe/resonance_core.json",
+      "sha256": "ad1cf700d3b40d9b6212215e2552706d13969b58f7bc73096ebcf83a7e2c48f8"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/research/prototype_catalogue.json",
+      "sha256": "dc0ef48c0af5dcefacde95d6123337f64a5c433e7b5eb9a1ca01563cc19aa17e"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/ruins/blueprints.json",
+      "sha256": "c558f3925a4367ef01cf8a63e6ae773b7b0ddc13a133b0d4316046af9e159a3a"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/structure/ruins/lantern_sanctum.nbt",
+      "sha256": "90cdc098ff4ccad3044e7f04f878c2053e78ecc9a1446243d720b62df32f590c"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/structure/ruins/small_buried.nbt",
+      "sha256": "b2ad99d75df4d185504fd45ed4293fda0720da8aa5a164f263768267df0e218e"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/structure/ruins/small_surface.nbt",
+      "sha256": "d0ce4b86d9f298e160e8258dbcdd315574f59706251447a8c4dc025dffb63d2c"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/structure/ruins/workshop.nbt",
+      "sha256": "123d8b165c060244f38fdda5aa1b0f357eaa73f73dbbfc319bee2a415e035835"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/block/reflection_targets.json",
+      "sha256": "a6ff0adff52d22622522864b47ddc511d7054db23357d3cb56f59cb7da455b9a"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/enchantment/batch_two.json",
+      "sha256": "8df238e5c73a8fda68c8a16f97588f16ba9f5e99f5ef1e50ef0c774f3d7622f1"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/enchantment/excluded_from_directed.json",
+      "sha256": "5bce6e209db8d1ce13c9089f83305a69a3f804bb73c110c31a7edbf99ecdbff2"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/enchantment/excluded_from_random.json",
+      "sha256": "5bce6e209db8d1ce13c9089f83305a69a3f804bb73c110c31a7edbf99ecdbff2"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/enchantment/lost_enchantments.json",
+      "sha256": "b4b23e0cd5da5243e31053afa55c072dcc07685ebb936e1e9ccf4dfc2921ec48"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/enchantment/lost_tier_1.json",
+      "sha256": "0d8276ebdf974c048fbc04d1125265b2180e7d20ef047102f1bf6cde99a86609"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/enchantment/lost_tier_2.json",
+      "sha256": "147d4959f1af73a890232ef72d86cea9091d807144d157a954de6e4751a6e131"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/enchantment/lost_tier_3.json",
+      "sha256": "685a99796b5fbc08f3f04221064c5c8f22bcc4d6089483d1ff55d5d248250365"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/enchantment/lost_tier_4.json",
+      "sha256": "0bb7b1b3bf50e7bd60600ee250500c682cb6ad97318a3b371c00d19a3135233d"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/item/enchantable/fire_transfer.json",
+      "sha256": "622ddfde99dadc5155be295cb5b30e3c3198fe863a17b552b7e651605a7999d0"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/worldgen/biome/ruin_buried.json",
+      "sha256": "bbb9a084b4927600f6ee5311c4517541bfc06f03b7e1dc2c8f01ead946041c99"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/tags/worldgen/biome/ruin_land.json",
+      "sha256": "4a2323ff0485a9cd7f13754d4b0a1f747bfe4e6b2b37def864cb1523fb452873"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/worldgen/structure/abandoned_workshop.json",
+      "sha256": "271ecce3f04415ed0d29e830c045db0b9eb965b1575418ea8caf8a8282ab0676"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/worldgen/structure/buried_archive.json",
+      "sha256": "ba1923b58547f81f79b6a456675bb9bb4fc8baab41fc0c80446a0425c9d302c8"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/worldgen/structure/lantern_sanctum.json",
+      "sha256": "c28c6f014c88035e8dd50acf68fce827de42b6525b9aa1b12f6c2b0ce8ac4063"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/worldgen/structure/small_archive.json",
+      "sha256": "b142e74834b7281adbe8749b6c155d0ac9f35420b5d7995cd9942c4b7575c8b4"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/worldgen/structure_set/abandoned_workshop.json",
+      "sha256": "6ec46fc8ae327329cd79d9c756579389caeff3f01020e2f953dc3d342f8dbbf2"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/worldgen/structure_set/buried_archive.json",
+      "sha256": "32535c2df2b16cf9718ac2473ee9c90e558192f3dcf3d3ea393150c892c493e4"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/worldgen/structure_set/lantern_sanctum.json",
+      "sha256": "936060ebc106d0ca76b08e01a4bdaafe34f108381f6f2f7fa3c299b38fee80b5"
+    },
+    {
+      "path": "src/main/resources/data/differentenchant/worldgen/structure_set/small_archive.json",
+      "sha256": "38285244b351bdf9beef14f4dd84e1990cccd19c89f63e8e277c51c127e671da"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/mineable/axe.json",
+      "sha256": "6064cce87f206d543cba748db6e8e8c401eb467322926864eefd0addb4614d8a"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "sha256": "3de451202846cf05052d197ae5eeea5e82b965be249fd228aedc11bd41350d6b"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/needs_diamond_tool.json",
+      "sha256": "93cd635038f51295de2ec73627f308fcf2361aed6c79ae3c25a89e3520d6c2d2"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/needs_iron_tool.json",
+      "sha256": "87043293d14052d35a6088e9163e69842fd0f662facc11dd3a83d906ffbd8a82"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/enchantment/treasure.json",
+      "sha256": "5bce6e209db8d1ce13c9089f83305a69a3f804bb73c110c31a7edbf99ecdbff2"
+    },
+    {
+      "path": "src/main/resources/differentenchant-defaults.properties",
+      "sha256": "2b963896a0a4646c4e0e37c67d679550fd3fc011a987edaa9d49fbb2daf8f9b7"
+    },
+    {
+      "path": "src/main/resources/differentenchant.mixins.json",
+      "sha256": "6b635801466f41abdea7476747b5c0a14f548563cf867108446f2ce2c644fe43"
+    },
+    {
+      "path": "src/main/resources/fabric.mod.json",
+      "sha256": "4549a97b4c270e02a0cca80bafaabe1cea5f0c6a7e47e3b3225416948c97735a"
+    }
+  ]
+}

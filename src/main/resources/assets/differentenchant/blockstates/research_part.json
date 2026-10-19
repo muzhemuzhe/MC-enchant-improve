@@ -82,42 +82,10 @@
     },
     {
       "when": {
-        "part": "10",
-        "facing": "north"
+        "part": "10"
       },
       "apply": {
-        "model": "differentenchant:block/research_part_10",
-        "y": 0
-      }
-    },
-    {
-      "when": {
-        "part": "10",
-        "facing": "east"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_10",
-        "y": 90
-      }
-    },
-    {
-      "when": {
-        "part": "10",
-        "facing": "south"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_10",
-        "y": 180
-      }
-    },
-    {
-      "when": {
-        "part": "10",
-        "facing": "west"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_10",
-        "y": 270
+        "model": "differentenchant:block/research_part_10"
       }
     },
     {
@@ -130,42 +98,10 @@
     },
     {
       "when": {
-        "part": "12",
-        "facing": "north"
+        "part": "12"
       },
       "apply": {
-        "model": "differentenchant:block/research_part_12",
-        "y": 0
-      }
-    },
-    {
-      "when": {
-        "part": "12",
-        "facing": "east"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_12",
-        "y": 90
-      }
-    },
-    {
-      "when": {
-        "part": "12",
-        "facing": "south"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_12",
-        "y": 180
-      }
-    },
-    {
-      "when": {
-        "part": "12",
-        "facing": "west"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_12",
-        "y": 270
+        "model": "differentenchant:block/research_part_12"
       }
     },
     {
@@ -210,42 +146,10 @@
     },
     {
       "when": {
-        "part": "14",
-        "facing": "north"
+        "part": "14"
       },
       "apply": {
-        "model": "differentenchant:block/research_part_14",
-        "y": 0
-      }
-    },
-    {
-      "when": {
-        "part": "14",
-        "facing": "east"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_14",
-        "y": 90
-      }
-    },
-    {
-      "when": {
-        "part": "14",
-        "facing": "south"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_14",
-        "y": 180
-      }
-    },
-    {
-      "when": {
-        "part": "14",
-        "facing": "west"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_14",
-        "y": 270
+        "model": "differentenchant:block/research_part_14"
       }
     },
     {
@@ -258,42 +162,10 @@
     },
     {
       "when": {
-        "part": "16",
-        "facing": "north"
+        "part": "16"
       },
       "apply": {
-        "model": "differentenchant:block/research_part_16",
-        "y": 0
-      }
-    },
-    {
-      "when": {
-        "part": "16",
-        "facing": "east"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_16",
-        "y": 90
-      }
-    },
-    {
-      "when": {
-        "part": "16",
-        "facing": "south"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_16",
-        "y": 180
-      }
-    },
-    {
-      "when": {
-        "part": "16",
-        "facing": "west"
-      },
-      "apply": {
-        "model": "differentenchant:block/research_part_16",
-        "y": 270
+        "model": "differentenchant:block/research_part_16"
       }
     },
     {

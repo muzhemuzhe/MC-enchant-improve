@@ -29,15 +29,10 @@ public abstract class WorkstationPartBlock extends BaseEntityBlock {
     @Override protected RenderShape getRenderShape(BlockState s){return RenderShape.MODEL;}
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level l,BlockState s,BlockEntityType<T> type){return kind==WorkstationStructure.Kind.DISENCHANT?createTickerHelper(type,DisenchantContent.ENTITY,(world,p,state,e)->e.tick()):createTickerHelper(type,ResearchContent.PART_ENTITY,(world,p,state,e)->e.tick());}
     @Override protected VoxelShape getShape(BlockState s,BlockGetter l,BlockPos p,CollisionContext c) {
-        int i=s.getValue(PART);if(i<9)return Shapes.block();
-        if(kind==WorkstationStructure.Kind.DISENCHANT) {
-            if(i==13)return CORE_SHAPE;
-            if(WorkstationStructure.corner(i))return Blocks.AMETHYST_CLUSTER.defaultBlockState().setValue(BlockStateProperties.FACING,Direction.UP).getShape(l,p,c);
-            return Shapes.or(Block.box(0,0,0,16,3,16),Block.box(2,3,2,14,9,14),Block.box(1,9,1,15,11,15));
-        }
-        if(i==13)return ResearchTableBlock.SHAPE;
-        if(WorkstationStructure.corner(i))return Shapes.block();
-        return Blocks.LECTERN.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,s.getValue(BlockStateProperties.HORIZONTAL_FACING)).getShape(l,p,c);
+        int i=s.getValue(PART);
+        if(kind==WorkstationStructure.Kind.DISENCHANT&&WorkstationStructure.corner(i))
+            return Blocks.AMETHYST_CLUSTER.defaultBlockState().setValue(BlockStateProperties.FACING,Direction.UP).getShape(l,p,c);
+        return WorkstationVisualShapes.get(kind,i,s.getValue(BlockStateProperties.HORIZONTAL_FACING));
     }
     @Override protected FluidState getFluidState(BlockState s){return s.getValue(BlockStateProperties.WATERLOGGED)?Fluids.WATER.getSource(false):super.getFluidState(s);}
     @Override protected InteractionResult useWithoutItem(BlockState s,Level l,BlockPos p,Player player,BlockHitResult hit) {

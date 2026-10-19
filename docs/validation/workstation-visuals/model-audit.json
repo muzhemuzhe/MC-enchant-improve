@@ -1,0 +1,11 @@
+{
+  "generatorDeterministic": true,
+  "generatedOutputs": 41,
+  "formedModels": 36,
+  "elements": 471,
+  "rotatedPageElements": 20,
+  "boundsWithinNativeModelLimits": true,
+  "all18PartsCovered": true,
+  "fourNativeClusterOverlays": true,
+  "topFaceUVFollowsRadialRotation": true
+}

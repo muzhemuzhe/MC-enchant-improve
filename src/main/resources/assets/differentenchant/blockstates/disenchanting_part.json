@@ -77,6 +77,14 @@
         "part": "9"
       },
       "apply": {
+        "model": "minecraft:block/amethyst_cluster"
+      }
+    },
+    {
+      "when": {
+        "part": "9"
+      },
+      "apply": {
         "model": "differentenchant:block/disenchanting_part_9"
       }
     },
@@ -86,6 +94,14 @@
       },
       "apply": {
         "model": "differentenchant:block/disenchanting_part_10"
+      }
+    },
+    {
+      "when": {
+        "part": "11"
+      },
+      "apply": {
+        "model": "minecraft:block/amethyst_cluster"
       }
     },
     {
@@ -125,6 +141,14 @@
         "part": "15"
       },
       "apply": {
+        "model": "minecraft:block/amethyst_cluster"
+      }
+    },
+    {
+      "when": {
+        "part": "15"
+      },
+      "apply": {
         "model": "differentenchant:block/disenchanting_part_15"
       }
     },
@@ -134,6 +158,14 @@
       },
       "apply": {
         "model": "differentenchant:block/disenchanting_part_16"
+      }
+    },
+    {
+      "when": {
+        "part": "17"
+      },
+      "apply": {
+        "model": "minecraft:block/amethyst_cluster"
       }
     },
     {
