@@ -282,7 +282,7 @@ const pool=(rolls,entries)=>({rolls,entries});
 for(const [tier,min,max,rolls,chance] of [['small',8,18,3,20],['common',10,20,4,12],['research',16,26,4,8],['study',22,30,5,4]]) {
   const entries=[item('minecraft:book',12,[count(1,3)]),item('minecraft:lapis_lazuli',12,[count(2,6)]),item('minecraft:paper',6,[count(2,5)]),item('minecraft:experience_bottle',3,[count(1,2)]),item('minecraft:iron_ingot',4,[count(1,3)]),enchanted(min,max,tier==='study'?9:3)];
   const pools=[pool({type:'minecraft:uniform',min:2,max:rolls},entries),pool(1,[{type:'minecraft:empty',weight:chance-1},item('differentenchant:runic_stone')]),pool(1,[{type:'minecraft:empty',weight:31},item('minecraft:lapis_block')])];
-  if(tier==='study') pools.push(pool(1,[{type:'minecraft:empty',weight:49},item('differentenchant:resonance_core')]));
+  if(tier==='study') {pools.push(pool(1,[{type:'minecraft:empty',weight:49},item('differentenchant:resonance_core')]));pools.push({rolls:1,conditions:[{condition:'minecraft:random_chance',chance:1/12}],entries:[item('differentenchant:lost_scroll')]});}
   json('loot_table/chests/'+tier+'.json',{type:'minecraft:chest',pools});
 }
 for(const [tier,min,max] of [['small',8,18],['medium',15,25],['high',22,30]])

@@ -1,11 +1,9 @@
 {
   "textures": {
-    "stone": "minecraft:block/deepslate_bricks",
-    "trim": "minecraft:block/polished_deepslate",
-    "copper": "minecraft:block/cut_copper",
-    "echo": "minecraft:block/sculk_catalyst_top",
-    "crystal": "minecraft:block/amethyst_block",
-    "particle": "minecraft:block/deepslate_bricks"
+    "particle": "minecraft:block/amethyst_block",
+    "amethyst": "minecraft:block/amethyst_block",
+    "gold": "minecraft:block/gold_block",
+    "red": "minecraft:block/redstone_block"
   },
   "elements": [
     {
@@ -21,22 +19,22 @@
       ],
       "faces": {
         "north": {
-          "texture": "#trim"
+          "texture": "#amethyst"
         },
         "south": {
-          "texture": "#trim"
+          "texture": "#amethyst"
         },
         "west": {
-          "texture": "#trim"
+          "texture": "#amethyst"
         },
         "east": {
-          "texture": "#trim"
+          "texture": "#amethyst"
         },
         "up": {
-          "texture": "#trim"
+          "texture": "#amethyst"
         },
         "down": {
-          "texture": "#trim"
+          "texture": "#amethyst"
         }
       }
     },
@@ -48,27 +46,59 @@
       ],
       "to": [
         14,
-        5,
+        9,
         14
       ],
       "faces": {
         "north": {
-          "texture": "#copper"
+          "texture": "#red"
         },
         "south": {
-          "texture": "#copper"
+          "texture": "#red"
         },
         "west": {
-          "texture": "#copper"
+          "texture": "#red"
         },
         "east": {
-          "texture": "#copper"
+          "texture": "#red"
         },
         "up": {
-          "texture": "#copper"
+          "texture": "#red"
         },
         "down": {
-          "texture": "#copper"
+          "texture": "#red"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        9,
+        1
+      ],
+      "to": [
+        15,
+        11,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#gold"
+        },
+        "south": {
+          "texture": "#gold"
+        },
+        "west": {
+          "texture": "#gold"
+        },
+        "east": {
+          "texture": "#gold"
+        },
+        "up": {
+          "texture": "#gold"
+        },
+        "down": {
+          "texture": "#gold"
         }
       }
     }

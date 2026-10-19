@@ -1,0 +1,206 @@
+[
+  {
+    "file": "research-gui-01-unknown.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "227159d82b635d6a51fd72f8c32200081a3540db6c8bb41ff1a750f66954a763"
+  },
+  {
+    "file": "research-gui-02-unknown-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "009c7bcfbbf4c4e63f0a7af54c7818798f45b976cfc952bf6b2ce009d9723797"
+  },
+  {
+    "file": "research-gui-02b-unknown-advanced-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "e9f87e5cbe8258f361670d603540bcb34878ea6eb525f587a21bba6a27486ed1"
+  },
+  {
+    "file": "research-gui-03-direct-pickup.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "a48f036bca79e3d5bf9d6d412b7a253047f7dd63e2acf05ed433bb4c75cf21ed"
+  },
+  {
+    "file": "research-gui-04-known-preview-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "e5dd16f2faf9fc76d0d414983d30b33528a4c52d7abca8fd85369084f087a552"
+  },
+  {
+    "file": "research-gui-05-known-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "28cd4805d33dbb85ca9fcb3fbe1c1da31d21fafaf5e835a49b11f4e67d76d910"
+  },
+  {
+    "file": "research-gui-06-first-record.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "58a84ccb567dd78bd6023a5aec5dd867985f09071f6165113df55d6d3e5080af"
+  },
+  {
+    "file": "research-gui-07-secret-scroll.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "6643066cb4d4c75e7fccee52d4af80a570b487e84829a1ef1c32a776323c1857"
+  },
+  {
+    "file": "research-gui-08-unknown-tooltip-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "332b507170d1c0b4b3ef42b8a013ecb807c32f1a5892df169505e02154b5ff5d"
+  },
+  {
+    "file": "research-gui-09-scroll-preserved.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "52d98aa406d13c0fa996d1954e534e6dafe61dea0c747e6fbabe2f7ab0a9b3d1"
+  },
+  {
+    "file": "research-gui-10-known-scroll-tooltip-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "71edde034d467c22b0aedf5a66ee1aedb4e84439ef5354aa9d61dbf2ee01b800"
+  },
+  {
+    "file": "research-gui-11-records-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "afb079efc58116ff29d45dcbb8d918423ede806a630d758932d34113872fc413"
+  },
+  {
+    "file": "research-gui-12-records-scrolled-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "07a37046abc4dcc5424ba20d2fcf4f8a4361182016c1fbe8cfa37c5d3b6379ae"
+  },
+  {
+    "file": "research-gui-13-records-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "70446e456c6041b66c6ad1a330147c62741f76d4b7aad88805722091bdd59193"
+  },
+  {
+    "file": "research-gui-14-known-preview-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "8e3fc02eaaceddb6e06f24709aa3befb43de2779f3a406ce5a22af3fc508e5d5"
+  },
+  {
+    "file": "research-gui-15-known-tooltip-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "2abaa2e3a3ac2b2dae90529148f0e44a5c49dc905ae911cb22b83c6fe3119924"
+  },
+  {
+    "file": "research-gui-16-reconnected.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "c75376fa8bc969d50b1cc0abb7c3b51f9d033f106917ed2456c85f3d839a4c3f"
+  },
+  {
+    "file": "workstation-01-disenchanter-before-assembly.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "d8e20920586561466a8699cddc10adc641bd484a59683c81d325c0a081f34b1c"
+  },
+  {
+    "file": "workstation-02-disenchanter-assembled.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "e3bdc08a60199a2d3bd0c04fdf64199f61846607d891709508ec0264ed5bc6ea"
+  },
+  {
+    "file": "workstation-03-purple-convergence-a.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "cd96abb0728634d1e154bea0edac557a5ac072a82f329d34727eb45185fb86f3"
+  },
+  {
+    "file": "workstation-04-purple-convergence-b.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "c1f03af2dab7984803409ce2d880e7db666584d9561972f8b75a2146f051a904"
+  },
+  {
+    "file": "workstation-05-disenchanting-gui.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "09c09b57a389ab9580d2ccb8b08cdc274f371d4334760d9188a2df948b18a808"
+  },
+  {
+    "file": "workstation-06-disenchanting-committed.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "3250b35c4e299b9235c5342c988e037491a4e0647916544c808f1e99c7a6fb4f"
+  },
+  {
+    "file": "workstation-07-disenchanter-restored-clusters.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "9dbd7797f9f6e820b2acd5a4633d73baaf204160e88ab49b4a436930f8600e9b"
+  },
+  {
+    "file": "workstation-08-research-frame-inward-lecterns.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "1126c883035fba821e03042e1a83861b4bde0fcd5566d02be62d10bf9ee4989b"
+  },
+  {
+    "file": "workstation-09-research-machine-assembled.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "c404095cab31f4bb62c462015ffc79a8f8cb82d50996d0ad14acd69c7b1ff3ed"
+  },
+  {
+    "file": "workstation-10-research-lectern-facing-center.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "3a01eb69a907110387166abda69d86d89a5b9fc10ecabdd1056bbf4c3959399e"
+  },
+  {
+    "file": "workstation-11-research-unknown-output.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "afb71f7d021aa761fc8ad8ac1d34c7dca0fe42c8854960c56f8cffeaba14ffff"
+  },
+  {
+    "file": "workstation-12-research-unknown-tooltip.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "59f85ebf5935e577ecba19ea6fc230472df6aac204fe679d17d60347d03cbe88"
+  },
+  {
+    "file": "workstation-13-research-direct-result.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "1d24a1618c2989e91e914b45dcdaf3f2df61472383d01405497d7957cbe1352f"
+  },
+  {
+    "file": "workstation-14-research-known-preview.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "b1fcaaa448a8b8534d9743cb3d7eebd6ff581bd165ce4fa368b017774ea590b5"
+  },
+  {
+    "file": "workstation-15-research-scroll-books-preserved.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "1ed79bc48ddcb9ccdbf4ac333149d1d7a34a15731bf9d3464426718e1dd19cb5"
+  },
+  {
+    "file": "workstation-16-reloaded-research-machine.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "0b9d30eb254cd0d292759fd368c0d88c665169f386992d33f4dc64177de2765d"
+  },
+  {
+    "file": "workstation-17-research-restored-and-inputs-returned.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "7d7fe5264015044024ddb2cd6f9981637a5f418db722ee6da2b5f92759a0a188"
+  }
+]

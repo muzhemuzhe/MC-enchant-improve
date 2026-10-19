@@ -23,7 +23,7 @@ public final class ResearchMenu extends AbstractContainerMenu {
     private final Player owner;
     private final ServerLevel server;
     private final BlockPos origin;
-    private final ContainerLevelAccess access;
+    private final UUID machine;
     private long revision=REVISIONS.incrementAndGet(),sentRevision=-1;
     private boolean closed,committing,records;
     private int offset;
@@ -31,7 +31,7 @@ public final class ResearchMenu extends AbstractContainerMenu {
     private ResearchPreviewPayload clientPreview;
     public ResearchMenu(int id,Inventory inventory){this(id,inventory,null,null);}
     public ResearchMenu(int id,Inventory inventory,ServerLevel server,BlockPos pos) {
-        super(ResearchContent.MENU,id);owner=inventory.player;this.server=server;origin=pos==null?BlockPos.ZERO:pos.immutable();access=server==null?ContainerLevelAccess.NULL:ContainerLevelAccess.create(server,pos);
+        super(ResearchContent.MENU,id);owner=inventory.player;this.server=server;origin=pos==null?BlockPos.ZERO:pos.immutable();var master=server==null?null:dev.differentenchant.workstation.WorkstationStructure.controller(server,pos,dev.differentenchant.workstation.WorkstationStructure.Kind.RESEARCH);machine=master==null?null:master.machineId();
         for(int i=0;i<4;i++) {
             final int index=i;addSlot(new Slot(inputs,i,new int[]{24,56,88,180}[i],58) {
                 @Override public boolean mayPlace(ItemStack item){return !closed&&!records&&(index==2?item.is(ResonanceItems.ATTUNED_CORE):index<2&&item.is(Items.ENCHANTED_BOOK));}
@@ -43,7 +43,12 @@ public final class ResearchMenu extends AbstractContainerMenu {
         }
         addStandardInventorySlots(inventory,INVENTORY_X,INVENTORY_Y);
     }
-    @Override public boolean stillValid(Player player){return !closed&&player==owner&&(server==null||(player.level()==server&&server.hasChunkAt(origin)))&&stillValid(access,player,ResearchContent.TABLE);}
+    @Override public boolean stillValid(Player player){
+        if(closed||player!=owner||!player.isAlive()||player.isSpectator())return false;if(server==null)return true;
+        if(player.level()!=server||player.distanceToSqr(origin.getX()+.5,origin.getY()+.5,origin.getZ()+.5)>64)return false;
+        var master=dev.differentenchant.workstation.WorkstationStructure.controller(server,origin,dev.differentenchant.workstation.WorkstationStructure.Kind.RESEARCH);
+        return machine!=null&&master!=null&&machine.equals(master.machineId());
+    }
     public boolean recordsOpen(){return records;}
     private ResearchPolicy.Recipe recipe() {
         var a=ResearchBooks.read(inputs.getItem(0));var b=ResearchBooks.read(inputs.getItem(1));

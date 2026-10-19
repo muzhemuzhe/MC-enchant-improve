@@ -3,6 +3,7 @@
   "values": [
     "differentenchant:machine_part",
     "differentenchant:disenchanting_core",
-    "differentenchant:disenchanting_part"
+    "differentenchant:disenchanting_part",
+    "differentenchant:research_part"
   ]
 }

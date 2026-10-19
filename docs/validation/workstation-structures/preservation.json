@@ -1,0 +1,315 @@
+{
+  "baseline": "47f26b3fa9a884c31fa924d7feb20e4903698be0",
+  "filesCompared": 77,
+  "allUnchanged": true,
+  "files": [
+    {
+      "file": "src/main/java/dev/differentenchant/FormationService.java",
+      "sha256": "8cdbbab58b06665f2891d5ef22f94acb58c7ee13c2b1c47a8e3786a74de9659d"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/DisassemblyService.java",
+      "sha256": "9f946e0a7a43ce157fc582d7050be45d1f959281a63c46355aa24b45c8cc2c00"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/MachinePartBlock.java",
+      "sha256": "637088501145e9acde2b530638c59d7ea348d5db732d9fbec7a16cd8065090ab"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/MachineControllerBlockEntity.java",
+      "sha256": "55fb358e98168e91dd2a2a175afb3c2adcd552458157b973aa9f127956a2e45f"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/BookshelfScan.java",
+      "sha256": "051d512ec4c2c4c272671c46de5b1220a4d7d49e819083447a3344acb7285481"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/DirectedActionPayload.java",
+      "sha256": "cec00961e78d8f5c45072d05fec93f64f91d31167748b41515cd0d9630cfca5d"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/DirectedCandidates.java",
+      "sha256": "c1bc94a7a01e6f72eb9aa817bb08433693d27750ae12f4ff384d80023e36b5a5"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/DirectedEnchantPolicy.java",
+      "sha256": "afba178747bc4350b353e865aba6a448d5103c2e84d5b1271cf759403775d80e"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/DirectedPreviewPayload.java",
+      "sha256": "17e95f77ef292d7bff9e2cbdd7dc6b370bf8470a874d617c0095590cbf59dd4c"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/DirectedSession.java",
+      "sha256": "480bf0492e9e1a5dae99ca360fb1d6514376f3ca64acdb04d3b139359bca4b13"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/EnchantingCommands.java",
+      "sha256": "ced71bf05b4cecba35e69940f177f051dc945c46bd87d5b6eb2dfcdb0733a0e8"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/EnchantingConfig.java",
+      "sha256": "2d6c53bffce49a868f97d566ac8fbd12b99ee1cf7a80fa805a75a070d97835da"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/EnchantingPreviewPayload.java",
+      "sha256": "86dc1761c9e20f4b5fd506475ad50c12b12dfcbfb104db14f33de780c51ac11c"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/EnchantingSeedData.java",
+      "sha256": "c5495cc263532f373d113be8083177eee4c9bd37b82340a632b76c7b4040ea6c"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/EnchantmentCandidates.java",
+      "sha256": "7c7db607ddbdfafdeca41ae5bd541a63cbd68e5d88ea17a0579b359d5d7a9cbb"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/MachineAccess.java",
+      "sha256": "f2712d2582a6dc123fcfd595bc9d61c3ff4f7c8a0c993b97f4bc6965bc932603"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/MachineEnchantmentMenu.java",
+      "sha256": "021cd90a6ad3168d6d81b949e140f6a69a5e0fb2131c79cf40804287eef7c5e9"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/MachineGuiLayout.java",
+      "sha256": "278e1b2129f24bc8540ac504aa0138d50ee2cd6bb3e747ea86d6b812982f1403"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/PreviewPolicy.java",
+      "sha256": "618f35f72f515c27edf0151943dd2bcc8064572fed770f932fcdbaf5e0042f38"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/enchanting/RandomEnchantPolicy.java",
+      "sha256": "99fc39ce86a49bafa34b8a3d97944d19dba7fe934b3303c50529a315adcdeb92"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/lost/AirControlConfig.java",
+      "sha256": "c0a81da5abd418ad84f49fb0ffbb6f67faabe336c98f8a19f8b5fa8caddb0d72"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/lost/ArrowParry.java",
+      "sha256": "f825071287a09f396fbcb11b6ea5c9378941b034a90fdaf42990033c6b312040"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/lost/BatchEffects.java",
+      "sha256": "b713543a230d07bbd51132345d36004c728250f48d898ca0c353d4c5f1d38f00"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/lost/BatchRules.java",
+      "sha256": "6155b904be5f168031663a1342ccb4bb85a06861c823d040dfd46ababc248d81"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/lost/LoadedArea.java",
+      "sha256": "baf0a1dbff039eecca60da5e5704a9e883e22a38bd7bbbc9cd3440a528f577c0"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/lost/ReflectionTargets.java",
+      "sha256": "150faf030b0a33944f893fc04c08b2d02872786e02ccea9431eec52a21c43a84"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/lost/StarBridgeData.java",
+      "sha256": "86b1b50e0130d757084f44f24c4c5d2e3f3f87eed1e2a0cee28a335fa1f8ee86"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/lost/StarBridges.java",
+      "sha256": "7048efbe6591191d135d99e647429b5a0e4564dfc810dba006071fce23a7cb16"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/lost/StarStep.java",
+      "sha256": "c52b7de4de393091ec7cc3b6347b0410dc02fb57e6214b4f8299f1a809901687"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/lost/TideVortices.java",
+      "sha256": "a6add09704ddbe790b310db5eeb7d4acaa019dada551982419f03469fa267626"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/mixin/AirControlMixin.java",
+      "sha256": "2c7db279b92b5ec83652aa04425a183b97a040bc19f4a6e3be02afbc9330cc42"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/mixin/ArrowParryMixin.java",
+      "sha256": "b55aa9f2f9fd203dbd066fed61a3e9e7845d34bf172b12d868b8fe888e86b788"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/mixin/BowDrawMixin.java",
+      "sha256": "72a68416494166b7f132a44678f22ea8ae907616cec9a69927a6bd415348b72c"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/mixin/client/BowModelMixin.java",
+      "sha256": "2871c3502ee74cd018ff721252234385071c5b18c07d4f1ae99429576b007cd5"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/mixin/EnchantmentHooksMixin.java",
+      "sha256": "6a73c993f8c550e19f52cb21922c5c08630975be59b3542ea147307383318a28"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/mixin/StepEventMixin.java",
+      "sha256": "32c0093b52cddf6716e9f6790aab4930b3a9f5552deaec5c3a9f131192df5876"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/mixin/TridentImpactMixin.java",
+      "sha256": "3810d629131707e4788ffae20c0de394ca1679cf71eefd5d1fa52551411d4878"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/archivists_reach.json",
+      "sha256": "c563b0746fa89a0226607bf7b73181b64837ca86a005ba10c6e186f65f3c12c4"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/borrowed_flame.json",
+      "sha256": "f8d853b59cab745040e9d81005da6b740e06f840826c31d86a5204905f81af1b"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/gravity_thread.json",
+      "sha256": "afaad5422399d0931228da49069385040e05accf723b78641c36d6ce5669fe1a"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/hush_step.json",
+      "sha256": "09013b06eecefce4d8c91e540304236ca785cd04a684c42750af536153f5ac71"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/lantern_sight.json",
+      "sha256": "478760b48d4f0d5c9d9b1ee6bacf469a82a7b31c54abfad75d5a59dfa17b294c"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/last_page.json",
+      "sha256": "7d1ffbea59e2e038839442a836634e4acc586c4a560df807a51a6c19f15d3ba0"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/living_margin.json",
+      "sha256": "8d4df7ed3c1bc614f8c88b811adb874c68d01c07232324bd47966eb013c2202c"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/paper_kite.json",
+      "sha256": "0c889ad136b000d6034f6679ee13f173e90b70cfc7e2dc2a33b9a9f7361ff4be"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/parry.json",
+      "sha256": "83d038097c5dd20f7ad0ed95eccf42e53a04287f38304c7f6624384323bbfb10"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/prospectors_echo.json",
+      "sha256": "33a0a440792313ffe85232606f11136798e3f00b371f23cc23c4d3d7cb9c1d4c"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/returning_feather.json",
+      "sha256": "cf620230e98419a639a120dfef9452ffdf9905d7cb579cfad804cde5ba9e06ed"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/star_bridge.json",
+      "sha256": "e334af0d341575a2f78ddd23d2b9d56f598dd2e665510f2a5181fa3f1b1599f9"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/swift_draw.json",
+      "sha256": "6e19a2b4b876036ee626b394bc0172086367101a4f1a20e260a33c5975df9422"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/trail_stride.json",
+      "sha256": "00b9e71394f1192033e0dd6ad10ab4585b6be96e6b3353e9c6fd8f71d6cc9911"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/undertow.json",
+      "sha256": "acf8fc03b70e9dd2a6abfbe833af580b8c17725f1040b21250f7539055215f66"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/warding_focus.json",
+      "sha256": "6918118aef5189cad4077a00cd6b2a786c5e9f711ae50adf5467a806b8b6b0e3"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/enchantment/water_reflection.json",
+      "sha256": "87dae92455f28163f744c746938301419af63bb68c36bd7ee05b3800c8d3eb6e"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/structure/ruins/lantern_sanctum.nbt",
+      "sha256": "90cdc098ff4ccad3044e7f04f878c2053e78ecc9a1446243d720b62df32f590c"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/structure/ruins/small_buried.nbt",
+      "sha256": "b2ad99d75df4d185504fd45ed4293fda0720da8aa5a164f263768267df0e218e"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/structure/ruins/small_surface.nbt",
+      "sha256": "d0ce4b86d9f298e160e8258dbcdd315574f59706251447a8c4dc025dffb63d2c"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/structure/ruins/workshop.nbt",
+      "sha256": "123d8b165c060244f38fdda5aa1b0f357eaa73f73dbbfc319bee2a415e035835"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/worldgen/structure/abandoned_workshop.json",
+      "sha256": "271ecce3f04415ed0d29e830c045db0b9eb965b1575418ea8caf8a8282ab0676"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/worldgen/structure/buried_archive.json",
+      "sha256": "ba1923b58547f81f79b6a456675bb9bb4fc8baab41fc0c80446a0425c9d302c8"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/worldgen/structure/lantern_sanctum.json",
+      "sha256": "c28c6f014c88035e8dd50acf68fce827de42b6525b9aa1b12f6c2b0ce8ac4063"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/worldgen/structure/small_archive.json",
+      "sha256": "b142e74834b7281adbe8749b6c155d0ac9f35420b5d7995cd9942c4b7575c8b4"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/worldgen/structure_set/abandoned_workshop.json",
+      "sha256": "6ec46fc8ae327329cd79d9c756579389caeff3f01020e2f953dc3d342f8dbbf2"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/worldgen/structure_set/buried_archive.json",
+      "sha256": "32535c2df2b16cf9718ac2473ee9c90e558192f3dcf3d3ea393150c892c493e4"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/worldgen/structure_set/lantern_sanctum.json",
+      "sha256": "936060ebc106d0ca76b08e01a4bdaafe34f108381f6f2f7fa3c299b38fee80b5"
+    },
+    {
+      "file": "src/main/resources/data/differentenchant/worldgen/structure_set/small_archive.json",
+      "sha256": "38285244b351bdf9beef14f4dd84e1990cccd19c89f63e8e277c51c127e671da"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/research/ResearchPolicy.java",
+      "sha256": "5c2edbdf3e26d742e0a35f458dec20d557acbc8c7c8482b29f242496330964c5"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/research/ResearchWorldData.java",
+      "sha256": "82b84f09517195ced58ffc7cfed3c576b6135644a0240086f4edc4ae32b4c296"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/research/ResearchPersistence.java",
+      "sha256": "7a32b4c44ded121a1d21fed6132f667b2068c001d1ca5c980a35a79cf2982aa5"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/research/ResearchBooks.java",
+      "sha256": "0adc161794a265c24e018aad600d47dab8b424afded25e48b07fbf9c49740abe"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/research/ResearchPreviewPayload.java",
+      "sha256": "85b8909fe0f7c37ae4d469a2d53b72c013415755936887b9e4021ddaa1c75dab"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/research/ResearchActionPayload.java",
+      "sha256": "c8bed9a187f0119804581591a459ffa8e641bd713b4184ef5d817ec4c76e2371"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/research/ResearchConfig.java",
+      "sha256": "e8ecb4fc6f9b832331f58aa5c3fbde2a71bfaa868b0887b28c3eab183c84f989"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/research/LostEffects.java",
+      "sha256": "5acdaa6b78c5361b2abc1c6b996445ed93e6592a451dea0f2fea9bb689354d49"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/research/LostEffectData.java",
+      "sha256": "eebfc0c9929917e8d9d2c2e05cb64bdd65c95eb89e10ab7e8dc747409f210ba1"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/client/ResearchScreen.java",
+      "sha256": "e34069a40dc68802c2b227c727b6c13317544d16f36974ba8c347663a1420465"
+    },
+    {
+      "file": "src/main/java/dev/differentenchant/client/MachineEnchantmentScreen.java",
+      "sha256": "22f1b8c3faefd78b000afde24e367908bdec1f6a22e132994d5ba1ffd8d152f9"
+    }
+  ]
+}

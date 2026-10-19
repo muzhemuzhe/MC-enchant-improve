@@ -1,0 +1,51 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources
+> Task :classes
+
+> Task :compileGametestJava
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\LostEffectsGameTests.java:25: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+        var p=h.makeMockServerPlayerInLevel();p.setGameMode(GameType.SURVIVAL);p.teleportTo(h.absolutePos(new BlockPos(2,3,2)).getX(),h.absolutePos(new BlockPos(2,3,2)).getY(),h.absolutePos(new BlockPos(2,3,2)).getZ());
+               ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\LostEffectsGameTests.java:43: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+        var p=h.makeMockServerPlayerInLevel();p.setGameMode(GameType.SURVIVAL);var pos=h.absolutePos(new BlockPos(2,2,2));
+               ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\LostEffectsGameTests.java:56: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+        var p=h.makeMockServerPlayerInLevel();p.connection.handleAcceptPlayerLoad(new net.minecraft.network.protocol.game.ServerboundPlayerLoadedPacket());p.setGameMode(GameType.SURVIVAL);p.getAbilities().invulnerable=false;p.setItemSlot(EquipmentSlot.CHEST,gear(h,Items.DIAMOND_CHESTPLATE,"last_page",1));p.setHealth(1);
+               ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResearchGameTests.java:47: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+        var level=h.getLevel();var p=h.makeMockServerPlayerInLevel();var m=menu(level,h.absolutePos(new BlockPos(1,2,1)),p);
+                                      ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResearchGameTests.java:65: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+        var level=h.getLevel();var player=h.makeMockServerPlayerInLevel();player.setGameMode(GameType.SURVIVAL);
+                                           ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResearchGameTests.java:94: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+        var level=h.getLevel();var pos=h.absolutePos(new BlockPos(1,2,1));var p=h.makeMockServerPlayerInLevel();var menu=menu(level,pos,p);
+                                                                                 ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResearchGameTests.java:117: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+        var level=h.getLevel();var pos=h.absolutePos(new BlockPos(1,2,1));var p=h.makeMockServerPlayerInLevel();var other=h.makeMockServerPlayerInLevel();
+                                                                                 ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResearchGameTests.java:117: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+        var level=h.getLevel();var pos=h.absolutePos(new BlockPos(1,2,1));var p=h.makeMockServerPlayerInLevel();var other=h.makeMockServerPlayerInLevel();
+                                                                                                                           ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResearchGameTests.java:132: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+        var level=h.getLevel();var p=h.makeMockServerPlayerInLevel();var m=menu(level,h.absolutePos(new BlockPos(1,2,1)),p);var recipe=find(level,ResearchPolicy.Result::scroll);fill(m,level,recipe,6);
+                                      ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResearchGameTests.java:170: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+        var pos=h.absolutePos(new BlockPos(1,2,1));var p=h.makeMockServerPlayerInLevel();var menu=menu(level,pos,p);var recipe=find(level,r->!r.scroll());fill(menu,level,recipe,1);
+                                                          ^
+10 个警告
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+3 actionable tasks: 2 executed, 1 up-to-date

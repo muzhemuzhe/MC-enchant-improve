@@ -1,0 +1,34 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileGametestJava FAILED
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationClientGameTest.java:31: 错误: 不兼容的类型: BlockPos无法转换为Vec3
+    private static Map<String,Integer> counts(TestSingleplayerContext w){return w.getServer().computeOnServer(s->{var p=s.getPlayerList().getPlayers().getFirst();var all=new ArrayList<ItemStack>();for(int i=0;i<p.getInventory().getContainerSize();i++)all.add(p.getInventory().getItem(i));if(p.containerMenu instanceof ResearchMenu m)for(int i=0;i<3;i++)all.add(m.getSlot(i).getItem());if(p.containerMenu instanceof DisenchantMenu m)for(int i=0;i<2;i++)all.add(m.getSlot(i).getItem());all.add(p.containerMenu.getCarried());for(var e:s.overworld().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,new AABB(D,R).inflate(20)))all.add(e.getItem());var result=new TreeMap<String,Integer>();for(var item:all)if(!item.isEmpty())result.merge(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item.getItem()).toString(),item.getCount(),Integer::sum);return result;});}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+注: 某些消息已经过简化; 请使用 -Xdiags:verbose 重新编译以获得完整输出
+1 个错误
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationClientGameTest.java:31: 错误: 不兼容的类型: BlockPos无法转换为Vec3
+      private static Map<String,Integer> counts(TestSingleplayerContext w){return w.getServer().computeOnServer(s->{var p=s.getPlayerList().getPlayers().getFirst();var all=new ArrayList<ItemStack>();for(int i=0;i<p.getInventory().getContainerSize();i++)all.add(p.getInventory().getItem(i));if(p.containerMenu instanceof ResearchMenu m)for(int i=0;i<3;i++)all.add(m.getSlot(i).getItem());if(p.containerMenu instanceof DisenchantMenu m)for(int i=0;i<2;i++)all.add(m.getSlot(i).getItem());all.add(p.containerMenu.getCarried());for(var e:s.overworld().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,new AABB(D,R).inflate(20)))all.add(e.getItem());var result=new TreeMap<String,Integer>();for(var item:all)if(!item.isEmpty())result.merge(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item.getItem()).toString(),item.getCount(),Integer::sum);return result;});}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^
+  注: 某些消息已经过简化; 请使用 -Xdiags:verbose 重新编译以获得完整输出
+  1 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+3 actionable tasks: 1 executed, 2 up-to-date

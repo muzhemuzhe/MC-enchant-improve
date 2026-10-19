@@ -1,11 +1,9 @@
 {
   "textures": {
-    "stone": "minecraft:block/deepslate_bricks",
-    "trim": "minecraft:block/polished_deepslate",
-    "copper": "minecraft:block/cut_copper",
-    "echo": "minecraft:block/sculk_catalyst_top",
-    "crystal": "minecraft:block/amethyst_block",
-    "particle": "minecraft:block/deepslate_bricks"
+    "particle": "minecraft:block/amethyst_block",
+    "amethyst": "minecraft:block/amethyst_block",
+    "gold": "minecraft:block/gold_block",
+    "red": "minecraft:block/redstone_block"
   },
   "elements": [
     {
@@ -16,91 +14,27 @@
       ],
       "to": [
         16,
-        14,
-        16
-      ],
-      "faces": {
-        "north": {
-          "texture": "#stone"
-        },
-        "south": {
-          "texture": "#stone"
-        },
-        "west": {
-          "texture": "#stone"
-        },
-        "east": {
-          "texture": "#stone"
-        },
-        "up": {
-          "texture": "#stone"
-        },
-        "down": {
-          "texture": "#stone"
-        }
-      }
-    },
-    {
-      "from": [
-        0,
-        14,
-        0
-      ],
-      "to": [
-        16,
         16,
         16
       ],
       "faces": {
         "north": {
-          "texture": "#trim"
+          "texture": "#gold"
         },
         "south": {
-          "texture": "#trim"
+          "texture": "#gold"
         },
         "west": {
-          "texture": "#trim"
+          "texture": "#gold"
         },
         "east": {
-          "texture": "#trim"
+          "texture": "#gold"
         },
         "up": {
-          "texture": "#trim"
+          "texture": "#gold"
         },
         "down": {
-          "texture": "#trim"
-        }
-      }
-    },
-    {
-      "from": [
-        7,
-        15,
-        0
-      ],
-      "to": [
-        9,
-        16,
-        16
-      ],
-      "faces": {
-        "north": {
-          "texture": "#copper"
-        },
-        "south": {
-          "texture": "#copper"
-        },
-        "west": {
-          "texture": "#copper"
-        },
-        "east": {
-          "texture": "#copper"
-        },
-        "up": {
-          "texture": "#copper"
-        },
-        "down": {
-          "texture": "#copper"
+          "texture": "#gold"
         }
       }
     }

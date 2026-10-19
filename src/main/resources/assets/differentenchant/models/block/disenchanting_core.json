@@ -1,11 +1,11 @@
 {
   "textures": {
-    "stone": "minecraft:block/deepslate_bricks",
-    "trim": "minecraft:block/polished_deepslate",
-    "copper": "minecraft:block/cut_copper",
+    "stone": "minecraft:block/amethyst_block",
+    "trim": "minecraft:block/amethyst_block",
+    "copper": "minecraft:block/gold_block",
     "echo": "minecraft:block/sculk_catalyst_top",
     "crystal": "minecraft:block/amethyst_block",
-    "particle": "minecraft:block/deepslate_bricks"
+    "particle": "minecraft:block/amethyst_block"
   },
   "elements": [
     {

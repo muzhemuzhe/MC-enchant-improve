@@ -1,0 +1,122 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileGametestJava FAILED
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:88: 错误: 无法将记录 ChunkPos中的构造器 ChunkPos应用到给定类型;
+        for(var core:cores)for(int i=0;i<18;i++)chunks.add(new net.minecraft.world.level.ChunkPos(WorkstationStructure.position(core,i)));
+                                                           ^
+  需要: int,int
+  找到:    BlockPos
+  原因: 实际参数列表和形式参数列表长度不同
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:89: 错误: x 在 ChunkPos 中是 private 访问控制
+        for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);
+                                                   ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:89: 错误: z 在 ChunkPos 中是 private 访问控制
+        for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);
+                                                           ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:91: 错误: x 在 ChunkPos 中是 private 访问控制
+        for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);int[] phase={0};long[] ready={0};
+                                                   ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:91: 错误: z 在 ChunkPos 中是 private 访问控制
+        for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);int[] phase={0};long[] ready={0};
+                                                           ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:92: 错误: x 在 ChunkPos 中是 private 访问控制
+        h.runAtTickTime(849,()->{for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);});
+                                                                            ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:92: 错误: z 在 ChunkPos 中是 private 访问控制
+        h.runAtTickTime(849,()->{for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);});
+                                                                                    ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: x 在 ChunkPos 中是 private 访问控制
+            if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                  ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: z 在 ChunkPos 中是 private 访问控制
+            if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                          ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: x 在 ChunkPos 中是 private 访问控制
+            if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                                                                                                                                                                                                                                                                                                                 ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: z 在 ChunkPos 中是 private 访问控制
+            if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                                                                                                                                                                                                                                                                                                                         ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: x 在 ChunkPos 中是 private 访问控制
+            if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: z 在 ChunkPos 中是 private 访问控制
+            if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:97: 错误: x 在 ChunkPos 中是 private 访问控制
+            for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);
+                                                       ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:97: 错误: z 在 ChunkPos 中是 private 访问控制
+            for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);
+                                                               ^
+15 个错误
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:88: 错误: 无法将记录 ChunkPos中的构造器 ChunkPos应用到给定类型;
+          for(var core:cores)for(int i=0;i<18;i++)chunks.add(new net.minecraft.world.level.ChunkPos(WorkstationStructure.position(core,i)));
+                                                             ^
+    需要: int,int
+    找到:    BlockPos
+    原因: 实际参数列表和形式参数列表长度不同
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:89: 错误: x 在 ChunkPos 中是 private 访问控制
+          for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);
+                                                     ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:89: 错误: z 在 ChunkPos 中是 private 访问控制
+          for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);
+                                                             ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:91: 错误: x 在 ChunkPos 中是 private 访问控制
+          for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);int[] phase={0};long[] ready={0};
+                                                     ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:91: 错误: z 在 ChunkPos 中是 private 访问控制
+          for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);int[] phase={0};long[] ready={0};
+                                                             ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:92: 错误: x 在 ChunkPos 中是 private 访问控制
+          h.runAtTickTime(849,()->{for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);});
+                                                                              ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:92: 错误: z 在 ChunkPos 中是 private 访问控制
+          h.runAtTickTime(849,()->{for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);});
+                                                                                      ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: x 在 ChunkPos 中是 private 访问控制
+              if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                    ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: z 在 ChunkPos 中是 private 访问控制
+              if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                            ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: x 在 ChunkPos 中是 private 访问控制
+              if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                                                                                                                                                                                                                                                                                                                   ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: z 在 ChunkPos 中是 private 访问控制
+              if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                                                                                                                                                                                                                                                                                                                           ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: x 在 ChunkPos 中是 private 访问控制
+              if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:94: 错误: z 在 ChunkPos 中是 private 访问控制
+              if(phase[0]==0){for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"wait for genuine native chunk unload");for(int j=0;j<2;j++)h.assertTrue(WorkstationStructure.controller(l,cores.get(j),WorkstationStructure.Kind.values()[j])==null,"unloaded machines inaccessible");for(var chunk:chunks)h.assertTrue(l.getChunkSource().getChunkNow(chunk.x,chunk.z)==null,"validation did not acquire unloaded chunks");for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,true);phase[0]=1;ready[0]=l.getGameTime()+23;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:97: 错误: x 在 ChunkPos 中是 private 访问控制
+              for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);
+                                                         ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\WorkstationGameTests.java:97: 错误: z 在 ChunkPos 中是 private 访问控制
+              for(var chunk:chunks)l.setChunkForced(chunk.x,chunk.z,false);
+                                                                 ^
+  15 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+3 actionable tasks: 1 executed, 2 up-to-date

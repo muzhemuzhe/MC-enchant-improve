@@ -1,58 +1,148 @@
 {
-  "variants": {
-    "part=0": {
-      "model": "differentenchant:block/disenchanting_part_0"
+  "multipart": [
+    {
+      "when": {
+        "part": "0"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_0"
+      }
     },
-    "part=1": {
-      "model": "differentenchant:block/disenchanting_part_1"
+    {
+      "when": {
+        "part": "1"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_1"
+      }
     },
-    "part=2": {
-      "model": "differentenchant:block/disenchanting_part_2"
+    {
+      "when": {
+        "part": "2"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_2"
+      }
     },
-    "part=3": {
-      "model": "differentenchant:block/disenchanting_part_3"
+    {
+      "when": {
+        "part": "3"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_3"
+      }
     },
-    "part=4": {
-      "model": "differentenchant:block/disenchanting_part_4"
+    {
+      "when": {
+        "part": "4"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_4"
+      }
     },
-    "part=5": {
-      "model": "differentenchant:block/disenchanting_part_5"
+    {
+      "when": {
+        "part": "5"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_5"
+      }
     },
-    "part=6": {
-      "model": "differentenchant:block/disenchanting_part_6"
+    {
+      "when": {
+        "part": "6"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_6"
+      }
     },
-    "part=7": {
-      "model": "differentenchant:block/disenchanting_part_7"
+    {
+      "when": {
+        "part": "7"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_7"
+      }
     },
-    "part=8": {
-      "model": "differentenchant:block/disenchanting_part_8"
+    {
+      "when": {
+        "part": "8"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_8"
+      }
     },
-    "part=9": {
-      "model": "differentenchant:block/disenchanting_part_9"
+    {
+      "when": {
+        "part": "9"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_9"
+      }
     },
-    "part=10": {
-      "model": "differentenchant:block/disenchanting_part_10"
+    {
+      "when": {
+        "part": "10"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_10"
+      }
     },
-    "part=11": {
-      "model": "differentenchant:block/disenchanting_part_11"
+    {
+      "when": {
+        "part": "11"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_11"
+      }
     },
-    "part=12": {
-      "model": "differentenchant:block/disenchanting_part_12"
+    {
+      "when": {
+        "part": "12"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_12"
+      }
     },
-    "part=13": {
-      "model": "differentenchant:block/disenchanting_part_13"
+    {
+      "when": {
+        "part": "13"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_13"
+      }
     },
-    "part=14": {
-      "model": "differentenchant:block/disenchanting_part_14"
+    {
+      "when": {
+        "part": "14"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_14"
+      }
     },
-    "part=15": {
-      "model": "differentenchant:block/disenchanting_part_15"
+    {
+      "when": {
+        "part": "15"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_15"
+      }
     },
-    "part=16": {
-      "model": "differentenchant:block/disenchanting_part_16"
+    {
+      "when": {
+        "part": "16"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_16"
+      }
     },
-    "part=17": {
-      "model": "differentenchant:block/disenchanting_part_17"
+    {
+      "when": {
+        "part": "17"
+      },
+      "apply": {
+        "model": "differentenchant:block/disenchanting_part_17"
+      }
     }
-  }
+  ]
 }

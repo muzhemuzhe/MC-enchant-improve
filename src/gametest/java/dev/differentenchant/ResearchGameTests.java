@@ -36,7 +36,7 @@ public final class ResearchGameTests {
         throw new AssertionError("No fixture recipe");
     }
     static ResearchMenu menu(ServerLevel level,BlockPos pos,ServerPlayer player) {
-        level.setBlockAndUpdate(pos,ResearchContent.TABLE.defaultBlockState());player.teleportTo(pos.getX()+.5,pos.getY(),pos.getZ()-2);player.setGameMode(GameType.SURVIVAL);
+        WorkstationFixtures.ensure(level,pos,dev.differentenchant.workstation.WorkstationStructure.Kind.RESEARCH);player.teleportTo(pos.getX()+.5,pos.getY(),pos.getZ()-2);player.setGameMode(GameType.SURVIVAL);
         var menu=new ResearchMenu(51,player.getInventory(),level,pos);player.containerMenu=menu;return menu;
     }
     static void fill(ResearchMenu menu,ServerLevel level,ResearchPolicy.Recipe recipe,int cores) {
@@ -63,7 +63,7 @@ public final class ResearchGameTests {
     }
     @GameTest public void nativeCraftAndEightAnvilApplications(GameTestHelper h) {
         var level=h.getLevel();var player=h.makeMockServerPlayerInLevel();player.setGameMode(GameType.SURVIVAL);
-        var grid=List.of(new ItemStack(Items.AMETHYST_SHARD),new ItemStack(Items.BOOKSHELF),new ItemStack(Items.AMETHYST_SHARD),new ItemStack(Items.QUARTZ),new ItemStack(Items.LECTERN),new ItemStack(Items.QUARTZ),new ItemStack(Items.IRON_INGOT),new ItemStack(Items.IRON_INGOT),new ItemStack(Items.IRON_INGOT));
+        var grid=List.of(new ItemStack(Items.AMETHYST_SHARD),new ItemStack(Items.OAK_PLANKS),new ItemStack(Items.AMETHYST_SHARD),new ItemStack(Items.BIRCH_PLANKS),new ItemStack(ResearchContent.LOST_SCROLL),new ItemStack(Items.SPRUCE_PLANKS),new ItemStack(Items.AMETHYST_SHARD),new ItemStack(Items.CHERRY_PLANKS),new ItemStack(Items.AMETHYST_SHARD));
         var nativeRecipe=level.getServer().getRecipeManager().getRecipeFor(RecipeType.CRAFTING,CraftingInput.of(3,3,grid),level).orElseThrow();
         h.assertTrue(nativeRecipe.value().assemble(CraftingInput.of(3,3,grid)).is(ResearchContent.TABLE_ITEM),"survival recipe uses existing vanilla materials");
         var craftingPos=h.absolutePos(new BlockPos(1,2,1));level.setBlockAndUpdate(craftingPos,Blocks.CRAFTING_TABLE.defaultBlockState());

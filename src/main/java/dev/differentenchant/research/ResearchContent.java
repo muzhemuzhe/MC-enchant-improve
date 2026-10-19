@@ -12,6 +12,9 @@ public final class ResearchContent {
     public static Identifier id(String path){return Identifier.fromNamespaceAndPath("differentenchant",path);}
     public static final ResearchTableBlock TABLE=Registry.register(BuiltInRegistries.BLOCK,id("lost_research_table"),new ResearchTableBlock(BlockBehaviour.Properties.of()
         .setId(ResourceKey.create(Registries.BLOCK,id("lost_research_table"))).strength(2.5f).sound(net.minecraft.world.level.block.SoundType.WOOD).noOcclusion()));
+    public static final ResearchPartBlock PART=Registry.register(BuiltInRegistries.BLOCK,id("research_part"),new ResearchPartBlock(BlockBehaviour.Properties.of()
+        .setId(ResourceKey.create(Registries.BLOCK,id("research_part"))).strength(2.5f,6).noOcclusion().pushReaction(net.minecraft.world.level.material.PushReaction.BLOCK)));
+    public static final net.minecraft.world.level.block.entity.BlockEntityType<ResearchPartEntity> PART_ENTITY=Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE,id("research_part"),net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder.create(ResearchPartEntity::new,PART).build());
     public static final Item TABLE_ITEM=Registry.register(BuiltInRegistries.ITEM,id("lost_research_table"),new BlockItem(TABLE,new Item.Properties().setId(ResourceKey.create(Registries.ITEM,id("lost_research_table")))));
     public static final Item LOST_SCROLL=Registry.register(BuiltInRegistries.ITEM,id("lost_scroll"),new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,id("lost_scroll"))).rarity(Rarity.UNCOMMON)));
     public static final MenuType<ResearchMenu> MENU=Registry.register(BuiltInRegistries.MENU,id("lost_research"),new MenuType<>(ResearchMenu::new,FeatureFlags.DEFAULT_FLAGS));
@@ -24,6 +27,7 @@ public final class ResearchContent {
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server,resources,success)->{if(success)ResearchWorldData.get(server).observeNewInputs(server.registryAccess());});
         net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(output->output.accept(TABLE_ITEM));
         net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(output->output.accept(LOST_SCROLL));
+        dev.differentenchant.workstation.ScrollExploration.initialize();
         LostEffects.initialize();
         dev.differentenchant.lost.BatchEffects.initialize();
     }

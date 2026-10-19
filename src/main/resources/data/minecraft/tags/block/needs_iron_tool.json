@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "differentenchant:disenchanting_core",
-    "differentenchant:disenchanting_part"
+    "differentenchant:disenchanting_core"
   ]
 }

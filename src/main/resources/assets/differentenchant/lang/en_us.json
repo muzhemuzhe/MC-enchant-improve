@@ -107,5 +107,14 @@
   "disenchant.differentenchant.result": "Extract: %s",
   "disenchant.differentenchant.equipment": "Enchanted equipment",
   "disenchant.differentenchant.book": "Ordinary book (one per extraction)",
-  "disenchant.differentenchant.choose": "Choose one"
+  "disenchant.differentenchant.choose": "Choose one",
+  "block.differentenchant.research_part": "Lost Magic Research Machine",
+  "workstation.differentenchant.assembly": "Build the complete frame, then sneak-use the controller with empty hands.",
+  "workstation.differentenchant.formed": "Machine assembled. Right-click a part to use.",
+  "workstation.differentenchant.structure": "Structure incomplete or incorrectly oriented.",
+  "workstation.differentenchant.lectern_book": "Empty all four lecterns before assembly.",
+  "workstation.differentenchant.unloaded": "All parts must be in loaded chunks.",
+  "workstation.differentenchant.support": "Amethyst clusters must face up on their supports.",
+  "workstation.differentenchant.block_entity": "This frame contains an unsupported block entity.",
+  "workstation.differentenchant.busy": "Assembly is busy. Try again."
 }

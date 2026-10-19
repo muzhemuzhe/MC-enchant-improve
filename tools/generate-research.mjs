@@ -30,9 +30,9 @@ for(let tier=1;tier<=4;tier++)json('data/differentenchant/tags/enchantment/lost_
 json('data/differentenchant/tags/enchantment/lost_enchantments.json',{replace:false,values:[1,2,3,4].map(t=>'#differentenchant:lost_tier_'+t)});
 json('data/minecraft/tags/enchantment/treasure.json',{replace:false,values:['#differentenchant:lost_enchantments']});
 for(const kind of ['random','directed'])json('data/differentenchant/tags/enchantment/excluded_from_'+kind+'.json',{replace:false,values:['#differentenchant:lost_enchantments']});
-json('data/differentenchant/recipe/lost_research_table.json',{type:'minecraft:crafting_shaped',category:'misc',pattern:['ABA','QLQ','III'],key:{A:'minecraft:amethyst_shard',B:'minecraft:bookshelf',Q:'minecraft:quartz',L:'minecraft:lectern',I:'minecraft:iron_ingot'},result:{id:'differentenchant:lost_research_table',count:1}});
+json('data/differentenchant/recipe/lost_research_table.json',{type:'minecraft:crafting_shaped',category:'misc',pattern:['APA','PSP','APA'],key:{A:'minecraft:amethyst_shard',P:'#minecraft:planks',S:'differentenchant:lost_scroll'},result:{id:'differentenchant:lost_research_table',count:1}});
 json('data/differentenchant/loot_table/blocks/lost_research_table.json',{type:'minecraft:block',pools:[{rolls:1,entries:[{type:'minecraft:item',name:'differentenchant:lost_research_table'}],conditions:[{condition:'minecraft:survives_explosion'}]}]});
-json('data/minecraft/tags/block/mineable/axe.json',{replace:false,values:['differentenchant:lost_research_table']});
+json('data/minecraft/tags/block/mineable/axe.json',{replace:false,values:['differentenchant:lost_research_table','differentenchant:research_part']});
 const faces=texture=>Object.fromEntries(['north','south','east','west','up','down'].map(face=>[face,{uv:[0,0,16,16],texture:'#'+texture}]));
 const cube=(from,to,texture)=>({from,to,faces:faces(texture)});
 const elements=[];

@@ -18,7 +18,8 @@ public final class DisenchantCoreBlock extends Block {
     @Override protected InteractionResult useWithoutItem(BlockState state,Level level,BlockPos pos,Player player,BlockHitResult hit) {
         if(level instanceof ServerLevel server&&!player.isSpectator()) {
             boolean form=player.isShiftKeyDown()&&player.mayBuild()&&player.getMainHandItem().isEmpty()&&player.getOffhandItem().isEmpty();
-            player.sendSystemMessage(Component.translatable("disenchant.differentenchant."+(form&&DisenchantStructure.form(server,pos)?"formed":"assembly")));
+            String status=form?dev.differentenchant.workstation.WorkstationStructure.form(server,pos,dev.differentenchant.workstation.WorkstationStructure.Kind.DISENCHANT):"assembly";
+            player.sendSystemMessage(Component.translatable("workstation.differentenchant."+status));
         }
         return InteractionResult.SUCCESS;
     }
