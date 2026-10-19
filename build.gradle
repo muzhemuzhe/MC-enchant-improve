@@ -42,15 +42,17 @@ tasks.named('processGametestResources') {
     def mediumReview = providers.gradleProperty('mediumReview').isPresent()
     def lanternOnly = providers.gradleProperty('lanternOnly').isPresent()
     def researchOnly = providers.gradleProperty('researchOnly').isPresent()
+    def researchGui = providers.gradleProperty('researchGui').isPresent()
     def researchAffected = providers.gradleProperty('researchAffected').isPresent()
     inputs.property('ruinsOnly', ruinsOnly)
     inputs.property('smallReview', smallReview)
     inputs.property('mediumReview', mediumReview)
     inputs.property('lanternOnly', lanternOnly)
     inputs.property('researchOnly', researchOnly)
+    inputs.property('researchGui', researchGui)
     inputs.property('researchAffected', researchAffected)
     doLast {
-        if (ruinsOnly || smallReview || mediumReview || lanternOnly || researchOnly) {
+        if (ruinsOnly || smallReview || mediumReview || lanternOnly || researchOnly || researchGui) {
             def metadata = new File(destinationDir, 'fabric.mod.json')
             def parsed = new groovy.json.JsonSlurper().parse(metadata)
             parsed.entrypoints['fabric-gametest'] = smallReview || mediumReview ? [] : ['dev.differentenchant.RuinGameTests']
@@ -59,8 +61,9 @@ tasks.named('processGametestResources') {
                 parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.LanternGameTests']
                 parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.LanternClientGameTest']
             }
-            if (researchOnly) {
+            if (researchOnly || researchGui) {
                 parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.ResearchGameTests', 'dev.differentenchant.LostEffectsGameTests', 'dev.differentenchant.research.ResearchPersistenceGameTests']
+                if (researchGui) parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.ResearchGameTests', 'dev.differentenchant.research.ResearchPersistenceGameTests']
                 if (researchAffected) parsed.entrypoints['fabric-gametest'] += ['dev.differentenchant.ResearchIntegrationGameTests']
                 parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.ResearchClientGameTest']
             }

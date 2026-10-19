@@ -1,0 +1,5 @@
+Minecraft 26.1.2 native OpenGL client. Survival placement/use; mouse book inputs and shift-core, unknown synced BOOK without hidden stored enchantments; direct output pickup delivers real book to cursor.
+Success and known repeat consume both books and one core each. Unknown scroll uses identical BOOK, shift delivers true scroll; full named/repaired books unchanged. Known scroll repeats with one core per click.
+English/Chinese unknown and known tooltips, unknown F3+H tooltip, real book enchantment levels, scrolling six discoveries and compact layout screenshots. No Research action button.
+Seed 1; UUID 5b615aa5-0042-3651-8971-2294273b0cec; success minecraft:aqua_affinity@1|minecraft:aqua_affinity@1; scroll minecraft:aqua_affinity@1|minecraft:density@2.
+Disconnected with preview and real materials in open menu: total inventory + native drops unchanged after disk reload; saved world snapshot, fixed answers and UUID discoveries identical.

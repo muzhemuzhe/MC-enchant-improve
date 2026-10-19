@@ -43,6 +43,24 @@ public final class ResearchGameTests {
         menu.getSlot(0).set(book(level,recipe.a()));menu.getSlot(1).set(book(level,recipe.b()));menu.getSlot(2).set(new ItemStack(ResonanceItems.ATTUNED_CORE,cores));menu.broadcastChanges();
     }
     static ResearchActionPayload action(ResearchMenu menu){menu.broadcastChanges();return new ResearchActionPayload(menu.containerId,menu.snapshot().revision(),0,0);}
+    @GameTest public void previewWireContainsOnlyPersonalPresentation(GameTestHelper h) {
+        var level=h.getLevel();var p=h.makeMockServerPlayerInLevel();var m=menu(level,h.absolutePos(new BlockPos(1,2,1)),p);
+        var recipe=find(level,ResearchPolicy.Result::scroll);fill(m,level,recipe,2);
+        var buffer=new net.minecraft.network.RegistryFriendlyByteBuf(io.netty.buffer.Unpooled.buffer(),level.registryAccess());
+        try {
+            ResearchPreviewPayload.CODEC.encode(buffer,m.snapshot());var decoded=ResearchPreviewPayload.CODEC.decode(buffer);
+            h.assertTrue(decoded.known()==null&&decoded.rows().isEmpty(),"unknown wire payload contains no result, scroll flag or record");
+            h.assertTrue(m.getSlot(3).getItem().is(Items.BOOK)&&m.getSlot(3).getItem().get(DataComponents.STORED_ENCHANTMENTS)==null,"native slot sync contains only harmless unknown book");
+            var client=new ResearchMenu(m.containerId,p.getInventory());for(int i=0;i<3;i++)client.getSlot(i).set(m.getSlot(i).getItem().copy());client.acceptPreview(decoded);
+            h.assertTrue(client.preview()!=null,"matching native inputs accept preview");client.getSlot(1).set(ItemStack.EMPTY);h.assertTrue(client.preview()==null,"replacing native input immediately suppresses stale preview");
+            m.clicked(3,0,ContainerInput.PICKUP,p);m.handle(p,new ResearchActionPayload(m.containerId,m.snapshot().revision(),1,0));
+            buffer.clear();ResearchPreviewPayload.CODEC.encode(buffer,m.snapshot());decoded=ResearchPreviewPayload.CODEC.decode(buffer);
+            h.assertTrue(decoded.known().scroll()&&decoded.rows().size()==1&&decoded.rows().getFirst().result().scroll(),"own known output and record codec round trip");
+            var fields=Arrays.stream(ResearchPreviewPayload.DisplayResult.class.getRecordComponents()).map(java.lang.reflect.RecordComponent::getName).toList();
+            h.assertTrue(fields.equals(List.of("id","level","scroll")),"display protocol excludes rarity, score, weight and probability fields");
+        } finally {buffer.release();}
+        m.removed(p);h.succeed();
+    }
     @GameTest public void nativeCraftAndEightAnvilApplications(GameTestHelper h) {
         var level=h.getLevel();var player=h.makeMockServerPlayerInLevel();player.setGameMode(GameType.SURVIVAL);
         var grid=List.of(new ItemStack(Items.AMETHYST_SHARD),new ItemStack(Items.BOOKSHELF),new ItemStack(Items.AMETHYST_SHARD),new ItemStack(Items.QUARTZ),new ItemStack(Items.LECTERN),new ItemStack(Items.QUARTZ),new ItemStack(Items.IRON_INGOT),new ItemStack(Items.IRON_INGOT),new ItemStack(Items.IRON_INGOT));
@@ -77,38 +95,55 @@ public final class ResearchGameTests {
         var data=ResearchWorldData.get(level.getServer());var scroll=find(level,ResearchPolicy.Result::scroll);fill(menu,level,scroll,4);
         menu.getSlot(0).getItem().set(DataComponents.CUSTOM_NAME,Component.literal("Original A"));menu.getSlot(0).getItem().set(DataComponents.REPAIR_COST,17);menu.broadcastChanges();
         var a=menu.getSlot(0).getItem().copy();var b=menu.getSlot(1).getItem().copy();
-        h.assertTrue(menu.snapshot().known()==null,"unseen real result never disclosed");var request=action(menu);menu.handle(p,request);menu.handle(p,request);
-        h.assertTrue(menu.getSlot(3).getItem().is(ResearchContent.LOST_SCROLL)&&menu.getSlot(2).getItem().getCount()==3,"fixed scroll and exactly one core on replay");
-        h.assertTrue(ItemStack.matches(a,menu.getSlot(0).getItem())&&ItemStack.matches(b,menu.getSlot(1).getItem()),"failure preserves full book components");
-        h.assertTrue(menu.snapshot().known()!=null&&menu.snapshot().known().scroll(),"own discovered failure is now previewed");
-        var blocked=action(menu);menu.handle(p,blocked);h.assertTrue(menu.getSlot(2).getItem().getCount()==3,"occupied output blocks all charges");
-        menu.quickMoveStack(p,3);menu.handle(p,request);h.assertTrue(menu.getSlot(3).getItem().isEmpty()&&menu.getSlot(2).getItem().getCount()==3,"old packet stays stale after output collection");
-        menu.handle(p,action(menu));h.assertTrue(menu.getSlot(3).getItem().is(ResearchContent.LOST_SCROLL)&&menu.getSlot(2).getItem().getCount()==2,"repeat same fixed failure costs another core");
-        var restored=ResearchWorldData.importJson(data.exportJson());h.assertTrue(restored.knows(p.getUUID(),scroll)&&restored.resolve(new ResearchPolicy.Recipe(scroll.b(),scroll.a())).equals(data.resolve(scroll)),"world rules/answer/player discovery round-trip");
-        h.assertTrue(!restored.knows(UUID.randomUUID(),scroll),"discoveries remain UUID isolated");
-        h.assertTrue(data.resolve(scroll).equals(restored.resolve(scroll)),"research order and save never reassign");
-        menu.removed(p);menu.removed(p);h.assertTrue(p.getInventory().countItem(ResearchContent.LOST_SCROLL)==2,"close returns second output once");
+        h.assertTrue(menu.snapshot().known()==null&&menu.getSlot(3).getItem().is(Items.BOOK),"unknown scroll displays only a plain book, not its real output");
+        var request=action(menu);menu.handle(p,request);h.assertTrue(menu.getSlot(2).getItem().getCount()==4,"old research button packet does nothing");
+        menu.clicked(3,0,ContainerInput.PICKUP,p);
+        h.assertTrue(menu.getCarried().is(ResearchContent.LOST_SCROLL)&&menu.getSlot(2).getItem().getCount()==3,"direct pickup delivers real scroll and charges exactly one core");
+        h.assertTrue(ItemStack.matches(a,menu.getSlot(0).getItem())&&ItemStack.matches(b,menu.getSlot(1).getItem()),"scroll preserves all book components");
+        h.assertTrue(menu.snapshot().known().scroll()&&menu.getSlot(3).getItem().is(ResearchContent.LOST_SCROLL),"personal discovery immediately unlocks real preview");
+        menu.clicked(3,1,ContainerInput.PICKUP,p);
+        h.assertTrue(menu.getCarried().getCount()==2&&menu.getSlot(2).getItem().getCount()==2,"right pickup repeats fixed recipe once, merging real scrolls");
+        menu.clicked(3,0,ContainerInput.QUICK_MOVE,p);
+        h.assertTrue(p.getInventory().countItem(ResearchContent.LOST_SCROLL)==1&&menu.getSlot(2).getItem().getCount()==1,"one shift gesture produces one real scroll");
+        menu.handle(p,request);h.assertTrue(menu.getSlot(2).getItem().getCount()==1,"legacy/replayed action cannot charge materials");
+        var restored=ResearchWorldData.importJson(data.exportJson());h.assertTrue(restored.knows(p.getUUID(),scroll)&&restored.resolve(new ResearchPolicy.Recipe(scroll.b(),scroll.a())).equals(data.resolve(scroll)),"world answer and UUID discovery survive round trip");
+        h.assertTrue(!restored.knows(UUID.randomUUID(),scroll),"discoveries remain personal");
+        menu.removed(p);menu.removed(p);h.assertTrue(p.getInventory().countItem(ResearchContent.LOST_SCROLL)==3&&p.getInventory().countItem(Items.BOOK)==0,"close returns real cursor once and never the preview");
         var invalid=menu(level,pos,p);fill(invalid,level,scroll,1);var extra=level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).get(Identifier.withDefaultNamespace("luck_of_the_sea")).orElseThrow();
-        invalid.getSlot(0).getItem().enchant(extra,1);invalid.broadcastChanges();invalid.handle(p,action(invalid));
-        h.assertTrue(invalid.snapshot().status()==1&&invalid.getSlot(2).getItem().getCount()==1&&invalid.getSlot(3).getItem().isEmpty(),"multi-book no hidden selection or charge");invalid.removed(p);h.succeed();
+        invalid.getSlot(0).getItem().enchant(extra,1);invalid.broadcastChanges();invalid.clicked(3,0,ContainerInput.PICKUP,p);
+        h.assertTrue(invalid.snapshot().status()==1&&invalid.getSlot(2).getItem().getCount()==1&&invalid.getSlot(3).getItem().isEmpty(),"multi book cannot produce or charge");invalid.removed(p);h.succeed();
     }
     @GameTest public void successTwoPlayersShiftCloseAndDestroyedWorkstation(GameTestHelper h) {
         var level=h.getLevel();var pos=h.absolutePos(new BlockPos(1,2,1));var p=h.makeMockServerPlayerInLevel();var other=h.makeMockServerPlayerInLevel();
-        h.assertTrue(!p.getUUID().equals(other.getUUID()),"independent player identities");var a=menu(level,pos,p);var b=menu(level,pos,other);var recipe=find(level,r->!r.scroll());
-        fill(a,level,recipe,2);fill(b,level,new ResearchPolicy.Recipe(recipe.b(),recipe.a()),2);
-        a.handle(p,action(a));var result=a.getSlot(3).getItem().copy();
-        h.assertTrue(a.snapshot().known()!=null,"completed visible output remains named after inputs are consumed");
-        h.assertTrue(a.getSlot(0).getItem().isEmpty()&&a.getSlot(1).getItem().isEmpty()&&a.getSlot(2).getItem().getCount()==1,"success consumes both books plus one core");
-        h.assertTrue(b.snapshot().known()==null&&!b.getSlot(0).getItem().isEmpty(),"other player's materials/discovery untouched");b.handle(other,action(b));
-        h.assertTrue(ItemStack.matches(result,b.getSlot(3).getItem()),"same objective result for both players and swapped inputs");
-        var forged=new ResearchActionPayload(a.containerId,a.snapshot().revision(),0,0);a.handle(other,forged);h.assertTrue(a.getSlot(2).getItem().getCount()==1,"foreign player action refused");
-        a.quickMoveStack(p,3);a.removed(p);a.removed(p);h.assertTrue(p.getInventory().countItem(Items.ENCHANTED_BOOK)==1&&p.getInventory().countItem(ResonanceItems.ATTUNED_CORE)==1,"shift output and close do not double-return");
-        level.setBlockAndUpdate(pos,Blocks.AIR.defaultBlockState());h.assertTrue(!b.stillValid(other),"destroyed block invalidates menu");
-        b.handle(other,new ResearchActionPayload(b.containerId,b.snapshot().revision(),0,0));b.removed(other);b.removed(other);
-        h.assertTrue(other.getInventory().countItem(Items.ENCHANTED_BOOK)==1&&other.getInventory().countItem(ResonanceItems.ATTUNED_CORE)==1,"break returns each remaining item once; block has no duplicate inventory");
-        var transfer=menu(level,pos,p);int before=p.getInventory().countItem(ResonanceItems.ATTUNED_CORE);
-        for(int i=4;i<40;i++)if(transfer.getSlot(i).getItem().is(ResonanceItems.ATTUNED_CORE)){transfer.quickMoveStack(p,i);break;}
-        h.assertTrue(transfer.getSlot(2).getItem().getCount()==before,"shift core enters correct reagent slot");transfer.removed(p);h.succeed();
+        var a=menu(level,pos,p);var b=menu(level,pos,other);var recipe=find(level,r->!r.scroll());fill(a,level,recipe,2);fill(b,level,new ResearchPolicy.Recipe(recipe.b(),recipe.a()),2);
+        var unknown=a.getSlot(3).getItem().copy();a.clicked(3,0,ContainerInput.PICKUP,other);
+        h.assertTrue(a.getCarried().isEmpty()&&a.getSlot(2).getItem().getCount()==2,"foreign player cannot claim result");
+        a.clicked(3,0,ContainerInput.PICKUP,p);var result=a.getCarried().copy();
+        for(int i=0;i<20;i++)a.clicked(3,0,ContainerInput.PICKUP,p);
+        h.assertTrue(result.is(Items.ENCHANTED_BOOK)&&a.getCarried().getCount()==1&&a.getSlot(0).getItem().isEmpty()&&a.getSlot(1).getItem().isEmpty()&&a.getSlot(2).getItem().getCount()==1,"rapid pickup after success cannot duplicate or charge twice");
+        h.assertTrue(b.snapshot().known()==null&&ItemStack.matches(unknown,b.getSlot(3).getItem()),"other player still sees the same secret-free book");
+        var shifted=b.quickMoveStack(other,3);h.assertTrue(ItemStack.matches(result,shifted),"swapped input order has identical real output");
+        a.removed(p);a.removed(p);h.assertTrue(p.getInventory().countItem(Items.ENCHANTED_BOOK)==1&&p.getInventory().countItem(ResonanceItems.ATTUNED_CORE)==1,"close returns cursor/core exactly once");
+        fill(b,level,recipe,1);level.setBlockAndUpdate(pos,Blocks.AIR.defaultBlockState());
+        b.clicked(3,0,ContainerInput.QUICK_MOVE,other);h.assertTrue(b.getSlot(2).getItem().getCount()==1,"destroyed workstation refuses commit");b.removed(other);b.removed(other);
+        h.assertTrue(other.getInventory().countItem(Items.ENCHANTED_BOOK)==3&&other.getInventory().countItem(ResonanceItems.ATTUNED_CORE)==1&&other.getInventory().countItem(Items.BOOK)==0,"break returns inputs once; preview never returned");h.succeed();
+    }
+    @GameTest public void capacityHotbarDoubleClickCloneAndPageSafety(GameTestHelper h) {
+        var level=h.getLevel();var p=h.makeMockServerPlayerInLevel();var m=menu(level,h.absolutePos(new BlockPos(1,2,1)),p);var recipe=find(level,ResearchPolicy.Result::scroll);fill(m,level,recipe,6);
+        var before=m.getSlot(3).getItem().copy();
+        for(int i=0;i<36;i++)p.getInventory().setItem(i,new ItemStack(Items.COBBLESTONE,64));
+        m.clicked(3,0,ContainerInput.QUICK_MOVE,p);m.clicked(3,0,ContainerInput.SWAP,p);m.setCarried(new ItemStack(Items.DIAMOND));m.clicked(3,0,ContainerInput.PICKUP,p);
+        h.assertTrue(m.getSlot(2).getItem().getCount()==6&&!ResearchWorldData.get(level.getServer()).knows(p.getUUID(),recipe),"full inventory, occupied hotbar and incompatible cursor refuse charge/discovery");
+        m.setCarried(ItemStack.EMPTY);m.clicked(3,0,ContainerInput.THROW,p);p.setGameMode(GameType.CREATIVE);m.clicked(3,0,ContainerInput.CLONE,p);p.setGameMode(GameType.SURVIVAL);
+        h.assertTrue(m.getCarried().isEmpty()&&ItemStack.matches(before,m.getSlot(3).getItem()),"throw and creative clone cannot extract display stack");
+        m.setCarried(before.copy());m.clicked(4,0,ContainerInput.PICKUP_ALL,p);h.assertTrue(m.getCarried().getCount()==1&&m.getSlot(2).getItem().getCount()==6,"double click elsewhere excludes result preview");m.setCarried(ItemStack.EMPTY);
+        p.getInventory().setItem(0,ItemStack.EMPTY);m.clicked(3,0,ContainerInput.SWAP,p);
+        h.assertTrue(p.getInventory().getItem(0).is(ResearchContent.LOST_SCROLL)&&m.getSlot(2).getItem().getCount()==5,"empty hotbar receives real hidden scroll");
+        p.getInventory().setItem(0,new ItemStack(ResearchContent.LOST_SCROLL,64));m.clicked(3,0,ContainerInput.SWAP,p);h.assertTrue(m.getSlot(2).getItem().getCount()==5,"full same-item hotbar cannot charge");
+        p.getInventory().setItem(0,new ItemStack(ResearchContent.LOST_SCROLL,63));m.clicked(3,0,ContainerInput.QUICK_MOVE,p);h.assertTrue(p.getInventory().getItem(0).getCount()==64&&m.getSlot(2).getItem().getCount()==4,"shift merges exactly one into last available stack space");
+        m.handle(p,new ResearchActionPayload(m.containerId,m.snapshot().revision(),1,0));m.clicked(3,0,ContainerInput.PICKUP,p);h.assertTrue(m.recordsOpen()&&m.getSlot(3).getItem().isEmpty()&&m.getSlot(2).getItem().getCount()==4,"record page cannot transact hidden slots");
+        m.handle(p,new ResearchActionPayload(m.containerId,m.snapshot().revision(),2,0));m.clicked(3,40,ContainerInput.SWAP,p);h.assertTrue(p.getInventory().getItem(40).is(ResearchContent.LOST_SCROLL)&&m.getSlot(2).getItem().getCount()==3,"offhand gets one real output");
+        p.getInventory().clearContent();m.removed(p);m.removed(p);h.assertTrue(p.getInventory().countItem(Items.ENCHANTED_BOOK)==2&&p.getInventory().countItem(ResonanceItems.ATTUNED_CORE)==3&&p.getInventory().countItem(ResearchContent.LOST_SCROLL)==0,"closing unclaimed preview returns only materials");h.succeed();
     }
     @GameTest public void largeNativeSnapshotFrozenAnswersAndThirdPartyInputs(GameTestHelper h) throws Exception {
         var level=h.getLevel();var data=ResearchWorldData.importJson(ResearchWorldData.get(level.getServer()).exportJson());var player=UUID.randomUUID();
@@ -134,8 +169,8 @@ public final class ResearchGameTests {
         h.assertTrue(ResearchBooks.read(third)!=null,"third-party registry book accepted without a name whitelist");
         var pos=h.absolutePos(new BlockPos(1,2,1));var p=h.makeMockServerPlayerInLevel();var menu=menu(level,pos,p);var recipe=find(level,r->!r.scroll());fill(menu,level,recipe,1);
         var stale=action(menu);menu.getSlot(0).getItem().set(DataComponents.CUSTOM_NAME,Component.literal("changed in place"));menu.handle(p,stale);
-        h.assertTrue(menu.getSlot(3).getItem().isEmpty()&&menu.getSlot(2).getItem().getCount()==1,"in-place component mutation rejects stale revision");
-        menu.getSlot(2).set(ItemStack.EMPTY);menu.handle(p,action(menu));h.assertTrue(!menu.getSlot(0).getItem().isEmpty()&&menu.getSlot(3).getItem().isEmpty(),"missing core charges nothing");menu.removed(p);
+        h.assertTrue(menu.getSlot(3).getItem().is(Items.BOOK)&&menu.getSlot(2).getItem().getCount()==1,"in-place component mutation refreshes preview without committing stale action");
+        menu.getSlot(2).set(ItemStack.EMPTY);menu.broadcastChanges();menu.clicked(3,0,ContainerInput.PICKUP,p);h.assertTrue(!menu.getSlot(0).getItem().isEmpty()&&menu.getSlot(3).getItem().isEmpty(),"missing core charges nothing");menu.removed(p);
         // Exhaust all actual vanilla single-book levels, separately from the 100k controlled-grade unit fixtures.
         var metadata=new TreeMap<String,ResearchPolicy.Input>();level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).listElements().forEach(holder->metadata.put(holder.key().identifier().toString(),new ResearchPolicy.Input(holder.value().getWeight(),holder.value().getMaxLevel())));
         long[][] counts=new long[4][7];var coverage=new ArrayList<Set<String>>();for(int i=0;i<4;i++)coverage.add(new TreeSet<>());

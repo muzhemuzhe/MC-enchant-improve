@@ -11,7 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 
-/** Paper/wood workstation. All names, known results and available records originate on the server. */
+/** Vanilla container presentation with server-owned result transactions. */
 public final class ResearchScreen extends AbstractContainerScreen<ResearchMenu> {
     private static final int TEXT=0xff40382b,MUTED=0xff756952;
     private static final Identifier PANEL=Identifier.withDefaultNamespace("textures/gui/container/enchanting_table.png");
@@ -24,7 +24,7 @@ public final class ResearchScreen extends AbstractContainerScreen<ResearchMenu> 
     }
     private Component book(ResearchPolicy.Book book){return minecraft.level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).get(Identifier.parse(book.id()))
         .<Component>map(h->h.value().description().copy().append(" ").append(numeral(book.level()))).orElseGet(()->Component.literal(book.id()+" "+book.level()));}
-    private Component result(ResearchPolicy.Result result){return result.scroll()?Component.translatable("item.differentenchant.lost_scroll"):book(new ResearchPolicy.Book(result.id(),result.level()));}
+    private Component result(ResearchPreviewPayload.DisplayResult result){return result.scroll()?Component.translatable("item.differentenchant.lost_scroll"):book(new ResearchPolicy.Book(result.id(),result.level()));}
     private Component pair(String key){var recipe=ResearchPolicy.Recipe.parse(key);return book(recipe.a()).copy().append(" + ").append(book(recipe.b()));}
     private boolean inside(double x,double y,int rx,int ry,int w,int h){return x>=rx&&x<rx+w&&y>=ry&&y<ry+h;}
     private void request(int action,int offset){var state=menu.preview();if(state==null)return;menu.awaitResponse();net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.send(new ResearchActionPayload(menu.containerId,state.revision(),action,offset));}
@@ -38,57 +38,51 @@ public final class ResearchScreen extends AbstractContainerScreen<ResearchMenu> 
         var state=menu.preview();boolean records=menu.recordsOpen();
         g.fill(records?88:12,30,records?174:82,31,0xff8d8066);
         if(records) {
-            g.fill(10,34,276,112,0xff8a7a60);
             if(state==null)g.text(font,tr("sync"),16,47,MUTED,false);
-            else if(state.rows().isEmpty())g.textWithWordWrap(font,tr("empty"),16,48,250,TEXT,false);
+            else if(state.rows().isEmpty())g.textWithWordWrap(font,tr("empty"),16,48,198,TEXT,false);
             else for(int i=0;i<state.rows().size();i++) {
                 var row=state.rows().get(i);int y=35+i*25;
-                g.blitSprite(RenderPipelines.GUI_TEXTURED,Identifier.withDefaultNamespace("container/enchanting_table/enchantment_slot"),11,y,263,24);
-                if(inside(mx-leftPos,my-topPos,11,y,263,24))g.fill(12,y+1,273,y+23,0x30fff2c0);
-                clipped(g,pair(row.recipe()),16,y+3,251,TEXT);
-                clipped(g,result(row.result()).copy().append(" · ").append(tr("rarity",numeral(row.result().rarity()))),16,y+13,251,0xff42613c);
+                g.blitSprite(RenderPipelines.GUI_TEXTURED,Identifier.withDefaultNamespace("container/enchanting_table/enchantment_slot"),11,y,205,24);
+                if(inside(mx-leftPos,my-topPos,11,y,205,24))g.fill(12,y+1,215,y+23,0x30fff2c0);
+                clipped(g,pair(row.recipe()),16,y+3,193,TEXT);
+                clipped(g,result(row.result()),16,y+13,193,0xff42613c);
             }
-            if(state!=null&&state.total()>3){g.fill(278,35,280,110,0xff817561);int y=35+state.offset()*63/Math.max(1,state.total()-3);g.fill(278,y,280,y+12,0xffdfd4b8);}
+            if(state!=null&&state.total()>3){g.fill(220,35,222,110,0xff817561);int y=35+state.offset()*63/Math.max(1,state.total()-3);g.fill(220,y,222,y+12,0xffdfd4b8);}
         } else {
-            g.fill(122,34,238,82,0xffae9d7b);g.fill(123,35,237,81,0xffe7dbbb);
-            g.fill(112,55,120,57,0xff8d7856);
-            if(state!=null&&state.known()!=null) {
-                var lines=font.split(result(state.known()),108);for(int i=0;i<Math.min(2,lines.size());i++)g.text(font,lines.get(i),127,40+i*10,TEXT,false);
-                clipped(g,tr("rarity",numeral(state.known().rarity())),127,66,108,MUTED);
-            } else g.centeredText(font,tr(state==null?"sync":"unknown"),180,53,TEXT);
-            boolean enabled=state!=null&&state.status()==0;
-            String suffix=enabled?(inside(mx-leftPos,my-topPos,184,96,92,20)?"_highlighted":""):"_disabled";
-            g.blitSprite(RenderPipelines.GUI_TEXTURED,Identifier.withDefaultNamespace("widget/button"+suffix),184,96,92,20);
-            g.centeredText(font,tr("research"),230,102,enabled?0xffffffff:0xffa0a0a0);
-            if(state!=null&&state.grade()>0)clipped(g,tr("grade",numeral(state.grade())),12,76,106,MUTED);
-            var lines=font.split(tr(state==null?"sync":"status."+state.status()),166);
-            for(int i=0;i<Math.min(2,lines.size());i++)g.text(font,lines.get(i),12,94+i*10,state!=null&&state.status()==0?MUTED:0xff8d4438,false);
+            // Compact crafting arrow; the only output presentation is the standard result slot.
+            g.fill(121,65,139,69,0xff8b8b8b);
+            for(int i=0;i<7;i++)g.fill(139+i,61+i,140+i,73-i,0xff8b8b8b);
         }
         g.pose().popMatrix();
     }
     @Override protected void extractLabels(GuiGraphicsExtractor g,int mx,int my) {
-        clipped(g,title,8,6,270,TEXT);g.text(font,tr("research"),16,20,TEXT,false);g.text(font,tr("records"),92,20,TEXT,false);
+        clipped(g,title,8,6,214,TEXT);g.text(font,tr("research"),16,20,TEXT,false);g.text(font,tr("records"),92,20,TEXT,false);
         var state=menu.preview();
-        if(!menu.recordsOpen()){clipped(g,tr("books"),24,36,60,MUTED);clipped(g,tr("core"),88,36,32,MUTED);}
-        else if(state!=null)clipped(g,tr("record_count",state.total()),12,113,260,MUTED);
+        if(menu.recordsOpen()&&state!=null)clipped(g,tr("record_count",state.total()),12,113,206,MUTED);
         g.text(font,playerInventoryTitle,ResearchMenu.INVENTORY_X,122,TEXT,false);
     }
     @Override protected void extractTooltip(GuiGraphicsExtractor g,int mx,int my) {
-        super.extractTooltip(g,mx,my);int x=mx-leftPos,y=my-topPos;var state=menu.preview();if(state==null)return;
-        var lines=new ArrayList<net.minecraft.util.FormattedCharSequence>();ResearchPolicy.Result result=null;
+        int x=mx-leftPos,y=my-topPos;var state=menu.preview();
+        // Bypass native item tooltip entirely for the unknown display, including F3+H component/ID lines.
+        if(!menu.recordsOpen()&&inside(x,y,180,58,16,16)&&menu.getSlot(3).getItem().is(net.minecraft.world.item.Items.BOOK)) {
+            g.setTooltipForNextFrame(font,List.of(tr("unknown").getVisualOrderText()),mx,my);return;
+        }
+        super.extractTooltip(g,mx,my);if(state==null)return;
+        var lines=new ArrayList<net.minecraft.util.FormattedCharSequence>();ResearchPreviewPayload.DisplayResult result=null;
         if(menu.recordsOpen()) {
-            int row=(y-35)/25;if(y>=35&&y<110&&x>=11&&x<274&&row<state.rows().size()) {
+            int row=(y-35)/25;if(y>=35&&y<110&&x>=11&&x<216&&row<state.rows().size()) {
                 var entry=state.rows().get(row);lines.addAll(font.split(pair(entry.recipe()),220));result=entry.result();
             }
-        } else if(inside(x,y,122,34,116,48)) {
-            if(state.known()==null)lines.add(tr("unknown").getVisualOrderText());else result=state.known();
-        } else if(inside(x,y,184,96,92,20)) {
-            lines.addAll(font.split(tr("success_rule"),220));lines.addAll(font.split(tr("scroll_rule"),220));
+        } else {
+            for(int i=0;i<3;i++)if(inside(x,y,new int[]{24,56,88}[i],58,16,16)&&menu.getSlot(i).getItem().isEmpty())
+                lines.add(tr(new String[]{"slot_a","slot_b","core"}[i]).getVisualOrderText());
+            if(inside(x,y,180,58,16,16)&&menu.getSlot(3).getItem().isEmpty()&&state.status()!=0)
+                lines.addAll(font.split(tr("status."+state.status()),220));
         }
-        if(result!=null){lines.addAll(font.split(result(result),220));lines.addAll(font.split(tr("rarity",numeral(result.rarity())),220));
+        if(result!=null){lines.addAll(font.split(result(result),220));
             String description="enchantment."+result.id().replace(':','.')+".desc";
             if(!result.scroll()&&net.minecraft.client.resources.language.I18n.exists(description))lines.addAll(font.split(Component.translatable(description),220));
-            lines.addAll(font.split(tr(result.scroll()?"scroll_rule":"success_rule"),220));}
+        }
         if(!lines.isEmpty())g.setTooltipForNextFrame(font,lines,mx,my);
     }
     @Override public boolean mouseClicked(MouseButtonEvent event,boolean doubleClick) {
@@ -96,13 +90,12 @@ public final class ResearchScreen extends AbstractContainerScreen<ResearchMenu> 
         if(event.button()==0) {
             if(inside(x,y,12,18,70,14)){request(2,0);return true;}
             if(inside(x,y,88,18,90,14)){request(1,0);return true;}
-            if(!menu.recordsOpen()&&inside(x,y,184,96,92,20)){var state=menu.preview();if(state!=null&&state.status()==0)request(0,0);return true;}
         }
-        if(menu.recordsOpen()&&inside(x,y,10,34,270,78))return true;
+        if(menu.recordsOpen()&&inside(x,y,10,34,214,78))return true;
         return super.mouseClicked(event,doubleClick);
     }
     @Override public boolean mouseScrolled(double x,double y,double sx,double sy) {
-        var state=menu.preview();if(menu.recordsOpen()&&state!=null&&inside(x-leftPos,y-topPos,10,34,270,78)&&sy!=0){request(1,Math.clamp(state.offset()+(sy<0?1:-1),0,Math.max(0,state.total()-3)));return true;}
+        var state=menu.preview();if(menu.recordsOpen()&&state!=null&&inside(x-leftPos,y-topPos,10,34,214,78)&&sy!=0){request(1,Math.clamp(state.offset()+(sy<0?1:-1),0,Math.max(0,state.total()-3)));return true;}
         return super.mouseScrolled(x,y,sx,sy);
     }
 }

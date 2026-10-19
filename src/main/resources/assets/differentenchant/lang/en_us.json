@@ -65,20 +65,15 @@
   "item.differentenchant.lost_scroll.help": "A fixed research byproduct. Future use: enchantment conflicts.",
   "research.differentenchant.research": "Research",
   "research.differentenchant.records": "Discoveries",
-  "research.differentenchant.books": "Books A + B",
-  "research.differentenchant.core": "Core",
+  "research.differentenchant.core": "Attuned Resonance Core",
   "research.differentenchant.unknown": "???",
-  "research.differentenchant.grade": "Research grade %s",
-  "research.differentenchant.rarity": "Rarity %s",
-  "research.differentenchant.status.0": "Consumes 1 attuned core",
   "research.differentenchant.status.1": "Each book must store exactly one legal enchantment.",
   "research.differentenchant.status.2": "Insert an attuned resonance core.",
-  "research.differentenchant.status.3": "Collect the result first.",
   "research.differentenchant.status.4": "Recorded result unavailable; nothing consumed.",
   "research.differentenchant.status.5": "Research table unavailable.",
   "research.differentenchant.sync": "Synchronizing…",
   "research.differentenchant.empty": "No discoveries yet. Try a pair of books.",
   "research.differentenchant.record_count": "%s discoveries · Scroll to browse",
-  "research.differentenchant.scroll_rule": "Scroll recipes keep both books; consume one core.",
-  "research.differentenchant.success_rule": "Successful recipes consume both books and one core."
+  "research.differentenchant.slot_a": "Enchanted Book A",
+  "research.differentenchant.slot_b": "Enchanted Book B"
 }
