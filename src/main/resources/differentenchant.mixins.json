@@ -8,7 +8,11 @@
     "StepEventMixin",
     "AirControlMixin",
     "TridentImpactMixin",
-    "ArrowParryMixin"
+    "ArrowParryMixin",
+    "AutoAssemblyStateMixin",
+    "RecyclingOfferMixin",
+    "RecyclingAutofillMixin",
+    "RecyclingResultSlotMixin"
   ],
   "client": [
     "client.BowModelMixin"

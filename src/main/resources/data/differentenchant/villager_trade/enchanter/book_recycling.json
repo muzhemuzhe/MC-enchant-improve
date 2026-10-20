@@ -1,0 +1,13 @@
+{
+  "wants": {
+    "id": "minecraft:enchanted_book",
+    "count": 1
+  },
+  "gives": {
+    "id": "differentenchant:attuned_resonance_core",
+    "count": 1
+  },
+  "max_uses": 32,
+  "xp": 5,
+  "reputation_discount": 0
+}

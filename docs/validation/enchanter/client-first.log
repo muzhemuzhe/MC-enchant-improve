@@ -1,0 +1,46 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileGametestJava FAILED
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\EnchanterClientGameTest.java:81: 错误: 找不到符号
+            savedItems=counts(w);offers=w.getServer().computeOnServer(s->{var v=(Villager)s.overworld().getEntity(villagerId);var ops=RegistryOps.create(com.mojang.serialization.JsonOps.INSTANCE,s.registryAccess());return net.minecraft.world.item.trading.MerchantOffers.CODEC.encodeStart(ops,v.getOffers()).getOrThrow().toString();});
+                                                                                                                                      ^
+  符号:   变量 RegistryOps
+  位置: 类 EnchanterClientGameTest
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\EnchanterClientGameTest.java:85: 错误: 找不到符号
+            c.waitTicks(8);check(savedItems.equals(counts(w)),"disconnect with pending merchant input returns real items once, never preview");w.getServer().runOnServer(s->{var v=(Villager)s.overworld().getEntity(villagerId);check(v!=null&&v.getVillagerData().profession().is(EnchanterContent.PROFESSION_KEY)&&v.getVillagerData().level()==3,"profession and unlocked rank persist");var ops=RegistryOps.create(com.mojang.serialization.JsonOps.INSTANCE,s.registryAccess());var loaded=net.minecraft.world.item.trading.MerchantOffers.CODEC.encodeStart(ops,v.getOffers()).getOrThrow();check(com.google.gson.JsonParser.parseString(offers).equals(loaded),"offer uses, XP and costs persist exactly");for(int k=0;k<3;k++)check(machineIds.get(k).equals(AutoAssemblyGameTests.id(s.overworld(),cores.get(k),k)),"all three automatic machines keep identity on disk reopen");});
+                                                                                                                                                                                                                                                                                                                                                                                                     ^
+  符号:   变量 RegistryOps
+  位置: 类 EnchanterClientGameTest
+2 个错误
+
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\EnchanterClientGameTest.java:81: 错误: 找不到符号
+              savedItems=counts(w);offers=w.getServer().computeOnServer(s->{var v=(Villager)s.overworld().getEntity(villagerId);var ops=RegistryOps.create(com.mojang.serialization.JsonOps.INSTANCE,s.registryAccess());return net.minecraft.world.item.trading.MerchantOffers.CODEC.encodeStart(ops,v.getOffers()).getOrThrow().toString();});
+                                                                                                                                        ^
+    符号:   变量 RegistryOps
+    位置: 类 EnchanterClientGameTest
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\EnchanterClientGameTest.java:85: 错误: 找不到符号
+              c.waitTicks(8);check(savedItems.equals(counts(w)),"disconnect with pending merchant input returns real items once, never preview");w.getServer().runOnServer(s->{var v=(Villager)s.overworld().getEntity(villagerId);check(v!=null&&v.getVillagerData().profession().is(EnchanterContent.PROFESSION_KEY)&&v.getVillagerData().level()==3,"profession and unlocked rank persist");var ops=RegistryOps.create(com.mojang.serialization.JsonOps.INSTANCE,s.registryAccess());var loaded=net.minecraft.world.item.trading.MerchantOffers.CODEC.encodeStart(ops,v.getOffers()).getOrThrow();check(com.google.gson.JsonParser.parseString(offers).equals(loaded),"offer uses, XP and costs persist exactly");for(int k=0;k<3;k++)check(machineIds.get(k).equals(AutoAssemblyGameTests.id(s.overworld(),cores.get(k),k)),"all three automatic machines keep identity on disk reopen");});
+                                                                                                                                                                                                                                                                                                                                                                                                       ^
+    符号:   变量 RegistryOps
+    位置: 类 EnchanterClientGameTest
+  2 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 2s
+3 actionable tasks: 1 executed, 2 up-to-date

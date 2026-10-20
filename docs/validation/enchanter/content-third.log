@@ -1,0 +1,38 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileGametestJava FAILED
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\EnchanterGameTests.java:70: 错误: 无法将记录 ChunkPos中的构造器 ChunkPos应用到给定类型;
+        var base=h.absolutePos(BlockPos.ZERO).offset(2048,0,2048);var chunks=new HashSet<ChunkPos>();for(int x=0;x<8;x++)for(int z=0;z<8;z++)chunks.add(new ChunkPos(base.offset(x,0,z)));for(var c:chunks)l.setChunkForced(c.x(),c.z(),true);
+                                                                                                                                                        ^
+  需要: int,int
+  找到:    BlockPos
+  原因: 实际参数列表和形式参数列表长度不同
+1 个错误
+
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\EnchanterGameTests.java:70: 错误: 无法将记录 ChunkPos中的构造器 ChunkPos应用到给定类型;
+          var base=h.absolutePos(BlockPos.ZERO).offset(2048,0,2048);var chunks=new HashSet<ChunkPos>();for(int x=0;x<8;x++)for(int z=0;z<8;z++)chunks.add(new ChunkPos(base.offset(x,0,z)));for(var c:chunks)l.setChunkForced(c.x(),c.z(),true);
+                                                                                                                                                          ^
+    需要: int,int
+    找到:    BlockPos
+    原因: 实际参数列表和形式参数列表长度不同
+  1 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+3 actionable tasks: 1 executed, 2 up-to-date

@@ -36,10 +36,12 @@ public final class DifferentEnchant implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        dev.differentenchant.automation.AutoAssembly.initialize();
         dev.differentenchant.disenchant.DisenchantContent.initialize();
         dev.differentenchant.ruins.Ruins.initialize();
         dev.differentenchant.resonance.ResonanceItems.initialize();
         dev.differentenchant.research.ResearchContent.initialize();
+        dev.differentenchant.enchanter.EnchanterContent.initialize();
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.clientboundPlay().register(EnchantingPreviewPayload.TYPE,EnchantingPreviewPayload.CODEC);
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.clientboundPlay().registerLarge(DirectedPreviewPayload.TYPE,DirectedPreviewPayload.CODEC,4*1024*1024);
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.serverboundPlay().register(DirectedActionPayload.TYPE,DirectedActionPayload.CODEC);
@@ -62,11 +64,6 @@ public final class DifferentEnchant implements ModInitializer {
             boolean emptyHands=player.getMainHandItem().isEmpty() && player.getOffhandItem().isEmpty();
             // Vanilla skips block use in this exact case, allowing item placement against the table.
             if (player.isSecondaryUseActive() && !emptyHands) return InteractionResult.PASS;
-            if (hand==InteractionHand.MAIN_HAND && player.isShiftKeyDown() && emptyHands && player.mayBuild()
-                    && level instanceof ServerLevel server) {
-                String result = FormationService.form(server, hit.getBlockPos(), player.getDirection());
-                player.sendSystemMessage(Component.literal("[Differentenchant] " + result));
-            }
             // Consume on both sides: client sends one use packet; server never reaches vanilla menu opening.
             return InteractionResult.SUCCESS;
         });

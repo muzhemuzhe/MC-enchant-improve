@@ -17,8 +17,7 @@ public final class DisenchantCoreBlock extends Block {
     @Override protected net.minecraft.world.phys.shapes.VoxelShape getShape(BlockState state,BlockGetter level,BlockPos pos,net.minecraft.world.phys.shapes.CollisionContext context){return DisenchantPartBlock.CORE_SHAPE;}
     @Override protected InteractionResult useWithoutItem(BlockState state,Level level,BlockPos pos,Player player,BlockHitResult hit) {
         if(level instanceof ServerLevel server&&!player.isSpectator()) {
-            boolean form=player.isShiftKeyDown()&&player.mayBuild()&&player.getMainHandItem().isEmpty()&&player.getOffhandItem().isEmpty();
-            String status=form?dev.differentenchant.workstation.WorkstationStructure.form(server,pos,dev.differentenchant.workstation.WorkstationStructure.Kind.DISENCHANT):"assembly";
+            String status="assembly";
             player.sendSystemMessage(Component.translatable("workstation.differentenchant."+status));
         }
         return InteractionResult.SUCCESS;

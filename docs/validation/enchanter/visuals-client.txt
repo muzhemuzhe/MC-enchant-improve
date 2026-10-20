@@ -1,0 +1,2 @@
+Both unchanged material frames: deferred automatic assembly after supplying missing core; same-camera before/formed/restored/reassembled screenshots; native right-click opens the existing menus; all 17 remaining original states restore exactly; both formed machines persist through actual world save and reopening.
+1600x1000 raw OpenGL screenshots. No image edits. No new particle or gameplay implementation.

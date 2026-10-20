@@ -109,12 +109,16 @@
   "disenchant.differentenchant.book": "普通书（每次消耗一本）",
   "disenchant.differentenchant.choose": "请选择",
   "block.differentenchant.research_part": "失落魔法研究机",
-  "workstation.differentenchant.assembly": "搭建完整结构后，双手空持潜行右击中心方块组装。",
+  "workstation.differentenchant.assembly": "结构完整后会自动组装，请检查材料、朝向及空讲台。",
   "workstation.differentenchant.formed": "机器组装完成，右击任一部件使用。",
   "workstation.differentenchant.structure": "结构不完整或方块朝向不正确。",
   "workstation.differentenchant.lectern_book": "请先取走四个讲台上的书。",
   "workstation.differentenchant.unloaded": "所有部件必须位于已加载区块。",
   "workstation.differentenchant.support": "紫水晶簇必须朝上且下方有支撑。",
   "workstation.differentenchant.block_entity": "结构中存在无法安全替换的方块实体。",
-  "workstation.differentenchant.busy": "正在组装，请稍后重试。"
+  "workstation.differentenchant.busy": "正在组装，请稍后重试。",
+  "entity.differentenchant.villager.enchanter": "附魔师",
+  "item.differentenchant.condensed_experience_crystal": "凝萃经验结晶",
+  "item.differentenchant.condensed_experience_crystal.help": "右键立即获得 %s 点经验。",
+  "trade.differentenchant.any_book": "接受任意存有附魔的附魔书，包括诅咒。"
 }

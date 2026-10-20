@@ -1,0 +1,46 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileGametestJava FAILED
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\AutoAssemblyGameTests.java:33: 错误: 找不到符号
+        h.runAfterDelay(3,()->{var ids=new ArrayList<UUID>();for(int k=0;k<3;k++){h.assertTrue(formed(l,cores.get(k),k),"auto formed "+k+" at "+p+" states "+WorkstationGameTests.states(l,p));ids.add(id(l,cores.get(k),k));for(int v=0;v<20;v++)l.setBlockAndUpdate(cores.get(k).offset(2,0,0),v%2==0?Blocks.STONE.defaultBlockState():Blocks.AIR.defaultBlockState());}
+                                                                                                                                                ^
+  符号:   变量 p
+  位置: 类 AutoAssemblyGameTests
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\AutoAssemblyGameTests.java:33: 错误: 找不到符号
+        h.runAfterDelay(3,()->{var ids=new ArrayList<UUID>();for(int k=0;k<3;k++){h.assertTrue(formed(l,cores.get(k),k),"auto formed "+k+" at "+p+" states "+WorkstationGameTests.states(l,p));ids.add(id(l,cores.get(k),k));for(int v=0;v<20;v++)l.setBlockAndUpdate(cores.get(k).offset(2,0,0),v%2==0?Blocks.STONE.defaultBlockState():Blocks.AIR.defaultBlockState());}
+                                                                                                                                                                                           ^
+  符号:   变量 p
+  位置: 类 AutoAssemblyGameTests
+2 个错误
+
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\AutoAssemblyGameTests.java:33: 错误: 找不到符号
+          h.runAfterDelay(3,()->{var ids=new ArrayList<UUID>();for(int k=0;k<3;k++){h.assertTrue(formed(l,cores.get(k),k),"auto formed "+k+" at "+p+" states "+WorkstationGameTests.states(l,p));ids.add(id(l,cores.get(k),k));for(int v=0;v<20;v++)l.setBlockAndUpdate(cores.get(k).offset(2,0,0),v%2==0?Blocks.STONE.defaultBlockState():Blocks.AIR.defaultBlockState());}
+                                                                                                                                                  ^
+    符号:   变量 p
+    位置: 类 AutoAssemblyGameTests
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\AutoAssemblyGameTests.java:33: 错误: 找不到符号
+          h.runAfterDelay(3,()->{var ids=new ArrayList<UUID>();for(int k=0;k<3;k++){h.assertTrue(formed(l,cores.get(k),k),"auto formed "+k+" at "+p+" states "+WorkstationGameTests.states(l,p));ids.add(id(l,cores.get(k),k));for(int v=0;v<20;v++)l.setBlockAndUpdate(cores.get(k).offset(2,0,0),v%2==0?Blocks.STONE.defaultBlockState():Blocks.AIR.defaultBlockState());}
+                                                                                                                                                                                             ^
+    符号:   变量 p
+    位置: 类 AutoAssemblyGameTests
+  2 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+3 actionable tasks: 1 executed, 2 up-to-date

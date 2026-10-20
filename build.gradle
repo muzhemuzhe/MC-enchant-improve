@@ -37,6 +37,9 @@ configurations {
 
 // Scope visual iterations to ruins without changing the committed test entrypoints.
 tasks.named('processGametestResources') {
+    def enchanter = providers.gradleProperty('enchanter').isPresent()
+    inputs.property('enchanter', enchanter)
+    inputs.property('enchanterIntegrated', providers.gradleProperty('enchanterIntegrated').isPresent())
     def workstationVisuals = providers.gradleProperty('workstationVisuals').isPresent()
     inputs.property('workstationVisuals', workstationVisuals)
     def workstationStructures = providers.gradleProperty('workstationStructures').isPresent()
@@ -64,7 +67,7 @@ tasks.named('processGametestResources') {
     inputs.property('researchGui', researchGui)
     inputs.property('researchAffected', researchAffected)
     doLast {
-        if (ruinsOnly || smallReview || mediumReview || lanternOnly || researchOnly || researchGui || lostBatchTwo || disenchantOnly || workstationStructures || workstationVisuals) {
+        if (ruinsOnly || smallReview || mediumReview || lanternOnly || researchOnly || researchGui || lostBatchTwo || disenchantOnly || workstationStructures || workstationVisuals || enchanter) {
             def metadata = new File(destinationDir, 'fabric.mod.json')
             def parsed = new groovy.json.JsonSlurper().parse(metadata)
             parsed.entrypoints['fabric-gametest'] = smallReview || mediumReview ? [] : ['dev.differentenchant.RuinGameTests']
@@ -100,6 +103,14 @@ tasks.named('processGametestResources') {
                 parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.WorkstationGameTests', 'dev.differentenchant.DisenchantGameTests', 'dev.differentenchant.ResearchGameTests', 'dev.differentenchant.ResearchIntegrationGameTests']
                 parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.WorkstationVisualClientGameTest']
                 if (workstationStructures) parsed.entrypoints['fabric-client-gametest'] += ['dev.differentenchant.WorkstationClientGameTest', 'dev.differentenchant.ResearchClientGameTest']
+            }
+            if (enchanter) {
+                parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.AutoAssemblyGameTests', 'dev.differentenchant.EnchanterGameTests']
+                parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.EnchanterClientGameTest']
+                if (providers.gradleProperty('enchanterIntegrated').isPresent()) {
+                    parsed.entrypoints['fabric-gametest'] += ['dev.differentenchant.WorkstationGameTests', 'dev.differentenchant.DisenchantGameTests', 'dev.differentenchant.ResearchGameTests', 'dev.differentenchant.ResearchIntegrationGameTests']
+                    parsed.entrypoints['fabric-client-gametest'] += ['dev.differentenchant.ResearchClientGameTest', 'dev.differentenchant.WorkstationClientGameTest', 'dev.differentenchant.WorkstationVisualClientGameTest']
+                }
             }
             metadata.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(parsed))
         }

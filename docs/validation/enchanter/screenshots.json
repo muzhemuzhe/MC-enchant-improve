@@ -1,0 +1,128 @@
+[
+  {
+    "name": "enchanter-00-incomplete-frame.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "dd63f47f8268aeb5b47d899f5c1896555c134e4605835223feefbb0195f595d4"
+  },
+  {
+    "name": "enchanter-01-incomplete-frame.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "e65c043c0295b2d0c549ad2c21ecf87025692ed834cd70899ce950b8af5a7b12"
+  },
+  {
+    "name": "enchanter-02-incomplete-frame.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "061957341b846bd4143e2053f92dc9199184a44db605bd915851af31de26a648"
+  },
+  {
+    "name": "enchanter-10-automatically-formed.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "8ce0a069d8c3a9fcc621c50eac9776b9424b7226196bffbbecaa2291a67f0335"
+  },
+  {
+    "name": "enchanter-11-automatically-formed.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "dff79eed74dfa9922a13cf582cf30a3ddcae3fdf4728e8307569a4e32eba6968"
+  },
+  {
+    "name": "enchanter-12-automatically-formed.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "3c3e233afabd8f77b77490871a55906e0fcd06b677e42acc7aa74a64a006c76b"
+  },
+  {
+    "name": "enchanter-20-enchanting-operation.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "a24cd7b3106b02522dd8c6a6a9720167ebc6537bcf284ce4843088aa9eae1e64"
+  },
+  {
+    "name": "enchanter-21-research-direct-take.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "ec80ba6160004e565a38e0cf5fff084baec7c991cbe5fec7a2f76bf4b0a2df37"
+  },
+  {
+    "name": "enchanter-22-disenchanting-operation.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "5dad33796f56b9d9c83aa67cb40ce2bae21cdd2faa7939d0dc6d4b1116c01341"
+  },
+  {
+    "name": "enchanter-30-enchanter-profession-robe.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "526391f283633f6c5f16d9a1419609b5a986e829d9e4d69318edceeba5b120e5"
+  },
+  {
+    "name": "enchanter-31-novice-bottles.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "787e0414252731f997416158d6dccad3f1ca6990af4f616432dec71a2d1a6e7d"
+  },
+  {
+    "name": "enchanter-32-apprentice-any-book.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "3444155c482955a0617fe9f61aca3d6e35d404844dfc9aeb2c2b128e7fa7f6b1"
+  },
+  {
+    "name": "enchanter-33-recycling-empty-book-rejected.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "0c7072f221fc1bbcd96576ac21c8c94eba01b0fb962b7875dbed0537eb6385de"
+  },
+  {
+    "name": "enchanter-34-journeyman-crystal.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "3de5ff2bbf7bc4c8745df881fc27748c088d821600ecb4db656b83d0b42548fa"
+  },
+  {
+    "name": "enchanter-35-crystal-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "a75d3923880672b86d5831bc61682fabd3264b05ced4b428485a910a326a64ba"
+  },
+  {
+    "name": "enchanter-36-crystal-tooltip-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "18b5b9b4971e6d05b0304fa6ce7aa1333fe78b88d8907fedad16718bfb7f2fc8"
+  },
+  {
+    "name": "enchanter-37-crystal-in-hand.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "dfb76f927e4e7de42aafb2026d5917c49d8d1697f2b69129d2ec168ed0bf54f9"
+  },
+  {
+    "name": "enchanter-38-crystal-used-100-points.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "a3649f47a33467ba6647dd0f8551aa2ae204ae0de7a05e53ece46c9671165612"
+  },
+  {
+    "name": "enchanter-38b-creative-ingredients.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "4df495a76e00743c4c6a183d621396dd93687903503575e11f512ab094f7f1df"
+  },
+  {
+    "name": "enchanter-39-chinese-merchant-pending-book.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "df403eef16562f8efb4a2e90245a222b7353a2397ecec921911ea24ebd973fe5"
+  },
+  {
+    "name": "enchanter-40-reloaded-enchanter-trades.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "03565d43ffc0453a13c5e228dc0e2c833b8550a6cac4e480ed247ecdac1c7072"
+  }
+]

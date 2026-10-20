@@ -1,0 +1,24 @@
+{
+  "generator": "tools/generate-enchanter.mjs",
+  "deterministic": true,
+  "outputsCompared": 17,
+  "files": [
+    "src/main/resources/assets/differentenchant/items/condensed_experience_crystal.json",
+    "src/main/resources/assets/differentenchant/models/item/condensed_experience_crystal.json",
+    "src/main/resources/assets/differentenchant/textures/entity/villager/profession/enchanter.png",
+    "src/main/resources/assets/differentenchant/textures/entity/villager/profession/enchanter.png.mcmeta",
+    "src/main/resources/assets/differentenchant/textures/entity/zombie_villager/profession/enchanter.png",
+    "src/main/resources/assets/differentenchant/textures/entity/zombie_villager/profession/enchanter.png.mcmeta",
+    "src/main/resources/assets/differentenchant/textures/item/condensed_experience_crystal.png",
+    "src/main/resources/data/differentenchant/trade_set/enchanter/level_1.json",
+    "src/main/resources/data/differentenchant/trade_set/enchanter/level_2.json",
+    "src/main/resources/data/differentenchant/trade_set/enchanter/level_3.json",
+    "src/main/resources/data/differentenchant/villager_trade/enchanter/book_recycling.json",
+    "src/main/resources/data/differentenchant/villager_trade/enchanter/experience_bottles.json",
+    "src/main/resources/data/differentenchant/villager_trade/enchanter/experience_crystal.json",
+    "src/main/resources/data/minecraft/tags/point_of_interest_type/acquirable_job_site.json",
+    "src/main/resources/assets/differentenchant/lang/en_us.json",
+    "src/main/resources/assets/differentenchant/lang/zh_cn.json",
+    "src/main/java/dev/differentenchant/enchanter/EnchanterBalance.java"
+  ]
+}

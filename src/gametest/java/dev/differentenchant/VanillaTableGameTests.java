@@ -52,31 +52,16 @@ public final class VanillaTableGameTests {
         h.assertTrue(level.getBlockState(pos).is(Blocks.ENCHANTING_TABLE) && level.getBlockEntity(pos) instanceof net.minecraft.world.level.block.entity.EnchantingTableBlockEntity,"native block and entity retained");
         h.succeed();
     }
-    @GameTest public void emptyHandAssemblyAndDisassemblyRestorationStillWork(GameTestHelper h) {
-        var level=h.getLevel();var origin=h.absolutePos(new BlockPos(3,3,3));
-        for(var mode:List.of(GameType.SURVIVAL,GameType.CREATIVE)) {
-            for(var cell:StructurePattern.CELLS) level.setBlockAndUpdate(FormationService.position(origin,cell,0),FormationService.originalBlock(cell.material()).defaultBlockState());
-            var missing=FormationService.position(origin,StructurePattern.CELLS.getFirst(),0);
-            level.setBlockAndUpdate(missing,Blocks.AIR.defaultBlockState());var p=player(h,origin,mode);p.setShiftKeyDown(true);
-            h.assertTrue(use(p,level,origin,InteractionHand.MAIN_HAND)==InteractionResult.SUCCESS,"incomplete attempt is consumed");closed(h,p);
-            h.assertTrue(level.getBlockState(origin).is(Blocks.ENCHANTING_TABLE),"incomplete structure does not form or open vanilla menu");
-            level.setBlockAndUpdate(missing,Blocks.POLISHED_DEEPSLATE.defaultBlockState());
-            use(p,level,origin,InteractionHand.OFF_HAND);h.assertTrue(level.getBlockState(origin).is(Blocks.ENCHANTING_TABLE),"off-hand packet alone does not assemble");
-            p.setItemInHand(InteractionHand.OFF_HAND,new ItemStack(Items.BOOK));use(p,level,origin,InteractionHand.MAIN_HAND);closed(h,p);
-            h.assertTrue(level.getBlockState(origin).is(Blocks.ENCHANTING_TABLE),"both hands must be empty");
-            p.setItemInHand(InteractionHand.OFF_HAND,ItemStack.EMPTY);use(p,level,origin,InteractionHand.MAIN_HAND);
-            var master=MachineAccess.controller(level,origin);h.assertTrue(master!=null,"real callback forms complete structure: "+mode);
-            var id=master.machineId();use(p,level,origin,InteractionHand.MAIN_HAND);
-            h.assertTrue(MachineAccess.controller(level,origin).machineId().equals(id),"repeat use does not reassemble");
-            p.setShiftKeyDown(false);use(p,level,origin,InteractionHand.MAIN_HAND);
-            h.assertTrue(p.containerMenu instanceof MachineEnchantmentMenu,"custom EnchantmentMenu subclass is still opened");p.closeContainer();
-            level.destroyBlock(FormationService.position(origin,StructurePattern.CELLS.getFirst(),master.rotation()),false);
-            h.assertTrue(level.getBlockState(origin).is(Blocks.ENCHANTING_TABLE),"disassembly restores native table");
-            use(p,level,origin,InteractionHand.MAIN_HAND);closed(h,p);
-            p.setShiftKeyDown(true);use(p,level,origin,InteractionHand.MAIN_HAND);closed(h,p);
-            h.assertTrue(level.getBlockState(origin).is(Blocks.ENCHANTING_TABLE),"restored incomplete table remains disabled");
-        }
-        h.succeed();
+    @GameTest public void emptyHandAssemblyAndDisassemblyRestorationStillWork(GameTestHelper h) { automaticMode(h,0); }
+    private static void automaticMode(GameTestHelper h,int index){
+        if(index==2){h.succeed();return;}var level=h.getLevel();var origin=h.absolutePos(new BlockPos(3,3,3));var mode=index==0?GameType.SURVIVAL:GameType.CREATIVE;
+        for(var cell:StructurePattern.CELLS)level.setBlockAndUpdate(FormationService.position(origin,cell,0),FormationService.originalBlock(cell.material()).defaultBlockState());
+        var missing=FormationService.position(origin,StructurePattern.CELLS.getFirst(),0);level.setBlockAndUpdate(missing,Blocks.AIR.defaultBlockState());var p=BatchTwoGameTests.player(h);p.setGameMode(mode);p.teleportTo(origin.getX()+.5,origin.getY()+1,origin.getZ()-2);
+        p.setShiftKeyDown(true);use(p,level,origin,InteractionHand.MAIN_HAND);closed(h,p);h.assertTrue(level.getBlockState(origin).is(Blocks.ENCHANTING_TABLE),"incomplete table remains disabled");
+        p.setShiftKeyDown(false);p.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(Items.BOOK));p.setItemInHand(InteractionHand.OFF_HAND,new ItemStack(Items.LAPIS_LAZULI));level.setBlockAndUpdate(missing,Blocks.POLISHED_DEEPSLATE.defaultBlockState());
+        h.runAfterDelay(2,()->{var master=MachineAccess.controller(level,origin);h.assertTrue(master!=null,"server automatically forms complete structure without empty hands or crouching: "+mode);var id=master.machineId();p.setItemInHand(InteractionHand.MAIN_HAND,ItemStack.EMPTY);p.setItemInHand(InteractionHand.OFF_HAND,ItemStack.EMPTY);p.setShiftKeyDown(true);use(p,level,origin,InteractionHand.MAIN_HAND);h.assertTrue(id.equals(MachineAccess.controller(level,origin).machineId()),"legacy shift interaction is a harmless query");
+            p.setShiftKeyDown(false);use(p,level,origin,InteractionHand.MAIN_HAND);h.assertTrue(p.containerMenu instanceof MachineEnchantmentMenu,"existing custom GUI opens");p.closeContainer();level.destroyBlock(missing,false);h.assertTrue(level.getBlockState(origin).is(Blocks.ENCHANTING_TABLE),"disassembly restores original controller");use(p,level,origin,InteractionHand.MAIN_HAND);closed(h,p);automaticMode(h,index+1);
+        });
     }
     @GameTest public void vanillaCraftingPlacementSneakPlacementAndDropsAreUnchanged(GameTestHelper h) {
         var level=h.getLevel();var origin=h.absolutePos(new BlockPos(3,3,3));

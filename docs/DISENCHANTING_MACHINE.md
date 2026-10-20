@@ -1,4 +1,4 @@
-# 独立祛魔台 · 0.11.1
+# 独立祛魔台 · 0.12.0
 
 设备独立于附魔机与失落魔法研究台；原附魔机没有新增祛魔页签。Minecraft Java 26.1.2 / Fabric / JDK25。核心物品/方块为 `differentenchant:disenchanting_core`，成形部件/方块实体为 `differentenchant:disenchanting_part`，菜单为 `differentenchant:disenchanting`。
 
@@ -27,7 +27,7 @@ A A A            C R C
 
 A紫水晶块（8），G金块（1），C朝上成熟紫水晶簇（4），R红石块（4），O祛魔核心（1）。不接受小/中/大芽或侧向簇。核心配方与整个设备的回响碎片总消耗仍为四枚，无下界合金。
 
-双手空持潜行右击核心组装，完整结构才可开GUI；正常右击任一成形部件使用。下层支撑先于四簇恢复，原朝向/含水保存，碰撞使用原版簇体积；拆除/缺块后立即失效并返还菜单输入。成形后客户端少量紫色原版粒子向中心汇聚，GUI/拆解时停止。旧0.10深板岩/铜机在加载后恢复旧原料，不免费转换。完整状态、恢复顺序和原版损坏掉落规则见[两机结构文档](WORKSTATION_STRUCTURES.md)。
+完整结构自动组装，完整结构才可开GUI；正常右击任一成形部件使用。下层支撑先于四簇恢复，原朝向/含水保存，碰撞使用原版簇体积；拆除/缺块后立即失效并返还菜单输入。成形后客户端少量紫色原版粒子向中心汇聚，GUI/拆解时停止。旧0.10深板岩/铜机在加载后恢复旧原料，不免费转换。完整状态、恢复顺序和原版损坏掉落规则见[两机结构文档](WORKSTATION_STRUCTURES.md)。
 
 ![真实客户端新结构](screenshots/workstation-structures/workstation-02-disenchanter-assembled.png)
 

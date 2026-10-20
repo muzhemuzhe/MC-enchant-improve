@@ -20,6 +20,7 @@ public final class DifferentEnchantClient implements ClientModInitializer {
         net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.registerGlobalReceiver(dev.differentenchant.lost.AirControlConfig.Settings.TYPE,(payload,context)->dev.differentenchant.lost.AirControlConfig.current=payload);
         MenuScreens.register(dev.differentenchant.research.ResearchContent.MENU,ResearchScreen::new);
         net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback.EVENT.register((stack,context,flag,lines)->{
+            if(stack.is(net.minecraft.world.item.Items.ENCHANTED_BOOK)&&!dev.differentenchant.enchanter.BookRecycling.validBook(stack)&&net.minecraft.client.Minecraft.getInstance().screen instanceof net.minecraft.client.gui.screens.inventory.MerchantScreen screen&&screen.getMenu().getOffers().stream().anyMatch(dev.differentenchant.enchanter.BookRecycling::isOffer))appendLostDescription(lines,net.minecraft.network.chat.Component.translatable("trade.differentenchant.any_book"));
             if(stack.is(dev.differentenchant.research.ResearchContent.LOST_SCROLL))appendLostDescription(lines,net.minecraft.network.chat.Component.translatable("item.differentenchant.lost_scroll.help"));
             var lost=net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ENCHANTMENT,dev.differentenchant.research.ResearchContent.id("lost_enchantments"));
             for(var holder:net.minecraft.world.item.enchantment.EnchantmentHelper.getEnchantmentsForCrafting(stack).keySet())if(holder.is(lost)) {

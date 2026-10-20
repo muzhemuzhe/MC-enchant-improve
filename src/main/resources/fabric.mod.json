@@ -3,7 +3,7 @@
   "id": "differentenchant",
   "version": "${version}",
   "name": "Differentenchant",
-  "description": "Reversible 3x3x2 enchanting machine with server-authoritative random and directed enchanting.",
+  "description": "Automatic reversible multiblock enchanting, research and disenchanting; Enchanter villagers and condensed experience crystals.",
   "environment": "*",
   "entrypoints": {
     "main": [

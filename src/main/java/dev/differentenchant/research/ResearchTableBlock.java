@@ -28,7 +28,6 @@ public final class ResearchTableBlock extends Block {
     @Override protected InteractionResult useWithoutItem(BlockState state,Level level,BlockPos pos,Player player,BlockHitResult hit) {
         if(level instanceof ServerLevel server&&!player.isSpectator()) {
             String status="assembly";
-            if(player.isShiftKeyDown()&&player.mayBuild()&&player.getMainHandItem().isEmpty()&&player.getOffhandItem().isEmpty())status=dev.differentenchant.workstation.WorkstationStructure.form(server,pos,dev.differentenchant.workstation.WorkstationStructure.Kind.RESEARCH);
             player.sendSystemMessage(Component.translatable("workstation.differentenchant."+status));
         }
         return InteractionResult.SUCCESS;
