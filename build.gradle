@@ -37,6 +37,8 @@ configurations {
 
 // Scope visual iterations to ruins without changing the committed test entrypoints.
 tasks.named('processGametestResources') {
+    def realm = providers.gradleProperty('realm').isPresent()
+    inputs.property('realm', realm)
     def advancements = providers.gradleProperty('advancements').isPresent()
     inputs.property('advancements', advancements)
     def enchanter = providers.gradleProperty('enchanter').isPresent()
@@ -69,7 +71,7 @@ tasks.named('processGametestResources') {
     inputs.property('researchGui', researchGui)
     inputs.property('researchAffected', researchAffected)
     doLast {
-        if (advancements || ruinsOnly || smallReview || mediumReview || lanternOnly || researchOnly || researchGui || lostBatchTwo || disenchantOnly || workstationStructures || workstationVisuals || enchanter) {
+        if (realm || advancements || ruinsOnly || smallReview || mediumReview || lanternOnly || researchOnly || researchGui || lostBatchTwo || disenchantOnly || workstationStructures || workstationVisuals || enchanter) {
             def metadata = new File(destinationDir, 'fabric.mod.json')
             def parsed = new groovy.json.JsonSlurper().parse(metadata)
             parsed.entrypoints['fabric-gametest'] = smallReview || mediumReview ? [] : ['dev.differentenchant.RuinGameTests']
@@ -117,6 +119,10 @@ tasks.named('processGametestResources') {
             if (advancements) {
                 parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.AdvancementGameTests', 'dev.differentenchant.WorkstationGameTests', 'dev.differentenchant.AutoAssemblyGameTests', 'dev.differentenchant.ResearchGameTests', 'dev.differentenchant.ResearchIntegrationGameTests', 'dev.differentenchant.DisenchantGameTests', 'dev.differentenchant.EnchanterGameTests']
                 parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.AdvancementClientGameTest']
+            }
+            if (realm) {
+                parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.RealmGameTests', 'dev.differentenchant.WorkstationGameTests', 'dev.differentenchant.AutoAssemblyGameTests', 'dev.differentenchant.ResearchGameTests', 'dev.differentenchant.ResearchIntegrationGameTests', 'dev.differentenchant.DisenchantGameTests', 'dev.differentenchant.EnchanterGameTests']
+                parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.RealmClientGameTest']
             }
             metadata.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(parsed))
         }

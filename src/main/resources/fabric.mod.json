@@ -3,7 +3,7 @@
   "id": "differentenchant",
   "version": "${version}",
   "name": "Differentenchant",
-  "description": "Automatic reversible multiblock enchanting, research and disenchanting; Enchanter villagers and condensed experience crystals.",
+  "description": "Reversible multiblock enchanting, research and disenchanting, Enchanter villagers, and the explorable Enchanter's Realm prototype.",
   "environment": "*",
   "entrypoints": {
     "main": [

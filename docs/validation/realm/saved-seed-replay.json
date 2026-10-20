@@ -1,0 +1,85 @@
+{
+  "seed": 2026102001,
+  "chunks": [
+    [
+      30,
+      30
+    ],
+    [
+      31,
+      30
+    ],
+    [
+      30,
+      31
+    ],
+    [
+      31,
+      31
+    ]
+  ],
+  "block_count": 178176,
+  "separate_worlds": [
+    {
+      "world": "New World (130)",
+      "canonical_sha256": "bb67fc8691ba5f36270f2cbc294822ef9db6cb8378203f343c8f44ecb90a064e",
+      "materials": {
+        "differentenchant:realm_chalkstone": 13438,
+        "differentenchant:realm_loam": 3550,
+        "differentenchant:mint_turf": 546,
+        "minecraft:air": 158318,
+        "minecraft:short_grass": 211,
+        "minecraft:pink_tulip": 3,
+        "minecraft:allium": 12,
+        "minecraft:oxeye_daisy": 12,
+        "minecraft:water": 2086
+      }
+    },
+    {
+      "world": "New World (129)",
+      "canonical_sha256": "bb67fc8691ba5f36270f2cbc294822ef9db6cb8378203f343c8f44ecb90a064e",
+      "materials": {
+        "differentenchant:realm_chalkstone": 13438,
+        "differentenchant:realm_loam": 3550,
+        "differentenchant:mint_turf": 546,
+        "minecraft:air": 158318,
+        "minecraft:short_grass": 211,
+        "minecraft:pink_tulip": 3,
+        "minecraft:allium": 12,
+        "minecraft:oxeye_daisy": 12,
+        "minecraft:water": 2086
+      }
+    },
+    {
+      "world": "New World (128)",
+      "canonical_sha256": "bb67fc8691ba5f36270f2cbc294822ef9db6cb8378203f343c8f44ecb90a064e",
+      "materials": {
+        "differentenchant:realm_chalkstone": 13438,
+        "differentenchant:realm_loam": 3550,
+        "differentenchant:mint_turf": 546,
+        "minecraft:air": 158318,
+        "minecraft:short_grass": 211,
+        "minecraft:pink_tulip": 3,
+        "minecraft:allium": 12,
+        "minecraft:oxeye_daisy": 12,
+        "minecraft:water": 2086
+      }
+    },
+    {
+      "world": "New World (127)",
+      "canonical_sha256": "bb67fc8691ba5f36270f2cbc294822ef9db6cb8378203f343c8f44ecb90a064e",
+      "materials": {
+        "differentenchant:realm_chalkstone": 13438,
+        "differentenchant:realm_loam": 3550,
+        "differentenchant:mint_turf": 546,
+        "minecraft:air": 158318,
+        "minecraft:short_grass": 211,
+        "minecraft:pink_tulip": 3,
+        "minecraft:allium": 12,
+        "minecraft:oxeye_daisy": 12,
+        "minecraft:water": 2086
+      }
+    }
+  ],
+  "all_identical_across_processes": true
+}

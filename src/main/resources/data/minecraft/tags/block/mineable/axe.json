@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "differentenchant:lost_research_table",
-    "differentenchant:research_part"
+    "differentenchant:research_part",
+    "differentenchant:azure_log"
   ]
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.differentenchant.realm.AzureTreeShapeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-20T07:59:28.772Z" hostname="MUZHE" time="0.069">
+  <properties/>
+  <testcase name="deterministicBoundedConnectedWoodAndSupportedFoliage()" classname="dev.differentenchant.realm.AzureTreeShapeTest" time="0.068"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

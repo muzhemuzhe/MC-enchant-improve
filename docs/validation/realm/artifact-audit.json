@@ -1,0 +1,62 @@
+{
+  "baseline": "6c8fc99",
+  "branch": "feature/enchanter-dimension",
+  "jar": "build\\libs\\differentenchant-0.14.0.jar",
+  "sha256": "a0d825a86f2fb74d20ba0c18bcd7ecc3e8b536e78fee017b1ee6a88687e2922c",
+  "matched_resources": 225,
+  "no_test_content_in_jar": true,
+  "unchanged_baseline_files": 1002,
+  "allowed_baseline_integrations": [
+    "src/main/java/dev/differentenchant/DifferentEnchant.java",
+    "src/main/resources/assets/differentenchant/lang/en_us.json",
+    "src/main/resources/assets/differentenchant/lang/zh_cn.json",
+    "src/main/resources/data/minecraft/tags/block/mineable/axe.json",
+    "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+    "src/main/resources/differentenchant.mixins.json",
+    "src/main/resources/fabric.mod.json"
+  ],
+  "junit_tests": 32,
+  "server_tests": 47,
+  "unit_suites": [
+    {
+      "suite": "dev.differentenchant.enchanting.BookshelfScanTest",
+      "tests": 3
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.DirectedEnchantPolicyTest",
+      "tests": 6
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.PreviewPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.RandomEnchantPolicyTest",
+      "tests": 7
+    },
+    {
+      "suite": "dev.differentenchant.realm.AzureTreeShapeTest",
+      "tests": 1
+    },
+    {
+      "suite": "dev.differentenchant.research.ResearchPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.resonance.ResonancePolicyTest",
+      "tests": 3
+    },
+    {
+      "suite": "dev.differentenchant.ruins.LanternCachePolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.ruins.RuinPlacementPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.structure.StructureValidatorTest",
+      "tests": 4
+    }
+  ]
+}

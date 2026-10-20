@@ -1,6 +1,8 @@
 # Differentenchant · 附魔机、研究台与祛魔机
 
-Minecraft Java **26.1.2 / Fabric / JDK 25**。0.13.0加入[六项原生进度](docs/ADVANCEMENTS.md)：实际组装三机、取得谐调核心/失落卷轴，以及实际失败研究。独立原生页面以“旧术新生”为根，子节点可以先完成，父节点不构成玩法门槛；没有奖励或额外隐藏进度。[真实客户端截图与验证](docs/validation/advancements/README.md)。0.12.0加入三机自动组装、原版附魔台工作站的附魔师，以及直接提供100经验点的凝萃经验结晶。[自动组装](docs/AUTO_ASSEMBLY.md) · [职业、交易与结晶](docs/ENCHANTER.md)。0.11.1重做两台工作站的成形外观：研究台为白金书卷祭台，祛魔台为深紫收束祭台；组装前仍是原版材料，拆解后恢复。[组装前后实拍与说明](docs/WORKSTATION_VISUALS.md)。0.11.0将祛魔机改为紫水晶/金/红石固定结构，并将现有研究台升级为石英/书架/向内讲台多方块。祛魔核心仍需四回响碎片；研究核心使用卷轴配方，首张卷轴可从要塞图书馆探索取得。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和12点共鸣核心；36书架与机器等级分别改善概率。0.9.0新增第二批9种失落附魔，共17种，包含经过真实碰撞验证的临时星桥；研究沿用0.8.1直接取结果槽交互，无评级/稀有度展示。0.8.0加入独立失落魔法研究台、世界专属固定研究配方、个人发现记录和首批8种实际失落附魔。已有研究屋、研究馆与灯笼遗迹保留，没有新维度或Lv.3以上机器升级实现。
+**0.14.0 / 附魔者维度第一阶段**：独立魔法大陆、青绿原野/青林、分枝层叠青木、自然河谷与稀有浮岛、恒定明亮天空。管理员使用 `/differentenchant dimension enter` / `return` 开发往返，来源位置跨重启保存。[世界设计与注册清单](docs/ENCHANTER_REALM.md) · [八张真实客户端截图与验收](docs/validation/realm/README.md)。本轮在 `feature/enchanter-dimension` 独立开发，尚未合并 main。
+
+Minecraft Java **26.1.2 / Fabric / JDK 25**。0.13.0加入[六项原生进度](docs/ADVANCEMENTS.md)：实际组装三机、取得谐调核心/失落卷轴，以及实际失败研究。独立原生页面以“旧术新生”为根，子节点可以先完成，父节点不构成玩法门槛；没有奖励或额外隐藏进度。[真实客户端截图与验证](docs/validation/advancements/README.md)。0.12.0加入三机自动组装、原版附魔台工作站的附魔师，以及直接提供100经验点的凝萃经验结晶。[自动组装](docs/AUTO_ASSEMBLY.md) · [职业、交易与结晶](docs/ENCHANTER.md)。0.11.1重做两台工作站的成形外观：研究台为白金书卷祭台，祛魔台为深紫收束祭台；组装前仍是原版材料，拆解后恢复。[组装前后实拍与说明](docs/WORKSTATION_VISUALS.md)。0.11.0将祛魔机改为紫水晶/金/红石固定结构，并将现有研究台升级为石英/书架/向内讲台多方块。祛魔核心仍需四回响碎片；研究核心使用卷轴配方，首张卷轴可从要塞图书馆探索取得。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和12点共鸣核心；36书架与机器等级分别改善概率。0.9.0新增第二批9种失落附魔，共17种，包含经过真实碰撞验证的临时星桥；研究沿用0.8.1直接取结果槽交互，无评级/稀有度展示。0.8.0加入独立失落魔法研究台、世界专属固定研究配方、个人发现记录和首批8种实际失落附魔。已有研究屋、研究馆与灯笼遗迹保留；0.14.0维度原型见上方说明，没有Lv.3以上机器升级实现。
 
 [0.12.0验收：45项服务端、四段真实客户端、21张实拍](docs/validation/enchanter/README.md)。
 
@@ -19,7 +21,7 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.13.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.14.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。
 
 正式 Mod ID 与资源命名空间均为 **`differentenchant`**，Java 包为 `dev.differentenchant`。0.5.0曾更换注册ID，改名前的旧测试世界和旧名配置不迁移；0.6.0可延续正式改名后的世界，遗迹只在新生成区块出现。首次启动生成 `config/differentenchant.properties`，全部已有选项及默认数值保留；核心容量仍固定12点，没有新增容量配置。[重命名范围、测试及截图](docs/RENAMING.md)。GitHub仓库和remote不随模组名称修改。
 

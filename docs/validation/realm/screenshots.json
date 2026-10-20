@@ -1,0 +1,149 @@
+{
+  "generator": "RealmClientGameTest.java (camera positions computed from survey)",
+  "images": [
+    {
+      "file": "screenshots/01-mint-fields.png",
+      "sha256": "ab5451adb4f948775daddc122131b6ada97fb780b9f79240b78b4583be277072",
+      "raw_source": "build\\client-gametest\\screenshots\\0000_realm-01-mint-fields.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "unaltered": true,
+      "camera": [
+        28.0,
+        117.0,
+        -184.0
+      ],
+      "look_at": [
+        -8,
+        85,
+        -136
+      ]
+    },
+    {
+      "file": "screenshots/02-azure-woodland.png",
+      "sha256": "e75b8834e14e17a88ecdd41fb375fb1249d8a2674354eeed21f2676e9bf95937",
+      "raw_source": "build\\client-gametest\\screenshots\\0001_realm-02-azure-woodland.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "unaltered": true,
+      "camera": [
+        -139.0,
+        115.0,
+        -216.0
+      ],
+      "look_at": [
+        -184,
+        90,
+        -168
+      ]
+    },
+    {
+      "file": "screenshots/03-azure-tree.png",
+      "sha256": "368f6547aef978e2ff5b755ea78c5c0ff5225a6bd5cf59d27c7b2863f78420e0",
+      "raw_source": "build\\client-gametest\\screenshots\\0002_realm-03-azure-tree.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "unaltered": true,
+      "camera": [
+        12.5,
+        103.0,
+        -137.5
+      ],
+      "look_at": [
+        -3,
+        103,
+        -151
+      ]
+    },
+    {
+      "file": "screenshots/04-hills.png",
+      "sha256": "20bbe4e11a2b5e45355bfea5a816ad107dde6a01b65e375678484c877bfc22f9",
+      "raw_source": "build\\client-gametest\\screenshots\\0003_realm-04-hills.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "unaltered": true,
+      "camera": [
+        -40.0,
+        177.0,
+        -4.0
+      ],
+      "look_at": [
+        -104,
+        137,
+        56
+      ]
+    },
+    {
+      "file": "screenshots/05-floating-island.png",
+      "sha256": "627349c20d2151aaadf5678f20340ddba65c35475a9c5664a87de6b1d570bed1",
+      "raw_source": "build\\client-gametest\\screenshots\\0004_realm-05-floating-island.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "unaltered": true,
+      "camera": [
+        -4.0,
+        204.0,
+        76.0
+      ],
+      "look_at": [
+        -40,
+        183,
+        120
+      ]
+    },
+    {
+      "file": "screenshots/06-sky-day.png",
+      "sha256": "587da0ee8d49a6a2959e4f001ff5f9a108d884abbdcdcec4bbdd039bbc22941c",
+      "raw_source": "build\\client-gametest\\screenshots\\0005_realm-06-sky-day.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "unaltered": true,
+      "camera": [
+        -8.0,
+        109.0,
+        -136.0
+      ],
+      "look_at": [
+        -8,
+        125,
+        -56
+      ]
+    },
+    {
+      "file": "screenshots/07-sky-midnight.png",
+      "sha256": "587da0ee8d49a6a2959e4f001ff5f9a108d884abbdcdcec4bbdd039bbc22941c",
+      "raw_source": "build\\client-gametest\\screenshots\\0006_realm-07-sky-midnight.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "unaltered": true,
+      "camera": [
+        -8.0,
+        109.0,
+        -136.0
+      ],
+      "look_at": [
+        -8,
+        125,
+        -56
+      ]
+    },
+    {
+      "file": "screenshots/08-river-valley.png",
+      "sha256": "fb1350c5b036d70795310742df030d2440760053891f06e10c6c107da5ae94dc",
+      "raw_source": "build\\client-gametest\\screenshots\\0007_realm-08-river-valley.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "unaltered": true,
+      "camera": [
+        6.0,
+        91.0,
+        -12.0
+      ],
+      "look_at": [
+        -24,
+        63,
+        24
+      ]
+    }
+  ]
+}

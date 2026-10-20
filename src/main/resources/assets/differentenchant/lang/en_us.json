@@ -132,5 +132,13 @@
   "advancements.differentenchant.price_of_knowledge.title": "The Price of Knowledge",
   "advancements.differentenchant.price_of_knowledge.description": "Complete your first failed research",
   "advancements.differentenchant.disenchant.title": "Disenchant",
-  "advancements.differentenchant.disenchant.description": "Assemble a disenchanting machine for the first time"
+  "advancements.differentenchant.disenchant.description": "Assemble a disenchanting machine for the first time",
+  "block.differentenchant.realm_chalkstone": "Realm Chalkstone",
+  "block.differentenchant.realm_loam": "Realm Loam",
+  "block.differentenchant.mint_turf": "Mint Turf",
+  "block.differentenchant.azure_log": "Azure Log (Prototype)",
+  "block.differentenchant.azure_leaves": "Azure Leaves (Prototype)",
+  "biome.differentenchant.mint_fields": "Mint Fields",
+  "biome.differentenchant.azure_woodland": "Azure Woodland",
+  "dimension.differentenchant.enchanter_realm": "Enchanter’s Realm"
 }

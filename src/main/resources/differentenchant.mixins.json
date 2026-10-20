@@ -17,7 +17,8 @@
     "AdvancementCursorMixin"
   ],
   "client": [
-    "client.BowModelMixin"
+    "client.BowModelMixin",
+    "client.RealmSkyMixin"
   ],
   "injectors": {
     "defaultRequire": 1

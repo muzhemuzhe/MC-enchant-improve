@@ -1,0 +1,7 @@
+seed=2026102001 survey=625 chunks, ground range=63..195 water columns=44
+Mainland max adjacent height step interior=3 chunk seam=3; rare island sample columns=3/625
+field=BlockPos{x=-8, y=85, z=-136} forest=BlockPos{x=-184, y=85, z=-168} tree=BlockPos{x=-3, y=97, z=-151} hill=BlockPos{x=-104, y=137, z=56} island=BlockPos{x=-40, y=192, z=120}
+Admin enter/return, actual movement, natural biomes/trees, constant sky verified.
+Full save, shutdown and disk reopen inside Realm; terrain and return anchor persisted, return succeeded.
+Nether source dimension and coordinates restored; no portal created.
+Independent world same seed, 178176 block materials at chunks (30..31,30..31): 1d0410fb5fd6f39a == 1d0410fb5fd6f39a

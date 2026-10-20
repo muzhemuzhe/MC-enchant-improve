@@ -1,0 +1,34 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.65,
+  "downfall": 0.6,
+  "effects": {
+    "water_color": "#63bfc2",
+    "grass_color": "#b3d59c",
+    "foliage_color": "#398e83",
+    "dry_foliage_color": "#c2ce91"
+  },
+  "carvers": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "differentenchant:field_trees",
+      "differentenchant:meadow_grass",
+      "differentenchant:meadow_flowers",
+      "differentenchant:ivory_flowers",
+      "differentenchant:pink_flowers"
+    ],
+    []
+  ],
+  "spawners": {},
+  "spawn_costs": {},
+  "attributes": {}
+}

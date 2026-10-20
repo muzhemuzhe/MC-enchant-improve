@@ -1,0 +1,79 @@
+{
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "minecraft:min",
+    "argument1": {
+      "type": "minecraft:add",
+      "argument1": 88,
+      "argument2": {
+        "type": "minecraft:add",
+        "argument1": {
+          "type": "minecraft:mul",
+          "argument1": 48,
+          "argument2": {
+            "type": "minecraft:noise",
+            "noise": "differentenchant:land",
+            "xz_scale": 1,
+            "y_scale": 0
+          }
+        },
+        "argument2": {
+          "type": "minecraft:add",
+          "argument1": {
+            "type": "minecraft:mul",
+            "argument1": 22,
+            "argument2": {
+              "type": "minecraft:noise",
+              "noise": "differentenchant:hills",
+              "xz_scale": 1,
+              "y_scale": 0
+            }
+          },
+          "argument2": {
+            "type": "minecraft:mul",
+            "argument1": 105,
+            "argument2": {
+              "type": "minecraft:square",
+              "argument": {
+                "type": "minecraft:noise",
+                "noise": "differentenchant:ridges",
+                "xz_scale": 1,
+                "y_scale": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "argument2": {
+      "type": "minecraft:add",
+      "argument1": {
+        "type": "minecraft:add",
+        "argument1": 56,
+        "argument2": {
+          "type": "minecraft:mul",
+          "argument1": 3,
+          "argument2": {
+            "type": "minecraft:noise",
+            "noise": "differentenchant:land",
+            "xz_scale": 1,
+            "y_scale": 0
+          }
+        }
+      },
+      "argument2": {
+        "type": "minecraft:mul",
+        "argument1": 160,
+        "argument2": {
+          "type": "minecraft:abs",
+          "argument": {
+            "type": "minecraft:noise",
+            "noise": "differentenchant:river",
+            "xz_scale": 1,
+            "y_scale": 0
+          }
+        }
+      }
+    }
+  }
+}

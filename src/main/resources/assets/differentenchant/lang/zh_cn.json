@@ -132,5 +132,13 @@
   "advancements.differentenchant.price_of_knowledge.title": "知识的代价",
   "advancements.differentenchant.price_of_knowledge.description": "首次研究失败",
   "advancements.differentenchant.disenchant.title": "祛魔",
-  "advancements.differentenchant.disenchant.description": "首次组装祛魔机"
+  "advancements.differentenchant.disenchant.description": "首次组装祛魔机",
+  "block.differentenchant.realm_chalkstone": "境域灰岩",
+  "block.differentenchant.realm_loam": "境域沃土",
+  "block.differentenchant.mint_turf": "薄荷草方块",
+  "block.differentenchant.azure_log": "青木原木（原型）",
+  "block.differentenchant.azure_leaves": "青木树叶（原型）",
+  "biome.differentenchant.mint_fields": "青绿原野",
+  "biome.differentenchant.azure_woodland": "青林",
+  "dimension.differentenchant.enchanter_realm": "附魔者维度"
 }

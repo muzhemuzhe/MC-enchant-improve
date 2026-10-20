@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "differentenchant:block/azure_log"
+    },
+    "axis=x": {
+      "model": "differentenchant:block/azure_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=z": {
+      "model": "differentenchant:block/azure_log",
+      "x": 90
+    }
+  }
+}

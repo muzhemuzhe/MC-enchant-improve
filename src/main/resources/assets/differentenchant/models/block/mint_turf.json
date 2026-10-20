@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "differentenchant:block/mint_turf_top",
+    "bottom": "differentenchant:block/realm_loam",
+    "side": "differentenchant:block/mint_turf_side"
+  }
+}

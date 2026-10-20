@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "differentenchant:block/azure_log_top",
+    "side": "differentenchant:block/azure_log"
+  }
+}
