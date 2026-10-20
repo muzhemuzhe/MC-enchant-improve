@@ -1,0 +1,28 @@
+{
+  "parent": "differentenchant:lost_chapter",
+  "display": {
+    "icon": {
+      "id": "differentenchant:lost_research_table"
+    },
+    "title": {
+      "translate": "advancements.differentenchant.place_of_learning.title"
+    },
+    "description": {
+      "translate": "advancements.differentenchant.place_of_learning.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "committed": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "committed"
+    ]
+  ]
+}

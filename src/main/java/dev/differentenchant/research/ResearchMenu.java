@@ -137,6 +137,10 @@ public final class ResearchMenu extends AbstractContainerMenu {
             inputs.removeItem(2,1);data.discover(player.getUUID(),recipe,result);
             revision=REVISIONS.incrementAndGet();observed=List.of();
         } finally {committing=false;}
+        if(player instanceof ServerPlayer recipient){
+            dev.differentenchant.advancement.ModAdvancements.obtained(recipient,output);
+            if(result.scroll())dev.differentenchant.advancement.ModAdvancements.committed(recipient,"price_of_knowledge");
+        }
         server.playSound(null,player.blockPosition(),net.minecraft.sounds.SoundEvents.ENCHANTMENT_TABLE_USE,net.minecraft.sounds.SoundSource.BLOCKS,.7f,1.1f);
         broadcastChanges();
         return output;

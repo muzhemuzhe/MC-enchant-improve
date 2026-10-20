@@ -1,0 +1,28 @@
+{
+  "parent": "differentenchant:place_of_learning",
+  "display": {
+    "icon": {
+      "id": "differentenchant:lost_scroll"
+    },
+    "title": {
+      "translate": "advancements.differentenchant.price_of_knowledge.title"
+    },
+    "description": {
+      "translate": "advancements.differentenchant.price_of_knowledge.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "committed": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "committed"
+    ]
+  ]
+}

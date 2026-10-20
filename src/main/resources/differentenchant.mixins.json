@@ -12,7 +12,9 @@
     "AutoAssemblyStateMixin",
     "RecyclingOfferMixin",
     "RecyclingAutofillMixin",
-    "RecyclingResultSlotMixin"
+    "RecyclingResultSlotMixin",
+    "AssemblyActorMixin",
+    "AdvancementCursorMixin"
   ],
   "client": [
     "client.BowModelMixin"

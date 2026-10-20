@@ -1,0 +1,3 @@
+All six native progress entries awarded by actual survival placement, actual stronghold loot cursor pickup, native merchant cursor trade and committed failed research. Ancestors remained unfinished until their own formation. Both languages/screens/icons tested.
+Native player advancement progress survived full integrated server shutdown and on-disk reopen.
+Fresh world does not inherit progress. First failed research in the second world grants scroll plus failure together; machine-input core and unfinished formation ancestors remain unawarded. Native English dual toast and Chinese deep-child page verified.

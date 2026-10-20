@@ -1,0 +1,163 @@
+[
+  {
+    "path": "docs/screenshots/advancements/advancements-01-scroll-cursor-toast-zh.png",
+    "source": "build/client-gametest/screenshots/0000_advancements-01-scroll-cursor-toast-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "127a0a4c9f5bc79b1ebc9e62cd7fd3abd7253aaed8f0618eb879ee9212753f15"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-02-child-before-root-zh.png",
+    "source": "build/client-gametest/screenshots/0001_advancements-02-child-before-root-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "f5c44c5be70f920d006ec4237defe8afdd982a5d63896d6f1e0fe6912e4c3521"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-03-traded-core-cursor-toast-zh.png",
+    "source": "build/client-gametest/screenshots/0002_advancements-03-traded-core-cursor-toast-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "c618388ce2ab8492a6979aa78dfb31814d0a70ae42d3fdbb94881f68c478eff5"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-11-actual-formation-toast-zh.png",
+    "source": "build/client-gametest/screenshots/0003_advancements-11-actual-formation-toast-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "51bf536c036119a908e3e88f3923f28bba841b80dccf1fdb755290520c261c6c"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-20-research-before-root-zh.png",
+    "source": "build/client-gametest/screenshots/0004_advancements-20-research-before-root-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "7945aff9f155261264a8b04c49a360663ecff6fd5e1ed63b1b8314f234a40504"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-21-unknown-preview-no-failure.png",
+    "source": "build/client-gametest/screenshots/0005_advancements-21-unknown-preview-no-failure.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "51fe66d039bf569d5003fd1a22571681bcf11b557cfaf8fb8786d6b682ffdad6"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-22-committed-failure-toast-zh.png",
+    "source": "build/client-gametest/screenshots/0006_advancements-22-committed-failure-toast-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "1f291157e82d7ce9dfd1a186fe05b63bba6cd84182acb392c767598a6012d489"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-23-deep-child-root-unfinished-zh.png",
+    "source": "build/client-gametest/screenshots/0007_advancements-23-deep-child-root-unfinished-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "6fbbfd0a1ad9d0177d94abb2a445617bbf5b5e4885d9dcc2ef395fe8cf7481d0"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-12-actual-formation-toast-zh.png",
+    "source": "build/client-gametest/screenshots/0008_advancements-12-actual-formation-toast-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "7b82bf54b29a0c7acb98cd364b2394ff928b680ffb68dad1d839ce30134f1ff7"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-10-actual-formation-toast-zh.png",
+    "source": "build/client-gametest/screenshots/0009_advancements-10-actual-formation-toast-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "80bac235c452c31abacebb93edc1fab00ff6240fc2aea58ea0b724a895d556a8"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-30-complete-tree-zh.png",
+    "source": "build/client-gametest/screenshots/0010_advancements-30-complete-tree-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "b0305de82e98df76077cca0ab819cc115029a06b90b74bf4c6de443393095f49"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-31-root-tooltip-zh.png",
+    "source": "build/client-gametest/screenshots/0011_advancements-31-root-tooltip-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "ada20aa56f5191eeefa6f9bb5221ab099f316a1324474541c171e25b83b15f3a"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-32-disenchant-tooltip-zh.png",
+    "source": "build/client-gametest/screenshots/0012_advancements-32-disenchant-tooltip-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "4c0d03cdce46bc7b9bca3422a337810058d3b0a04e120d89732bbde1eb9eaf72"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-33-complete-tree-en.png",
+    "source": "build/client-gametest/screenshots/0013_advancements-33-complete-tree-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "05a6bfab48640a75e5fd0c457e957badb73f844f65e3778d814f9cc9e41dfe60"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-34-old_arts_reborn-tooltip-en.png",
+    "source": "build/client-gametest/screenshots/0014_advancements-34-old_arts_reborn-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "4d0909949382d7511949518b15d10995220b3f249a3c30f470f011d36567f82e"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-34-attuned_core-tooltip-en.png",
+    "source": "build/client-gametest/screenshots/0015_advancements-34-attuned_core-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "1d07293ddc8eb38a40f2329d6be2e407e716169797fc961a509b9aa9de2593d5"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-34-lost_chapter-tooltip-en.png",
+    "source": "build/client-gametest/screenshots/0016_advancements-34-lost_chapter-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "4810ce6200a4c2edb99b7404f0c01681ca6ac1defecb8badbf6be71420dd9280"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-34-place_of_learning-tooltip-en.png",
+    "source": "build/client-gametest/screenshots/0017_advancements-34-place_of_learning-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "5b1c6ba41dd11e5fbc36e09649bec06564450bb9934713563ddd811dcd5ffc07"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-34-price_of_knowledge-tooltip-en.png",
+    "source": "build/client-gametest/screenshots/0018_advancements-34-price_of_knowledge-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "14a409958d727cdf51ad57ff6ab34d606bc09054f5832ebfe46f155de16174e7"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-34-disenchant-tooltip-en.png",
+    "source": "build/client-gametest/screenshots/0019_advancements-34-disenchant-tooltip-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "572da20ec645864493e98e93bf9b09beb5870da716312ce213a1c71dabe2fd3d"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-40-after-real-server-restart-en.png",
+    "source": "build/client-gametest/screenshots/0020_advancements-40-after-real-server-restart-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "83bbcae12bfbb8cc9fe627f1b66f8da01f67c692ee19561835b60d7703d214e6"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-50-first-scroll-and-failure-two-toasts-en.png",
+    "source": "build/client-gametest/screenshots/0021_advancements-50-first-scroll-and-failure-two-toasts-en.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "22e0f901acf14f29946a29c27fd7288835ea07a8760c512316972ac59592b2a9"
+  },
+  {
+    "path": "docs/screenshots/advancements/advancements-51-deepest-child-without-formed-parents-zh.png",
+    "source": "build/client-gametest/screenshots/0022_advancements-51-deepest-child-without-formed-parents-zh.png",
+    "width": 1280,
+    "height": 720,
+    "sha256": "515e59ba6dee98a7011c75b9f12a76cc4a935799962f71cdaac89cbeffe04281"
+  }
+]

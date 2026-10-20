@@ -1,0 +1,35 @@
+{
+  "parent": "differentenchant:old_arts_reborn",
+  "display": {
+    "icon": {
+      "id": "differentenchant:lost_scroll"
+    },
+    "title": {
+      "translate": "advancements.differentenchant.lost_chapter.title"
+    },
+    "description": {
+      "translate": "advancements.differentenchant.lost_chapter.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "differentenchant:lost_scroll"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtained"
+    ]
+  ]
+}

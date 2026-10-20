@@ -120,5 +120,17 @@
   "entity.differentenchant.villager.enchanter": "附魔师",
   "item.differentenchant.condensed_experience_crystal": "凝萃经验结晶",
   "item.differentenchant.condensed_experience_crystal.help": "右键立即获得 %s 点经验。",
-  "trade.differentenchant.any_book": "接受任意存有附魔的附魔书，包括诅咒。"
+  "trade.differentenchant.any_book": "接受任意存有附魔的附魔书，包括诅咒。",
+  "advancements.differentenchant.old_arts_reborn.title": "旧术新生",
+  "advancements.differentenchant.old_arts_reborn.description": "首次组装附魔机",
+  "advancements.differentenchant.attuned_core.title": "魔力？！",
+  "advancements.differentenchant.attuned_core.description": "获得第一颗谐调的共鸣核心",
+  "advancements.differentenchant.lost_chapter.title": "遗失的篇章",
+  "advancements.differentenchant.lost_chapter.description": "获得第一张失落卷轴",
+  "advancements.differentenchant.place_of_learning.title": "求知之所",
+  "advancements.differentenchant.place_of_learning.description": "首次组装失落魔法研究台",
+  "advancements.differentenchant.price_of_knowledge.title": "知识的代价",
+  "advancements.differentenchant.price_of_knowledge.description": "首次研究失败",
+  "advancements.differentenchant.disenchant.title": "祛魔",
+  "advancements.differentenchant.disenchant.description": "首次组装祛魔机"
 }

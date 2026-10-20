@@ -120,5 +120,17 @@
   "entity.differentenchant.villager.enchanter": "Enchanter",
   "item.differentenchant.condensed_experience_crystal": "Condensed Experience Crystal",
   "item.differentenchant.condensed_experience_crystal.help": "Use to instantly gain %s experience points.",
-  "trade.differentenchant.any_book": "Accepts any non-empty enchanted book, including curses."
+  "trade.differentenchant.any_book": "Accepts any non-empty enchanted book, including curses.",
+  "advancements.differentenchant.old_arts_reborn.title": "Old Arts Reborn",
+  "advancements.differentenchant.old_arts_reborn.description": "Assemble an enchanting machine for the first time",
+  "advancements.differentenchant.attuned_core.title": "Magic?!",
+  "advancements.differentenchant.attuned_core.description": "Obtain your first attuned resonance core",
+  "advancements.differentenchant.lost_chapter.title": "A Lost Chapter",
+  "advancements.differentenchant.lost_chapter.description": "Obtain your first lost scroll",
+  "advancements.differentenchant.place_of_learning.title": "A Place of Learning",
+  "advancements.differentenchant.place_of_learning.description": "Assemble a lost enchantment research table for the first time",
+  "advancements.differentenchant.price_of_knowledge.title": "The Price of Knowledge",
+  "advancements.differentenchant.price_of_knowledge.description": "Complete your first failed research",
+  "advancements.differentenchant.disenchant.title": "Disenchant",
+  "advancements.differentenchant.disenchant.description": "Assemble a disenchanting machine for the first time"
 }

@@ -27,7 +27,8 @@
       "dev.differentenchant.DisenchantGameTests",
       "dev.differentenchant.WorkstationGameTests",
       "dev.differentenchant.AutoAssemblyGameTests",
-      "dev.differentenchant.EnchanterGameTests"
+      "dev.differentenchant.EnchanterGameTests",
+      "dev.differentenchant.AdvancementGameTests"
     ],
     "fabric-client-gametest": [
       "dev.differentenchant.MachineClientGameTest",
@@ -43,7 +44,8 @@
       "dev.differentenchant.DisenchantClientGameTest",
       "dev.differentenchant.WorkstationClientGameTest",
       "dev.differentenchant.WorkstationVisualClientGameTest",
-      "dev.differentenchant.EnchanterClientGameTest"
+      "dev.differentenchant.EnchanterClientGameTest",
+      "dev.differentenchant.AdvancementClientGameTest"
     ]
   },
   "depends": {
