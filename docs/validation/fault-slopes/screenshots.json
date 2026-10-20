@@ -1,0 +1,290 @@
+{
+  "source": "RealmClientGameTest; actual native generation, camera-only photography",
+  "images": [
+    {
+      "file": "screenshots/seed-2026102001-01-mainland-slope.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0000_edge-seed-2026102001-01-mainland-slope.png",
+      "sha256": "1313cb02afe9ab7d3430c62d70cb3248cdb2d99b876b4012e195eceab2fde8bd",
+      "unaltered": true,
+      "camera": [
+        622.5,
+        78.0,
+        534.5
+      ],
+      "look_at": [
+        512,
+        53,
+        436
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-2026102001-02-whole-relationship.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0001_edge-seed-2026102001-02-whole-relationship.png",
+      "sha256": "7903748aaef4a97e591d2a5b10889ff73ead730974d4abb3de3542bad00da70b",
+      "unaltered": true,
+      "camera": [
+        742.0,
+        260.0,
+        712.0
+      ],
+      "look_at": [
+        512,
+        145,
+        792
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-2026102001-03-terraces-overhead.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0002_edge-seed-2026102001-03-terraces-overhead.png",
+      "sha256": "054575f8e277eab4c4d03b1e0cbfc538b1c1a3b7a0344f8a4a1577528ef8c0f3",
+      "unaltered": true,
+      "camera": [
+        587.5,
+        215.0,
+        472.5
+      ],
+      "look_at": [
+        512,
+        32,
+        469
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-2026102001-04-abyss-up.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0003_edge-seed-2026102001-04-abyss-up.png",
+      "sha256": "ed399f1181fcce38a18dd6463a59d988e52c17596eb55f3a7ecebea21230545d",
+      "unaltered": true,
+      "camera": [
+        552.5,
+        0.0,
+        549.5
+      ],
+      "look_at": [
+        512,
+        59,
+        464
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-2026102001-05-island-taper.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0004_edge-seed-2026102001-05-island-taper.png",
+      "sha256": "93fb86a14c56903c0264a341e586c3db62b6c8d68bfe0ed625901464c6774d07",
+      "unaltered": true,
+      "camera": [
+        602.5,
+        139.0,
+        444.5
+      ],
+      "look_at": [
+        512,
+        157,
+        580
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-87-01-mainland-slope.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0005_edge-seed-87-01-mainland-slope.png",
+      "sha256": "bd88caaad99bf8a8adfa7e885792f5c8e35423243987ac257449fa4c596ff792",
+      "unaltered": true,
+      "camera": [
+        -1.5,
+        78.0,
+        -269.5
+      ],
+      "look_at": [
+        -100,
+        67,
+        -160
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-87-02-whole-relationship.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0006_edge-seed-87-02-whole-relationship.png",
+      "sha256": "65814333c0063d42989963f3c4935a57f05bf1fad3eaa507aad6fd79ba4a342b",
+      "unaltered": true,
+      "camera": [
+        132.0,
+        260.0,
+        -390.0
+      ],
+      "look_at": [
+        212,
+        145,
+        -160
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-87-03-terraces-overhead.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0007_edge-seed-87-03-terraces-overhead.png",
+      "sha256": "5df3aa44dce5dca6f53d4972fe8aee36bfc86b6834ea61e0df3f036c330b311d",
+      "unaltered": true,
+      "camera": [
+        -63.5,
+        215.0,
+        -234.5
+      ],
+      "look_at": [
+        -67,
+        46,
+        -160
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-87-04-abyss-up.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0008_edge-seed-87-04-abyss-up.png",
+      "sha256": "0e02aba11be4ae3141a3be3eff17cde66d1c9e29c06e5b6c73c70c11502a52e4",
+      "unaltered": true,
+      "camera": [
+        13.5,
+        0.0,
+        -199.5
+      ],
+      "look_at": [
+        -72,
+        73,
+        -160
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-87-05-island-taper.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0009_edge-seed-87-05-island-taper.png",
+      "sha256": "bb369cfea553be9f80274d122b1566c86802c6c47286e7d094e6d4d7896d7389",
+      "unaltered": true,
+      "camera": [
+        -91.5,
+        153.0,
+        -249.5
+      ],
+      "look_at": [
+        107,
+        169,
+        -160
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-20261022-01-mainland-slope.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0010_edge-seed-20261022-01-mainland-slope.png",
+      "sha256": "e01435e7da8dd6eed17902c5d1d27494bbdec2ddb3962e6523695cbc81eb4439",
+      "unaltered": true,
+      "camera": [
+        -301.5,
+        78.0,
+        194.5
+      ],
+      "look_at": [
+        -192,
+        54,
+        292
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-20261022-02-whole-relationship.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0011_edge-seed-20261022-02-whole-relationship.png",
+      "sha256": "c80cc837300eda3d4f1574e1b86b085617f1d22f57a7c4d3ed998dc8675c737a",
+      "unaltered": true,
+      "camera": [
+        -422.0,
+        260.0,
+        92.0
+      ],
+      "look_at": [
+        -192,
+        145,
+        12
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-20261022-03-terraces-overhead.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0012_edge-seed-20261022-03-terraces-overhead.png",
+      "sha256": "f4f9626a4f78f597d114daa084e72972ec9be39f9eb96d938d88149a3e513e62",
+      "unaltered": true,
+      "camera": [
+        -266.5,
+        215.0,
+        256.5
+      ],
+      "look_at": [
+        -192,
+        33,
+        259
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-20261022-04-abyss-up.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0013_edge-seed-20261022-04-abyss-up.png",
+      "sha256": "cde3d4d7a95e79cf39f2eb495ac02cfa7b791de553cc9a33215fc1ae31fd6f41",
+      "unaltered": true,
+      "camera": [
+        -231.5,
+        0.0,
+        179.5
+      ],
+      "look_at": [
+        -192,
+        60,
+        264
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    },
+    {
+      "file": "screenshots/seed-20261022-05-island-taper.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0014_edge-seed-20261022-05-island-taper.png",
+      "sha256": "2a3d0b1c7c1646e6d3cba195f741397e612a6f685dea770261d17dee78b983ed",
+      "unaltered": true,
+      "camera": [
+        -281.5,
+        140.0,
+        284.5
+      ],
+      "look_at": [
+        -192,
+        169,
+        108
+      ],
+      "camera_mode": "creative flight, native generated terrain"
+    }
+  ]
+}

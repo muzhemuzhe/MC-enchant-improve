@@ -43,7 +43,7 @@
       "argument1": 0.055,
       "argument2": {
         "type": "minecraft:add",
-        "argument1": "differentenchant:lifted_height",
+        "argument1": "differentenchant:lifted_surface",
         "argument2": {
           "type": "minecraft:mul",
           "argument1": -1,
@@ -68,57 +68,145 @@
       "input": "differentenchant:rift_field",
       "min_inclusive": 0.3,
       "max_exclusive": 2,
-      "when_in_range": "differentenchant:lifted_height",
-      "when_out_of_range": "differentenchant:land_height"
+      "when_in_range": "differentenchant:lifted_surface",
+      "when_out_of_range": "differentenchant:mainland_surface"
     },
     "final_density": {
       "type": "minecraft:interpolated",
       "argument": {
         "type": "minecraft:max",
         "argument1": {
-          "type": "minecraft:min",
-          "argument1": {
-            "type": "minecraft:mul",
-            "argument1": 5,
-            "argument2": "differentenchant:mainland_mask"
-          },
-          "argument2": {
-            "type": "minecraft:mul",
-            "argument1": 0.055,
-            "argument2": {
-              "type": "minecraft:add",
-              "argument1": "differentenchant:land_height",
+          "type": "minecraft:range_choice",
+          "input": "differentenchant:rift_field",
+          "min_inclusive": -2,
+          "max_exclusive": 0.18,
+          "when_in_range": {
+            "type": "minecraft:range_choice",
+            "input": "differentenchant:mainland_edge_distance",
+            "min_inclusive": 248,
+            "max_exclusive": 1000000,
+            "when_in_range": {
+              "type": "minecraft:mul",
+              "argument1": 0.055,
               "argument2": {
-                "type": "minecraft:mul",
-                "argument1": -1,
+                "type": "minecraft:add",
+                "argument1": "differentenchant:land_height",
                 "argument2": {
-                  "type": "minecraft:y_clamped_gradient",
-                  "from_y": -64,
-                  "to_y": 320,
-                  "from_value": -64,
-                  "to_value": 320
+                  "type": "minecraft:mul",
+                  "argument1": -1,
+                  "argument2": {
+                    "type": "minecraft:y_clamped_gradient",
+                    "from_y": -64,
+                    "to_y": 320,
+                    "from_value": -64,
+                    "to_value": 320
+                  }
                 }
               }
-            }
-          }
-        },
-        "argument2": {
-          "type": "minecraft:max",
-          "argument1": {
-            "type": "minecraft:min",
-            "argument1": {
-              "type": "minecraft:mul",
-              "argument1": 5,
-              "argument2": "differentenchant:lift_mask"
             },
-            "argument2": {
+            "when_out_of_range": {
               "type": "minecraft:min",
               "argument1": {
+                "type": "minecraft:mul",
+                "argument1": 5,
+                "argument2": "differentenchant:mainland_mask"
+              },
+              "argument2": {
                 "type": "minecraft:mul",
                 "argument1": 0.055,
                 "argument2": {
                   "type": "minecraft:add",
-                  "argument1": "differentenchant:lifted_height",
+                  "argument1": {
+                    "type": "minecraft:add",
+                    "argument1": "differentenchant:mainland_surface",
+                    "argument2": {
+                      "type": "minecraft:clamp",
+                      "input": {
+                        "type": "minecraft:add",
+                        "argument1": {
+                          "type": "minecraft:add",
+                          "argument1": "differentenchant:land_height",
+                          "argument2": {
+                            "type": "minecraft:mul",
+                            "argument1": -1,
+                            "argument2": {
+                              "type": "minecraft:mul",
+                              "argument1": {
+                                "type": "minecraft:add",
+                                "argument1": "differentenchant:land_height",
+                                "argument2": 80
+                              },
+                              "argument2": {
+                                "type": "minecraft:add",
+                                "argument1": {
+                                  "type": "minecraft:mul",
+                                  "argument1": 0.6,
+                                  "argument2": {
+                                    "type": "minecraft:clamp",
+                                    "input": {
+                                      "type": "minecraft:add",
+                                      "argument1": 1,
+                                      "argument2": {
+                                        "type": "minecraft:mul",
+                                        "argument1": -1,
+                                        "argument2": {
+                                          "type": "minecraft:mul",
+                                          "argument1": {
+                                            "type": "minecraft:add",
+                                            "argument1": "differentenchant:mainland_edge_distance",
+                                            "argument2": "differentenchant:mainland_shelves"
+                                          },
+                                          "argument2": "differentenchant:fault_slope_rate"
+                                        }
+                                      }
+                                    },
+                                    "min": 0,
+                                    "max": 1
+                                  }
+                                },
+                                "argument2": {
+                                  "type": "minecraft:mul",
+                                  "argument1": 0.4,
+                                  "argument2": {
+                                    "type": "minecraft:square",
+                                    "argument": {
+                                      "type": "minecraft:clamp",
+                                      "input": {
+                                        "type": "minecraft:add",
+                                        "argument1": 1,
+                                        "argument2": {
+                                          "type": "minecraft:mul",
+                                          "argument1": -1,
+                                          "argument2": {
+                                            "type": "minecraft:mul",
+                                            "argument1": {
+                                              "type": "minecraft:add",
+                                              "argument1": "differentenchant:mainland_edge_distance",
+                                              "argument2": "differentenchant:mainland_shelves"
+                                            },
+                                            "argument2": "differentenchant:fault_slope_rate"
+                                          }
+                                        }
+                                      },
+                                      "min": 0,
+                                      "max": 1
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "argument2": {
+                          "type": "minecraft:mul",
+                          "argument1": -1,
+                          "argument2": "differentenchant:mainland_surface"
+                        }
+                      },
+                      "min": -14,
+                      "max": 14
+                    }
+                  },
                   "argument2": {
                     "type": "minecraft:mul",
                     "argument1": -1,
@@ -131,12 +219,217 @@
                     }
                   }
                 }
+              }
+            }
+          },
+          "when_out_of_range": {
+            "type": "minecraft:mul",
+            "argument1": 5,
+            "argument2": "differentenchant:mainland_mask"
+          }
+        },
+        "argument2": {
+          "type": "minecraft:max",
+          "argument1": {
+            "type": "minecraft:range_choice",
+            "input": "differentenchant:rift_field",
+            "min_inclusive": 0.3,
+            "max_exclusive": 2,
+            "when_in_range": {
+              "type": "minecraft:min",
+              "argument1": {
+                "type": "minecraft:mul",
+                "argument1": 5,
+                "argument2": "differentenchant:lift_mask"
               },
               "argument2": {
-                "type": "minecraft:add",
+                "type": "minecraft:min",
                 "argument1": {
                   "type": "minecraft:mul",
-                  "argument1": 0.045,
+                  "argument1": 0.055,
+                  "argument2": {
+                    "type": "minecraft:add",
+                    "argument1": "differentenchant:lifted_surface",
+                    "argument2": {
+                      "type": "minecraft:mul",
+                      "argument1": -1,
+                      "argument2": {
+                        "type": "minecraft:y_clamped_gradient",
+                        "from_y": -64,
+                        "to_y": 320,
+                        "from_value": -64,
+                        "to_value": 320
+                      }
+                    }
+                  }
+                },
+                "argument2": {
+                  "type": "minecraft:add",
+                  "argument1": {
+                    "type": "minecraft:mul",
+                    "argument1": 0.045,
+                    "argument2": {
+                      "type": "minecraft:add",
+                      "argument1": {
+                        "type": "minecraft:y_clamped_gradient",
+                        "from_y": -64,
+                        "to_y": 320,
+                        "from_value": -64,
+                        "to_value": 320
+                      },
+                      "argument2": {
+                        "type": "minecraft:add",
+                        "argument1": {
+                          "type": "minecraft:range_choice",
+                          "input": "differentenchant:lifted_edge_distance",
+                          "min_inclusive": 192,
+                          "max_exclusive": 1000000,
+                          "when_in_range": "differentenchant:lifted_mass_depth",
+                          "when_out_of_range": {
+                            "type": "minecraft:min",
+                            "argument1": "differentenchant:lifted_mass_depth",
+                            "argument2": {
+                              "type": "minecraft:max",
+                              "argument1": 0,
+                              "argument2": {
+                                "type": "minecraft:add",
+                                "argument1": "differentenchant:lifted_thickness",
+                                "argument2": {
+                                  "type": "minecraft:mul",
+                                  "argument1": 0.6,
+                                  "argument2": {
+                                    "type": "minecraft:mul",
+                                    "argument1": "differentenchant:lifted_shelves",
+                                    "argument2": {
+                                      "type": "minecraft:clamp",
+                                      "input": {
+                                        "type": "minecraft:mul",
+                                        "argument1": 0.020833333333333332,
+                                        "argument2": "differentenchant:lifted_edge_distance"
+                                      },
+                                      "min": 0,
+                                      "max": 1
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "argument2": {
+                          "type": "minecraft:mul",
+                          "argument1": -1,
+                          "argument2": "differentenchant:lifted_surface"
+                        }
+                      }
+                    }
+                  },
+                  "argument2": {
+                    "type": "minecraft:range_choice",
+                    "input": {
+                      "type": "minecraft:add",
+                      "argument1": "differentenchant:lifted_surface",
+                      "argument2": {
+                        "type": "minecraft:mul",
+                        "argument1": -1,
+                        "argument2": {
+                          "type": "minecraft:y_clamped_gradient",
+                          "from_y": -64,
+                          "to_y": 320,
+                          "from_value": -64,
+                          "to_value": 320
+                        }
+                      }
+                    },
+                    "min_inclusive": 0,
+                    "max_exclusive": 16,
+                    "when_in_range": 0,
+                    "when_out_of_range": {
+                      "type": "minecraft:mul",
+                      "argument1": 0.22,
+                      "argument2": {
+                        "type": "minecraft:noise",
+                        "noise": "differentenchant:underside",
+                        "xz_scale": 1.0,
+                        "y_scale": 1.8
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "when_out_of_range": {
+              "type": "minecraft:min",
+              "argument1": {
+                "type": "minecraft:mul",
+                "argument1": 5,
+                "argument2": "differentenchant:lift_mask"
+              },
+              "argument2": {
+                "type": "minecraft:mul",
+                "argument1": 0.055,
+                "argument2": {
+                  "type": "minecraft:add",
+                  "argument1": "differentenchant:lifted_surface",
+                  "argument2": {
+                    "type": "minecraft:mul",
+                    "argument1": -1,
+                    "argument2": {
+                      "type": "minecraft:y_clamped_gradient",
+                      "from_y": -64,
+                      "to_y": 320,
+                      "from_value": -64,
+                      "to_value": 320
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "argument2": {
+            "type": "minecraft:min",
+            "argument1": {
+              "type": "minecraft:min",
+              "argument1": {
+                "type": "minecraft:mul",
+                "argument1": 3,
+                "argument2": {
+                  "type": "minecraft:add",
+                  "argument1": "differentenchant:rift_field",
+                  "argument2": -0.18
+                }
+              },
+              "argument2": {
+                "type": "minecraft:mul",
+                "argument1": 3,
+                "argument2": {
+                  "type": "minecraft:add",
+                  "argument1": 0.36,
+                  "argument2": {
+                    "type": "minecraft:mul",
+                    "argument1": -1,
+                    "argument2": "differentenchant:rift_field"
+                  }
+                }
+              }
+            },
+            "argument2": {
+              "type": "minecraft:min",
+              "argument1": {
+                "type": "minecraft:add",
+                "argument1": {
+                  "type": "minecraft:noise",
+                  "noise": "differentenchant:debris",
+                  "xz_scale": 1.1,
+                  "y_scale": 1.3
+                },
+                "argument2": -0.68
+              },
+              "argument2": {
+                "type": "minecraft:min",
+                "argument1": {
+                  "type": "minecraft:mul",
+                  "argument1": 0.05,
                   "argument2": {
                     "type": "minecraft:add",
                     "argument1": {
@@ -146,18 +439,15 @@
                       "from_value": -64,
                       "to_value": 320
                     },
-                    "argument2": {
-                      "type": "minecraft:mul",
-                      "argument1": -1,
-                      "argument2": "differentenchant:lifted_bottom"
-                    }
+                    "argument2": -36
                   }
                 },
                 "argument2": {
-                  "type": "minecraft:range_choice",
-                  "input": {
+                  "type": "minecraft:mul",
+                  "argument1": 0.05,
+                  "argument2": {
                     "type": "minecraft:add",
-                    "argument1": "differentenchant:lifted_height",
+                    "argument1": 166,
                     "argument2": {
                       "type": "minecraft:mul",
                       "argument1": -1,
@@ -167,258 +457,6 @@
                         "to_y": 320,
                         "from_value": -64,
                         "to_value": 320
-                      }
-                    }
-                  },
-                  "min_inclusive": 0,
-                  "max_exclusive": 16,
-                  "when_in_range": 0,
-                  "when_out_of_range": {
-                    "type": "minecraft:add",
-                    "argument1": {
-                      "type": "minecraft:mul",
-                      "argument1": 0.44,
-                      "argument2": {
-                        "type": "minecraft:noise",
-                        "noise": "differentenchant:underside",
-                        "xz_scale": 1.0,
-                        "y_scale": 1.8
-                      }
-                    },
-                    "argument2": {
-                      "type": "minecraft:add",
-                      "argument1": {
-                        "type": "minecraft:range_choice",
-                        "input": {
-                          "type": "minecraft:add",
-                          "argument1": {
-                            "type": "minecraft:y_clamped_gradient",
-                            "from_y": -64,
-                            "to_y": 320,
-                            "from_value": -64,
-                            "to_value": 320
-                          },
-                          "argument2": -92
-                        },
-                        "min_inclusive": 60,
-                        "max_exclusive": 65,
-                        "when_in_range": -0.18,
-                        "when_out_of_range": {
-                          "type": "minecraft:range_choice",
-                          "input": {
-                            "type": "minecraft:add",
-                            "argument1": {
-                              "type": "minecraft:y_clamped_gradient",
-                              "from_y": -64,
-                              "to_y": 320,
-                              "from_value": -64,
-                              "to_value": 320
-                            },
-                            "argument2": -92
-                          },
-                          "min_inclusive": 76,
-                          "max_exclusive": 81,
-                          "when_in_range": -0.15,
-                          "when_out_of_range": {
-                            "type": "minecraft:range_choice",
-                            "input": {
-                              "type": "minecraft:add",
-                              "argument1": {
-                                "type": "minecraft:y_clamped_gradient",
-                                "from_y": -64,
-                                "to_y": 320,
-                                "from_value": -64,
-                                "to_value": 320
-                              },
-                              "argument2": -92
-                            },
-                            "min_inclusive": 92,
-                            "max_exclusive": 97,
-                            "when_in_range": -0.12,
-                            "when_out_of_range": 0.04
-                          }
-                        }
-                      },
-                      "argument2": {
-                        "type": "minecraft:mul",
-                        "argument1": 0.16,
-                        "argument2": {
-                          "type": "minecraft:noise",
-                          "noise": "differentenchant:fracture",
-                          "xz_scale": 1.0,
-                          "y_scale": 2.0
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "argument2": {
-            "type": "minecraft:max",
-            "argument1": {
-              "type": "minecraft:min",
-              "argument1": {
-                "type": "minecraft:min",
-                "argument1": {
-                  "type": "minecraft:mul",
-                  "argument1": 3,
-                  "argument2": {
-                    "type": "minecraft:add",
-                    "argument1": "differentenchant:rift_field",
-                    "argument2": -0.165
-                  }
-                },
-                "argument2": {
-                  "type": "minecraft:mul",
-                  "argument1": 3,
-                  "argument2": {
-                    "type": "minecraft:add",
-                    "argument1": 0.235,
-                    "argument2": {
-                      "type": "minecraft:mul",
-                      "argument1": -1,
-                      "argument2": "differentenchant:rift_field"
-                    }
-                  }
-                }
-              },
-              "argument2": {
-                "type": "minecraft:min",
-                "argument1": {
-                  "type": "minecraft:add",
-                  "argument1": {
-                    "type": "minecraft:noise",
-                    "noise": "differentenchant:fracture",
-                    "xz_scale": 0.45,
-                    "y_scale": 0.0
-                  },
-                  "argument2": -0.2
-                },
-                "argument2": {
-                  "type": "minecraft:min",
-                  "argument1": {
-                    "type": "minecraft:mul",
-                    "argument1": 0.07,
-                    "argument2": {
-                      "type": "minecraft:add",
-                      "argument1": {
-                        "type": "minecraft:add",
-                        "argument1": "differentenchant:land_height",
-                        "argument2": -8
-                      },
-                      "argument2": {
-                        "type": "minecraft:mul",
-                        "argument1": -1,
-                        "argument2": {
-                          "type": "minecraft:y_clamped_gradient",
-                          "from_y": -64,
-                          "to_y": 320,
-                          "from_value": -64,
-                          "to_value": 320
-                        }
-                      }
-                    }
-                  },
-                  "argument2": {
-                    "type": "minecraft:mul",
-                    "argument1": 0.07,
-                    "argument2": {
-                      "type": "minecraft:add",
-                      "argument1": {
-                        "type": "minecraft:y_clamped_gradient",
-                        "from_y": -64,
-                        "to_y": 320,
-                        "from_value": -64,
-                        "to_value": 320
-                      },
-                      "argument2": {
-                        "type": "minecraft:add",
-                        "argument1": 28,
-                        "argument2": {
-                          "type": "minecraft:mul",
-                          "argument1": -1,
-                          "argument2": "differentenchant:land_height"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "argument2": {
-              "type": "minecraft:min",
-              "argument1": {
-                "type": "minecraft:min",
-                "argument1": {
-                  "type": "minecraft:mul",
-                  "argument1": 3,
-                  "argument2": {
-                    "type": "minecraft:add",
-                    "argument1": "differentenchant:rift_field",
-                    "argument2": -0.18
-                  }
-                },
-                "argument2": {
-                  "type": "minecraft:mul",
-                  "argument1": 3,
-                  "argument2": {
-                    "type": "minecraft:add",
-                    "argument1": 0.36,
-                    "argument2": {
-                      "type": "minecraft:mul",
-                      "argument1": -1,
-                      "argument2": "differentenchant:rift_field"
-                    }
-                  }
-                }
-              },
-              "argument2": {
-                "type": "minecraft:min",
-                "argument1": {
-                  "type": "minecraft:add",
-                  "argument1": {
-                    "type": "minecraft:noise",
-                    "noise": "differentenchant:debris",
-                    "xz_scale": 1.1,
-                    "y_scale": 1.3
-                  },
-                  "argument2": -0.68
-                },
-                "argument2": {
-                  "type": "minecraft:min",
-                  "argument1": {
-                    "type": "minecraft:mul",
-                    "argument1": 0.05,
-                    "argument2": {
-                      "type": "minecraft:add",
-                      "argument1": {
-                        "type": "minecraft:y_clamped_gradient",
-                        "from_y": -64,
-                        "to_y": 320,
-                        "from_value": -64,
-                        "to_value": 320
-                      },
-                      "argument2": -36
-                    }
-                  },
-                  "argument2": {
-                    "type": "minecraft:mul",
-                    "argument1": 0.05,
-                    "argument2": {
-                      "type": "minecraft:add",
-                      "argument1": 166,
-                      "argument2": {
-                        "type": "minecraft:mul",
-                        "argument1": -1,
-                        "argument2": {
-                          "type": "minecraft:y_clamped_gradient",
-                          "from_y": -64,
-                          "to_y": 320,
-                          "from_value": -64,
-                          "to_value": 320
-                        }
                       }
                     }
                   }

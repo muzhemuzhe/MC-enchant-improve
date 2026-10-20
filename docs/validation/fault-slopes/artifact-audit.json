@@ -1,0 +1,70 @@
+{
+  "baseline": "9782bb8e6a1269f2aca4e22a0903d1399eff3e2e",
+  "branch": "feature/enchanter-dimension",
+  "main": "6c8fc99911ba4c5c39029468af101f04def6cd9a",
+  "jar": "build/libs/differentenchant-0.17.0.jar",
+  "sha256": "df2ef08dc450a22f4fad3a83633389b2d42d7b40e2a5982b4eada5df1279815d",
+  "matched_resources": 254,
+  "no_test_content_in_jar": true,
+  "unchanged_baseline_files": 1203,
+  "realm_integration_files": [
+    "src/main/java/dev/differentenchant/realm/RealmContent.java",
+    "src/main/resources/data/differentenchant/worldgen/density_function/land_height.json",
+    "src/main/resources/data/differentenchant/worldgen/density_function/lift_mask.json",
+    "src/main/resources/data/differentenchant/worldgen/density_function/lifted_bottom.json",
+    "src/main/resources/data/differentenchant/worldgen/density_function/lifted_height.json",
+    "src/main/resources/data/differentenchant/worldgen/density_function/lifted_thickness.json",
+    "src/main/resources/data/differentenchant/worldgen/density_function/mainland_mask.json",
+    "src/main/resources/data/differentenchant/worldgen/density_function/rift_field.json",
+    "src/main/resources/data/differentenchant/worldgen/noise_settings/enchanter_realm.json"
+  ],
+  "junit_tests": 35,
+  "server_tests": 48,
+  "unit_suites": [
+    {
+      "suite": "dev.differentenchant.enchanting.BookshelfScanTest",
+      "tests": 3
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.DirectedEnchantPolicyTest",
+      "tests": 6
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.PreviewPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.RandomEnchantPolicyTest",
+      "tests": 7
+    },
+    {
+      "suite": "dev.differentenchant.realm.AzureTreeShapeTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.realm.FaultEdgeDistanceTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.research.ResearchPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.resonance.ResonancePolicyTest",
+      "tests": 3
+    },
+    {
+      "suite": "dev.differentenchant.ruins.LanternCachePolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.ruins.RuinPlacementPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.structure.StructureValidatorTest",
+      "tests": 4
+    }
+  ],
+  "raw_screenshots": 15
+}

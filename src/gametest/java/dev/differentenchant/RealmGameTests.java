@@ -7,6 +7,18 @@ import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.level.block.Blocks;
 
 public final class RealmGameTests {
+    @GameTest public void faultDistanceCodecAndVisitorDoNotReuseUnboundValues(GameTestHelper h) {
+        var f=new FaultEdgeDensity(net.minecraft.world.level.levelgen.DensityFunctions.constant(1),64);
+        var point=new net.minecraft.world.level.levelgen.DensityFunction.SinglePointContext(8,150,8);
+        h.assertTrue(f.compute(point)==64,"bounded inside field");
+        var codec=net.minecraft.world.level.levelgen.DensityFunction.HOLDER_HELPER_CODEC;
+        var encoded=codec.encodeStart(com.mojang.serialization.JsonOps.INSTANCE,f).getOrThrow();
+        var decoded=codec.parse(com.mojang.serialization.JsonOps.INSTANCE,encoded).getOrThrow();
+        h.assertTrue(decoded.compute(point)==64,"registered native density codec roundtrip");
+        var mapped=f.mapAll(input->input instanceof FaultEdgeDensity?input:net.minecraft.world.level.levelgen.DensityFunctions.constant(-1));
+        h.assertTrue(mapped.compute(point)==-1&&f.compute(point)==64,"visitor binds a fresh input without stale point cache");
+        h.succeed();
+    }
     @GameTest public void landingRejectsFluidsHolesAndObstructions(GameTestHelper h) {
         var level=h.getLevel();var p=h.absolutePos(new BlockPos(2,3,2));
         level.setBlockAndUpdate(p.below(),Blocks.STONE.defaultBlockState());

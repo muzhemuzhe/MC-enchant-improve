@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "minecraft:clamp",
+    "input": {
+      "type": "minecraft:mul",
+      "argument1": 0.005681818181818182,
+      "argument2": {
+        "type": "minecraft:add",
+        "argument1": 1,
+        "argument2": {
+          "type": "minecraft:mul",
+          "argument1": 0.7,
+          "argument2": {
+            "type": "minecraft:noise",
+            "noise": "differentenchant:edge_width",
+            "xz_scale": 0.7,
+            "y_scale": 0.0
+          }
+        }
+      }
+    },
+    "min": 0.0042,
+    "max": 0.0082
+  }
+}

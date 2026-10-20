@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "minecraft:add",
+    "argument1": 62,
+    "argument2": {
+      "type": "minecraft:mul",
+      "argument1": 14,
+      "argument2": {
+        "type": "minecraft:noise",
+        "noise": "differentenchant:underside",
+        "xz_scale": 0.55,
+        "y_scale": 0.0
+      }
+    }
+  }
+}

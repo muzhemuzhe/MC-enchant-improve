@@ -1,26 +1,17 @@
 {
   "type": "minecraft:flat_cache",
   "argument": {
-    "type": "minecraft:clamp",
-    "input": {
-      "type": "minecraft:add",
-      "argument1": {
+    "type": "minecraft:min",
+    "argument1": {
+      "type": "minecraft:clamp",
+      "input": {
         "type": "minecraft:mul",
-        "argument1": 2800,
-        "argument2": "differentenchant:lift_mask"
+        "argument1": 0.78,
+        "argument2": "differentenchant:lifted_edge_distance"
       },
-      "argument2": {
-        "type": "minecraft:mul",
-        "argument1": 12,
-        "argument2": {
-          "type": "minecraft:noise",
-          "noise": "differentenchant:underside",
-          "xz_scale": 0.55,
-          "y_scale": 0.0
-        }
-      }
+      "min": 0,
+      "max": 90
     },
-    "min": 0,
-    "max": 62
+    "argument2": "differentenchant:lifted_mass_depth"
   }
 }

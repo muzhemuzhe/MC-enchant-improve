@@ -2,7 +2,7 @@
   "type": "minecraft:flat_cache",
   "argument": {
     "type": "minecraft:add",
-    "argument1": "differentenchant:lifted_height",
+    "argument1": "differentenchant:lifted_surface",
     "argument2": {
       "type": "minecraft:mul",
       "argument1": -1,

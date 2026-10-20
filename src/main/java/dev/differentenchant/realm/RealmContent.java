@@ -28,6 +28,7 @@ public final class RealmContent {
     public static final Block LOG = block("azure_log", Blocks.OAK_LOG, RotatedPillarBlock::new);
     public static final Block LEAVES = block("azure_leaves", Blocks.OAK_LEAVES, p -> new TintedParticleLeavesBlock(0, p));
     public static void initialize() {
+        Registry.register(BuiltInRegistries.DENSITY_FUNCTION_TYPE,id("fault_edge_distance"),FaultEdgeDensity.CODEC);
         Registry.register(BuiltInRegistries.FEATURE, id("azure_tree"), new AzureTreeFeature());
         RealmTravel.register();
         net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS)
