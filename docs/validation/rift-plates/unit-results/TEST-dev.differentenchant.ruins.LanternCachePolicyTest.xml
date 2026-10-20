@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.differentenchant.ruins.LanternCachePolicyTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-20T10:33:17.584Z" hostname="MUZHE" time="0.029">
+  <properties/>
+  <testcase name="everyCandidateCanBeSelectedAndOmitted()" classname="dev.differentenchant.ruins.LanternCachePolicyTest" time="0.01"/>
+  <testcase name="boundedDistinctCoveredCandidatesAndStableSeeds()" classname="dev.differentenchant.ruins.LanternCachePolicyTest" time="0.019"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

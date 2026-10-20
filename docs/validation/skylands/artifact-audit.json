@@ -1,0 +1,87 @@
+{
+  "baseline": "0d8004dace372ad4384a8a7a364b3a4a693250da",
+  "branch": "feature/enchanter-dimension",
+  "main": "6c8fc99911ba4c5c39029468af101f04def6cd9a",
+  "jar": "build/libs/differentenchant-0.15.0.jar",
+  "sha256": "5d231641c3942d359d2d265043185db34f5936e3c34bb9010202d95f25837c6d",
+  "matched_resources": 236,
+  "no_test_content_in_jar": true,
+  "unchanged_baseline_files": 1084,
+  "realm_integration_files": [
+    "src/main/java/dev/differentenchant/mixin/client/RealmSkyMixin.java",
+    "src/main/java/dev/differentenchant/realm/AzureTreeFeature.java",
+    "src/main/java/dev/differentenchant/realm/AzureTreeShape.java",
+    "src/main/java/dev/differentenchant/realm/RealmContent.java",
+    "src/main/java/dev/differentenchant/realm/RealmReturnData.java",
+    "src/main/java/dev/differentenchant/realm/RealmTravel.java",
+    "src/main/resources/assets/differentenchant/lang/en_us.json",
+    "src/main/resources/assets/differentenchant/lang/zh_cn.json",
+    "src/main/resources/assets/differentenchant/textures/block/azure_leaves.png",
+    "src/main/resources/assets/differentenchant/textures/block/azure_log.png",
+    "src/main/resources/assets/differentenchant/textures/block/azure_log_top.png",
+    "src/main/resources/assets/differentenchant/textures/block/mint_turf_side.png",
+    "src/main/resources/assets/differentenchant/textures/block/mint_turf_top.png",
+    "src/main/resources/assets/differentenchant/textures/block/realm_chalkstone.png",
+    "src/main/resources/assets/differentenchant/textures/block/realm_loam.png",
+    "src/main/resources/data/differentenchant/dimension_type/enchanter_realm.json",
+    "src/main/resources/data/differentenchant/worldgen/density_function/land_height.json",
+    "src/main/resources/data/differentenchant/worldgen/noise/climate.json",
+    "src/main/resources/data/differentenchant/worldgen/noise/hills.json",
+    "src/main/resources/data/differentenchant/worldgen/noise/islands.json",
+    "src/main/resources/data/differentenchant/worldgen/noise/land.json",
+    "src/main/resources/data/differentenchant/worldgen/noise/ridges.json",
+    "src/main/resources/data/differentenchant/worldgen/noise/river.json",
+    "src/main/resources/data/differentenchant/worldgen/noise_settings/enchanter_realm.json",
+    "src/main/resources/data/differentenchant/worldgen/placed_feature/ivory_flowers.json",
+    "src/main/resources/data/differentenchant/worldgen/placed_feature/meadow_flowers.json",
+    "src/main/resources/data/differentenchant/worldgen/placed_feature/meadow_grass.json",
+    "src/main/resources/data/differentenchant/worldgen/placed_feature/pink_flowers.json",
+    "src/main/resources/data/differentenchant/worldgen/placed_feature/woodland_trees.json",
+    "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json"
+  ],
+  "junit_tests": 33,
+  "server_tests": 47,
+  "unit_suites": [
+    {
+      "suite": "dev.differentenchant.enchanting.BookshelfScanTest",
+      "tests": 3
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.DirectedEnchantPolicyTest",
+      "tests": 6
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.PreviewPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.RandomEnchantPolicyTest",
+      "tests": 7
+    },
+    {
+      "suite": "dev.differentenchant.realm.AzureTreeShapeTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.research.ResearchPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.resonance.ResonancePolicyTest",
+      "tests": 3
+    },
+    {
+      "suite": "dev.differentenchant.ruins.LanternCachePolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.ruins.RuinPlacementPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.structure.StructureValidatorTest",
+      "tests": 4
+    }
+  ],
+  "raw_screenshots": 17
+}

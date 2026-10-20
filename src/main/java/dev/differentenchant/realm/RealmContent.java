@@ -22,6 +22,7 @@ public final class RealmContent {
         return block;
     }
     public static final Block CHALKSTONE = block("realm_chalkstone", Blocks.STONE, Block::new);
+    public static final Block SLATE = block("realm_slate", Blocks.STONE, Block::new);
     public static final Block LOAM = block("realm_loam", Blocks.DIRT, Block::new);
     public static final Block TURF = block("mint_turf", Blocks.GRASS_BLOCK, GrassBlock::new);
     public static final Block LOG = block("azure_log", Blocks.OAK_LOG, RotatedPillarBlock::new);
@@ -30,7 +31,7 @@ public final class RealmContent {
         Registry.register(BuiltInRegistries.FEATURE, id("azure_tree"), new AzureTreeFeature());
         RealmTravel.register();
         net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS)
-                .register(out -> {out.accept(CHALKSTONE); out.accept(LOAM); out.accept(TURF); out.accept(LOG); out.accept(LEAVES);});
+                .register(out -> {out.accept(CHALKSTONE); out.accept(SLATE); out.accept(LOAM); out.accept(TURF); out.accept(LOG); out.accept(LEAVES);});
     }
     private RealmContent() {}
 }

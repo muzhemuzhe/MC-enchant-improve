@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.differentenchant.realm.AzureTreeShapeTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-20T09:34:07.809Z" hostname="MUZHE" time="0.314">
+  <properties/>
+  <testcase name="allFourProfilesAreReproducibleConnectedAndHaveActualLeafSupportPaths()" classname="dev.differentenchant.realm.AzureTreeShapeTest" time="0.229"/>
+  <testcase name="mixedForestIncludesAllSilhouettesAndOldTreesStayRare()" classname="dev.differentenchant.realm.AzureTreeShapeTest" time="0.085"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

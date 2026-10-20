@@ -1,0 +1,7 @@
+seed=2026102001 65x65 grid/64m; land=3490/4225; largest connected=3475 cells; bounds=4160x4160m; debris in void columns=2; lower -60/0/32/60 all air; edge=BlockPos{x=-868, y=193, z=0} outward=-1,0; roots=333
+Natural tree wood-component matches: {SPIRE=BlockPos{x=69, y=195, z=-143}, WINDSWEPT=BlockPos{x=11, y=195, z=-137}, FORKED=BlockPos{x=130, y=197, z=-133}, ANCIENT=BlockPos{x=-16, y=193, z=-133}}
+seed=87 65x65 grid/64m; land=3792/4225; largest connected=3792 cells; bounds=4160x4160m; debris in void columns=4; lower -60/0/32/60 all air; edge=BlockPos{x=1260, y=191, z=-768} outward=1,0; roots=282
+Natural tree wood-component matches: {SPIRE=BlockPos{x=-145, y=178, z=-207}, WINDSWEPT=BlockPos{x=-202, y=179, z=-205}, FORKED=BlockPos{x=-203, y=180, z=-201}, ANCIENT=BlockPos{x=-208, y=189, z=-153}}
+seed=20261022 65x65 grid/64m; land=3648/4225; largest connected=3648 cells; bounds=4160x4160m; debris in void columns=24; lower -60/0/32/60 all air; edge=BlockPos{x=-14, y=183, z=0} outward=-1,0; roots=297
+Natural tree wood-component matches: {SPIRE=BlockPos{x=296, y=190, z=50}, WINDSWEPT=BlockPos{x=158, y=188, z=54}, FORKED=BlockPos{x=162, y=188, z=65}, ANCIENT=BlockPos{x=258, y=183, z=141}}
+Actual admin entry, real edge standing, complete server stop/disk reopen, original return anchor and fresh same-seed material replay passed. All photographs are unedited native generation.

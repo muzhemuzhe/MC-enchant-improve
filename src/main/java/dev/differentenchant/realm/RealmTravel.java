@@ -57,10 +57,12 @@ public final class RealmTravel {
         if(target==null) return fail(source,"Enchanter's Realm is unavailable.");
         // Terrain-only height probes do not load chunks. At most one chosen FULL entry chunk.
         BlockPos candidate=null;
-        int[][] probes={{8,8},{40,8},{8,40},{-24,8},{8,-24},{72,40},{40,72},{-56,-24},{-24,-56},{104,104},{-88,104},{104,-88},{-88,-88}};
+        int[][] probes={{8,8},{136,8},{8,136},{-120,8},{8,-120},{264,264},{-248,264},{264,-248},{-248,-248},
+                {520,8},{8,520},{-504,8},{8,-504},{776,776},{-760,776},{776,-760},{-760,-760},
+                {1032,8},{8,1032},{-1016,8},{8,-1016},{1544,1544},{-1528,1544},{1544,-1528},{-1528,-1528}};
         for(var probe:probes) {
             int y=target.getChunkSource().getGenerator().getFirstOccupiedHeight(probe[0],probe[1],Heightmap.Types.OCEAN_FLOOR_WG,target,target.getChunkSource().randomState());
-            if(y>=64 && y<160) {candidate=new BlockPos(probe[0],y+1,probe[1]);break;}
+            if(y>=86 && y<170) {candidate=new BlockPos(probe[0],y+1,probe[1]);break;}
         }
         if(candidate==null) return fail(source,"No dry continental entry found in the bounded terrain probes. No chunks were requested.");
         var feet=landing(target,candidate.getX(),candidate.getZ());

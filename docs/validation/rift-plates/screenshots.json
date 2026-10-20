@@ -1,0 +1,290 @@
+{
+  "source": "RealmClientGameTest; actual native generation, camera-only photography",
+  "images": [
+    {
+      "file": "screenshots/seed-2026102001-01-mainland-edge.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0000_rift-seed-2026102001-01-mainland-edge.png",
+      "sha256": "cbcaa51874caa4428228d70db2d912ab27bccd212cdcf42135765c89319f37b6",
+      "unaltered": true,
+      "camera": [
+        512.5,
+        122.0,
+        824.5
+      ],
+      "look_at": [
+        512,
+        188,
+        672
+      ],
+      "camera_mode": "standing on natural mainland"
+    },
+    {
+      "file": "screenshots/seed-2026102001-02-whole-relationship.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0001_rift-seed-2026102001-02-whole-relationship.png",
+      "sha256": "aa045ecc3948bb59a09d627f35339a8e0f824a46a3c48bfb3506fc4a0392dac4",
+      "unaltered": true,
+      "camera": [
+        282.0,
+        260.0,
+        754.0
+      ],
+      "look_at": [
+        512,
+        158,
+        674
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    },
+    {
+      "file": "screenshots/seed-2026102001-03-island-down.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0002_rift-seed-2026102001-03-island-down.png",
+      "sha256": "e11d01e3fda595bb4e10c6b959e4b8047f458dcc18ea389fdc6cef7a5596f4dc",
+      "unaltered": true,
+      "camera": [
+        512.5,
+        211.0,
+        776.5
+      ],
+      "look_at": [
+        512,
+        20,
+        780
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    },
+    {
+      "file": "screenshots/seed-2026102001-04-island-undercroft.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0003_rift-seed-2026102001-04-island-undercroft.png",
+      "sha256": "8c0bdf453639b4377beb49d3adf08e0be1133953958e91cacaa9498157ab5179",
+      "unaltered": true,
+      "camera": [
+        422.0,
+        167.0,
+        844.0
+      ],
+      "look_at": [
+        512,
+        181,
+        743
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    },
+    {
+      "file": "screenshots/seed-2026102001-05-mainland-continuity.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0004_rift-seed-2026102001-05-mainland-continuity.png",
+      "sha256": "1888f738280bce5d6e6ba82c6f8baa6277df753bde38ac6b83ac243e6ee80422",
+      "unaltered": true,
+      "camera": [
+        512.5,
+        144.0,
+        904.5
+      ],
+      "look_at": [
+        512,
+        112,
+        999
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    },
+    {
+      "file": "screenshots/seed-87-01-mainland-edge.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0005_rift-seed-87-01-mainland-edge.png",
+      "sha256": "d4ded93d89bb71316ec9f193a422324954aa95655149dc97401b155ec041726d",
+      "unaltered": true,
+      "camera": [
+        -123.5,
+        117.0,
+        352.5
+      ],
+      "look_at": [
+        96,
+        189,
+        352
+      ],
+      "camera_mode": "standing on natural mainland"
+    },
+    {
+      "file": "screenshots/seed-87-02-whole-relationship.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0006_rift-seed-87-02-whole-relationship.png",
+      "sha256": "327eded829404e5c928683821528261c1cd3baee04cf00eacfe53751af4771f3",
+      "unaltered": true,
+      "camera": [
+        -20.0,
+        260.0,
+        122.0
+      ],
+      "look_at": [
+        60,
+        158,
+        352
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    },
+    {
+      "file": "screenshots/seed-87-03-island-down.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0007_rift-seed-87-03-island-down.png",
+      "sha256": "40b86ac545b3cee15127c728b9d4614a7987af2c9e7718d6c3f1697df422aaf7",
+      "unaltered": true,
+      "camera": [
+        -96.5,
+        207.0,
+        352.5
+      ],
+      "look_at": [
+        -101,
+        20,
+        352
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    },
+    {
+      "file": "screenshots/seed-87-04-island-undercroft.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0008_rift-seed-87-04-island-undercroft.png",
+      "sha256": "48d9a517482e7ab300cda661d60bef3dc7b485c9aa8fb5487ce79c96849134d8",
+      "unaltered": true,
+      "camera": [
+        -144.0,
+        162.0,
+        262.0
+      ],
+      "look_at": [
+        -64,
+        177,
+        352
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    },
+    {
+      "file": "screenshots/seed-87-05-mainland-continuity.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0009_rift-seed-87-05-mainland-continuity.png",
+      "sha256": "8c1e2599f3824e4a70787aa1edc890cad2910a42623adc95f5d9e0269788e1b6",
+      "unaltered": true,
+      "camera": [
+        -203.5,
+        147.0,
+        352.5
+      ],
+      "look_at": [
+        -299,
+        115,
+        352
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    },
+    {
+      "file": "screenshots/seed-20261022-01-mainland-edge.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0010_rift-seed-20261022-01-mainland-edge.png",
+      "sha256": "405a129630608af92c9845e9cf094b8bb5ef41ad70e33bf8598660eb8df8fa16",
+      "unaltered": true,
+      "camera": [
+        48.5,
+        115.0,
+        64.5
+      ],
+      "look_at": [
+        -192,
+        191,
+        64
+      ],
+      "camera_mode": "standing on natural mainland"
+    },
+    {
+      "file": "screenshots/seed-20261022-02-whole-relationship.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0011_rift-seed-20261022-02-whole-relationship.png",
+      "sha256": "6bf1e4f860664ecca247dac70ebb6645b557dfb24b3cdf6bdb585623413b4362",
+      "unaltered": true,
+      "camera": [
+        -46.0,
+        260.0,
+        294.0
+      ],
+      "look_at": [
+        -126,
+        158,
+        64
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    },
+    {
+      "file": "screenshots/seed-20261022-03-island-down.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0012_rift-seed-20261022-03-island-down.png",
+      "sha256": "11d8cd5e22c257513f6b2a484c91bb0546dcb36e217a2179e4c4ba6d6a0a6d94",
+      "unaltered": true,
+      "camera": [
+        -26.5,
+        211.0,
+        64.5
+      ],
+      "look_at": [
+        -23,
+        20,
+        64
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    },
+    {
+      "file": "screenshots/seed-20261022-04-island-undercroft.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0013_rift-seed-20261022-04-island-undercroft.png",
+      "sha256": "be84c5c2f2ee0c0165432a3aa3f6a3af205f3bc13f00bcc438a68fa2f46975f5",
+      "unaltered": true,
+      "camera": [
+        68.0,
+        160.0,
+        154.0
+      ],
+      "look_at": [
+        -60,
+        181,
+        64
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    },
+    {
+      "file": "screenshots/seed-20261022-05-mainland-continuity.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0014_rift-seed-20261022-05-mainland-continuity.png",
+      "sha256": "9eeb3b97259a0bb6782134e469a5e79986a28cb408862273fb15dc1d41ff5461",
+      "unaltered": true,
+      "camera": [
+        128.5,
+        143.0,
+        64.5
+      ],
+      "look_at": [
+        223,
+        111,
+        64
+      ],
+      "camera_mode": "creative flight; island-down is eight blocks beyond the natural lip"
+    }
+  ]
+}

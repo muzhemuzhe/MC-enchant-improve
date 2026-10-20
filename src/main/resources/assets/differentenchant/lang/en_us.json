@@ -140,5 +140,6 @@
   "block.differentenchant.azure_leaves": "Azure Leaves (Prototype)",
   "biome.differentenchant.mint_fields": "Mint Fields",
   "biome.differentenchant.azure_woodland": "Azure Woodland",
-  "dimension.differentenchant.enchanter_realm": "Enchanter’s Realm"
+  "dimension.differentenchant.enchanter_realm": "Enchanter’s Realm",
+  "block.differentenchant.realm_slate": "Realm Slate"
 }

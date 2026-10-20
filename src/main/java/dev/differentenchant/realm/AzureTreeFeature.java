@@ -6,13 +6,15 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.levelgen.feature.*;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-/** All-or-nothing preflight, radius <=7, uses only the native WorldGenRegion write window. */
+/** All-or-nothing preflight; four silhouettes share the native WorldGenRegion write window. */
 public final class AzureTreeFeature extends Feature<NoneFeatureConfiguration> {
     public AzureTreeFeature() {super(NoneFeatureConfiguration.CODEC);}
     @Override public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
         var level=context.level(); var origin=context.origin();
         if(!level.getBlockState(origin.below()).is(BlockTags.DIRT)) return false;
         var shape=AzureTreeShape.create(context.random().nextLong());
+        if(shape.kind()==AzureTreeShape.Kind.ANCIENT)for(int dx=0;dx<2;dx++)for(int dz=0;dz<2;dz++)
+            if(!level.getBlockState(origin.offset(dx,-1,dz)).is(BlockTags.DIRT))return false;
         var positions=new java.util.ArrayList<AzureTreeShape.Point>(shape.leaves().keySet());
         shape.wood().forEach(w->positions.add(w.point()));
         for(var point:positions) {

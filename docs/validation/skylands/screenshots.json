@@ -1,0 +1,311 @@
+{
+  "source": "RealmClientGameTest; actual native generation, camera-only photography",
+  "images": [
+    {
+      "file": "screenshots/seed-2026102001-01-continent.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0000_skylands-seed-2026102001-01-continent.png",
+      "sha256": "f332e4367f55813129049454977aa8633ea0a49696c26cc6838013a99947fb92",
+      "unaltered": true,
+      "camera": [
+        -903.0,
+        235.0,
+        -30.0
+      ],
+      "look_at": [
+        -773,
+        181,
+        0
+      ]
+    },
+    {
+      "file": "screenshots/seed-2026102001-02-undercroft.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0001_skylands-seed-2026102001-02-undercroft.png",
+      "sha256": "1ac4c6ddaa7785aee207ba6ab8c1e6fc7ca35209a59f2b1f1fc99b4fb7fb34ff",
+      "unaltered": true,
+      "camera": [
+        -923.0,
+        137.0,
+        -35.0
+      ],
+      "look_at": [
+        -803,
+        148,
+        0
+      ]
+    },
+    {
+      "file": "screenshots/seed-2026102001-05-oblique-continent.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0002_skylands-seed-2026102001-05-oblique-continent.png",
+      "sha256": "99c96f47a5f02af3316f4757151b1c4c36b4236d53eaf9849b81dda9f9e63110",
+      "unaltered": true,
+      "camera": [
+        -993.0,
+        224.0,
+        -85.0
+      ],
+      "look_at": [
+        -823,
+        161,
+        0
+      ]
+    },
+    {
+      "file": "screenshots/seed-2026102001-03-edge-void.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0003_skylands-seed-2026102001-03-edge-void.png",
+      "sha256": "6b803e5d375720efef45d60676b3f9fcd84a36087673bff8266f1bf540fa7224",
+      "unaltered": true,
+      "camera": [
+        -865.5,
+        193.0,
+        0.5
+      ],
+      "look_at": [
+        -906,
+        123,
+        0
+      ]
+    },
+    {
+      "file": "screenshots/seed-2026102001-tree-spire.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0004_skylands-seed-2026102001-tree-spire.png",
+      "sha256": "d9a87d19a17059a3e350c0fa85d5a6948e16e3b0744109d515de1e63c684cc7b",
+      "unaltered": true,
+      "camera": [
+        47.5,
+        210.0,
+        -122.5
+      ],
+      "look_at": [
+        69,
+        203,
+        -143
+      ]
+    },
+    {
+      "file": "screenshots/seed-2026102001-tree-windswept.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0005_skylands-seed-2026102001-tree-windswept.png",
+      "sha256": "013de784cf53891595b48cf71b968d14f9330fefe3debb358ed9ea39a740e648",
+      "unaltered": true,
+      "camera": [
+        33.5,
+        204.0,
+        -116.5
+      ],
+      "look_at": [
+        11,
+        203,
+        -137
+      ]
+    },
+    {
+      "file": "screenshots/seed-2026102001-tree-forked.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0006_skylands-seed-2026102001-tree-forked.png",
+      "sha256": "a16d137b844dbc8af49ddbd189724a15ae37f4164092f0fbbc62011275873c87",
+      "unaltered": true,
+      "camera": [
+        102.5,
+        206.0,
+        -132.5
+      ],
+      "look_at": [
+        130,
+        205,
+        -133
+      ]
+    },
+    {
+      "file": "screenshots/seed-2026102001-tree-ancient.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0007_skylands-seed-2026102001-tree-ancient.png",
+      "sha256": "945ffe276940f762f2ac265431fde7d3fcecccdebf4b57184a73016d2e5f7d3b",
+      "unaltered": true,
+      "camera": [
+        6.5,
+        202.0,
+        -112.5
+      ],
+      "look_at": [
+        -16,
+        201,
+        -133
+      ]
+    },
+    {
+      "file": "screenshots/seed-2026102001-04-highland-grove.png",
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0008_skylands-seed-2026102001-04-highland-grove.png",
+      "sha256": "e9b18cde07e338d518942aaf58344b703118b5f05aac5e4f2a66f3677f0aa14d",
+      "unaltered": true,
+      "camera": [
+        102.0,
+        217.0,
+        -108.0
+      ],
+      "look_at": [
+        64,
+        199,
+        -64
+      ]
+    },
+    {
+      "file": "screenshots/seed-87-01-continent.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0009_skylands-seed-87-01-continent.png",
+      "sha256": "f452663fd3b99cf38c6fd5632778f0fbc99be317b7e0f456624e08d9efac0dc8",
+      "unaltered": true,
+      "camera": [
+        1295.0,
+        235.0,
+        -738.0
+      ],
+      "look_at": [
+        1165,
+        179,
+        -768
+      ]
+    },
+    {
+      "file": "screenshots/seed-87-02-undercroft.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0010_skylands-seed-87-02-undercroft.png",
+      "sha256": "9b483d299061125ca4d3fbb28a210d1e85258694595b021dff2755c9ed04016a",
+      "unaltered": true,
+      "camera": [
+        1315.0,
+        137.0,
+        -733.0
+      ],
+      "look_at": [
+        1195,
+        146,
+        -768
+      ]
+    },
+    {
+      "file": "screenshots/seed-87-05-oblique-continent.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0011_skylands-seed-87-05-oblique-continent.png",
+      "sha256": "89317dd7ecf16deada55d7d124717b6862e0f5725411cb8f8a0e2d5771175872",
+      "unaltered": true,
+      "camera": [
+        1385.0,
+        224.0,
+        -683.0
+      ],
+      "look_at": [
+        1215,
+        159,
+        -768
+      ]
+    },
+    {
+      "file": "screenshots/seed-87-03-edge-void.png",
+      "seed": 87,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0012_skylands-seed-87-03-edge-void.png",
+      "sha256": "26539ee3917e2e9765b2c26660b77cbdc297e7f7bb593a81a03f98f6e7da02bc",
+      "unaltered": true,
+      "camera": [
+        1256.5,
+        189.0,
+        -767.5
+      ],
+      "look_at": [
+        1296,
+        119,
+        -768
+      ]
+    },
+    {
+      "file": "screenshots/seed-20261022-01-continent.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0013_skylands-seed-20261022-01-continent.png",
+      "sha256": "3a7be4955c570fc8e71b67e452c843f2a76870b1a579f9a7f674c358668ba953",
+      "unaltered": true,
+      "camera": [
+        -49.0,
+        235.0,
+        -30.0
+      ],
+      "look_at": [
+        81,
+        171,
+        0
+      ]
+    },
+    {
+      "file": "screenshots/seed-20261022-02-undercroft.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0014_skylands-seed-20261022-02-undercroft.png",
+      "sha256": "dd76e3d5dc376e6a831b671f88fa54940734f4f599cb227bba07f2ae74bc6349",
+      "unaltered": true,
+      "camera": [
+        -69.0,
+        137.0,
+        -35.0
+      ],
+      "look_at": [
+        51,
+        138,
+        0
+      ]
+    },
+    {
+      "file": "screenshots/seed-20261022-05-oblique-continent.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0015_skylands-seed-20261022-05-oblique-continent.png",
+      "sha256": "3a62c2316ef31449fad2a5d9e58ec2608ba418663614f3fdb4ff85886cb68aa6",
+      "unaltered": true,
+      "camera": [
+        -139.0,
+        224.0,
+        -85.0
+      ],
+      "look_at": [
+        31,
+        151,
+        0
+      ]
+    },
+    {
+      "file": "screenshots/seed-20261022-03-edge-void.png",
+      "seed": 20261022,
+      "dimension": "differentenchant:enchanter_realm",
+      "raw_source": "build/client-gametest/screenshots/0016_skylands-seed-20261022-03-edge-void.png",
+      "sha256": "e1351d43dc99cb8d841f27cf639971d42f540d5e2319272b318464d028760f75",
+      "unaltered": true,
+      "camera": [
+        -4.5,
+        181.0,
+        0.5
+      ],
+      "look_at": [
+        -45,
+        111,
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.differentenchant.research.ResearchPolicyTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-20T10:33:16.137Z" hostname="MUZHE" time="1.442">
+  <properties/>
+  <testcase name="unorderedLevelsStableCatalogueOrderAndSupport()" classname="dev.differentenchant.research.ResearchPolicyTest" time="0.033"/>
+  <testcase name="fixedSeedsHundredThousandDistinctRecipesPerGrade()" classname="dev.differentenchant.research.ResearchPolicyTest" time="1.407"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
