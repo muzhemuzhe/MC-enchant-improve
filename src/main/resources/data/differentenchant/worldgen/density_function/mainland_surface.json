@@ -10,15 +10,23 @@
         "type": "minecraft:mul",
         "argument1": {
           "type": "minecraft:add",
-          "argument1": "differentenchant:land_height",
-          "argument2": 80
+          "argument1": 64,
+          "argument2": {
+            "type": "minecraft:mul",
+            "argument1": 4,
+            "argument2": {
+              "type": "minecraft:noise",
+              "noise": "differentenchant:bed_warp",
+              "xz_scale": 0.4,
+              "y_scale": 0.0
+            }
+          }
         },
         "argument2": {
-          "type": "minecraft:add",
+          "type": "minecraft:mul",
           "argument1": {
-            "type": "minecraft:mul",
-            "argument1": 0.6,
-            "argument2": {
+            "type": "minecraft:square",
+            "argument": {
               "type": "minecraft:clamp",
               "input": {
                 "type": "minecraft:add",
@@ -38,11 +46,12 @@
             }
           },
           "argument2": {
-            "type": "minecraft:mul",
-            "argument1": 0.4,
+            "type": "minecraft:add",
+            "argument1": 3,
             "argument2": {
-              "type": "minecraft:square",
-              "argument": {
+              "type": "minecraft:mul",
+              "argument1": -2,
+              "argument2": {
                 "type": "minecraft:clamp",
                 "input": {
                   "type": "minecraft:add",

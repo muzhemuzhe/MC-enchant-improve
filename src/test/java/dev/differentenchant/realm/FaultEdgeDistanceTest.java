@@ -24,4 +24,12 @@ class FaultEdgeDistanceTest {
         int[] calls={0};assertEquals(256,FaultEdgeDistance.measure(0,0,256,(x,z)->{calls[0]++;return 1;}));
         assertTrue(calls[0]<=140,"bounded scalar samples, no world scans");
     }
+    @Test void broadApronDistanceExtendsPastOldCapWithoutUnboundedSampling(){
+        for(int offset:new int[]{260,320,400,480}){
+            double d=FaultEdgeDistance.measure(0,0,512,(x,z)->offset+x);
+            assertEquals(offset,d,1,"long slope keeps physical distance beyond former 256m cap");
+        }
+        int[] calls={0};assertEquals(512,FaultEdgeDistance.measure(0,0,512,(x,z)->{calls[0]++;return 1;}));
+        assertTrue(calls[0]<=200,"512m radius remains bounded noise-only work");
+    }
 }

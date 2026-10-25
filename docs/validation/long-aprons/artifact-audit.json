@@ -1,0 +1,60 @@
+{
+  "baseline": "bfbede382b87c2e997d478828eb0dc606f542e85",
+  "branch": "feature/enchanter-dimension",
+  "main": "6c8fc99911ba4c5c39029468af101f04def6cd9a",
+  "jar": "build/libs/differentenchant-0.18.0.jar",
+  "sha256": "9620817bb4ba73a7569e8d4cb1e71ab10159c2a479e4ceea78d01ae678d566bf",
+  "resources": 250,
+  "no_test_content_or_stale_resources": true,
+  "unchanged_baseline_files": 1255,
+  "junit_tests": 36,
+  "server_tests": 48,
+  "raw_screenshots": 12,
+  "full_client_log": "apron-client-7.log",
+  "unit_suites": [
+    {
+      "suite": "dev.differentenchant.enchanting.BookshelfScanTest",
+      "tests": 3
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.DirectedEnchantPolicyTest",
+      "tests": 6
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.PreviewPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.enchanting.RandomEnchantPolicyTest",
+      "tests": 7
+    },
+    {
+      "suite": "dev.differentenchant.realm.AzureTreeShapeTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.realm.FaultEdgeDistanceTest",
+      "tests": 3
+    },
+    {
+      "suite": "dev.differentenchant.research.ResearchPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.resonance.ResonancePolicyTest",
+      "tests": 3
+    },
+    {
+      "suite": "dev.differentenchant.ruins.LanternCachePolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.ruins.RuinPlacementPolicyTest",
+      "tests": 2
+    },
+    {
+      "suite": "dev.differentenchant.structure.StructureValidatorTest",
+      "tests": 4
+    }
+  ]
+}

@@ -8,22 +8,47 @@
       "argument1": -1,
       "argument2": {
         "type": "minecraft:mul",
-        "argument1": 26,
+        "argument1": 28,
         "argument2": {
-          "type": "minecraft:square",
-          "argument": {
-            "type": "minecraft:clamp",
-            "input": {
-              "type": "minecraft:add",
-              "argument1": 1,
+          "type": "minecraft:mul",
+          "argument1": {
+            "type": "minecraft:square",
+            "argument": {
+              "type": "minecraft:clamp",
+              "input": {
+                "type": "minecraft:add",
+                "argument1": 1,
+                "argument2": {
+                  "type": "minecraft:mul",
+                  "argument1": -0.00625,
+                  "argument2": "differentenchant:lifted_edge_distance"
+                }
+              },
+              "min": 0,
+              "max": 1
+            }
+          },
+          "argument2": {
+            "type": "minecraft:add",
+            "argument1": 3,
+            "argument2": {
+              "type": "minecraft:mul",
+              "argument1": -2,
               "argument2": {
-                "type": "minecraft:mul",
-                "argument1": -0.015625,
-                "argument2": "differentenchant:lifted_edge_distance"
+                "type": "minecraft:clamp",
+                "input": {
+                  "type": "minecraft:add",
+                  "argument1": 1,
+                  "argument2": {
+                    "type": "minecraft:mul",
+                    "argument1": -0.00625,
+                    "argument2": "differentenchant:lifted_edge_distance"
+                  }
+                },
+                "min": 0,
+                "max": 1
               }
-            },
-            "min": 0,
-            "max": 1
+            }
           }
         }
       }

@@ -1,7 +1,7 @@
 """Native 26.1.2 mainland + correlated rift + lifted-plate definitions.
 
 The same 2D plate field cuts the source hole and outlines its raised core.
-Only the core gets a finite underside; the ordinary mainland stays grounded.
+Only the coastal apron gets a rising underside; the interior stays grounded.
 """
 
 def build(data, state):
@@ -24,7 +24,7 @@ def build(data, state):
         return {'type':'minecraft:range_choice','input':value,'min_inclusive':lo,'max_exclusive':hi,'when_in_range':inside,'when_out_of_range':outside}
 
     for name,octave,amps in [('land',-9,[1,.5,.25]),('hills',-7,[1,.5]),('ridges',-8,[1,.5]),
-                             ('river',-7,[1,.4]),('climate',-9,[1,.5]),('uplift',-8,[1,.45,.2]),
+                             ('river',-7,[1,.4]),('climate',-9,[1,.5]),('uplift',-9,[1,.45,.2]),
                              ('underside',-6,[1,.5,.25]),('fracture',-4,[1,.5]),('debris',-4,[1,.4]),
                              ('edge_width',-7,[1,.5]),('shelf_extent',-7,[1,.5]),('bed_warp',-7,[1,.5])]:
         data('worldgen/noise/'+name,{'firstOctave':octave,'amplitudes':amps})
@@ -38,53 +38,44 @@ def build(data, state):
     # Only the distance primitive is custom. Its raw noise input has NO cache
     # marker: sampling a neighbor through a chunk-local cache could create seams.
     # The result is cached outside the primitive on the native global 4-block grid.
-    def edge_distance(input):return {'type':'differentenchant:fault_edge_distance','input':input,'radius':256}
-    ground_distance=cache('mainland_edge_distance',edge_distance(add(.18,mul(-1,noise('uplift')))))
+    def edge_distance(input,radius=256):return {'type':'differentenchant:fault_edge_distance','input':input,'radius':radius}
+    ground_distance=cache('mainland_edge_distance',edge_distance(add(.18,mul(-1,noise('uplift'))),512))
     lift_distance=cache('lifted_edge_distance',edge_distance(add(noise('uplift'),-.30)))
-    rate=cache('fault_slope_rate',clamp(mul(1/176,add(1,mul(.7,noise('edge_width',.7)))),.0042,.0082))
-    center_a=cache('bed_center_a',add(74,mul(20,noise('bed_warp',.8))))
-    center_b=cache('bed_center_b',add(40,mul(22,noise('bed_warp',.5))))
-    extent_a=cache('shelf_extent_a',mul(32,clamp(mul(2,noise('shelf_extent')),-.8,.9)))
-    extent_b=cache('shelf_extent_b',mul(-24,clamp(add(.3,mul(1.8,noise('shelf_extent',.6))),0,1)))
-    def shelves(parent_y,detail):
-        def bed(center,radius):
-            t=clamp(add(1,mul(-1/radius,unary('abs',add(parent_y,mul(-1,center))))),0,1)
-            # Smooth compact lobes, not repeating constant-height stair rings.
-            return mul(unary('square',t),add(3,mul(-2,t)))
-        return add(mul(extent_a,bed(center_a,15)),add(mul(extent_b,bed(center_b,21)),detail))
-    def volume(name,value):
-        data('worldgen/density_function/'+name,unary('cache_once',value));return 'differentenchant:'+name
-    mainland_beds=volume('mainland_shelves',shelves(y,mul(2.5,noise('fracture',.7,.9))))
-    def mainland_top(distance):
-        ramp=clamp(add(1,mul(-1,mul(distance,rate))),0,1)
-        # At the old contour the surface is below world bottom; the old vertical
-        # clipping plane therefore cannot turn into another hundred-block wall.
-        return add(source,mul(-1,mul(add(source,80),add(mul(.6,ramp),mul(.4,unary('square',ramp))))))
-    ground_top=cache('mainland_surface',mainland_top(ground_distance))
-    relief=clamp(add(mainland_top(add(ground_distance,mainland_beds)),mul(-1,ground_top)),-14,14)
-    mainland=minimum(mul(5,ground_mask),mul(.055,add(add(ground_top,relief),mul(-1,y))))
-    mainland=choose(field,-2,.18,choose(ground_distance,248,1000000,mul(.055,add(source,mul(-1,y))),mainland),mul(5,ground_mask))
+    def smooth(t):return mul(unary('square',t),add(3,mul(-2,t)))
+    # Do NOT descend two hundred metres to world bottom. The top loses only
+    # sixty-four metres across a 280..360m apron; the bottom rises to meet it.
+    # Width varies slowly without a reciprocal JSON op or amplitude divisions.
+    rate=cache('fault_slope_rate',clamp(mul(1/320,add(1,mul(.16,noise('edge_width',.45)))),1/360,1/280))
+    ramp=clamp(add(1,mul(-1,mul(ground_distance,rate))),0,1)
+    fall=mul(add(64,mul(4,noise('bed_warp',.4))),smooth(ramp))
+    ground_top=cache('mainland_surface',add(source,mul(-1,fall)))
+    # Convex, region-varied root apron. At d=0 thickness is zero; in the interior
+    # it exceeds world depth and the original complete mainland remains solid.
+    edge_fade=smooth(clamp(mul(1/48,ground_distance),0,1))
+    depth=cache('mainland_depth',maximum(0,add(mul(ground_distance,add(.30,mul(.04,noise('shelf_extent',.5)))),
+                     add(mul(.0065,unary('square',ground_distance)),mul(4,mul(edge_fade,noise('underside',.45)))))))
+    ground_bottom=cache('mainland_bottom',add(ground_top,mul(-1,depth)))
+    root_detail=mul(.08,mul(edge_fade,noise('fracture',.5,.7)))
+    mainland=minimum(mul(5,ground_mask),minimum(mul(.065,add(ground_top,mul(-1,y))),
+                     add(mul(.05,add(y,mul(-1,ground_bottom))),root_detail)))
+    mainland=choose(field,-2,.18,choose(ground_distance,400,1000000,mul(.065,add(source,mul(-1,y))),mainland),mul(5,ground_mask))
     lifted=cache('lifted_height',add(source,92))
-    edge_fall=mul(26,unary('square',clamp(add(1,mul(-1/64,lift_distance)),0,1)))
+    edge_fall=mul(28,smooth(clamp(add(1,mul(-1/160,lift_distance)),0,1)))
     island_top=cache('lifted_surface',add(lifted,mul(-1,edge_fall)))
     max_thickness=cache('lifted_mass_depth',add(62,mul(14,noise('underside',.55))))
-    thickness=cache('lifted_thickness',minimum(clamp(mul(.78,lift_distance),0,90),max_thickness))
+    thickness=cache('lifted_thickness',minimum(clamp(mul(.52,lift_distance),0,90),max_thickness))
     bottom=cache('lifted_bottom',add(island_top,mul(-1,thickness)))
-    # Shared parent-space beds respond at different strengths on the freed plate;
-    # their amplitude vanishes at the rim, keeping a thin lip instead of a wall.
-    parent_y=add(y,-92)
-    island_beds=volume('lifted_shelves',shelves(parent_y,mul(3.5,noise('underside',.9,1.3))))
-    body_depth=minimum(max_thickness,maximum(0,add(thickness,mul(.60,mul(island_beds,clamp(mul(1/48,lift_distance),0,1))))))
-    body_depth=choose(lift_distance,192,1000000,max_thickness,body_depth)
+    # Broad underside bulges, not repeated elevation rings; fade at the thin lip.
+    body_depth=minimum(max_thickness,maximum(0,add(thickness,mul(5,mul(noise('underside',.6,.5),smooth(clamp(mul(1/64,lift_distance),0,1)))))))
     upper=mul(.055,add(island_top,mul(-1,y)))
-    torn=mul(.22,noise('underside',1.,1.8))
+    torn=mul(.10,noise('underside',1.,1.8))
     torn=choose(add(island_top,mul(-1,y)),0,16,0,torn)
     lower=add(mul(.045,add(y,add(body_depth,mul(-1,island_top)))),torn)
     plate=choose(field,.30,2,minimum(mul(5,lift_mask),minimum(upper,lower)),minimum(mul(5,lift_mask),upper))
     # Only sparse original fault-belt debris remains as a separate solid term.
     # Medium ledges are part of the above density, never pasted onto a cut wall.
     belt=minimum(mul(3,add(field,-.18)),mul(3,add(.36,mul(-1,field))))
-    shards=minimum(belt,minimum(add(noise('debris',1.1,1.3),-.68),minimum(mul(.05,add(y,-36)),mul(.05,add(166,mul(-1,y))))))
+    shards=minimum(belt,minimum(add(noise('debris',1.1,1.3),-.76),minimum(mul(.05,add(y,-36)),mul(.05,add(166,mul(-1,y))))))
     final=unary('interpolated',maximum(mainland,maximum(plate,shards)))
 
     def block(name):return {'type':'minecraft:block','result_state':state(name)}

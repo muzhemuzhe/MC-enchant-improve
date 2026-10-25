@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.DensityFunction;
 public final class FaultEdgeDensity implements DensityFunction.SimpleFunction {
     public static final MapCodec<FaultEdgeDensity> CODEC=RecordCodecBuilder.mapCodec(i->i.group(
         DensityFunction.HOLDER_HELPER_CODEC.fieldOf("input").forGetter(f->f.input),
-        Codec.intRange(32,256).fieldOf("radius").forGetter(f->f.radius)
+        Codec.intRange(32,512).fieldOf("radius").forGetter(f->f.radius)
     ).apply(i,FaultEdgeDensity::new));
     private final DensityFunction input;
     private final int radius;

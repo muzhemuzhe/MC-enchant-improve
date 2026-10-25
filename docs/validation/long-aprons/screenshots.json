@@ -1,0 +1,257 @@
+{
+  "source": "Actual OpenGL Client GameTest; no scene block writes",
+  "images": [
+    {
+      "file": "screenshots/seed-2026102001-01-full-slope-side.png",
+      "seed": 2026102001,
+      "raw_source": "build/client-gametest/screenshots/0000_apron-seed-2026102001-01-full-slope-side.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        -235.5,
+        150.0,
+        816.5
+      ],
+      "look_at": [
+        64,
+        81,
+        696
+      ],
+      "source_log": "apron-client-7.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "b2b61d7f2179af447b8242bb71327c5a405a6c89523deead0834e841c284f5fa",
+      "unaltered": true,
+      "mode": "creative flight"
+    },
+    {
+      "file": "screenshots/seed-2026102001-02-inland-downhill.png",
+      "seed": 2026102001,
+      "raw_source": "build/client-gametest/screenshots/0001_apron-seed-2026102001-02-inland-downhill.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        64.5,
+        135.0,
+        808.5
+      ],
+      "look_at": [
+        64,
+        53,
+        584
+      ],
+      "source_log": "apron-client-7.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "cbb9c42ace63de5907586f11329f84c3e1e3eb6cd134eefd1900d637ba16035a",
+      "unaltered": true,
+      "mode": "creative flight"
+    },
+    {
+      "file": "screenshots/seed-2026102001-03-thinning-tip.png",
+      "seed": 2026102001,
+      "raw_source": "build/client-gametest/screenshots/0002_apron-seed-2026102001-03-thinning-tip.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        209.5,
+        45.0,
+        519.5
+      ],
+      "look_at": [
+        64,
+        48,
+        609
+      ],
+      "source_log": "apron-client-7.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "4928a793ed1bb2c1111aefea382b5a2388b6d27d1ef65154d8a70264f658eb03",
+      "unaltered": true,
+      "mode": "creative flight"
+    },
+    {
+      "file": "screenshots/seed-2026102001-04-whole-relationship.png",
+      "seed": 2026102001,
+      "raw_source": "build/client-gametest/screenshots/0003_apron-seed-2026102001-04-whole-relationship.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        -266.0,
+        230.0,
+        426.0
+      ],
+      "look_at": [
+        64,
+        90,
+        346
+      ],
+      "source_log": "apron-client-7.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "0a74d191aa874682bbd150874f8825b7d6744485b0e079164451e7befe304e58",
+      "unaltered": true,
+      "mode": "creative flight"
+    },
+    {
+      "file": "screenshots/seed-87-01-full-slope-side.png",
+      "seed": 87,
+      "raw_source": "build/client-gametest/screenshots/0004_apron-seed-87-01-full-slope-side.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        840.5,
+        150.0,
+        12.5
+      ],
+      "look_at": [
+        720,
+        75,
+        -288
+      ],
+      "source_log": "apron-client-7.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "56dd95b4b19fa023f0c556bbee0d3ef507f7d2f0183ca70de30ed6e6b56b979b",
+      "unaltered": true,
+      "mode": "creative flight"
+    },
+    {
+      "file": "screenshots/seed-87-02-inland-downhill.png",
+      "seed": 87,
+      "raw_source": "build/client-gametest/screenshots/0005_apron-seed-87-02-inland-downhill.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        792.5,
+        117.0,
+        -287.5
+      ],
+      "look_at": [
+        648,
+        59,
+        -288
+      ],
+      "source_log": "apron-client-7.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "78a31c637be040ec21b3c8691d8de01905b9c88b064ae5a3c28232a67c56b745",
+      "unaltered": true,
+      "mode": "creative flight"
+    },
+    {
+      "file": "screenshots/seed-87-03-thinning-tip.png",
+      "seed": 87,
+      "raw_source": "build/client-gametest/screenshots/0006_apron-seed-87-03-thinning-tip.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        583.5,
+        45.0,
+        -142.5
+      ],
+      "look_at": [
+        673,
+        54,
+        -288
+      ],
+      "source_log": "apron-client-7.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "e307fcaeb258f334ea6d9608622ca0f2a2b727ec3cbc5e83a02257265ed838fb",
+      "unaltered": true,
+      "mode": "creative flight"
+    },
+    {
+      "file": "screenshots/seed-87-04-whole-relationship.png",
+      "seed": 87,
+      "raw_source": "build/client-gametest/screenshots/0007_apron-seed-87-04-whole-relationship.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        284.0,
+        230.0,
+        42.0
+      ],
+      "look_at": [
+        204,
+        90,
+        -288
+      ],
+      "source_log": "apron-client-7.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "ee5687f5f11251614525ccd159f0fc27236269cb659f6754d77e0e12994c6c05",
+      "unaltered": true,
+      "mode": "creative flight"
+    },
+    {
+      "file": "screenshots/seed-20261022-01-full-slope-side.png",
+      "seed": 20261022,
+      "raw_source": "build/client-gametest/screenshots/0000_apron-seed-20261022-01-full-slope-side.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        -333.5,
+        190.0,
+        212.5
+      ],
+      "look_at": [
+        -334,
+        93,
+        512
+      ],
+      "source_log": "apron-camera-1.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "683ebe407ee0983e6029868afad468461b2e52ffe34b516b2b60a9dc166db841",
+      "unaltered": true,
+      "mode": "creative flight"
+    },
+    {
+      "file": "screenshots/seed-20261022-02-inland-downhill.png",
+      "seed": 20261022,
+      "raw_source": "build/client-gametest/screenshots/0001_apron-seed-20261022-02-inland-downhill.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        -483.5,
+        150.0,
+        512.5
+      ],
+      "look_at": [
+        -184,
+        62,
+        512
+      ],
+      "source_log": "apron-camera-1.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "3441b18b5abb4f2c0d39f80ae64fe42f932264081ebff2d3ea9278c80e92ede9",
+      "unaltered": true,
+      "mode": "creative flight"
+    },
+    {
+      "file": "screenshots/seed-20261022-03-thinning-tip.png",
+      "seed": 20261022,
+      "raw_source": "build/client-gametest/screenshots/0002_apron-seed-20261022-03-thinning-tip.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        -118.5,
+        45.0,
+        367.5
+      ],
+      "look_at": [
+        -209,
+        57,
+        512
+      ],
+      "source_log": "apron-camera-1.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "b0c565553ea98188a5e895102e3a2ea2fe327fbc6890f81d11a5deb1583c4f4d",
+      "unaltered": true,
+      "mode": "creative flight"
+    },
+    {
+      "file": "screenshots/seed-20261022-04-whole-relationship.png",
+      "seed": 20261022,
+      "raw_source": "build/client-gametest/screenshots/0003_apron-seed-20261022-04-whole-relationship.png",
+      "dimension": "differentenchant:enchanter_realm",
+      "camera": [
+        158.0,
+        230.0,
+        182.0
+      ],
+      "look_at": [
+        238,
+        90,
+        512
+      ],
+      "source_log": "apron-camera-1.log",
+      "coordinate_kind": "player teleport position; native eye offset applies",
+      "sha256": "376fc8ac7858613834fcc0c2c11ddffdd5d5061b01dbb8c40ff32405ac50944d",
+      "unaltered": true,
+      "mode": "creative flight"
+    }
+  ]
+}

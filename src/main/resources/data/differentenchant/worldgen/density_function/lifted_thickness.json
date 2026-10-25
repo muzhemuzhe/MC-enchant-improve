@@ -6,7 +6,7 @@
       "type": "minecraft:clamp",
       "input": {
         "type": "minecraft:mul",
-        "argument1": 0.78,
+        "argument1": 0.52,
         "argument2": "differentenchant:lifted_edge_distance"
       },
       "min": 0,

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.differentenchant.realm.FaultEdgeDistanceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-25T06:47:31.061Z" hostname="MUZHE" time="0.007">
+  <properties/>
+  <testcase name="curvedCoastOutsideAndBudgetAreBounded()" classname="dev.differentenchant.realm.FaultEdgeDistanceTest" time="0.002"/>
+  <testcase name="planeDistanceHasPhysicalUnitsAndIgnoresFieldAmplitude()" classname="dev.differentenchant.realm.FaultEdgeDistanceTest" time="0.004"/>
+  <testcase name="broadApronDistanceExtendsPastOldCapWithoutUnboundedSampling()" classname="dev.differentenchant.realm.FaultEdgeDistanceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
