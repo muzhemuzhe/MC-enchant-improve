@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.differentenchant.enchanting.BookshelfScanTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-29T15:06:52.681Z" hostname="MUZHE" time="0.083">
+  <properties/>
+  <testcase name="unloadedPositionsAreNeverReadAndDoNotAcquireAnything()" classname="dev.differentenchant.enchanting.BookshelfScanTest" time="0.039"/>
+  <testcase name="wholeFootprintHasEightyUniquePositionsInBothLayersAndRings()" classname="dev.differentenchant.enchanting.BookshelfScanTest" time="0.013"/>
+  <testcase name="countsAllBoundaryQuantitiesAndCapsEffectiveCountNotGeometry()" classname="dev.differentenchant.enchanting.BookshelfScanTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

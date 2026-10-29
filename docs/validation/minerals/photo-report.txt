@@ -1,0 +1,2 @@
+seed=2026102001 chunks=18 luminous=201 silver=80 clusters=15 down=9 side=6 signature=-5910490027877474838
+Natural scene camera retake only; native night vision, no block writes.

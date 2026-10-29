@@ -37,6 +37,7 @@ public final class DifferentEnchant implements ModInitializer {
     @Override
     public void onInitialize() {
         dev.differentenchant.realm.RealmContent.initialize();
+        dev.differentenchant.mineral.MineralContent.initialize();
         dev.differentenchant.automation.AutoAssembly.initialize();
         dev.differentenchant.disenchant.DisenchantContent.initialize();
         dev.differentenchant.ruins.Ruins.initialize();

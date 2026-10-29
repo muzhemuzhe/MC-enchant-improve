@@ -1,0 +1,7 @@
+seed=2026102001 chunks=18 luminous=201 silver=80 clusters=15 down=9 side=6 signature=-5910490027877474838
+Native attack 05-protection-book tool=minecraft:enchanted_book enchantment=minecraft:protection ticks=31 count=1 target=BlockPos{x=70, y=148, z=333}
+Native attack 06-wrong-netherite tool=minecraft:netherite_pickaxe enchantment=null ticks=96 count=0 target=BlockPos{x=70, y=148, z=334}
+Native attack 07-fire-sword tool=minecraft:diamond_sword enchantment=minecraft:fire_aspect ticks=36 count=1 target=BlockPos{x=78, y=147, z=311}
+Native attack 08-lost-book tool=minecraft:enchanted_book enchantment=differentenchant:trail_stride ticks=36 count=1 target=BlockPos{x=74, y=147, z=329}
+Same-seed mineral position/type/orientation signature replay passed.
+All photographs are natural generation; only inventory fixtures and native player mining changed. Persisted crystal/support, resource stacks and return passed.

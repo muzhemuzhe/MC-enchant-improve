@@ -141,5 +141,11 @@
   "biome.differentenchant.mint_fields": "Mint Fields",
   "biome.differentenchant.azure_woodland": "Azure Woodland",
   "dimension.differentenchant.enchanter_realm": "Enchanter’s Realm",
-  "block.differentenchant.realm_slate": "Realm Slate"
+  "block.differentenchant.realm_slate": "Realm Slate",
+  "block.differentenchant.luminous_stone": "Luminous Stone",
+  "block.differentenchant.harmonic_silver_ore": "Harmonic Silver Ore",
+  "block.differentenchant.rift_crystal_cluster": "Rift Crystal Cluster",
+  "item.differentenchant.luminous_fragment": "Luminous Fragment",
+  "item.differentenchant.raw_harmonic_silver": "Raw Harmonic Silver",
+  "item.differentenchant.rift_crystal": "Rift Crystal"
 }

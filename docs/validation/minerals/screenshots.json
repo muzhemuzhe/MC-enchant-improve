@@ -1,0 +1,189 @@
+{
+  "source": "Native OpenGL client, no scene block placement or image edits",
+  "images": [
+    {
+      "file": "screenshots/01-natural-luminous.png",
+      "raw_source": "build/client-gametest/screenshots/0000_minerals-01-natural-luminous.png",
+      "sha256": "5c14d1b17a1e826afd365587c32c0a765ec4cb492c82aa17ec094bd9f5cb7f45",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-photo-1.log",
+      "target": [
+        70,
+        148,
+        333
+      ],
+      "fixture": "natural generation, creative flight"
+    },
+    {
+      "file": "screenshots/02-natural-silver.png",
+      "raw_source": "build/client-gametest/screenshots/0001_minerals-02-natural-silver.png",
+      "sha256": "eaccf7479ba4d081bf9938b224299f3f5f325f90ebdd5bed1f264d2bb9527c4b",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-photo-1.log",
+      "target": [
+        78,
+        147,
+        311
+      ],
+      "fixture": "natural generation, creative flight"
+    },
+    {
+      "file": "screenshots/03-natural-underside-cluster.png",
+      "raw_source": "build/client-gametest/screenshots/0002_minerals-03-natural-underside-cluster.png",
+      "sha256": "df0a1d2cf8b85da0a00ade3271283993abd51337fbf38ff77ec91616b53bbe2e",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-photo-1.log",
+      "target": [
+        74,
+        147,
+        329
+      ],
+      "fixture": "natural generation, creative flight"
+    },
+    {
+      "file": "screenshots/04-natural-wall-cluster.png",
+      "raw_source": "build/client-gametest/screenshots/0004_minerals-04-natural-wall-cluster.png",
+      "sha256": "f244872eb63d465bed8d0d55e36981caf2d1dc4496e7bec7092fe7ff3fadf23f",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-photo-1.log",
+      "target": [
+        66,
+        51,
+        588
+      ],
+      "fixture": "natural generation, creative flight"
+    },
+    {
+      "file": "screenshots/05-protection-book-digging.png",
+      "raw_source": "build/client-gametest/screenshots/0005_minerals-05-protection-book-digging.png",
+      "sha256": "edcf57ec9412c892d7f6042e90e770785dad7a33fdeaaaafdb79cc96a8cd14c3",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-client-5.log",
+      "target": null,
+      "fixture": "native attack in survival with test flight"
+    },
+    {
+      "file": "screenshots/05-protection-book-result.png",
+      "raw_source": "build/client-gametest/screenshots/0006_minerals-05-protection-book-result.png",
+      "sha256": "f2b72acf4801b5b162956390c56053573665d129332c61e3670ac38e6a5cafbe",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-client-5.log",
+      "target": null,
+      "fixture": "native attack in survival with test flight"
+    },
+    {
+      "file": "screenshots/06-wrong-netherite-digging.png",
+      "raw_source": "build/client-gametest/screenshots/0007_minerals-06-wrong-netherite-digging.png",
+      "sha256": "925678948aee2c2bdad26c13643e19d0e5d1307f61a88bc833658a68067c4dd1",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-client-5.log",
+      "target": null,
+      "fixture": "native attack in survival with test flight"
+    },
+    {
+      "file": "screenshots/06-wrong-netherite-result.png",
+      "raw_source": "build/client-gametest/screenshots/0008_minerals-06-wrong-netherite-result.png",
+      "sha256": "5261acf574a10153b4f93091906baf7ed0f6467ca2a7a4b5146e3ec1f348acc8",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-client-5.log",
+      "target": null,
+      "fixture": "native attack in survival with test flight"
+    },
+    {
+      "file": "screenshots/07-fire-sword-digging.png",
+      "raw_source": "build/client-gametest/screenshots/0009_minerals-07-fire-sword-digging.png",
+      "sha256": "c382cfeb3f3b3e26bc06726683c6b8933275f5d3d146062ab1a0d1a3740744ac",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-client-5.log",
+      "target": null,
+      "fixture": "native attack in survival with test flight"
+    },
+    {
+      "file": "screenshots/07-fire-sword-result.png",
+      "raw_source": "build/client-gametest/screenshots/0010_minerals-07-fire-sword-result.png",
+      "sha256": "c02d50e50e6b0025ece9abbff56a0dc464202ee18759f69ece9a047f87f5e1cf",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-client-5.log",
+      "target": null,
+      "fixture": "native attack in survival with test flight"
+    },
+    {
+      "file": "screenshots/08-lost-book-digging.png",
+      "raw_source": "build/client-gametest/screenshots/0011_minerals-08-lost-book-digging.png",
+      "sha256": "d86a7586863966381310656a0ea94e54201bfe238addbe7554ac837cc1cd03d0",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-client-5.log",
+      "target": null,
+      "fixture": "native attack in survival with test flight"
+    },
+    {
+      "file": "screenshots/08-lost-book-result.png",
+      "raw_source": "build/client-gametest/screenshots/0012_minerals-08-lost-book-result.png",
+      "sha256": "b962b5af9b55aa92a9b23bfb220d0965259b16d5cbb12624090c13d6c324415a",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-client-5.log",
+      "target": null,
+      "fixture": "native attack in survival with test flight"
+    },
+    {
+      "file": "screenshots/09-inventory-en.png",
+      "raw_source": "build/client-gametest/screenshots/0013_minerals-09-inventory-en.png",
+      "sha256": "bdca9454afde5f902b9172ac90ed2849af88826deff5cd87195ba3314962375a",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-client-5.log",
+      "target": null,
+      "fixture": "inventory display items"
+    },
+    {
+      "file": "screenshots/10-inventory-zh.png",
+      "raw_source": "build/client-gametest/screenshots/0014_minerals-10-inventory-zh.png",
+      "sha256": "7678731608d72033bdab6f68a92ff60ac962a1f0cc3de7395261a37abaa288be",
+      "unaltered": true,
+      "seed": 2026102001,
+      "dimension": "differentenchant:enchanter_realm",
+      "native_night_vision": true,
+      "source_log": "minerals-client-5.log",
+      "target": null,
+      "fixture": "inventory display items"
+    }
+  ]
+}

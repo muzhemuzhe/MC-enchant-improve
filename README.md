@@ -1,5 +1,7 @@
 # Differentenchant · 附魔机、研究台与祛魔机
 
+**0.19.0 / 附魔采集矿物**：浮辉石需保护类附魔，谐银矿需火焰相关附魔，裂空晶簇需正式失落附魔。只检查当次主手物品的真实附魔/存储附魔，附魔书、武器、护甲和模组物品均可；工具材质不构成资格。合格约30刻采集、固定一份基础材料，不合格或环境破坏无资源。保留当前地形、植被和天空，没有矿物装备、加工或升级配方。[规则与生成参数](docs/REALM_MINERALS.md) · [真实测试与截图](docs/validation/minerals/README.md)。
+
 **0.18.0 / 长缓坡与渐薄断缘**：沿用“大陆—深渊—大岛”生成关系，将约280～360格的顶面缓坡和弧形下表面分开控制，撤去密集环状几何岩床。断裂场放宽一个倍频给坡带留空间，局部地貌坐标随之变化；中央深渊仍贯空。冷色生态、四种青木和其他玩法保持。管理员使用 `/differentenchant dimension enter` / `return`。[世界设计](docs/ENCHANTER_REALM.md) · [实拍与验证](docs/validation/long-aprons/README.md) · [新旧同类视角比较](docs/validation/long-aprons/GALLERY.md)。开发分支为 `feature/enchanter-dimension`，不合并 main。[0.17.0](docs/validation/fault-slopes/README.md)、[0.16.0](docs/validation/rift-plates/README.md)、[0.15.0](docs/validation/skylands/README.md)、[0.14.0](docs/validation/realm/README.md) 历史验收保留。
 
 Minecraft Java **26.1.2 / Fabric / JDK 25**。0.13.0加入[六项原生进度](docs/ADVANCEMENTS.md)：实际组装三机、取得谐调核心/失落卷轴，以及实际失败研究。独立原生页面以“旧术新生”为根，子节点可以先完成，父节点不构成玩法门槛；没有奖励或额外隐藏进度。[真实客户端截图与验证](docs/validation/advancements/README.md)。0.12.0加入三机自动组装、原版附魔台工作站的附魔师，以及直接提供100经验点的凝萃经验结晶。[自动组装](docs/AUTO_ASSEMBLY.md) · [职业、交易与结晶](docs/ENCHANTER.md)。0.11.1重做两台工作站的成形外观：研究台为白金书卷祭台，祛魔台为深紫收束祭台；组装前仍是原版材料，拆解后恢复。[组装前后实拍与说明](docs/WORKSTATION_VISUALS.md)。0.11.0将祛魔机改为紫水晶/金/红石固定结构，并将现有研究台升级为石英/书架/向内讲台多方块。祛魔核心仍需四回响碎片；研究核心使用卷轴配方，首张卷轴可从要塞图书馆探索取得。原版材料搭建的 3×3×2 机器提供随机/指定附魔、铭纹石升级和12点共鸣核心；36书架与机器等级分别改善概率。0.9.0新增第二批9种失落附魔，共17种，包含经过真实碰撞验证的临时星桥；研究沿用0.8.1直接取结果槽交互，无评级/稀有度展示。0.8.0加入独立失落魔法研究台、世界专属固定研究配方、个人发现记录和首批8种实际失落附魔。已有研究屋、研究馆与灯笼遗迹保留；0.14.0维度原型见上方说明，没有Lv.3以上机器升级实现。
@@ -21,7 +23,7 @@ $env:Path = "$env:JAVA_HOME/bin;$env:Path"
 .\gradlew.bat runClient
 ```
 
-普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.18.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。长缓坡评审请新建测试世界；旧版本已生成区块不会自动改写，继续旧世界会留下新旧生成边界。
+普通玩家安装：在 Minecraft 26.1.2 的 Fabric 实例中安装 Loader 和上述 Fabric API，将 `build/libs/differentenchant-0.19.0.jar` 放入 `mods/`。替换旧版本，不要同时安装两份，不要安装 `-sources.jar`。不需要 Immersive Engineering 或 Meridian。旧区块不补矿；可继续旧世界探索新区域，或新建测试世界审核自然分布。地形保持0.18.0。
 
 正式 Mod ID 与资源命名空间均为 **`differentenchant`**，Java 包为 `dev.differentenchant`。0.5.0曾更换注册ID，改名前的旧测试世界和旧名配置不迁移；0.6.0可延续正式改名后的世界，遗迹只在新生成区块出现。首次启动生成 `config/differentenchant.properties`，全部已有选项及默认数值保留；核心容量仍固定12点，没有新增容量配置。[重命名范围、测试及截图](docs/RENAMING.md)。GitHub仓库和remote不随模组名称修改。
 

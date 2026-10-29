@@ -1,0 +1,54 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileGametestJava FAILED
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\MachineGameTests.java:133: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+        var player = helper.makeMockServerPlayerInLevel();
+                           ^
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\MineralGameTests.java:101: 错误: 找不到符号
+        l.setBlockAndUpdate(pos.west(),Blocks.PISTON.defaultBlockState().setValue(PistonBaseBlock.FACING,Direction.EAST));l.setBlockAndUpdate(pos.west().north(),Blocks.REDSTONE_BLOCK.defaultBlockState());
+                                                                                  ^
+  符号:   变量 PistonBaseBlock
+  位置: 类 MineralGameTests
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResonanceGameTests.java:51: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+            var player=h.makeMockServerPlayerInLevel();
+                        ^
+注: G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\BookshelfGameTests.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+1 个错误
+2 个警告
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  注: G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\BookshelfGameTests.java使用或覆盖了已过时的 API。
+  注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\MineralGameTests.java:101: 错误: 找不到符号
+          l.setBlockAndUpdate(pos.west(),Blocks.PISTON.defaultBlockState().setValue(PistonBaseBlock.FACING,Direction.EAST));l.setBlockAndUpdate(pos.west().north(),Blocks.REDSTONE_BLOCK.defaultBlockState());
+                                                                                    ^
+    符号:   变量 PistonBaseBlock
+    位置: 类 MineralGameTests
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\MachineGameTests.java:133: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+          var player = helper.makeMockServerPlayerInLevel();
+                             ^
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\ResonanceGameTests.java:51: 警告: [removal] GameTestHelper 中的 makeMockServerPlayerInLevel() 已过时, 且标记为待删除
+              var player=h.makeMockServerPlayerInLevel();
+                          ^
+  1 个错误
+  2 个警告
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 3s
+3 actionable tasks: 1 executed, 2 up-to-date

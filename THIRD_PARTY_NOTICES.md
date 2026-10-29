@@ -8,3 +8,7 @@
 - Immersive Engineering and Meridian remain architectural references in the supplied design notes. No code, model, texture or runtime dependency from either project was copied into this implementation.
 
 This file describes third-party materials; it does not assign a license to the project's own code.
+
+## 0.19.0 矿物资源补充
+
+`luminous_stone`、`harmonic_silver_ore`、`rift_crystal_facets`及三种材料的六张16px纹理由`tools/mineral_resources.py`中的原创像素布局生成，没有读取原版或第三方图片。裂空晶簇模型为原创多段晶刃几何；只继承原生六向支撑/水含量方块行为，并引用Minecraft自带的通用模型父级。Minecraft本身及Fabric依赖的既有声明保持。

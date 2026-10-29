@@ -1,0 +1,2 @@
+Loaded byte-copied 0.18.0 historical test save; original untouched.
+Old chunk=(0,32), mineral count=0; new chunk=(256,256), minerals=78; old rock fingerprint=-4117190361135751216 unchanged.

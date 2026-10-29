@@ -39,6 +39,10 @@ configurations {
 tasks.named('processGametestResources') {
     def realm = providers.gradleProperty('realm').isPresent()
     inputs.property('realm', realm)
+    def minerals = providers.gradleProperty('minerals').isPresent()
+    inputs.property('minerals', minerals)
+    def mineralsLegacy = providers.gradleProperty('mineralsLegacy').isPresent()
+    inputs.property('mineralsLegacy', mineralsLegacy)
     def advancements = providers.gradleProperty('advancements').isPresent()
     inputs.property('advancements', advancements)
     def enchanter = providers.gradleProperty('enchanter').isPresent()
@@ -71,7 +75,7 @@ tasks.named('processGametestResources') {
     inputs.property('researchGui', researchGui)
     inputs.property('researchAffected', researchAffected)
     doLast {
-        if (realm || advancements || ruinsOnly || smallReview || mediumReview || lanternOnly || researchOnly || researchGui || lostBatchTwo || disenchantOnly || workstationStructures || workstationVisuals || enchanter) {
+        if (mineralsLegacy || minerals || realm || advancements || ruinsOnly || smallReview || mediumReview || lanternOnly || researchOnly || researchGui || lostBatchTwo || disenchantOnly || workstationStructures || workstationVisuals || enchanter) {
             def metadata = new File(destinationDir, 'fabric.mod.json')
             def parsed = new groovy.json.JsonSlurper().parse(metadata)
             parsed.entrypoints['fabric-gametest'] = smallReview || mediumReview ? [] : ['dev.differentenchant.RuinGameTests']
@@ -124,6 +128,11 @@ tasks.named('processGametestResources') {
                 parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.RealmGameTests', 'dev.differentenchant.WorkstationGameTests', 'dev.differentenchant.AutoAssemblyGameTests', 'dev.differentenchant.ResearchGameTests', 'dev.differentenchant.ResearchIntegrationGameTests', 'dev.differentenchant.DisenchantGameTests', 'dev.differentenchant.EnchanterGameTests']
                 parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.RealmClientGameTest']
             }
+            if (minerals) {
+                parsed.entrypoints['fabric-gametest'] = ['dev.differentenchant.MineralGameTests', 'dev.differentenchant.RealmGameTests', 'dev.differentenchant.WorkstationGameTests', 'dev.differentenchant.AutoAssemblyGameTests', 'dev.differentenchant.ResearchGameTests', 'dev.differentenchant.ResearchIntegrationGameTests', 'dev.differentenchant.DisenchantGameTests', 'dev.differentenchant.EnchanterGameTests']
+                parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.MineralClientGameTest']
+            }
+            if (mineralsLegacy) parsed.entrypoints['fabric-client-gametest'] = ['dev.differentenchant.MineralLegacyClientGameTest']
             metadata.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(parsed))
         }
     }

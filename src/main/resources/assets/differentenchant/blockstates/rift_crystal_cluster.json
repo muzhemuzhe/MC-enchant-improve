@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "differentenchant:block/rift_crystal_cluster"
+    },
+    "facing=down": {
+      "model": "differentenchant:block/rift_crystal_cluster",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "differentenchant:block/rift_crystal_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "differentenchant:block/rift_crystal_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=east": {
+      "model": "differentenchant:block/rift_crystal_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west": {
+      "model": "differentenchant:block/rift_crystal_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

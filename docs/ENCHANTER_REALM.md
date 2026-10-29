@@ -1,5 +1,7 @@
 # 附魔者维度 · 长缓坡与渐薄断缘（0.18.0）
 
+**0.19.0矿物阶段**：新增浮辉石、谐银矿、裂空晶簇及统一主手附魔采集；本页0.18.0地形、生态和天空保持。见[完整规则/ID/生成参数](REALM_MINERALS.md)与[真实客户端验证](validation/minerals/README.md)。只在两生态的stage6/7追加矿物，旧生成区块不补矿。
+
 Enchanter’s Realm 保留有完整地下支撑的主体大陆，只在局部板块断裂区域挖出深渊，再把同源的大块地形抬升到上方。关系仍是“大陆 → 缓坡 → 深渊 → 抬升大岛 → 深渊 → 大陆”。0.18.0 将顶面缓降和下表面收薄分开，撤去密集环状几何岩床。冷色草地、青蓝森林、四种树形及其他玩法保持。
 
 [本轮真实客户端截图与验收](validation/long-aprons/README.md)；[0.17.0 斜墙问题基线](validation/fault-slopes/README.md)、[0.16.0 布局基线](validation/rift-plates/README.md)、[0.15.0 整体悬空方案](validation/skylands/README.md)、[0.14.0 初版](validation/realm/README.md) 均作为历史保留。当前方向不再是整个群系悬空。

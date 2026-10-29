@@ -1,0 +1,36 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileGametestJava FAILED
+
+[Incubating] Problems report is available at: file:///G:/better-enchant-codex-starter/better-enchant-starter/build/reports/problems/problems-report.html
+G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\MineralClientGameTest.java:34: 错误: 找不到符号
+        long key=net.minecraft.world.level.ChunkPos.asLong(cx,cz);if(!result.visited.add(key))return;
+                                                   ^
+  符号:   方法 asLong(int,int)
+  位置: 类 ChunkPos
+1 个错误
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileGametestJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  G:\better-enchant-codex-starter\better-enchant-starter\src\gametest\java\dev\differentenchant\MineralClientGameTest.java:34: 错误: 找不到符号
+          long key=net.minecraft.world.level.ChunkPos.asLong(cx,cz);if(!result.visited.add(key))return;
+                                                     ^
+    符号:   方法 asLong(int,int)
+    位置: 类 ChunkPos
+  1 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+3 actionable tasks: 1 executed, 2 up-to-date

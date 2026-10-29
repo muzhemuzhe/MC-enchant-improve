@@ -1,0 +1,18 @@
+{
+  "type": "differentenchant:realm_ore",
+  "config": {
+    "size": 5,
+    "discard_chance_on_air_exposure": 0.15,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "differentenchant:realm_ore_replaceables"
+        },
+        "state": {
+          "Name": "differentenchant:harmonic_silver_ore"
+        }
+      }
+    ]
+  }
+}

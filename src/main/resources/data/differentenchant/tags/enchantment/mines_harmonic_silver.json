@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:flame",
+    "minecraft:fire_aspect",
+    "minecraft:fire_protection"
+  ]
+}

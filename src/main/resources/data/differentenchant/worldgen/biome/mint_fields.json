@@ -16,8 +16,15 @@
     [],
     [],
     [],
-    [],
-    [],
+    [
+      "differentenchant:luminous_mainland",
+      "differentenchant:luminous_islands",
+      "differentenchant:silver_deep",
+      "differentenchant:silver_islands"
+    ],
+    [
+      "differentenchant:rift_crystals"
+    ],
     [],
     [
       "differentenchant:field_trees",

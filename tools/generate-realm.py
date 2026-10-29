@@ -105,3 +105,5 @@ for lang,names in [('en_us',['Realm Chalkstone','Realm Loam','Mint Turf','Azure 
     write('assets/differentenchant/lang/'+lang+'.json',value)
 
 if __name__=='__main__':print('Generated Realm data and provisional 16px vanilla-derived textures.')
+from mineral_resources import build as build_minerals
+build_minerals(ROOT)

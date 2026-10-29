@@ -141,5 +141,11 @@
   "biome.differentenchant.mint_fields": "青绿原野",
   "biome.differentenchant.azure_woodland": "青林",
   "dimension.differentenchant.enchanter_realm": "附魔者维度",
-  "block.differentenchant.realm_slate": "境域层理岩"
+  "block.differentenchant.realm_slate": "境域层理岩",
+  "block.differentenchant.luminous_stone": "浮辉石",
+  "block.differentenchant.harmonic_silver_ore": "谐银矿",
+  "block.differentenchant.rift_crystal_cluster": "裂空晶簇",
+  "item.differentenchant.luminous_fragment": "浮辉石碎片",
+  "item.differentenchant.raw_harmonic_silver": "谐银原矿",
+  "item.differentenchant.rift_crystal": "裂空晶体"
 }
